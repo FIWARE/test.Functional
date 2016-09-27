@@ -1,0 +1,559 @@
+html, body {
+	background-color: White;
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	color: Black;
+}
+
+a {
+	font-size: 100%;
+}
+
+a.tagCoverageLink:link{
+	color: #0000FF;
+	text-decoration: underline;
+}
+
+a:link {
+	color: #6495ED;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #6495ED;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #FF4659;
+	text-decoration: none;
+}
+
+li.defaultArrowListItem {
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	font-size: 80%;
+	color: black;
+	list-style-type: none;
+	background-image: url(arrow.gif);
+	background-repeat: no-repeat;
+	background-position: 0% 65%;
+	padding-left: 15px;
+}
+
+li.testsRendering {
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	font-size: 90%;
+	color: black;
+	list-style-type: none;
+	background-image: url(arrow.gif);
+	background-repeat: no-repeat;
+	background-position: 40px 65%;
+	padding-left: 50px;
+}
+
+li.nameOfOperationInTestCase {
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+	color: black;
+	list-style-type: none;
+	background-image: url(arrow.gif);
+	background-repeat: no-repeat;
+	background-position: 0% 65%;
+	padding-left: 15px;
+	font-style: oblique;
+}
+
+li.nameOfObservationInTestCase {
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+	color: #959595;
+	list-style-type: none;
+	background-image: url(eye.png);
+	background-repeat: no-repeat;
+	background-position: 0% 65%;
+	padding-left: 20px;
+	font-style: oblique;
+}
+
+li.operationName {
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	font-size: 100%;
+	color: black;
+	list-style-type: none;
+	background-image: url(arrow-operation.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+	padding-right: 15px;
+}
+
+li.observationOperation {
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	color: #808080;
+	list-style-type: none;
+	background-image: url(eye.png);
+	background-repeat: no-repeat;
+	background-position: 6px 0px;
+	padding-left: 30px;
+	padding-right: 10px;
+}
+
+h1 {
+	font-size: 130%;
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	color: #9B998C;
+	text-align: center;
+}
+
+h2 {
+	font-size: 120%;
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	color: #B22222;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table.default {
+	border: solid 1px #FF4659;
+	font-size: 80%
+}
+
+td.titles {
+	font-size: 120%;
+	font-family: Verdana, Arial, Helvetica, Geneva, sans-serif;
+	color: #606060;
+}
+
+table.title {
+	min-height: 603px;
+}
+
+
+
+td.title {
+	background-color: #FFFFFF;
+	vertical-align:middle;
+}
+
+td.titleInstance {
+	background-color: #D0D0D0;
+	color: #FF4659;
+}
+
+td.titleInitialModelState {
+	color: #FF4659;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+table.initialModelState {
+	border: 1px outset #606060;
+}
+
+td.titleTests {
+	color: #606060;
+	font-size: 120%
+}
+
+td.titleCoverage {
+	color: #FF4659;
+	background-color: #D0D0D0;
+	font-size: 120%
+}
+
+td.titleRequirements {
+	color: #FF4659;
+	background-color: #D0D0D0;
+	font-size: 120%
+}
+
+td.titleTags {
+	color: #FF4659;
+	background-color: #D0D0D0;
+	font-size: 120%
+}
+
+table.testCase {
+	background-color: #EEEEEE;
+	border-style: solid;
+	border: thin solid #606060;
+}
+
+td.setup {
+	color: #8b8b8b;
+	font-size: 110%
+}
+
+td.preamble {
+	color: #68e58d;
+	font-size: 110%
+}
+
+td.body {
+	color: #72d249;
+	font-size: 110%
+}
+
+td.postamble {
+	color: #edc63f;
+	font-size: 110%
+}
+
+td.teardown {
+	color: #8b8b8b;
+	font-size: 110%
+}
+
+table.oracle {
+	background-color: #FFFFFF;
+	font-size: 80%;
+	border: 1px outset #606060;
+}
+
+table.synthesis {
+	border: solid 1px #606060;
+	font-size: 80%
+}
+
+
+table.stepDetails {
+	font-size: 90%
+}
+
+td.stepDetailsOperation {
+	text-align: left;
+	text-decoration: underline;
+}
+
+
+td.stepDetailsObservation{
+	text-align: left;
+	font-style: italic;
+}
+
+td.stepDetailsActions {
+	text-align: left;
+}
+
+td.stepDetailsStep{
+	background-color: #CCCCCC;
+	vertical-align: top;
+	text-align: left;
+	border-top-width: thin;
+	border-top-style: outset;
+	border-top-color: #8E8E8E;
+}
+
+td.stepDetailsObs{
+	vertical-align: top;
+	background-color: #CCCCCC;
+	text-align: left;
+}
+
+
+table.tagCoverageSynthesis {
+	background-color: #FFFFFF;
+	font-size: 100%;
+	border: 1px outset #606060;
+}
+
+table.tagCoverageContent {
+	background-color: #FFFFFF;
+	font-size: 90%;
+	border: 1px outset #606060;
+}
+
+
+
+td.tagCoverageAimsEven{
+	background-color: #F0F0F0;
+	border: solid 1px #606060;
+	font-size: 85%
+}
+
+td.tagCoverageAimsOdd{
+	background-color: #F0F0F0;
+	border: solid 1px #606060;
+	font-size: 85%
+}
+
+
+td.tagCoverageTestsEven{
+	background-color: #F0F0F0;
+	border: solid 1px #606060;
+	font-size: 115%
+}
+
+td.tagCoverageTestsOdd{
+	background-color: #F0F0F0;
+	border: solid 1px #606060;
+	font-size: 115%
+}
+
+td.tagCoverageSynthesisEven{
+	background-color: #F0F0F0;
+	border: solid 1px #606060;
+}
+
+td.tagCoverageSynthesisOdd{
+	background-color: #D0D0D0;
+	border: solid 1px #606060;
+}
+
+
+td.tagCoverageReq{
+	color: #FFFFFF;
+	background-color: #888888;
+	border: solid 1px #606060;
+	font-size: 100%
+}
+
+
+td.tagCoverageAimsTestsTitle{
+	color: #FFFFFF;
+	background-color: #AAAAAA;
+	border: solid 1px #606060;
+	font-size: 90%
+}
+
+
+td.tagCoverageTableTitle{
+	color: #FFFFFF;
+	background-color: #FF4659;
+	border: solid 1px #606060;
+	font-size: 95%
+}
+
+table.tagCoverageMatrix{
+	border: solid 1px #606060;
+}
+
+td.tagCoverageMatrixTableTitle{
+	color: #FFFFFF;
+	background-color: #9B998C;
+	border: solid 1px #606060;
+	font-size: 95%
+}
+
+td.tagCoverageMatrixCellTitle{
+	background-size: 100%;
+	background-color: #FFFFFF;
+}
+
+
+
+td.tagCoverageMatrixTestOdd{
+	color: #0000FF;
+	background-color: #888888;
+	border: solid 1px #606060;
+	font-size: 90%;
+	font-weight: bold;
+	writing-mode: tb-rl;
+	filter: flipV flipH;
+}
+
+td.tagCoverageMatrixTestEven{
+	color: #0000FF;
+	background-color: #AAAAAA;
+	border: solid 1px #606060;
+	font-size: 90%;
+	font-weight: bold;
+	writing-mode: tb-rl;
+	filter: flipV flipH;
+}
+
+td.tagCoverageMatrixTest{
+	color: #FFFFFF;
+	background-color: #FF4659;
+	border: solid 1px #606060;
+	font-size: 90%;
+}
+
+
+td.tagCoverageRowOdd{
+	background-color: #888888;
+	color: #FFFFFF;
+	border: solid 1px #606060;
+	font-size: 90%;
+}
+
+td.tagCoverageRowEven{
+	background-color: #AAAAAA;
+	color: #000000;
+	border: solid 1px #606060;
+	font-size: 90%;
+}
+
+td.tagCoverageRowError{
+	background-color: #CC6633;
+	color: #000000;
+	border: solid 1px #606060;
+	font-size: 90%;
+}
+
+td.tagCoverageResult{
+	color: #000000;
+	border: solid 1px #606060;
+	font-size: 90%;
+}
+
+
+
+
+td.evenObservationOperation {
+	background-color: #FFFFFF;
+	font-size: 85%;
+	vertical-align: top;
+	padding-left: 5px;
+	font-style: italic;
+    text-align:left;
+    border: solid 1px #606060;
+}
+
+td.oddObservationOperation {
+	background-color: #EBEBEB;
+	font-size: 85%;
+	vertical-align: top;
+	padding-left: 5px;
+	font-style: italic;
+	text-align:left;
+	border: solid 1px #606060;
+}
+
+
+td.titleSynthesis {
+	color: #FF4659;
+	background-color: #D0D0D0;
+	font-size: 120%
+}
+
+td.setupSection {
+	width: 12px;
+	background-color: #dddddd;
+}
+
+td.preambleSection {
+	width: 12px;
+	background-color: #b2e5c1;
+}
+
+td.bodySection {
+	width: 12px;
+	background-color: #a1038c;
+}
+
+td.postambleSection {
+	width: 12px;
+	background-color: #edd47e;
+}
+
+td.teardownSection {
+	width: 12px;
+	background-color: #dddddd;
+}
+
+td.evenCall {
+	background-color: #FFFFFF;
+	vertical-align: top;
+	padding-left: 5px;
+	border-top-width: thin;
+	border-top-style: outset;
+	border-top-color: #8E8E8E;
+	border: solid 1px #606060;
+}
+
+td.oddCall {
+	background-color: #EBEBEB;
+	vertical-align: top;
+	padding-left: 5px;
+	border-top-width: thin;
+	border-top-style: outset;
+	border-top-color: #8E8E8E;
+	border: solid 1px #606060;
+}
+
+table.parameters {
+	background-color: #FFFFFF;
+	font-size: 80%;
+	border: 1px outset #606060;
+}
+
+td.titleParameters {
+	font-size: 110%;
+	text-align: center;
+	font-weight: bold;
+}
+
+td.titleInputs {
+	background-color: #606060;
+	color: #FFFFFF;
+	text-align: left;
+}
+
+td.input {
+	color: #303030;
+}
+
+td.titleOutput {
+	background-color: #606060;
+	color: #FFFFFF;
+	text-align: left;
+}
+
+td.output {
+	color: #303030;
+}
+
+td.valueModified {
+	font-weight: bold;
+	font-style: italic;
+}
+
+td.association {
+	font-style: italic;
+}
+
+td.tag {
+	font-weight: bold;
+	border-bottom-width: thin;
+	border-bottom-style: outset;
+	border-bottom-color: #8E8E8E;
+	color: #606060;
+	font-size: 80%;
+}
+
+td.requirementsTitle {
+	font-weight: bold;
+	border-bottom-width: thin;
+	border-bottom-style: outset;
+	border-bottom-color: #8E8E8E;
+	color: #606060;
+	font-size: 80%;
+}
+
+td.valuesRequirements {
+	border-bottom-width: thin;
+	border-bottom-style: outset;
+	border-bottom-color: #8E8E8E;
+	font-size: 80%;
+}
+
+td.groupedTests {
+	background-color: #D0D0D0;
+	font-size: 90%;
+	color: #FF4659;
+}
+
+table.groupedTests {
+	border: 1px outset #606060;
+}
+
+td.titleMetrics {
+	border: none;
+	color: #FF4659;
+	background-color: #D0D0D0;
+	font-size: 120%;
+}
