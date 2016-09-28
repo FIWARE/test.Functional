@@ -1,0 +1,370 @@
+
+ ########### TEST FI.APP.ST.API.44 ###########
+POST
+Request 
+  http://161.27.159.79:8000/api/offering/offerings/ubuntu/Prova3/1.0/bind
+Response
+
+Status 200
+
+########### TEST FI.APP.ST.API.45 ###########
+Request
+SEND REST API
+GET
+http://161.27.159.79:8000/api/offering/offerings/ubuntu/OfferAcquired/1.0/review
+
+Response
+Status 200 OK in 149ms
+
+[
+  {
+    "comment": "Revvv",
+    "rating": 0,
+    "title": "Revvv",
+    "timestamp": "2016-06-08 04:35:50.804000",
+    "user": "ubuntu",
+    "organization": "Mimmo",
+    "id": "5757e6f68cd8925345f9e80f"
+  }
+]
+
+########### TEST FI.APP.ST.API.46 ###########
+Request
+SEND REST API
+POST
+http://161.27.159.79:8000/api/offering/offerings/ubuntu/OfferAcquired/1.0/review
+Body
+
+{
+  "title": "Good Offering",
+  "comment": "This is a very good offering for those people insterested in using Orion from WireCloud, but not shure how to install it",
+  "rating": 4
+}
+
+Response
+Status 201
+########### TEST FI.APP.ST.API.47 ###########
+Request
+
+SEND REST API
+PUT
+http://161.27.159.79:8000/api/offering/offerings/ubuntu/OfferAcquired/1.0/review/5757e6f68cd8925345f9e80f
+
+Body
+{
+    "comment": "Revvv",
+    "rating": 0,
+    "title": "Revvvggg"
+  }
+ 
+ Response
+Status 201 CREATED in 400ms
+
+########### TEST FI.APP.ST.API.48 ###########
+Request
+
+SEND REST API
+DELETE
+
+http://161.27.159.79:8000/api/offering/offerings/ubuntu/OfferAcquired/1.0/review/5758185d8cd892669ded79d0
+
+
+
+Response
+Status 201
+ ########### TEST FI.APP.ST.API.51 ###########
+ Request
+
+SEND REST API
+
+GET
+
+  http://161.27.159.79:8000/api/offering/offerings/ubuntu/OfferingProva/1.1.0/tag
+  
+Response
+
+Status 200
+
+{
+  "tags": [
+    "NewTag",
+    "context broker"
+  ]
+}
+
+ ########### TEST FI.APP.ST.API.52 ###########
+ Request
+
+SEND REST API
+
+PUT
+
+  http://161.27.159.79:8000/api/offering/offerings/ubuntu/OfferingProva/1.1.0/tag
+  
+Response
+
+Status 200
+
+
+ ########### TEST FI.APP.ST.API.53 ###########
+ 
+ Request
+
+SEND REST API
+
+GET
+
+  http://161.27.159.79:8000/api/offering/offerings/ubuntu/OfferAcquired/1.0/usdl
+  
+Response
+
+Status 200
+
+
+<?xml version='1.0'?> 
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:foaf='http://xmlns.com/foaf/0.1/' xmlns:rdfs='http://www.w3.org/2000/01/rdf-schema#' xmlns:dcterms='http://purl.org/dc/terms/' xmlns:usdl='http://www.linked-usdl.org/ns/usdl-core#' xmlns:skos='http://www.w3.org/2004/02/skos/core#' xmlns:gr='http://purl.org/goodrelations/v1#' xmlns:pav='http://purl.org/pav/' xmlns:price='http://www.linked-usdl.org/ns/usdl-pricing#'>
+  <usdl:ServiceOffering xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' rdf:about='http://161.27.159.79:8080/api/offering/offerings/ubuntu/OfferAcquired/1.0'>
+    <dcterms:title>
+      OfferAcquired
+    </dcterms:title>
+    <dcterms:description>
+      test review
+    </dcterms:description>
+    <dcterms:abstract>
+      prova
+    </dcterms:abstract>
+    <pav:version>
+      1.0
+    </pav:version>
+    <foaf:depiction rdf:resource='http://161.27.159.79:8080/media/ubuntu__OfferAcquired__1.0/ital.png'/>
+    <dcterms:created rdf:datatype='http://www.w3.org/2001/XMLSchema#datetime'>
+      2016-05-24 09:27:50.685000
+    </dcterms:created>
+    <dcterms:modified rdf:datatype='http://www.w3.org/2001/XMLSchema#datetime'>
+      2016-05-24 09:27:50.726988
+    </dcterms:modified>
+    <gr:availableDeliveryMethods rdf:resource='http://161.27.159.79:8080/offering/ubuntu/OfferAcquired/1.0'/>
+    <gr:hasBusinessFunction xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' rdf:nodeID='ID574464e68cd8924613a072c601'/>
+    <usdl:includes rdf:resource='http://161.27.159.79:8080/api/offering/resources/ubuntu/Orion%20Context%20Broker/2.1'/>
+  </usdl:ServiceOffering>
+  <gr:License xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' rdf:nodeID='ID574464e68cd8924613a072c601'>
+    <rdfs:label>
+      Licence
+    </rdfs:label>
+    <dcterms:description>
+      Under license
+    </dcterms:description>
+  </gr:License>
+</rdf:RDF>
+
+########### TEST FI.APP.ST.API.58 ###########
+Request
+
+SEND REST API
+GET
+
+http://161.27.159.79:8000/api/search/keyword/OfferAcquired/?filter=published
+
+ Response
+Status 200 OK
+
+[
+  {
+    "rating": "0.00",
+    "related_images": [
+
+    ],
+    "name": "OfferAcquired",
+    "description_url": "http://161.27.159.74:8080/Repository-RI-3.2.2/v1/testCollectionNew/ubuntu__OfferAcquired__1.0",
+    "tags": [
+      "TagProva"
+    ],
+    "comments": [
+
+    ],
+    "creation_date": "2016-05-24 09:27:50.685000",
+    "owner_admin_user_id": "ubuntu",
+    "state": "published",
+    "version": "1.0",
+    "image_url": "/media/ubuntu__OfferAcquired__1.0/ital.png",
+    "offering_description": {
+      "description": "test review",
+      "created": "2016-05-24 09:27:50.685000",
+      "abstract": "prova",
+      "modified": "2016-05-24 09:27:50.726988",
+      "legal": {
+        "text": "Under license",
+        "title": "Licence"
+      },
+      "version": "1.0",
+      "image_url": "http://161.27.159.79:8080/media/ubuntu__OfferAcquired__1.0/ital.png",
+      "pricing": {
+        "price_plans": [
+
+        ]
+      },
+      "base_id": "574464e68cd8924613a072c6",
+      "organization": "ubuntu",
+      "name": "OfferAcquired"
+    },
+    "publication_date": "2016-05-24 09:28:18.817000",
+    "open": true,
+    "resources": [
+      {
+        "name": "Orion Context Broker",
+        "version": "2.1",
+        "link": "https://orion.lab.fiware.org/v2",
+        "content_type": "application/x-widget+mashable-application-component",
+        "metadata": {
+        },
+        "open": true,
+        "resource_type": "API",
+        "description": "A WireCloud Widget contaning a map"
+      }
+    ],
+    "owner_organization": "ubuntu"
+  }
+]
+
+########### TEST FI.APP.ST.API.59 ###########
+Request
+
+SEND REST API
+GET
+
+http://161.27.159.79:8000/api/search/tag/TagProva
+
+ Response
+ 
+ Status 200 OK
+ 
+ 
+ [
+  {
+    "rating": "0.00",
+    "related_images": [
+
+    ],
+    "name": "OfferAcquired",
+    "description_url": "http://161.27.159.74:8080/Repository-RI-3.2.2/v1/testCollectionNew/ubuntu__OfferAcquired__1.0",
+    "tags": [
+      "TagProva"
+    ],
+    "comments": [
+
+    ],
+    "creation_date": "2016-05-24 09:27:50.685000",
+    "owner_admin_user_id": "ubuntu",
+    "state": "published",
+    "version": "1.0",
+    "image_url": "/media/ubuntu__OfferAcquired__1.0/ital.png",
+    "offering_description": {
+      "description": "test review",
+      "created": "2016-05-24 09:27:50.685000",
+      "abstract": "prova",
+      "modified": "2016-05-24 09:27:50.726988",
+      "legal": {
+        "text": "Under license",
+        "title": "Licence"
+      },
+      "version": "1.0",
+      "image_url": "http://161.27.159.79:8080/media/ubuntu__OfferAcquired__1.0/ital.png",
+      "pricing": {
+        "price_plans": [
+
+        ]
+      },
+      "base_id": "574464e68cd8924613a072c6",
+      "organization": "ubuntu",
+      "name": "OfferAcquired"
+    },
+    "publication_date": "2016-05-24 09:28:18.817000",
+    "open": true,
+    "resources": [
+      {
+        "name": "Orion Context Broker",
+        "version": "2.1",
+        "link": "https://orion.lab.fiware.org/v2",
+        "content_type": "application/x-widget+mashable-application-component",
+        "metadata": {
+        },
+        "open": true,
+        "resource_type": "API",
+        "description": "A WireCloud Widget contaning a map"
+      }
+    ],
+    "owner_organization": "ubuntu"
+  }
+]
+
+########### TEST FI.APP.ST.API.60 ###########
+Request
+
+SEND REST API
+GET
+
+http://161.27.159.79:8000/api/search/resource/ubuntu/Orion Context Broker/2.1
+
+ Response
+ 
+ Status 200 OK
+ 
+ 
+ [
+  {
+    "rating": "0.00",
+    "related_images": [
+
+    ],
+    "name": "OfferAcquired",
+    "description_url": "http://161.27.159.74:8080/Repository-RI-3.2.2/v1/testCollectionNew/ubuntu__OfferAcquired__1.0",
+    "tags": [
+      "TagProva"
+    ],
+    "comments": [
+
+    ],
+    "creation_date": "2016-05-24 09:27:50.685000",
+    "owner_admin_user_id": "ubuntu",
+    "state": "published",
+    "version": "1.0",
+    "image_url": "/media/ubuntu__OfferAcquired__1.0/ital.png",
+    "offering_description": {
+      "description": "test review",
+      "created": "2016-05-24 09:27:50.685000",
+      "abstract": "prova",
+      "modified": "2016-05-24 09:27:50.726988",
+      "legal": {
+        "text": "Under license",
+        "title": "Licence"
+      },
+      "version": "1.0",
+      "image_url": "http://161.27.159.79:8080/media/ubuntu__OfferAcquired__1.0/ital.png",
+      "pricing": {
+        "price_plans": [
+
+        ]
+      },
+      "base_id": "574464e68cd8924613a072c6",
+      "organization": "ubuntu",
+      "name": "OfferAcquired"
+    },
+    "publication_date": "2016-05-24 09:28:18.817000",
+    "open": true,
+    "resources": [
+      {
+        "name": "Orion Context Broker",
+        "version": "2.1",
+        "link": "https://orion.lab.fiware.org/v2",
+        "content_type": "application/x-widget+mashable-application-component",
+        "metadata": {
+        },
+        "open": true,
+        "resource_type": "API",
+        "description": "A WireCloud Widget contaning a map"
+      }
+    ],
+    "owner_organization": "ubuntu"
+  }
+]
+
