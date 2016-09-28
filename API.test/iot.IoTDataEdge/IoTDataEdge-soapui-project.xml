@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="IoTDataEdge" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" id="ae2e4e63-3830-474d-9555-84076e0af2e3" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="IoTDataEdge_Services" type="rest" id="62e6bda2-8ff1-44e9-9f0d-2ff30b09ba02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint></con:endpoints><con:resource name="GetConfiguration" path="/v1/admin/config" id="42190c12-89e4-4b72-97ec-348116b00f82"><con:settings/><con:parameters/><con:method name="Get Configuration" id="28b3547d-443f-4ae9-bcbe-8ee3cf31052b" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>users</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404 500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/xml</con:mediaType><con:status>404</con:status><con:params/><con:element>exception</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:con1="http://217.172.12.209/v3/OS-OAUTH2/consumers">con1:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation></con:method><con:method name="Apply new configuration" id="21bb743d-9441-4eef-900e-7307cb9dddec" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>201</con:status><con:params/><con:element>data</con:element></con:representation></con:method><con:method name="Remove Current Configuration" id="28b3547d-443f-4ae9-bcbe-8ee3cf31052b" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml;charset=ISO-8859-1</con:mediaType><con:status>200</con:status><con:params/><con:element>users</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404 500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/xml</con:mediaType><con:status>404</con:status><con:params/><con:element>exception</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:con1="http://217.172.12.209/v3/OS-OAUTH2/consumers">con1:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation></con:method></con:resource><con:resource name="statements" path="/v1/admin/statements" id="2ac5fe69-d1ca-4e6c-b4b6-84823f1b6b68"><con:settings/><con:parameters/><con:method name="Get List Statement" id="0fd796fe-41c4-4fad-934b-748ad87599b5" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation></con:method></con:resource><con:resource name="updateContext" path="/ngsi10/updateContext" id="dc9216da-e3d4-4ad3-85ea-c35cce61e981"><con:settings/><con:parameters/><con:method name="Update Context" id="879810e5-e2fa-4331-9914-94e7943cdd78" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:con1="http://217.172.12.209/v3/OS-OAUTH2/consumers">con1:Response</con:element></con:representation></con:method></con:resource><con:resource name="notifyContext" path="/ngsi10/notifyContext" id="e2c471c3-0709-4752-b4bc-4b5b19b0da41"><con:settings/><con:parameters/><con:method name="Notify Context" id="2aaea769-9811-47f2-942a-b74a1f78b9d1" method="POST"><con:settings/><con:parameters/></con:method></con:resource></con:interface><con:testSuite name="TestSuite 1" id="cd66a748-c5d5-4536-b04a-2e77a8bcee38"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FI.IOT.DC.API.02" searchProperties="true" id="bba7010e-c682-49ca-9bf8-7b7f8152a512"><con:settings/><con:testStep type="restrequest" name="Get Actual Configuration" id="cd274823-59f3-4e53-94c3-7a715c093030"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Get Configuration" resourcePath="/v1/admin/config" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get Actual Configuration" mediaType="application/xml" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request/><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FI.IOT.DC.API.03" searchProperties="true" id="abbca13b-791a-4a8b-a2d4-f17a0f12c15c"><con:settings/><con:testStep type="restrequest" name="Get Actual Configuration" id="86ce7830-153d-4b9c-bf91-06a5f9282fec"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Get Configuration" resourcePath="/v1/admin/config" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get Actual Configuration" mediaType="application/xml" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request/><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Apply New Configuration" id="6e18394f-cf4d-404f-a9b0-5960faa111b3"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Apply new configuration" resourcePath="/v1/admin/config" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Apply New Configuration" mediaType="application/json" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request>       {
+          "host":"http://localhost:8080",
+          "in":[
+              {
+                  "id":"RoomX",
+                  "type":"Room",
+                  "isPattern": false,
+                  "attributes":[
+                      { "name":"temperature", "type":"double" },
+                      { "name":"floor", "type":"string" }
+                  ],
+                  "providers":[
+                      "http://localhost:8081"
+                  ]
+              }
+          ],
+          "out":[
+              {
+                  "id":"FloorX",
+                  "type":"Floor",
+                  "attributes":[
+                      { "name":"temperature", "type":"double" }
+                  ],
+                  "brokers":[
+                      { "url":"http://localhost:8081" }
+                  ]
+              }
+          ],
+          "statements":[
+              "INSERT INTO Floor SELECT floor as id, avg(temperature) as temperature FROM Room.win:time(10 min) GROUP BY floor OUTPUT LAST EVERY 10 sec"
+          ]
+      }
+</con:request><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Remove Actual Configuration" id="dbc6931e-d36d-4908-bf90-cf128398ce1b"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Remove Current Configuration" resourcePath="/v1/admin/config" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Remove Actual Configuration" mediaType="application/json" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request>
+</con:request><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FI.IOT.DC.API.04" searchProperties="true" id="219cb5b7-577c-4a11-906a-7e28755d6493"><con:settings/><con:testStep type="restrequest" name="Get Actual Configuration" id="6b983998-b279-4d63-b462-50196b4380e8"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Get Configuration" resourcePath="/v1/admin/config" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get Actual Configuration" mediaType="application/xml" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request/><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Apply New Configuration" id="5291df34-a608-415b-8f10-d78e8b4be75e"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Apply new configuration" resourcePath="/v1/admin/config" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Apply New Configuration" mediaType="application/json" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request>       {
+          "host":"http://localhost:8080",
+          "in":[
+              {
+                  "id":"RoomX",
+                  "type":"Room",
+                  "isPattern": false,
+                  "attributes":[
+                      { "name":"temperature", "type":"double" },
+                      { "name":"floor", "type":"string" }
+                  ],
+                  "providers":[
+                      "http://localhost:8081"
+                  ]
+              }
+          ],
+          "out":[
+              {
+                  "id":"FloorX",
+                  "type":"Floor",
+                  "attributes":[
+                      { "name":"temperature", "type":"double" }
+                  ],
+                  "brokers":[
+                      { "url":"http://localhost:8081" }
+                  ]
+              }
+          ],
+          "statements":[
+              "INSERT INTO Floor SELECT floor as id, avg(temperature) as temperature FROM Room.win:time(10 min) GROUP BY floor OUTPUT LAST EVERY 10 sec"
+          ]
+      }
+</con:request><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Remove Actual Configuration" id="735a217e-8ba4-4694-a8c7-3f8d3e274590"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Remove Current Configuration" resourcePath="/v1/admin/config" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Remove Actual Configuration" mediaType="application/json" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request>
+</con:request><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FI.IOT.DC.API.05" searchProperties="true" id="099e0296-820d-40c0-b6bb-e2da3c944bc7"><con:settings/><con:testStep type="restrequest" name="Get List Statement" id="a510689d-f3c8-4aa3-9940-066c8dfe3d88"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Get List Statement" resourcePath="/v1/admin/statements" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get List Statement" mediaType="application/xml" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request/><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FI.IOT.DC.API.06" searchProperties="true" id="d1322676-7295-45b0-8b61-834ea3ac97ef"><con:settings/><con:testStep type="restrequest" name="Update Context" id="0297e9ae-374c-4d89-99df-c195076a6e9b"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Update Context" resourcePath="/ngsi10/updateContext" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Update Context" mediaType="application/json" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request>{
+    "contextElements": [
+        {
+            "type":"Room",
+            "isPattern":"false",
+            "id":"room",
+            "attributes": [
+                {
+                    "name":"temperature",
+                    "type":"double",
+                    "value":"24",
+                },
+                {
+                    "name":"floor",
+                    "type":"string",
+                    "value":"3",
+                }
+            ]
+        }
+    ],
+    "updateAction":"UPDATE"
+}</con:request><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FI.IOT.DC.API.07" searchProperties="true" id="0767201b-0f6b-4f7f-b32e-854defe7c47d"><con:settings/><con:testStep type="restrequest" name="Notify Context" id="82af53cd-e27b-424c-9c10-70edde29eb8b"><con:settings/><con:config service="IoTDataEdge_Services" methodName="Update Context" resourcePath="/ngsi10/updateContext" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Notify Context" mediaType="application/json" accept="" id="f0446f58-9746-4523-aa61-02657f6abd79" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint_keystone}</con:endpoint><con:request>{
+    "subscriptionId": "DEADBEEF",
+    "originator": "http://localhost:8080",
+    "contextElements": [
+        {
+            "type": "Room",
+            "isPattern": "false",
+            "id": "room11",
+            "attributes": [
+                {
+                    "name": "temperature",
+                    "type": "double",
+                    "value": "24",
+                },
+                {
+                    "name": "floor",
+                    "type": "string",
+                    "value": "3",
+                }
+            ]
+        }
+    ]
+}</con:request><con:originalUri>http://217.172.12.209/v3/OS-OAUTH2/consumers</con:originalUri><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>endpoint_keystone</con:name><con:value>http://161.27.159.68:8080</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
