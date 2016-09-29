@@ -1,0 +1,664 @@
+###########  COMMON ###########
+start
+xvfb-run ./Tundra --file scenes/Avatar/scene.txml --server --headless --httpport 8080
+API LINK
+http://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/SceneAPI_RESTful_API_Specification
+
+Istance
+http://161.27.159.143
+
+########### FI.WEB.SY.API.02 ###########
+Request (GET)
+http://161.27.159.143:8080/entities
+
+Response
+<scene>
+  <entity temporary='false' id='1' sync='true'>
+    <component temporary='false' typeId='5' type='Script' sync='true'>
+      <attribute value='avatarmenu.js' type='AssetReferenceList' id='scriptRef' name='Script ref'/>
+      <attribute value='true' type='bool' id='runOnLoad' name='Run on load'/>
+      <attribute value='0' type='int' id='runMode' name='Run mode'/>
+      <attribute value='' type='string' id='applicationName' name='Script application name'/>
+      <attribute value='' type='string' id='className' name='Script class name'/>
+    </component>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='AvatarMenu' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+  </entity>
+  <entity temporary='false' id='2' sync='true'>
+    <component temporary='false' typeId='5' type='Script' sync='true'>
+      <attribute value='avatarapplication.js;simpleavatar.js;exampleavataraddon.js' type='AssetReferenceList' id='scriptRef' name='Script ref'/>
+      <attribute value='true' type='bool' id='runOnLoad' name='Run on load'/>
+      <attribute value='0' type='int' id='runMode' name='Run mode'/>
+      <attribute value='AvatarApp' type='string' id='applicationName' name='Script application name'/>
+      <attribute value='' type='string' id='className' name='Script class name'/>
+    </component>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='AvatarApp' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+  </entity>
+  <entity temporary='false' id='3' sync='true'>
+    <component temporary='false' typeId='17' type='Mesh' sync='true'>
+      <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000' type='Transform' id='nodeTransformation' name='Transform'/>
+      <attribute value='fish.mesh' type='AssetReference' id='meshRef' name='Mesh ref'/>
+      <attribute value='' type='AssetReference' id='skeletonRef' name='Skeleton ref'/>
+      <attribute value='' type='AssetReferenceList' id='meshMaterial' name='Mesh materials'/>
+      <attribute value='0.000000' type='real' id='drawDistance' name='Draw distance'/>
+      <attribute value='true' type='bool' id='castShadows' name='Cast shadows'/>
+      <attribute value='false' type='bool' id='useInstancing' name='Use instancing'/>
+    </component>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='Fish' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+    <component temporary='false' typeId='20' type='Placeable' sync='true'>
+      <attribute value='1.452457,-4.653040,5.404464,-47.833961,42.129238,-145.392853,1.000000,1.000000,1.000000' type='Transform' id='transform' name='Transform'/>
+      <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+      <attribute value='true' type='bool' id='visible' name='Visible'/>
+      <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+      <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+      <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+    </component>
+    <component temporary='false' typeId='23' type='RigidBody' sync='true'>
+      <attribute value='10.000000' type='real' id='mass' name='Mass'/>
+      <attribute value='6' type='int' id='shapeType' name='Shape type'/>
+      <attribute value='1.000000 1.000000 1.000000' type='float3' id='size' name='Size'/>
+      <attribute value='fish.mesh' type='AssetReference' id='collisionMeshRef' name='Collision mesh ref'/>
+      <attribute value='0.500000' type='real' id='friction' name='Friction'/>
+      <attribute value='0.000000' type='real' id='restitution' name='Restitution'/>
+      <attribute value='0.000000' type='real' id='linearDamping' name='Linear damping'/>
+      <attribute value='0.000000' type='real' id='angularDamping' name='Angular damping'/>
+      <attribute value='1.000000 1.000000 1.000000' type='float3' id='linearFactor' name='Linear factor'/>
+      <attribute value='1.000000 1.000000 1.000000' type='float3' id='angularFactor' name='Angular factor'/>
+      <attribute value='false' type='bool' id='kinematic' name='Kinematic'/>
+      <attribute value='false' type='bool' id='phantom' name='Phantom'/>
+      <attribute value='false' type='bool' id='drawDebug' name='Draw Debug'/>
+      <attribute value='0.000026 0.000077 -0.000104' type='float3' id='linearVelocity' name='Linear velocity'/>
+      <attribute value='0.009762 0.010433 0.000000' type='float3' id='angularVelocity' name='Angular velocity'/>
+      <attribute value='-1' type='int' id='collisionLayer' name='Collision Layer'/>
+      <attribute value='-1' type='int' id='collisionMask' name='Collision Mask'/>
+      <attribute value='0.500000' type='real' id='rollingFriction' name='Rolling friction'/>
+      <attribute value='true' type='bool' id='useGravity' name='Use gravity'/>
+    </component>
+  </entity>
+  <entity temporary='false' id='4' sync='true'>
+    <component temporary='false' typeId='17' type='Mesh' sync='true'>
+      <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.140000,0.200000,0.140000' type='Transform' id='nodeTransformation' name='Transform'/>
+      <attribute value='WoodPallet.mesh' type='AssetReference' id='meshRef' name='Mesh ref'/>
+      <attribute value='' type='AssetReference' id='skeletonRef' name='Skeleton ref'/>
+      <attribute value='' type='AssetReferenceList' id='meshMaterial' name='Mesh materials'/>
+      <attribute value='0.000000' type='real' id='drawDistance' name='Draw distance'/>
+      <attribute value='true' type='bool' id='castShadows' name='Cast shadows'/>
+      <attribute value='false' type='bool' id='useInstancing' name='Use instancing'/>
+    </component>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='Floor' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+    <component temporary='false' typeId='20' type='Placeable' sync='true'>
+      <attribute value='0.000000,-5.000000,0.000000,0.000000,0.000000,0.000000,100.000000,1.000000,100.000000' type='Transform' id='transform' name='Transform'/>
+      <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+      <attribute value='true' type='bool' id='visible' name='Visible'/>
+      <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+      <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+      <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+    </component>
+    <component temporary='false' typeId='23' type='RigidBody' sync='true'>
+      <attribute value='0.000000' type='real' id='mass' name='Mass'/>
+      <attribute value='0' type='int' id='shapeType' name='Shape type'/>
+      <attribute value='1.000000 0.200000 1.000000' type='float3' id='size' name='Size'/>
+      <attribute value='' type='AssetReference' id='collisionMeshRef' name='Collision mesh ref'/>
+      <attribute value='0.500000' type='real' id='friction' name='Friction'/>
+      <attribute value='0.000000' type='real' id='restitution' name='Restitution'/>
+      <attribute value='0.000000' type='real' id='linearDamping' name='Linear damping'/>
+      <attribute value='0.000000' type='real' id='angularDamping' name='Angular damping'/>
+      <attribute value='1.000000 1.000000 1.000000' type='float3' id='linearFactor' name='Linear factor'/>
+      <attribute value='1.000000 1.000000 1.000000' type='float3' id='angularFactor' name='Angular factor'/>
+      <attribute value='false' type='bool' id='kinematic' name='Kinematic'/>
+      <attribute value='false' type='bool' id='phantom' name='Phantom'/>
+      <attribute value='false' type='bool' id='drawDebug' name='Draw Debug'/>
+      <attribute value='0.000000 0.000000 0.000000' type='float3' id='linearVelocity' name='Linear velocity'/>
+      <attribute value='0.000000 0.000000 0.000000' type='float3' id='angularVelocity' name='Angular velocity'/>
+      <attribute value='-1' type='int' id='collisionLayer' name='Collision Layer'/>
+      <attribute value='-1' type='int' id='collisionMask' name='Collision Mask'/>
+      <attribute value='0.500000' type='real' id='rollingFriction' name='Rolling friction'/>
+      <attribute value='true' type='bool' id='useGravity' name='Use gravity'/>
+    </component>
+  </entity>
+  <entity temporary='false' id='5' sync='true'>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='Instructions' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+    <component temporary='false' typeId='5' type='Script' sync='true'>
+      <attribute value='instructions.js' type='AssetReferenceList' id='scriptRef' name='Script ref'/>
+      <attribute value='true' type='bool' id='runOnLoad' name='Run on load'/>
+      <attribute value='0' type='int' id='runMode' name='Run mode'/>
+      <attribute value='' type='string' id='applicationName' name='Script application name'/>
+      <attribute value='' type='string' id='className' name='Script class name'/>
+    </component>
+  </entity>
+  <entity temporary='false' id='6' sync='true'>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='Environment' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+    <component temporary='false' typeId='8' type='EnvironmentLight' sync='true'>
+      <attribute value='0.639000 0.639000 0.639000 1.000000' type='Color' id='sunColor' name='Sunlight color'/>
+      <attribute value='0.364000 0.364000 0.364000 1.000000' type='Color' id='ambientColor' name='Ambient light color'/>
+      <attribute value='-1.000000 -1.000000 -1.000000' type='float3' id='sunDirection' name='Sunlight direction vector'/>
+      <attribute value='true' type='bool' id='sunCastShadows' name='Sunlight cast shadows'/>
+      <attribute value='1.000000' type='real' id='brightness' name='Brightness'/>
+    </component>
+    <component temporary='false' typeId='10' type='Sky' sync='true'>
+      <attribute value='local://RexSkyBox.material' type='AssetReference' id='materialRef' name='Material'/>
+      <attribute value='' type='AssetReferenceList' id='textureRefs' name='Texture'/>
+      <attribute value='50.000000' type='real' id='distance' name='Distance'/>
+      <attribute value='0.000000 0.000000 0.000000 1.000000' type='Quat' id='orientation' name='Orientation'/>
+      <attribute value='true' type='bool' id='drawFirst' name='Draw first'/>
+      <attribute value='true' type='bool' id='enabled' name='Enabled'/>
+    </component>
+  </entity>
+  <entity temporary='false' id='7' sync='true'>
+    <component temporary='false' typeId='20' type='Placeable' sync='true'>
+      <attribute value='1.078710,16.671301,35.955601,-33.900002,-0.600010,0.000000,1.000000,1.000000,1.000000' type='Transform' id='transform' name='Transform'/>
+      <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+      <attribute value='true' type='bool' id='visible' name='Visible'/>
+      <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+      <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+      <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+    </component>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='FreeLookCameraSpawnPos' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+  </entity>
+</scene>
+
+
+########### FI.WEB.SY.API.03 ###########
+Request (GET)
+http://161.27.159.143:8080/entities/4
+
+Response
+
+<!DOCTYPE Entity>
+<entity temporary='false' id='4' sync='true'>
+  <component temporary='false' typeId='17' type='Mesh' sync='true'>
+    <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.140000,0.200000,0.140000' type='Transform' id='nodeTransformation' name='Transform'/>
+    <attribute value='WoodPallet.mesh' type='AssetReference' id='meshRef' name='Mesh ref'/>
+    <attribute value='' type='AssetReference' id='skeletonRef' name='Skeleton ref'/>
+    <attribute value='' type='AssetReferenceList' id='meshMaterial' name='Mesh materials'/>
+    <attribute value='0.000000' type='real' id='drawDistance' name='Draw distance'/>
+    <attribute value='true' type='bool' id='castShadows' name='Cast shadows'/>
+    <attribute value='false' type='bool' id='useInstancing' name='Use instancing'/>
+  </component>
+  <component temporary='false' typeId='26' type='Name' sync='true'>
+    <attribute value='Floor' type='string' id='name' name='Name'/>
+    <attribute value='' type='string' id='description' name='Description'/>
+    <attribute value='' type='string' id='group' name='Group'/>
+  </component>
+  <component temporary='false' typeId='20' type='Placeable' sync='true'>
+    <attribute value='0.000000,-5.000000,0.000000,0.000000,0.000000,0.000000,100.000000,1.000000,100.000000' type='Transform' id='transform' name='Transform'/>
+    <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+    <attribute value='true' type='bool' id='visible' name='Visible'/>
+    <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+    <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+    <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+  </component>
+  <component temporary='false' typeId='23' type='RigidBody' sync='true'>
+    <attribute value='0.000000' type='real' id='mass' name='Mass'/>
+    <attribute value='0' type='int' id='shapeType' name='Shape type'/>
+    <attribute value='1.000000 0.200000 1.000000' type='float3' id='size' name='Size'/>
+    <attribute value='' type='AssetReference' id='collisionMeshRef' name='Collision mesh ref'/>
+    <attribute value='0.500000' type='real' id='friction' name='Friction'/>
+    <attribute value='0.000000' type='real' id='restitution' name='Restitution'/>
+    <attribute value='0.000000' type='real' id='linearDamping' name='Linear damping'/>
+    <attribute value='0.000000' type='real' id='angularDamping' name='Angular damping'/>
+    <attribute value='1.000000 1.000000 1.000000' type='float3' id='linearFactor' name='Linear factor'/>
+    <attribute value='1.000000 1.000000 1.000000' type='float3' id='angularFactor' name='Angular factor'/>
+    <attribute value='false' type='bool' id='kinematic' name='Kinematic'/>
+    <attribute value='false' type='bool' id='phantom' name='Phantom'/>
+    <attribute value='false' type='bool' id='drawDebug' name='Draw Debug'/>
+    <attribute value='0.000000 0.000000 0.000000' type='float3' id='linearVelocity' name='Linear velocity'/>
+    <attribute value='0.000000 0.000000 0.000000' type='float3' id='angularVelocity' name='Angular velocity'/>
+    <attribute value='-1' type='int' id='collisionLayer' name='Collision Layer'/>
+    <attribute value='-1' type='int' id='collisionMask' name='Collision Mask'/>
+    <attribute value='0.500000' type='real' id='rollingFriction' name='Rolling friction'/>
+    <attribute value='true' type='bool' id='useGravity' name='Use gravity'/>
+  </component>
+</entity>
+
+########### FI.WEB.SY.API.04 ###########
+
+  <component temporary='false' typeId='26' type='Name' sync='true'>
+    <attribute value='Floor' type='string' id='name' name='Name'/>
+    <attribute value='' type='string' id='description' name='Description'/>
+    <attribute value='' type='string' id='group' name='Group'/>
+  </component>
+  
+  
+Request (GET)
+http://161.27.159.143:8080/entities?name=Floor
+
+Response
+<!DOCTYPE Entity>
+<entity temporary='false' id='4' sync='true'>
+  <component temporary='false' typeId='17' type='Mesh' sync='true'>
+    <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.140000,0.200000,0.140000' type='Transform' id='nodeTransformation' name='Transform'/>
+    <attribute value='WoodPallet.mesh' type='AssetReference' id='meshRef' name='Mesh ref'/>
+    <attribute value='' type='AssetReference' id='skeletonRef' name='Skeleton ref'/>
+    <attribute value='' type='AssetReferenceList' id='meshMaterial' name='Mesh materials'/>
+    <attribute value='0.000000' type='real' id='drawDistance' name='Draw distance'/>
+    <attribute value='true' type='bool' id='castShadows' name='Cast shadows'/>
+    <attribute value='false' type='bool' id='useInstancing' name='Use instancing'/>
+  </component>
+  <component temporary='false' typeId='26' type='Name' sync='true'>
+    <attribute value='Floor' type='string' id='name' name='Name'/>
+    <attribute value='' type='string' id='description' name='Description'/>
+    <attribute value='' type='string' id='group' name='Group'/>
+  </component>
+  <component temporary='false' typeId='20' type='Placeable' sync='true'>
+    <attribute value='0.000000,-5.000000,0.000000,0.000000,0.000000,0.000000,100.000000,1.000000,100.000000' type='Transform' id='transform' name='Transform'/>
+    <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+    <attribute value='true' type='bool' id='visible' name='Visible'/>
+    <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+    <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+    <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+  </component>
+  <component temporary='false' typeId='23' type='RigidBody' sync='true'>
+    <attribute value='0.000000' type='real' id='mass' name='Mass'/>
+    <attribute value='0' type='int' id='shapeType' name='Shape type'/>
+    <attribute value='1.000000 0.200000 1.000000' type='float3' id='size' name='Size'/>
+    <attribute value='' type='AssetReference' id='collisionMeshRef' name='Collision mesh ref'/>
+    <attribute value='0.500000' type='real' id='friction' name='Friction'/>
+    <attribute value='0.000000' type='real' id='restitution' name='Restitution'/>
+    <attribute value='0.000000' type='real' id='linearDamping' name='Linear damping'/>
+    <attribute value='0.000000' type='real' id='angularDamping' name='Angular damping'/>
+    <attribute value='1.000000 1.000000 1.000000' type='float3' id='linearFactor' name='Linear factor'/>
+    <attribute value='1.000000 1.000000 1.000000' type='float3' id='angularFactor' name='Angular factor'/>
+    <attribute value='false' type='bool' id='kinematic' name='Kinematic'/>
+    <attribute value='false' type='bool' id='phantom' name='Phantom'/>
+    <attribute value='false' type='bool' id='drawDebug' name='Draw Debug'/>
+    <attribute value='0.000000 0.000000 0.000000' type='float3' id='linearVelocity' name='Linear velocity'/>
+    <attribute value='0.000000 0.000000 0.000000' type='float3' id='angularVelocity' name='Angular velocity'/>
+    <attribute value='-1' type='int' id='collisionLayer' name='Collision Layer'/>
+    <attribute value='-1' type='int' id='collisionMask' name='Collision Mask'/>
+    <attribute value='0.500000' type='real' id='rollingFriction' name='Rolling friction'/>
+    <attribute value='true' type='bool' id='useGravity' name='Use gravity'/>
+  </component>
+</entity>
+
+########### FI.WEB.SY.API.05 ###########
+  
+Request (GET)
+http://161.27.159.143:8080/entities/4/Placeable
+
+Response
+<component temporary='false' typeId='20' type='Placeable' sync='true'>
+  <attribute value='0.000000,-5.000000,0.000000,0.000000,0.000000,0.000000,100.000000,1.000000,100.000000' type='Transform' id='transform' name='Transform'/>
+  <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+  <attribute value='true' type='bool' id='visible' name='Visible'/>
+  <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+  <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+  <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+</component>
+
+########### FI.WEB.SY.API.06 ###########
+  
+Request (GET)
+http://161.27.159.143:8080/entities/4/Placeable/transform
+
+Response
+0.000000,-5.000000,0.000000,0.000000,0.000000,0.000000,100.000000,1.000000,100.000000
+
+########### FI.WEB.SY.API.07 ###########
+  
+Request (POST)
+http://161.27.159.143:8080/entities
+
+Response
+<!DOCTYPE Entity>
+<entity temporary='false' id='8' sync='true'/>
+
+
+########### FI.WEB.SY.API.08 ###########
+  
+Request (POST)
+http://161.27.159.143:8080/entities/10
+
+Response
+<!DOCTYPE Entity>
+<entity temporary='false' id='10' sync='true'/>
+**********************
+If there is an ID conflict with an existing entity, the server will choose another ID
+Again 10
+Request (POST)
+http://161.27.159.143:8080/entities/10
+
+Response
+<!DOCTYPE Entity>
+<entity temporary='false' id='11' sync='true'/>
+
+Perfoms a query
+ ......
+  <entity temporary='false' id='8' sync='true'/>
+  <entity temporary='false' id='9' sync='true'/>
+  <entity temporary='false' id='10' sync='true'/>
+  <entity temporary='false' id='11' sync='true'/>
+</scene>
+
+########### FI.WEB.SY.API.09 ###########
+  
+Request (POST)
+http://161.27.159.143:8080/entities/10/Placeable 
+ 
+Response
+<!DOCTYPE Component>
+<component temporary='false' typeId='20' type='Placeable' sync='true'>
+  <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000' type='Transform' id='transform' name='Transform'/>
+  <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+  <attribute value='true' type='bool' id='visible' name='Visible'/>
+  <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+  <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+  <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+</component>
+
+Request (POST)
+http://161.27.159.143:8080/entities/10/Mesh
+
+Response
+<!DOCTYPE Component>
+<component temporary='false' typeId='17' type='Mesh' sync='true'>
+  <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000' type='Transform' id='nodeTransformation' name='Transform'/>
+  <attribute value='' type='AssetReference' id='meshRef' name='Mesh ref'/>
+  <attribute value='' type='AssetReference' id='skeletonRef' name='Skeleton ref'/>
+  <attribute value='' type='AssetReferenceList' id='meshMaterial' name='Mesh materials'/>
+  <attribute value='0.000000' type='real' id='drawDistance' name='Draw distance'/>
+  <attribute value='false' type='bool' id='castShadows' name='Cast shadows'/>
+  <attribute value='false' type='bool' id='useInstancing' name='Use instancing'/>
+</component>
+
+Perfoms a query
+ ......
+ <entity temporary='false' id='8' sync='true'/>
+  <entity temporary='false' id='9' sync='true'/>
+  <entity temporary='false' id='10' sync='true'>
+    <component temporary='false' typeId='20' type='Placeable' sync='true'>
+      <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000' type='Transform' id='transform' name='Transform'/>
+      <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+      <attribute value='true' type='bool' id='visible' name='Visible'/>
+      <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+      <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+      <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+    </component>
+    <component temporary='false' typeId='17' type='Mesh' sync='true'>
+      <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000' type='Transform' id='nodeTransformation' name='Transform'/>
+      <attribute value='' type='AssetReference' id='meshRef' name='Mesh ref'/>
+      <attribute value='' type='AssetReference' id='skeletonRef' name='Skeleton ref'/>
+      <attribute value='' type='AssetReferenceList' id='meshMaterial' name='Mesh materials'/>
+      <attribute value='0.000000' type='real' id='drawDistance' name='Draw distance'/>
+      <attribute value='false' type='bool' id='castShadows' name='Cast shadows'/>
+      <attribute value='false' type='bool' id='useInstancing' name='Use instancing'/>
+    </component>
+  </entity>
+  <entity temporary='false' id='11' sync='true'/>
+......
+  
+  
+  
+  
+########### FI.WEB.SY.API.10.01 ###########
+BEFORE
+  
+  <entity temporary='false' id='10' sync='true'>
+    <component temporary='false' typeId='20' type='Placeable' sync='true'>
+      <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000' type='Transform' id='transform' name='Transform'/>
+      <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+      <attribute value='true' type='bool' id='visible' name='Visible'/>
+      <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+      <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+      <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+    </component> 
+	
+Request (PUT)
+http://161.27.159.143:8080/entities/10/Placeable?Show bounding box=true
+ 
+Response
+<!DOCTYPE Component>
+<component temporary='false' typeId='20' type='Placeable' sync='true'>
+  <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000' type='Transform' id='transform' name='Transform'/>
+  <attribute value='true' type='bool' id='drawDebug' name='Show bounding box'/>
+  <attribute value='true' type='bool' id='visible' name='Visible'/>
+  <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+  <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+  <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+</component>
+
+  
+Perfoms a query
+ ...... 
+
+  <entity temporary='false' id='10' sync='true'>
+    <component temporary='false' typeId='20' type='Placeable' sync='true'>
+      <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000' type='Transform' id='transform' name='Transform'/>
+      <attribute value='true' type='bool' id='drawDebug' name='Show bounding box'/>
+      <attribute value='true' type='bool' id='visible' name='Visible'/>
+      <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+      <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+      <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+    </component>
+	
+
+########### FI.WEB.SY.API.10.02 ###########
+Request (PUT)
+http://161.27.159.143:8080/entities/2/Script?Script application name=Raffa
+
+Response
+<!DOCTYPE Component>
+<component temporary='false' typeId='5' type='Script' sync='true'>
+  <attribute value='avatarapplication.js;simpleavatar.js;exampleavataraddon.js' type='AssetReferenceList' id='scriptRef' name='Script ref'/>
+  <attribute value='true' type='bool' id='runOnLoad' name='Run on load'/>
+  <attribute value='0' type='int' id='runMode' name='Run mode'/>
+  <attribute value='Raffa' type='string' id='applicationName' name='Script application name'/>
+  <attribute value='' type='string' id='className' name='Script class name'/>
+</component>
+
+########### FI.WEB.SY.API.11 ###########
+BEFORE
+
+    <component temporary='false' typeId='20' type='Placeable' sync='true'>
+      <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000' type='Transform' id='transform' name='Transform'/>
+      <attribute value='true' type='bool' id='drawDebug' name='Show bounding box'/>
+      <attribute value='true' type='bool' id='visible' name='Visible'/>
+      <attribute value='1' type='int' id='selectionLayer' name='Selection layer'/>
+      <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+      <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+    </component>
+
+Request (PUT)
+http://161.27.159.143:8080/entities/10/Placeable
+body
+<component temporary='false' typeId='20' type='Placeable' sync='true'>
+	<attribute value='0.000000,-5.000000,0.000000,0.000000,0.000000,0.000000,100.000000,1.000000,100.000000' type='Transform' id='transform' name='Transform'/>
+	<attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+	<attribute value='true' type='bool' id='visible' name='Visible'/>
+	<attribute value='2' type='int' id='selectionLayer' name='Selection layer'/>
+	<attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+	<attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+</component>
+
+Response
+<!DOCTYPE Component>
+<component temporary='false' typeId='20' type='Placeable' sync='true'>
+  <attribute value='0.000000,-5.000000,0.000000,0.000000,0.000000,0.000000,100.000000,1.000000,100.000000' type='Transform' id='transform' name='Transform'/>
+  <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+  <attribute value='true' type='bool' id='visible' name='Visible'/>
+  <attribute value='2' type='int' id='selectionLayer' name='Selection layer'/>
+  <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+  <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+</component>
+
+Perfoms a query
+ ...... 
+ <entity temporary='false' id='10' sync='true'>
+    <component temporary='false' typeId='20' type='Placeable' sync='true'>
+      <attribute value='0.000000,-5.000000,0.000000,0.000000,0.000000,0.000000,100.000000,1.000000,100.000000' type='Transform' id='transform' name='Transform'/>
+      <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+      <attribute value='true' type='bool' id='visible' name='Visible'/>
+      <attribute value='2' type='int' id='selectionLayer' name='Selection layer'/>
+      <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+      <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+    </component>
+
+
+	
+########### FI.WEB.SY.API.12 ###########
+BEFORE
+  <entity temporary='false' id='11' sync='true'/>
+  <entity temporary='false' id='12' sync='true'/>
+
+
+Request (PUT)
+http://161.27.159.143:8080/entities/11
+body
+  <entity temporary='false' id='11' sync='true'>
+    <component temporary='false' typeId='5' type='Script' sync='true'>
+      <attribute value='avatarapplication.js;simpleavatar.js;exampleavataraddon.js' type='AssetReferenceList' id='scriptRef' name='Script ref'/>
+      <attribute value='true' type='bool' id='runOnLoad' name='Run on load'/>
+      <attribute value='0' type='int' id='runMode' name='Run mode'/>
+      <attribute value='Raffa' type='string' id='applicationName' name='Script application name'/>
+      <attribute value='' type='string' id='className' name='Script class name'/>
+    </component>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='AvatarApp' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+  </entity>
+
+Response
+<!DOCTYPE Entity>
+<entity temporary='false' id='11' sync='true'>
+  <component temporary='false' typeId='5' type='Script' sync='true'>
+    <attribute value='avatarapplication.js;simpleavatar.js;exampleavataraddon.js' type='AssetReferenceList' id='scriptRef' name='Script ref'/>
+    <attribute value='true' type='bool' id='runOnLoad' name='Run on load'/>
+    <attribute value='0' type='int' id='runMode' name='Run mode'/>
+    <attribute value='Raffa' type='string' id='applicationName' name='Script application name'/>
+    <attribute value='' type='string' id='className' name='Script class name'/>
+  </component>
+  <component temporary='false' typeId='26' type='Name' sync='true'>
+    <attribute value='AvatarApp' type='string' id='name' name='Name'/>
+    <attribute value='' type='string' id='description' name='Description'/>
+    <attribute value='' type='string' id='group' name='Group'/>
+  </component>
+</entity>
+
+Perfoms a query
+ ...... 
+ 
+  <entity temporary='false' id='11' sync='true'>
+    <component temporary='false' typeId='5' type='Script' sync='true'>
+      <attribute value='avatarapplication.js;simpleavatar.js;exampleavataraddon.js' type='AssetReferenceList' id='scriptRef' name='Script ref'/>
+      <attribute value='true' type='bool' id='runOnLoad' name='Run on load'/>
+      <attribute value='0' type='int' id='runMode' name='Run mode'/>
+      <attribute value='Raffa' type='string' id='applicationName' name='Script application name'/>
+      <attribute value='' type='string' id='className' name='Script class name'/>
+    </component>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='AvatarApp' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+  </entity>
+  
+  
+	
+########### FI.WEB.SY.API.15 ###########
+BEFORE
+<entity temporary='false' id='11' sync='true'>
+    <component temporary='false' typeId='5' type='Script' sync='true'>
+      <attribute value='avatarapplication.js;simpleavatar.js;exampleavataraddon.js' type='AssetReferenceList' id='scriptRef' name='Script ref'/>
+      <attribute value='true' type='bool' id='runOnLoad' name='Run on load'/>
+      <attribute value='0' type='int' id='runMode' name='Run mode'/>
+      <attribute value='Raffa' type='string' id='applicationName' name='Script application name'/>
+      <attribute value='' type='string' id='className' name='Script class name'/>
+    </component>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='AvatarApp' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+  </entity>
+
+Request (DELETE)
+http://161.27.159.143:8080/entities/11/Script
+Response:
+Status 200 OK 
+Body: Deleted
+
+AFTER
+  <entity temporary='false' id='11' sync='true'>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='AvatarApp' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+  </entity>
+
+########### FI.WEB.SY.API.13 ###########
+BEFORE
+  <entity temporary='false' id='11' sync='true'>
+    <component temporary='false' typeId='26' type='Name' sync='true'>
+      <attribute value='AvatarApp' type='string' id='name' name='Name'/>
+      <attribute value='' type='string' id='description' name='Description'/>
+      <attribute value='' type='string' id='group' name='Group'/>
+    </component>
+  </entity>
+  
+Request (DELETE)
+http://161.27.159.143:8080/entities/11
+Response:
+Status 200 OK 
+Body: Deleted
+
+AFTER
+ <entity temporary='false' id='8' sync='true'/>
+  <entity temporary='false' id='9' sync='true'/>
+  <entity temporary='false' id='10' sync='true'>
+    <component temporary='false' typeId='20' type='Placeable' sync='true'>
+      <attribute value='0.000000,-5.000000,0.000000,0.000000,0.000000,0.000000,100.000000,1.000000,100.000000' type='Transform' id='transform' name='Transform'/>
+      <attribute value='false' type='bool' id='drawDebug' name='Show bounding box'/>
+      <attribute value='true' type='bool' id='visible' name='Visible'/>
+      <attribute value='2' type='int' id='selectionLayer' name='Selection layer'/>
+      <attribute value='' type='EntityReference' id='parentRef' name='Parent entity ref'/>
+      <attribute value='' type='string' id='parentBone' name='Parent bone name'/>
+    </component>
+    <component temporary='false' typeId='17' type='Mesh' sync='true'>
+      <attribute value='0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1.000000,1.000000,1.000000' type='Transform' id='nodeTransformation' name='Transform'/>
+      <attribute value='' type='AssetReference' id='meshRef' name='Mesh ref'/>
+      <attribute value='' type='AssetReference' id='skeletonRef' name='Skeleton ref'/>
+      <attribute value='' type='AssetReferenceList' id='meshMaterial' name='Mesh materials'/>
+      <attribute value='0.000000' type='real' id='drawDistance' name='Draw distance'/>
+      <attribute value='false' type='bool' id='castShadows' name='Cast shadows'/>
+      <attribute value='false' type='bool' id='useInstancing' name='Use instancing'/>
+    </component>
+  </entity>
+  <entity temporary='false' id='12' sync='true'/>
+  
+########### FI.WEB.SY.API.14 ###########
+  
+Request (DELETE)
+http://161.27.159.143:8080/entities?name=Floor
+Response:
+Status 200 OK 
+Body: Deleted
