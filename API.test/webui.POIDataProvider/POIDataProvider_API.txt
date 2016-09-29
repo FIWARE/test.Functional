@@ -1,0 +1,1940 @@
+###########  COMMON ###########
+API LINK
+http://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/POI_Data_Provider_Open_API_Specification
+Istance
+http://161.27.159.143
+
+########### FI.WEB.DP.API.02 ###########
+Request (GET)
+http://161.27.159.143/poi_dp/get_components
+
+Response
+{
+  "components": [
+    "fw_core",
+    "fw_time",
+    "fw_xml3d",
+    "fw_contact",
+    "fw_media",
+    "fw_relationships",
+    "fw_tags",
+    "fw_marker",
+    "fw_generic",
+    "fw_sensor",
+    "fw_dynamic",
+    "fw_test_data"
+  ],
+  "service_info": {
+    "site_name": "FIWARE POI-DP",
+    "site_version": "5.1.3",
+    "api_version": "5.1.a",
+    "name": "get_components"
+  }
+}
+
+########### FI.WEB.DP.API.03 ###########
+Request (GET)
+http://161.27.159.143/poi_dp/poi_schema.json
+
+Response
+
+{
+  "title": "Point of Interest",
+  "description": "FIWARE POI data r5.1 GE, 2015-12-16 ariokkon/Adminotech",
+  "type": "object",
+  "properties": {
+    "fw_core": {
+      "title": "Core information",
+      "description": "For spatial search and finding that interesting one",
+      "type": "object",
+      "properties": {
+        "categories": {
+          "title": "Categories",
+          "description": "Descriptive tags for narrowing the search: cafe, museum, etc.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "fw_type": "poi_category"
+          },
+          "minItems": 1
+        },
+        "location": {
+          "title": "Location",
+          "description": "Location of the POI",
+          "$ref": "#/definitions/location"
+        },
+        "geometry": {
+          "title": "Geometrical form of the POI",
+          "description": "Format: Open Geospatial Consortium's 'Well-known text' ISO/IEC 13249-3:2011",
+          "type": "string"
+        },
+        "short_name": {
+          "title": "Short name",
+          "description": "Short name (max. 31 chars) to be shown on the map or in a narrow list",
+          "$ref": "#/definitions/intl_string_31"
+        },
+        "name": {
+          "title": "Name",
+          "description": "Descriptive name",
+          "$ref": "#/definitions/intl_string"
+        },
+        "label": {
+          "title": "Label",
+          "description": "More info to complement the name, if enough space",
+          "$ref": "#/definitions/intl_string_127"
+        },
+        "description": {
+          "title": "Description",
+          "description": "Text to facilitate decision to be interested or not",
+          "$ref": "#/definitions/intl_string"
+        },
+        "thumbnail": {
+          "title": "Thumbnail",
+          "description": "Link to a small picture to be shown on a list, scene or map. Preferably max. 256x256 pixels, e.g. 120x160.",
+          "type": "string",
+          "format": "uri"
+        },
+        "url": {
+          "title": "Web address",
+          "description": "URL to get more info, preferably official website of the POI",
+          "$ref": "#/definitions/intl_uri"
+        },
+        "source": {
+          "title": "Source of information",
+          "$ref": "#/definitions/source"
+        },
+        "last_update": {
+          "title": "Last update",
+          "description": "DO NOT EDIT! Information to identify the version of the data component.",
+          "$ref": "#/definitions/update_stamp"
+        }
+      },
+      "required": [
+        "categories",
+        "location"
+      ],
+      "additionalProperties": false
+    },
+    "fw_time": {
+      "title": "fw_time",
+      "description": "Temporal availability of the place or the associated service",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "",
+          "description": "Open - available thru open time, show_times - available at beginnings of shows",
+          "enum": [
+            "open",
+            "show_times"
+          ]
+        },
+        "time_zone": {
+          "title": "Time zone, - under development -",
+          "description": "TBD. Local time is assumed. Standardized notation including daylight savings time reference is needed."
+        },
+        "schedule": {
+          "title": "Schedule",
+          "description": "Definition of times of availability",
+          "$ref": "#/definitions/schedule"
+        },
+        "source": {
+          "title": "Source of information",
+          "$ref": "#/definitions/source"
+        },
+        "last_update": {
+          "title": "Last update",
+          "description": "DO NOT EDIT! Information to identify the version of the data component.",
+          "$ref": "#/definitions/update_stamp"
+        }
+      },
+      "required": [
+        "type",
+        "schedule"
+      ],
+      "additionalProperties": false
+    },
+    "fw_xml3d": {
+      "description": "3D description",
+      "type": "object",
+      "properties": {
+        "model_id": {
+          "description": "ID for XML3D engine",
+          "type": "string"
+        },
+        "model": {
+          "description": "Model for XML3D engine",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source of information",
+          "$ref": "#/definitions/source"
+        },
+        "last_update": {
+          "title": "Last update",
+          "description": "DO NOT EDIT! Information to identify the version of the data component.",
+          "$ref": "#/definitions/update_stamp"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fw_contact": {
+      "type": "object",
+      "properties": {
+        "visit": {
+          "description": "Visiting address good for a taxi driver or Google Maps",
+          "type": "string"
+        },
+        "postal": {
+          "description": "Postal address. One string per line",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mailto": {
+          "description": "Email address",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone number",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source of information",
+          "$ref": "#/definitions/source"
+        },
+        "last_update": {
+          "$ref": "#/definitions/update_stamp"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fw_media": {
+      "description": "Media items related to this POI item",
+      "type": "object",
+      "properties": {
+        "entities": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "description": "",
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "what kind of media item this is",
+                "enum": [
+                  "folder",
+                  "photo",
+                  "video",
+                  "audio"
+                ]
+              },
+              "short_label": {
+                "description": "To be shown along the item",
+                "$ref": "#/definitions/intl_string_31"
+              },
+              "caption": {
+                "description": "To be shown along the item",
+                "$ref": "#/definitions/intl_string_127"
+              },
+              "description": {
+                "description": "More info about the item",
+                "$ref": "#/definitions/intl_string"
+              },
+              "thumbnail": {
+                "description": "A small picture to be shown in the list",
+                "type": "string",
+                "format": "uri"
+              },
+              "url": {
+                "description": "URL of the actual media item",
+                "type": "string",
+                "format": "uri"
+              },
+              "copyright": {
+                "description": "Copyright clause and/or attribution of the item",
+                "type": "string"
+              },
+              "source": {
+                "title": "Source of information",
+                "$ref": "#/definitions/source"
+              }
+            },
+            "required": [
+              "type",
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "last_update": {
+          "title": "Last update",
+          "description": "DO NOT EDIT! Information to identify the version of the data component.",
+          "$ref": "#/definitions/update_stamp"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fw_relationships": {
+      "description": "List of relationships the POI is connected to.",
+      "type": "object",
+      "additionalProperties": {
+        "description": "specifies relations between POIs and possibly something else. Key is the UUID of the relationship.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "UUID of the relation",
+            "type": "string"
+          },
+          "subject": {
+            "description": "UUID of the source of the relation",
+            "type": "string"
+          },
+          "predicate": {
+            "description": "type of the relation",
+            "type": "object",
+            "additionalProperties": {
+              "description": "defines the type of the relation within ontology defined by the key",
+              "type": "string"
+            }
+          },
+          "object": {
+            "description": "UUID of the target of the relation",
+            "type": "string"
+          },
+          "last_update": {
+            "$ref": "#/definitions/update_stamp"
+          }
+        }
+      }
+    },
+    "fw_tags": {
+      "title": "Tags",
+      "description": "Texts for tagging the place",
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "last_update": {
+          "$ref": "#/definitions/update_stamp"
+        }
+      }
+    },
+    "fw_marker": {
+      "title": "fw_marker",
+      "description": "Marker choices for different tracking techniques",
+      "type": "object",
+      "properties": {
+        "alvar_3x3": {
+          "title": "Alvar 3x3",
+          "description": "3x3 marker used in Alvar (VTT Oulu) marker tracking system is used as an example here.",
+          "type": "object",
+          "properties": {
+            "code": {
+              "description": "code embedded to marker as defined by Alvar",
+              "type": "integer"
+            },
+            "image_ref": {
+              "description": "image of the marker e.g. for printing",
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        },
+        "alvar_5x5": {
+          "title": "Alvar 5x5",
+          "description": "5x5 marker used in Alvar (VTT Oulu) marker tracking system is used as an example here.",
+          "type": "object",
+          "properties": {
+            "code": {
+              "description": "code embedded to marker as defined by Alvar",
+              "type": "integer"
+            },
+            "image_ref": {
+              "description": "image of the marker e.g. for printing",
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        },
+        "image": {
+          "title": "Image",
+          "description": "Image-only marker for generic use",
+          "type": "object",
+          "properties": {
+            "image_ref": {
+              "description": "image of the marker e.g. for printing",
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        },
+        "source": {
+          "title": "Source of information",
+          "$ref": "#/definitions/source"
+        },
+        "last_update": {
+          "title": "Last update",
+          "description": "DO NOT EDIT! Information to identify the version of the data component.",
+          "$ref": "#/definitions/update_stamp"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fw_generic": {
+      "title": "Generic data",
+      "description": "For experiments and small scale use. Any key-value pairs accepted.",
+      "type": "object"
+    },
+    "fw_sensor": {
+      "title": "Sensor data",
+      "description": "Read-only data fetched elsewhere according to fw_dynamic",
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "description": "generic data and label copied from fw_sensor_desc, others elsewhere",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "to be shown in a list",
+                "$ref": "#/definitions/intl_string_31"
+              },
+              "label": {
+                "title": "Label",
+                "description": "More info to complement the name, if enough space",
+                "$ref": "#/definitions/intl_string_127"
+              },
+              "type": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "valid_duration": {
+          "description": "validity of data in seconds",
+          "type": "number"
+        },
+        "last_update": {
+          "title": "Last update",
+          "description": "DO NOT EDIT! Information to identify the version of the data component.",
+          "$ref": "#/definitions/update_stamp"
+        }
+      },
+      "additionalProperties": {
+        "description": "specific data items copied from elsewhere",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "to be shown in a list",
+            "$ref": "#/definitions/intl_string_31"
+          },
+          "label": {
+            "title": "Label",
+            "description": "More info to complement the name, if enough space",
+            "$ref": "#/definitions/intl_string_127"
+          },
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "fw_dynamic": {
+      "title": "dynamic data descriptor",
+      "description": "describes where to find data and what to do with it",
+      "type": "object",
+      "properties": {
+        "components": {
+          "type": "array",
+          "items": {
+            "description": "names of the components with dynamic content",
+            "type": "string"
+          }
+        },
+        "sources": {
+          "description": "where and how to collect data for this POI",
+          "type": "array",
+          "items": {
+            "description": "definition of a data source and related mapping",
+            "type": "object",
+            "properties": {
+              "host_type": {
+                "description": "Id of the host access configuration",
+                "type": "string"
+              },
+              "host_id": {
+                "type": "array",
+                "items": {
+                  "description": "parameter to host access configuration, e.g. url",
+                  "type": "string"
+                }
+              },
+              "data_type": {
+                "description": "Id of the data mapping descriptor",
+                "type": "string"
+              },
+              "data_params": {
+                "type": "array",
+                "items": {
+                  "description": "parameter to data mapping, e.g. a constant value",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "last_update": {
+          "title": "Last update",
+          "description": "DO NOT EDIT! Information to identify the version of the data component.",
+          "$ref": "#/definitions/update_stamp"
+        },
+        "valid_duration": {
+          "description": "validity of data in seconds",
+          "type": "number"
+        }
+      }
+    },
+    "fw_test_data": {
+      "title": "Test data",
+      "description": "For development and quality control. Structure and content are arbitrary.",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "location": {
+      "type": "object",
+      "properties": {
+        "wgs84": {
+          "title": "World Geodetic System",
+          "description": "",
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "description": "degrees north",
+              "type": "number"
+            },
+            "longitude": {
+              "description": "degrees east",
+              "type": "number"
+            },
+            "height": {
+              "description": "meters up from sea level, optional",
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "intl_string": {
+      "type": "object",
+      "properties": {
+        "_def": {
+          "title": "Default language override",
+          "description": "Optional key of the default language for this string",
+          "type": "string"
+        },
+        "__": {
+          "title": "Language independent text",
+          "description": "This is the default 'language' by default",
+          "type": "string"
+        },
+        "de": {
+          "title": "Text in German",
+          "description": "",
+          "type": "string"
+        },
+        "en": {
+          "title": "Text in English",
+          "description": "",
+          "type": "string"
+        },
+        "es": {
+          "title": "Text in Spanish",
+          "description": "",
+          "type": "string"
+        },
+        "fi": {
+          "title": "Text in Finnish",
+          "description": "",
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "title": "Text in language <key>",
+        "description": "The key is ISO 639-1 Language Code",
+        "type": "string"
+      }
+    },
+    "intl_string_31": {
+      "type": "object",
+      "properties": {
+        "_def": {
+          "title": "Default language override",
+          "description": "Optional key of the default language for this string",
+          "type": "string"
+        },
+        "__": {
+          "title": "Language independent text",
+          "description": "This is the default 'language' by default",
+          "type": "string",
+          "maxLength": 31
+        },
+        "de": {
+          "title": "Text in German",
+          "description": "",
+          "type": "string",
+          "maxLength": 31
+        },
+        "en": {
+          "title": "Text in English",
+          "description": "",
+          "type": "string",
+          "maxLength": 31
+        },
+        "es": {
+          "title": "Text in Spanish",
+          "description": "",
+          "type": "string",
+          "maxLength": 31
+        },
+        "fi": {
+          "title": "Text in Finnish",
+          "description": "",
+          "type": "string",
+          "maxLength": 31
+        }
+      },
+      "additionalProperties": {
+        "title": "Text in language <key>",
+        "description": "The key is ISO 639-1 Language Code",
+        "type": "string",
+        "maxLength": 31
+      }
+    },
+    "intl_string_127": {
+      "type": "object",
+      "properties": {
+        "_def": {
+          "title": "Default language override",
+          "description": "Optional key of the default language for this string",
+          "type": "string"
+        },
+        "__": {
+          "title": "Language independent text",
+          "description": "This is the default 'language' by default",
+          "type": "string",
+          "maxLength": 127
+        },
+        "de": {
+          "title": "Text in German",
+          "description": "",
+          "type": "string",
+          "maxLength": 127
+        },
+        "en": {
+          "title": "Text in English",
+          "description": "",
+          "type": "string",
+          "maxLength": 127
+        },
+        "es": {
+          "title": "Text in Spanish",
+          "description": "",
+          "type": "string",
+          "maxLength": 127
+        },
+        "fi": {
+          "title": "Text in Finnish",
+          "description": "",
+          "type": "string",
+          "maxLength": 127
+        }
+      },
+      "additionalProperties": {
+        "title": "Text in language <key>",
+        "description": "The key is ISO 639-1 Language Code",
+        "type": "string",
+        "maxLength": 127
+      }
+    },
+    "intl_uri": {
+      "type": "object",
+      "properties": {
+        "_def": {
+          "title": "Default language override",
+          "description": "Optional key of the default language for this link",
+          "type": "string"
+        },
+        "__": {
+          "title": "Language independent URI",
+          "description": "This is the default 'language' by default",
+          "type": "string",
+          "format": "uri"
+        },
+        "de": {
+          "title": "URI for German",
+          "description": "",
+          "type": "string",
+          "format": "uri"
+        },
+        "en": {
+          "title": "URI for English",
+          "description": "",
+          "type": "string",
+          "format": "uri"
+        },
+        "es": {
+          "title": "URI for Spanish",
+          "description": "",
+          "type": "string",
+          "format": "uri"
+        },
+        "fi": {
+          "title": "URI for Finnish",
+          "description": "",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": {
+        "title": "URI for language <key>",
+        "description": "The key is ISO 639-1 Language Code",
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "date": {
+      "type": "array",
+      "description": "[yy, MM, dd]",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "time": {
+      "type": "array",
+      "description": "[hh, mm, ss.decimals]",
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 3
+    },
+    "date_time": {
+      "type": "array",
+      "description": "[yy, MM, dd, hh, mm, ss.decimals]",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 6
+    },
+    "schedule": {
+      "type": "object",
+      "properties": {
+        "or": {
+          "title": "Any of",
+          "description": "union - valid when any of sub-schedules is valid",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/schedule"
+          }
+        },
+        "and": {
+          "title": "All of",
+          "description": "intersection - valid when all of sub-schedules are valid",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/schedule"
+          }
+        },
+        "not": {
+          "title": "Those not in",
+          "description": "complement - valid when the sub schedule is not valid",
+          "$ref": "#/definitions/schedule"
+        },
+        "wd": {
+          "title": "Weekdays",
+          "description": "weekday: valid on listed weekdays, 1=Monday,...,7=Sunday",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 7
+          }
+        },
+        "bhr": {
+          "title": "Begin time",
+          "description": "begin hour [hour-integer, minute-integer, second-number]. End zeros can be omitted.",
+          "$ref": "#/definitions/time"
+        },
+        "ehr": {
+          "title": "End time",
+          "description": "end hour [hour-integer, minute-integer, second-number]. End zeros can be omitted.",
+          "$ref": "#/definitions/time"
+        },
+        "bev": {
+          "title": "Since date, time",
+          "description": "begin event [year, month, day, hour, minute -integers, second-number]. End zeros can be omitted.",
+          "$ref": "#/definitions/date_time"
+        },
+        "eev": {
+          "title": "Until date, time",
+          "description": "end event [year, month, day, hour, minute -integers, second-number]. End zeros can be omitted.",
+          "$ref": "#/definitions/date_time"
+        },
+        "bdate": {
+          "title": "First month, day",
+          "description": "starting [ month, day] until the end of the year",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "edate": {
+          "title": "Last month, day",
+          "description": "from the beginning of the year ending [ month, day] ",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Source of the component information",
+          "type": "string"
+        },
+        "website": {
+          "description": "Link to a related webpage",
+          "type": "string",
+          "format": "uri"
+        },
+        "id": {
+          "description": "UUID of the source profile",
+          "type": "string"
+        },
+        "license": {
+          "description": "Link to applied license",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": false
+    },
+    "update_stamp": {
+      "type": "object",
+      "fw_read_only": true,
+      "properties": {
+        "timestamp": {
+          "description": "When updated - to catch conflicts (unix timestamp format)",
+          "type": "integer"
+        },
+        "responsible": {
+          "description": "Who updated, UUID of the profile",
+          "type": "string"
+        }
+      },
+      "required": [
+        "timestamp"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+
+
+########### FI.WEB.DP.API.04 ###########
+Request (GET)
+http://161.27.159.143/poi_dp/poi_categories.json
+
+Response
+{
+  "_ALL": {
+    "_label": {
+      "en": "[ All categories ]",
+      "de": "[ Alle Kategorien ]",
+      "fi": "[ Kaikki kategoriat ]",
+      "es": "[ Todas categorias ]"
+    }
+  },
+  "_OTHER": {
+    "_label": {
+      "en": "[ Other ]",
+      "fi": "[ Muita ]",
+      "de": "[ Andere ]",
+      "es": "[ Otras ]"
+    }
+  },
+  "fw_osm": {
+    "_label": {
+      "__": "FIWARE experimental"
+    },
+    "sustenance": {
+      "_label": {
+        "__": "Sustenance",
+        "fi": "Ravinto"
+      }
+    },
+    "bar": {
+      "_label": {
+        "__": "Bar",
+        "fi": "Baari"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "bbq": {
+      "_label": {
+        "en": "BBQ",
+        "fi": "Grilli",
+        "es": "Barbacoa"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "biergarten": {
+      "_label": {
+        "__": "Biergarten"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "cafe": {
+      "_label": {
+        "__": "CafÃ©",
+        "fi": "Kahvila"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "drinking_water": {
+      "_label": {
+        "en": "Drinking water"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "fast_food": {
+      "_label": {
+        "en": "Fast food"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "food_court": {
+      "_label": {
+        "en": "Food court"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "ice_cream": {
+      "_label": {
+        "en": "Ice cream"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "pub": {
+      "_label": {
+        "en": "Pub"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "restaurant": {
+      "_label": {
+        "en": "Restaurant"
+      },
+      "_parents": [
+        "sustenance"
+      ]
+    },
+    "education": {
+      "_label": {
+        "__": "Education"
+      }
+    },
+    "college": {
+      "_label": {
+        "en": "College"
+      },
+      "_parents": [
+        "education"
+      ]
+    },
+    "kindergarten": {
+      "_label": {
+        "en": "Kindergarten"
+      },
+      "_parents": [
+        "education"
+      ]
+    },
+    "library": {
+      "_label": {
+        "en": "Library"
+      },
+      "_parents": [
+        "education"
+      ]
+    },
+    "school": {
+      "_label": {
+        "en": "School",
+        "de": "Schule"
+      },
+      "_parents": [
+        "education"
+      ]
+    },
+    "university": {
+      "_label": {
+        "fi": "Yliopisto",
+        "en": "University"
+      },
+      "_parents": [
+        "education"
+      ]
+    },
+    "transportation": {
+      "_label": {
+        "__": "Transportation"
+      }
+    },
+    "bicycle_parking": {
+      "_label": {
+        "en": "Bicycle parking"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "bicycle_rental": {
+      "_label": {
+        "en": "Bicycle rental"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "boat_sharing": {
+      "_label": {
+        "en": "Boat sharing"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "bus_station": {
+      "_label": {
+        "en": "Bus station"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "car_rental": {
+      "_label": {
+        "en": "Car rental"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "car_sharing": {
+      "_label": {
+        "en": "Car sharing"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "car_wash": {
+      "_label": {
+        "en": "Car wash"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "ev_charging": {
+      "_label": {
+        "en": "Ev charging"
+      },
+      "_parents": [
+        "transportation"
+      ],
+      "_deprecated": [
+        "charging_station"
+      ]
+    },
+    "charging_station": {
+      "_label": {
+        "en": "Charging station"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "ferry_terminal": {
+      "_label": {
+        "en": "Ferry terminal"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "fuel": {
+      "_label": {
+        "en": "Fuel"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "grit_bin": {
+      "_label": {
+        "en": "Grit bin"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "parking": {
+      "_label": {
+        "en": "Parking"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "parking_entrance": {
+      "_label": {
+        "en": "Parking entrance"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "parking_space": {
+      "_label": {
+        "en": "Parking space"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "taxi": {
+      "_label": {
+        "__": "Taxi",
+        "fi": "Taksi"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "vehicle": {
+      "_label": {
+        "__": "Vehicle",
+        "fi": "Liikenneväline"
+      },
+      "_parents": [
+        "transportation"
+      ]
+    },
+    "financial": {
+      "_label": {
+        "__": "Financial"
+      }
+    },
+    "atm": {
+      "_label": {
+        "en": "ATM"
+      },
+      "_parents": [
+        "financial"
+      ]
+    },
+    "bank": {
+      "_label": {
+        "en": "bank"
+      },
+      "_parents": [
+        "financial"
+      ]
+    },
+    "bureau_de_change": {
+      "_label": {
+        "en": "Bureau de change"
+      },
+      "_parents": [
+        "financial"
+      ]
+    },
+    "healthcare": {
+      "_label": {
+        "__": "Healthcare"
+      }
+    },
+    "baby_hatch": {
+      "_label": {
+        "en": "Baby hatch"
+      },
+      "_parents": [
+        "healthcare"
+      ]
+    },
+    "clinic": {
+      "_label": {
+        "en": "Clinic"
+      },
+      "_parents": [
+        "healthcare"
+      ]
+    },
+    "dentist": {
+      "_label": {
+        "en": "Dentist"
+      },
+      "_parents": [
+        "healthcare"
+      ]
+    },
+    "doctors": {
+      "_label": {
+        "en": "Doctors"
+      },
+      "_parents": [
+        "healthcare"
+      ]
+    },
+    "hospital": {
+      "_label": {
+        "en": "Hospital"
+      },
+      "_parents": [
+        "healthcare"
+      ]
+    },
+    "nursing_home": {
+      "_label": {
+        "en": "Nursing home"
+      },
+      "_parents": [
+        "healthcare"
+      ]
+    },
+    "pharmacy": {
+      "_label": {
+        "en": "Pharmacy"
+      },
+      "_parents": [
+        "healthcare"
+      ]
+    },
+    "social_facility": {
+      "_label": {
+        "en": "Social facility"
+      },
+      "_parents": [
+        "healthcare"
+      ]
+    },
+    "veterinary": {
+      "_label": {
+        "en": "Veterinary"
+      },
+      "_parents": [
+        "healthcare"
+      ]
+    },
+    "culture": {
+      "_label": {
+        "__": "Entertainment, Arts & Culture"
+      }
+    },
+    "arts_centre": {
+      "_label": {
+        "en": "Arts_centre"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "brothel": {
+      "_label": {
+        "en": "Brothel"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "casino": {
+      "_label": {
+        "__": "Casino"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "cinema": {
+      "_label": {
+        "en": "Cinema"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "community_centre": {
+      "_label": {
+        "en": "Community centre"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "fountain": {
+      "_label": {
+        "en": "Fountain"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "gambling": {
+      "_label": {
+        "__": "Gambling"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "nightclub": {
+      "_label": {
+        "en": "Nightclub"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "planetarium": {
+      "_label": {
+        "en": "Planetarium"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "social_centre": {
+      "_label": {
+        "en": "Social centre"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "stripclub": {
+      "_label": {
+        "en": "Stripclub"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "studio": {
+      "_label": {
+        "en": "Studio"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "swingerclub": {
+      "_label": {
+        "en": "Swingerclub"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "theatre": {
+      "_label": {
+        "en": "Theatre"
+      },
+      "_parents": [
+        "culture"
+      ]
+    },
+    "misc": {
+      "_label": {
+        "__": "Miscellanea"
+      }
+    },
+    "animal_boarding": {
+      "_label": {
+        "en": "Animal boarding"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "animal_shelter": {
+      "_label": {
+        "en": "Animal shelter"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "bench": {
+      "_label": {
+        "en": "Bench"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "clock": {
+      "_label": {
+        "en": "Clock"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "courthouse": {
+      "_label": {
+        "en": "Courthouse"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "coworking_space": {
+      "_label": {
+        "en": "Coworking space"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "crematorium": {
+      "_label": {
+        "en": "Crematorium"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "crypt": {
+      "_label": {
+        "en": "Crypt"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "dojo": {
+      "_label": {
+        "en": "Dojo"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "embassy": {
+      "_label": {
+        "en": "Embassy"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "fire_station": {
+      "_label": {
+        "en": "Fire station"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "firepit": {
+      "_label": {
+        "en": "Firepit"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "grave_yard": {
+      "_label": {
+        "en": "Grave yard"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "gym": {
+      "_label": {
+        "en": "Gym"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "hunting_stand": {
+      "_label": {
+        "en": "Hunting stand"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "marketplace": {
+      "_label": {
+        "en": "Marketplace"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "photo_booth": {
+      "_label": {
+        "__": "Photo booth"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "place_of_worship": {
+      "_label": {
+        "en": "Place of worship"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "police": {
+      "_label": {
+        "en": "Police"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "post_box": {
+      "_label": {
+        "en": "Post box"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "post_office": {
+      "_label": {
+        "en": "Post office"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "prison": {
+      "_label": {
+        "en": "Prison"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "public_building": {
+      "_label": {
+        "en": "Public building"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "ranger_station": {
+      "_label": {
+        "en": "Ranger station"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "register_office": {
+      "_label": {
+        "en": "Register office"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "recycling": {
+      "_label": {
+        "en": "Recycling"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "rescue_station": {
+      "_label": {
+        "__": "Rescue station"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "sauna": {
+      "_label": {
+        "__": "Sauna"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "shelter": {
+      "_label": {
+        "en": "Shelter"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "shower": {
+      "_label": {
+        "en": "Shower"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "telephone": {
+      "_label": {
+        "en": "Telephone"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "toilets": {
+      "_label": {
+        "en": "Toilets"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "townhall": {
+      "_label": {
+        "en": "Townhall"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "vending_machine": {
+      "_label": {
+        "en": "Vending machine"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "waste_disposal": {
+      "_label": {
+        "en": "Waste disposal"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "watering_place": {
+      "_label": {
+        "en": "Watering place"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "water_point": {
+      "_label": {
+        "en": "Water point"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "barbershop": {
+      "_label": {
+        "en": "Barbershop"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "office": {
+      "_label": {
+        "en": "Office"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "waste_basket": {
+      "_label": {
+        "en": "Waste basket"
+      },
+      "_parents": [
+        "misc"
+      ]
+    },
+    "sensor": {
+      "_label": {
+        "__": "Sensor",
+        "fi": "Anturi"
+      }
+    }
+  }
+}
+
+
+
+
+########### FI.WEB.DP.API.05 ###########
+Request (GET)
+http://161.27.159.143/poi_dp/radial_search?lat=1&lon=1&category=test_poi
+
+Response
+{
+  "pois": {
+    "ae01d34a-d0c1-4134-9107-71814b4805af": {
+      "fw_core": {
+        "location": {
+          "wgs84": {
+            "latitude": 1,
+            "longitude": 1
+          }
+        },
+        "categories": [
+          "test_poi"
+        ],
+        "name": {
+          "__": "Test POI 1"
+        }
+      }
+    }
+  },
+  "service_info": {
+    "site_name": "FIWARE POI-DP",
+    "site_version": "5.1.3",
+    "api_version": "5.1.a",
+    "name": "radial_search"
+  }
+}
+
+
+########### FI.WEB.DP.API.06 ###########
+Request (GET)
+http://161.27.159.143/poi_dp/bbox_search?north=65.1&south=64.9&east=25.6&west=25.3&category=cafe,restaurant&max_results=2
+
+Response
+{
+  "pois": [
+
+  ],
+  "service_info": {
+    "site_name": "FIWARE POI-DP",
+    "site_version": "5.1.3",
+    "api_version": "5.1.a",
+    "name": "bbox_search"
+  }
+}
+  
+
+########### FI.WEB.DP.API.08 ###########
+Request (POST)
+http://161.27.159.143/poi_dp/add_poi
+body
+{
+   "fw_core": {
+      "categories": [
+         "cafe"
+      ],
+      "location": {
+         "wgs84": {
+            "latitude": 65.05933,
+            "longitude": 25.466478
+         }
+      },
+      "name": {
+         "__": "Aulakahvila"
+      }
+   }
+}
+
+Response
+{
+   "created_poi": {
+      "uuid": "1d06fb27-66eb-455b-ba3e-7601deafef9a",
+      "timestamp": 1463733633
+   },
+   "service_info": {
+      "site_name": "FIWARE POI-DP",
+      "site_version": "5.1.3",
+      "api_version": "5.1.a",
+      "name": "add_poi"
+   }
+}
+
+  
+########### FI.WEB.DP.API.07 ###########
+Request (GET)
+http://161.27.159.143/poi_dp/get_pois?poi_id=1d06fb27-66eb-455b-ba3e-7601deafef9a&component=fw_core
+
+Response
+{
+  "pois": {
+    "1d06fb27-66eb-455b-ba3e-7601deafef9a": {
+      "fw_core": {
+        "location": {
+          "wgs84": {
+            "latitude": 65.05933,
+            "longitude": 25.466478
+          }
+        },
+        "categories": [
+          "cafe"
+        ],
+        "name": {
+          "__": "Aulakahvila"
+        }
+      }
+    }
+  },
+  "service_info": {
+    "site_name": "FIWARE POI-DP",
+    "site_version": "5.1.3",
+    "api_version": "5.1.a",
+    "name": "get_pois"
+  }
+}
+
+########### FI.WEB.DP.API.09 ###########
+to retrieve the timestamp
+psql -U gisuser poidatabase
+
+poidatabase=> SELECT timestamp FROM fw_core where uuid='1d06fb27-66eb-455b-ba3e-7601deafef9a';
+ timestamp
+------------
+ 1463733633
+
+
+Request (POST)
+http://161.27.159.143/poi_dp/update_poi
+body
+{ 
+  "1d06fb27-66eb-455b-ba3e-7601deafef9a": {
+    "fw_core": {
+	  "categories": ["cafe"], 
+	  "location": {
+	    "wgs84": { 
+		  "latitude": 65.059334, 
+		  "longitude": 25.4664775
+	    }
+  	  }, 
+	  "name": {
+	    "__": "Aulakahvila"
+	  },
+	  "description": {
+	    "__": "Cafe at the Univesity of Oulu"
+      },
+	   "last_update": {"timestamp":1463733633}
+    }
+  }
+}
+
+Response
+POI data updated succesfully!
+
+########### FI.WEB.DP.API.10 ###########
+to retrieve the poi_id
+psql -U gisuser poidatabase
+
+poidatabase=> SELECT uuid FROM fw_core;
+                 uuid
+--------------------------------------
+ ae01d34a-d0c1-4134-9107-71814b4805af
+ 8e57d2e6-f98f-4404-b075-112049e72346
+ 12ebff8a-d36d-4eba-8841-d5176bbba707
+ 45fe3060-6d47-46a8-9184-d2b93b9f2268
+ 1d06fb27-66eb-455b-ba3e-7601deafef9a
+
+
+Request (DELETE)
+
+http://161.27.159.143/poi_dp/delete_poi?poi_id=45fe3060-6d47-46a8-9184-d2b93b9f2268
+
+Response
+POI deleted succesfully
+
+Check after deletion
+psql -U gisuser poidatabase
+
+poidatabase=> SELECT uuid FROM fw_core;
+                 uuid
+--------------------------------------
+ ae01d34a-d0c1-4134-9107-71814b4805af
+ 8e57d2e6-f98f-4404-b075-112049e72346
+ 12ebff8a-d36d-4eba-8841-d5176bbba707
+ 1d06fb27-66eb-455b-ba3e-7601deafef9a
+
