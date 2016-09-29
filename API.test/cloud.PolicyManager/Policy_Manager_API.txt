@@ -1,0 +1,285 @@
+###########  COMMON ###########
+
+
+########### FI.CLO.BO.API.02 ###########
+Create New Facts
+Request
+curl --include  --request PUT  --header "Content-Type: application/json"  --header "X-Auth-Token: 945ec2320f9c4dac8066f30002cf25d6"   --data-binary "{\"contextResponses\": [{ \"contextElement\": {\"attributes\": [{    \"value\": \"0.12\",    \"name\": \"usedMemPct\",    \"type\": \"string\"},{    \"value\": \"0.14\",    \"name\": \"cpuLoadPct\",    \"type\": \"string\"},{    \"value\": \"0.856240\",    \"name\": \"freeSpacePct\",    \"type\": \"string\"},{    \"value\": \"0.8122\",    \"name\": \"netLoadPct\",    \"type\": \"string\"}],\"id\": \"Trento:193.205.211.69\",\"isPattern\": \"false\",\"type\": \"host\"},\"statusCode\": {    \"code\": \"200\",    \"reasonPhrase\": \"OK\"}}]}" 'http://localhost:8000/v1.0/idm_project/servers/3333'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 16:06:57 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+{
+    "OK": {
+        "message": "Should update the context of server 3333",
+        "code": 200
+    }
+}
+
+
+
+########### FI.CLO.BO.API.03 ###########
+Get information
+Request
+curl --include --header "X-Auth-Token: 94e955325cad4838959337d4f424802b"  'http://localhost:8000/v1.0/idm_project/'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Tue, 26 Jul 2016 15:05:19 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+{
+    "owner": "Telefonica I+D",
+    "doc": "http://docs.policymanager.apiary.io",
+    "runningfrom": "16/07/26 14:49:59",
+    "version": "2.7.0",
+    "windowsize": 5
+}
+
+########### FI.CLO.BO.API.04 ###########
+Update the window size
+Request
+curl --include --request PUT --header "Content-Type: application/json" --header "X-Auth-Token: 94e955325cad4838959337d4f424802b" --data-binary "{\"windowsize\": 1}" 'http://localhost:8000/v1.0/idm_project'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Tue, 26 Jul 2016 15:24:11 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+{
+    "windowsize": 1
+}
+
+
+########### FI.CLO.BO.API.05 ###########
+Get list of all server's rules
+Request
+curl --include --header "X-Auth-Token: 9aed0273bf184d19af08f813191f6ac5"  'http://localhost:8000/v1.0/idm_project/servers'
+
+Response
+
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 15:25:51 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+{
+    "servers": [
+        {
+            "rules": [
+                {
+                    "specificRule_Id": "70db20a8-54c7-11e6-bffb-fa163ef0718c",
+                    "name": "ScaleUpRule"
+                }
+            ],
+            "serverId": "2222"
+        },
+        {
+            "rules": [
+                {
+                    "specificRule_Id": "7aa99e10-54d7-11e6-bffb-fa163ef0718c",
+                    "name": "ScaleUpRule"
+                }
+            ],
+            "serverId": "3333"
+        },
+        {
+            "rules": [
+                {
+                    "specificRule_Id": "60cc0c5e-54c7-11e6-bffb-fa163ef0718c",
+                    "name": "ScaleUpRule"
+                }
+            ],
+            "serverId": "999"
+        }
+    ]
+}
+
+########### FI.CLO.BO.API.06 ###########
+Get the list of all rules of a server
+Request
+curl --include --header "X-Auth-Token: 9aed0273bf184d19af08f813191f6ac5"  'http://localhost:8000/v1.0/idm_project/servers/3333'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 15:27:25 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+{
+    "rules": [
+        {
+            "action": "{'actionName': 'notify-scale', 'operation': 'scaleUp'}",
+            "specificRule_Id": "7aa99e10-54d7-11e6-bffb-fa163ef0718c",
+            "condition": "{'mem': {'operand': 'greater equal', 'value': 95}, 'net': {'operand': 'greater', 'value': 95}, 'hdd': {'operand': 'greater', 'value': 95}, 'cpu': {'operand': 'greater', 'value': 98}}",
+            "name": "ScaleUpRule"
+        }
+    ],
+    "serverId": "3333",
+    "subscription": [],
+    "tenantId": "idm_project"
+}
+
+
+########### FI.CLO.BO.API.07 ###########
+Create a new elasticity rule
+Request
+curl --include --request POST --header "Content-Type: application/json"  --header "X-Auth-Token: 9aed0273bf184d19af08f813191f6ac5"  --data-binary "{\"action\": {\"actionName\": \"notify-scale\", \"operation\": \"scaleUp\"}, \"name\": \"ScaleUpRule\", \"condition\": { \"cpu\": { \"value\": 98, \"operand\": \"greater\" }, \"hdd\": { \"value\": 95, \"operand\": \"greater\" }, \"net\": { \"value\": 95, \"operand\": \"greater\" }, \"mem\": { \"value\": 95, \"operand\": \"greater equal\"}}}" 'http://localhost:8000/v1.0/idm_project/servers/3333/rules'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 15:25:13 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+Response
+{
+    "serverId": "3333",
+    "ruleId": "7aa99e10-54d7-11e6-bffb-fa163ef0718c"
+}
+
+########### FI.CLO.BO.API.08 ###########
+Update an elasticity rule
+Request
+curl --include --request PUT --header "Content-Type: application/json"  --header "X-Auth-Token: 9aed0273bf184d19af08f813191f6ac5"  --data-binary "{\"name\": \"ScaleUpRule\", \"action\": {\"actionName\": \"notify-scale\", \"operation\": \"scaleUp\"}, \"condition\": { \"cpu\": { \"value\": 98, \"operand\": \"greater\" },  \"net\": { \"value\": 50, \"operand\": \"greater equal\"},  \"hdd\": { \"value\": 50, \"operand\": \"greater equal\"},  \"mem\": { \"value\": 50, \"operand\": \"greater equal\"}}}" 'http://localhost:8000/v1.0/idm_project/servers/3333/rules/7aa99e10-54d7-11e6-bffb-fa163ef0718c'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 15:38:02 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+{
+    "action": {
+        "actionName": "notify-scale",
+        "operation": "scaleUp"
+    },
+    "name": "ScaleUpRule",
+    "condition": {
+        "mem": {
+            "operand": "greater equal",
+            "value": 50
+        },
+        "net": {
+            "operand": "greater equal",
+            "value": 50
+        },
+        "hdd": {
+            "operand": "greater equal",
+            "value": 50
+        },
+        "cpu": {
+            "operand": "greater",
+            "value": 98
+        }
+    },
+    "ruleId": "7aa99e10-54d7-11e6-bffb-fa163ef0718c"
+}
+
+########### FI.CLO.BO.API.09 ###########
+Delete an elasticity rule
+Request
+curl --include --request DELETE --header "Content-Type: application/json"  --header "X-Auth-Token: 9aed0273bf184d19af08f813191f6ac5"  'http://localhost:8000/v1.0/idm_project/servers/3333/rules/7aa99e10-54d7-11e6-bffb-fa163ef0718c'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 15:42:23 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+########### FI.CLO.BO.API.10 ###########
+Get an elasticity rule
+Request
+curl --include --header "X-Auth-Token: 9aed0273bf184d19af08f813191f6ac5" 'http://localhost:8000/v1.0/idm_project/servers/3333/rules/510650b4-54da-11e6-bffb-fa163ef0718c'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 15:46:01 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+{
+    "action": "{'actionName': 'notify-scale', 'operation': 'scaleUp'}",
+    "name": "ScaleUpRule",
+    "condition": "{'mem': {'operand': 'greater equal', 'value': 95}, 'net': {'operand': 'greater', 'value': 95}, 'hdd': {'operand': 'greater', 'value': 95}, 'cpu': {'operand': 'greater', 'value': 98}}",
+    "ruleId": "510650b4-54da-11e6-bffb-fa163ef0718c"
+}
+
+
+########### FI.CLO.BO.API.11 ###########
+Create a new subscription
+Request
+curl --include --request POST --header "Content-Type: application/json"  --header "X-Auth-Token: 9aed0273bf184d19af08f813191f6ac5"  --data-binary "{\"ruleId\": \"510650b4-54da-11e6-bffb-fa163ef0718c\", \"url\": \"http://localhost:8000\"}" 'http://localhost:8000/v1.0/idm_project/servers/3333/subscription'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 15:52:16 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+{
+    "serverId": "3333",
+    "subscriptionId": "425c3ae6-54db-11e6-bffb-fa163ef0718c"
+}
+
+
+########### FI.CLO.BO.API.13 ###########
+Get a subscription
+Request
+curl --include --header "Content-Type: application/json"  --header "X-Auth-Token: 9aed0273bf184d19af08f813191f6ac5"   'http://localhost:8000/v1.0/idm_project/servers/3333/subscription/425c3ae6-54db-11e6-bffb-fa163ef0718c'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 15:54:31 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+{
+    "url": "http://localhost:8000",
+    "serverId": "3333",
+    "subscriptionId": "425c3ae6-54db-11e6-bffb-fa163ef0718c",
+    "ruleId": "510650b4-54da-11e6-bffb-fa163ef0718c"
+}
+
+
+########### FI.CLO.BO.API.12 ###########
+Delete a subscription
+Request
+curl --include --request DELETE --header "Content-Type: application/json"  --header "X-Auth-Token: 9aed0273bf184d19af08f813191f6ac5"   'http://localhost:8000/v1.0/idm_project/servers/3333/subscription/425c3ae6-54db-11e6-bffb-fa163ef0718c'
+
+Response
+HTTP/1.1 200 OK
+Server: gunicorn/19.1.1
+Date: Thu, 28 Jul 2016 15:56:02 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+
