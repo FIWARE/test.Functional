@@ -1,0 +1,116 @@
+﻿###########  COMMON ###########
+console geoserver
+http://161.27.159.143:8080/geoserver/web/
+
+########### FI.WEB.GIS.API.02 ###########
+Request
+http://161.27.159.143:8080/geoserver/ows?service=w3ds&version=0.4.0&request=GetCapabilities
+
+Response
+
+<?xml version="1.0" encoding="UTF-8"?>
+<w3ds:Capabilities xmlns:w3ds="http://www.opengis.net/w3ds/0.4.0" xmlns="http://www.opengis.net/w3ds/0.4.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" version="0.4.0">
+   <ows:ServiceIdentification>
+      <ows:Title />
+      <ows:Abstract />
+      <ows:ServiceType>OGC W3DS</ows:ServiceType>
+      <ows:ServiceTypeVersion>0.4.0</ows:ServiceTypeVersion>
+      <ows:Fees />
+      <ows:AccessConstraints />
+   </ows:ServiceIdentification>
+   <ows:OperationsMetadata>
+      <ows:Operation name="GetCapabilities">
+         <ows:DCP>
+            <ows:HTTP>
+               <ows:Get xlink:href="http://161.27.159.143:8080/geoserver/ows?">
+                  <ows:Constraint name="GetEncoding">
+                     <ows:AllowedValues>
+                        <ows:Value>KVP</ows:Value>
+                     </ows:AllowedValues>
+                  </ows:Constraint>
+               </ows:Get>
+            </ows:HTTP>
+         </ows:DCP>
+      </ows:Operation>
+      <ows:Operation name="GetScene">
+         <ows:DCP>
+            <ows:HTTP>
+               <ows:Get xlink:href="http://161.27.159.143:8080/geoserver/ows?">
+                  <ows:Constraint name="GetEncoding">
+                     <ows:AllowedValues>
+                        <ows:Value>KVP</ows:Value>
+                     </ows:AllowedValues>
+                  </ows:Constraint>
+               </ows:Get>
+            </ows:HTTP>
+         </ows:DCP>
+      </ows:Operation>
+      <ows:Operation name="GetTile">
+         <ows:DCP>
+            <ows:HTTP>
+               <ows:Get xlink:href="http://161.27.159.143:8080/geoserver/ows?">
+                  <ows:Constraint name="GetEncoding">
+                     <ows:AllowedValues>
+                        <ows:Value>KVP</ows:Value>
+                     </ows:AllowedValues>
+                  </ows:Constraint>
+               </ows:Get>
+            </ows:HTTP>
+         </ows:DCP>
+      </ows:Operation>
+      <ows:Operation name="GetFeatureInfo">
+         <ows:DCP>
+            <ows:HTTP>
+               <ows:Get xlink:href="http://161.27.159.143:8080/geoserver/ows?">
+                  <ows:Constraint name="GetEncoding">
+                     <ows:AllowedValues>
+                        <ows:Value>KVP</ows:Value>
+                     </ows:AllowedValues>
+                  </ows:Constraint>
+               </ows:Get>
+            </ows:HTTP>
+         </ows:DCP>
+      </ows:Operation>
+   </ows:OperationsMetadata>
+   <w3ds:Contents>
+      <w3ds:Layer>
+         <ows:Title>terrain</ows:Title>
+         <ows:Abstract>terrain</ows:Abstract>
+         <ows:Identifier>fiware:terrain</ows:Identifier>
+         <ows:BoundingBox crs="EPSG:3047">
+            <ows:LowerCorner>374010.0 7548000.0</ows:LowerCorner>
+            <ows:UpperCorner>380010.0 7554000.0</ows:UpperCorner>
+         </ows:BoundingBox>
+         <ows:OutputFormat>model/x3d+xml</ows:OutputFormat>
+         <ows:OutputFormat>text/html</ows:OutputFormat>
+         <w3ds:DefaultCRS>EPSG:3047</w3ds:DefaultCRS>
+         <w3ds:Queriable>true</w3ds:Queriable>
+         <w3ds:Tiled>false</w3ds:Tiled>
+      </w3ds:Layer>
+   </w3ds:Contents>
+</w3ds:Capabilities>
+
+########### FI.WEB.GIS.API.03 ###########
+Request
+
+http://161.27.159.135:8080/geoserver/w3ds?version=0.4&service=w3ds&request=GetScene&crs=EPSG:3047&format=Application/xml&layers=terrain&boundingbox=373969.9375,7547970,375183.9625,7549182&LOD=4
+http://161.27.159.135:8080/geoserver/w3ds?version=0.4.0&service=w3ds&request=GetScene&crs=EPSG:3047&format=model/xml3d+xml&boundingbox=373969.9375,7547970,375183.9625,7549182&layers=terrain&LOD=4
+
+Response
+
+########### FI.WEB.GIS.API.04 ###########
+Request
+
+http://161.27.159.135:8080/geoserver/fiware/wms?service=WMS&version=1.1.0&request=GetMap&srs=EPSG:404000&format=image/jpeg&layers=terrain_texture_raster&bbox=356000,7530000,372003.3333333333,7546000&width=1024&height=1024
+Headers:
+Accept: application/octet-stream
+
+Response
+
+
+########### FI.WEB.GIS.API.05 ###########
+Request
+
+http://161.27.159.135:8080/geoserver/w3ds?service=w3ds&request=GetFeatureInfo&VERSION=1.1.1&CRS=EPSG:3047&FORMAT=text/html&LAYERS=fiware:terrain&FEATURECOUNT=50&COORDINATE=7545645.853803029,381772.4223748445,7547573.7281912435&EXCEPTIONS=text/htm
+
+
