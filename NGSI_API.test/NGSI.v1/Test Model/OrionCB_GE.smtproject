@@ -1,0 +1,17 @@
+version = 1.0
+modelFile = OrionCB_GE.smtmodel
+Xml.Filepath = 
+Project.Identifier = d939183e-9d99-49e1-b66a-ca731c8f5645
+Publisher.Name.00 = Scepter Excel publisher
+Publisher.Path.00 = C:/Program Files (x86)/Smartesting CertifyIt_6.3.5/publishers/com.smartesting.publisher.scepter.jar
+Publisher.Args.00 = --output #outputDirectory# #xmlFile#
+Publisher.Name.01 = JUnit publisher
+Publisher.Path.01 = C:/Program Files (x86)/Smartesting CertifyIt_6.3.5/publishers/com.smartesting.publisher.junit.jar
+Publisher.Args.01 = --output #outputDirectory# #xmlFile#
+Publisher.Name.02 = HTML publisher
+Publisher.Path.02 = C:/Program Files (x86)/Smartesting CertifyIt_6.3.5/publishers/com.smartesting.publisher.html.jar
+Publisher.Args.02 = --locale #language# --output #outputDirectory# #xmlFile#
+Publisher.Name.03 = Adaptation specification publisher
+Publisher.Path.03 = C:/Program Files (x86)/Smartesting CertifyIt_6.3.5/publishers/com.smartesting.publisher.specification.jar
+Publisher.Args.03 = --output #outputDirectory# #xmlFile#
+Publisher.Active = HTML publisher

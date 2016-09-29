@@ -1,0 +1,182 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+	<link rel="stylesheet" type="text/css" href="../resources/smartesting.css">
+</head>
+
+<title>
+	Smartesting CertifyIt: test ContextSubscription/JSONPayloadError_f1f3
+</title>
+
+<body>
+	<br><br>
+	<table width="80%" height="100%" align="center" cellpadding="0" cellspacing="0" class="title">
+		
+		<tr>
+			
+			<td height="100" valign="top" align="left">
+				<img src="../resources/logo.gif">
+			</td>
+			
+			<td valign="top" width="100%">
+				
+				<table border="0" height="100" width="100%" cellspacing="0">
+					
+					<tr>
+						
+						<td class="title" valign="top">
+							<h1>Test: ContextSubscription/JSONPayloadError_f1f3</h1>
+							
+						</td>
+						
+					</tr>
+					
+				</table>
+				
+			</td>
+			
+		</tr>
+		
+		<tr>
+			
+			<td height="5" align="left" bgcolor="#9B998C">
+				<img src="../resources/underline.png">
+			</td>
+			
+			<td height="5" width="100%" bgcolor="#9B998C">
+				
+			</td>
+			
+		</tr>
+		
+		<tr>
+			
+			<td colspan="3" valign="top">
+				<br>
+				<table width="100%" align="center">
+					
+					<tr>
+						
+						<td>
+							<br>
+							<table width="95%" align="center">
+								
+								<tr>
+									
+									<td>
+										<a href="index.html">Show test suite OCB_GE_TestSuite and its information</a>
+									</td>
+									
+								</tr>
+								
+							</table>
+							
+						</td>
+						
+					</tr>
+					
+					<tr>
+						
+						<td>
+							<br><br>
+						</td>
+						
+					</tr>
+					
+					<tr>
+						
+						<td>
+							<br>
+							<table width="95%" align="center" class="synthesis">
+								
+								<tr>
+									
+									<td class="titleSynthesis">
+										Steps
+									</td>
+									
+									<td class="titleSynthesis">
+										Actions
+									</td>
+									
+									<td class="titleSynthesis">
+										Requirements, aims and custom tags
+									</td>
+									
+								</tr>
+								
+								<tr>
+									
+									<td class="stepDetailsStep">
+										Step 1<br><I>(SUTInstance)</I>
+									</td>
+									
+									<td class="evenCall">
+										
+										<table width="100%" border="0" class="stepDetails">
+											
+											<tr>
+												
+												<td class="stepDetailsOperation">
+													<I>ContextSubscription</I><br><br>
+												</td>
+												
+											</tr>
+											
+											<tr>
+												
+												<td class="stepDetailsActions">
+													NGSI10 Standard <br/>POST /ngsi10/subscribeContext<br/>Subscribe to a context/entity operation:<br/>• This operation allows the asynchronous retrieval of Context Information. It is used for subscription to Context Information.<br/>The subscription triggers the notifications about the matching ContextEntities based on the defined NotifyCondition<br/>information passed in the subscribeContextRequest operation. In the subscribeContextResponse operation a subscription id<br/>is returned, which is used for notifications and in update and unsubscribe operations. The subscription duration is negotiated<br/>during the subscription request/response operation.<br><br>
+												</td>
+												
+											</tr>
+											
+										</table>
+										
+									</td>
+									
+									<td class="evenCall" rowspan="2">
+										REQ&nbsp;&nbsp;&nbsp;&nbsp;ContextSubscription<br><br>AIM&nbsp;&nbsp;&nbsp;&nbsp;ContextSubscription/JSONPayloadError<br><br>&nbsp;
+									</td>
+									
+								</tr>
+								
+								<tr>
+									
+									<td class="stepDetailsObs">
+										
+										<li class="observationOperation">
+											1.1
+										</li>
+										
+									</td>
+									
+									<td class="evenObservationOperation">
+										@synthesis@<br/>Check that the error code is BAD_REQUEST<br/>@/synthesis@<br/><br/>Check if an error code BAD_REQUEST is returned 
+									</td>
+									
+								</tr>
+								
+							</table>
+							
+						</td>
+						
+					</tr>
+					
+					<tr>
+						
+						<td>
+							<br><br>
+						</td>
+						
+					</tr>
+					
+				</table>
+				
+			</td>
+			
+		</tr>
+		
+	</table>
+	</body>
+</html>

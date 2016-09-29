@@ -1,0 +1,2211 @@
+<!--?xml version="1.0" ?-->
+<report>
+  <properties>
+    <owner>EGM_TE_XML_PUBLISHER </owner>
+    <sut_endpoint>http://185.52.32.122:1026</sut_endpoint>
+    <sut_version>##SUT_VERSION##</sut_version>
+    <ngsi_version>ngsi-v1</ngsi_version>
+    <location value="http://185.52.32.107:8081/report" type="POST_URL"></location>
+  </properties>
+  <execution-results>
+    <timestamp>2016-09-29T10:38:59.676</timestamp>
+    <execution-time-ms>6814</execution-time-ms>
+    <suitestotalnumber>1</suitestotalnumber>
+    <casestotalnumber>30</casestotalnumber>
+    <stepstotalnumber>53</stepstotalnumber>
+    <testcasesresults>
+      <resultpass>27</resultpass>
+      <resultfailed>3</resultfailed>
+    </testcasesresults>
+    <teststepsresults>
+      <resultpass>50</resultpass>
+      <resultfailed>3</resultfailed>
+    </teststepsresults>
+  </execution-results>
+  <testsuite name="OCB_GE_TestSuite">
+    <execution-results>
+      <timestamp>2016-09-29T10:38:52.858</timestamp>
+      <execution-time-ms>6814</execution-time-ms>
+      <casestotalnumber>30</casestotalnumber>
+      <stepstotalnumber>53</stepstotalnumber>
+      <resultpass>50</resultpass>
+      <resultfailed>3</resultfailed>
+    </execution-results>
+    <testcase name="QueryContextJSONPayloadError_ef8e">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:52.858</timestamp>
+        <execution-time-ms>110</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="QueryEntity1">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:52.858</timestamp>
+          <execution-time-ms>110</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/queryContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "errorCode" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "JSON Parse Error"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="DiscoverContextAvailabilityContextDoesNotExists_1caf">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:52.968</timestamp>
+        <execution-time-ms>152</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="DiscoverContextAvailability2">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:52.968</timestamp>
+          <execution-time-ms>152</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/registry/discoverContextAvailability</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>404</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "errorCode" : {
+    "code" : "404",
+    "reasonPhrase" : "No context element found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="EntityUpdateContextDoesNotExists_d06a">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:53.120</timestamp>
+        <execution-time-ms>143</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="UpdateEntity3">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:53.120</timestamp>
+          <execution-time-ms>143</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": ""            }            ]        }    ],    "updateAction": "UPDATE"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>404</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY2",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "404",
+        "reasonPhrase" : "No context element found",
+        "details" : "ENTITY2"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="RegisterContextUrlError_7277">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:53.263</timestamp>
+        <execution-time-ms>277</execution-time-ms>
+        <stepstotalnumber>2</stepstotalnumber>
+        <resultpass>2</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="RegisterContext4">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:53.263</timestamp>
+          <execution-time-ms>118</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/Error/registry/registerEntity</value>
+          <isinvalid>true</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextRegistrations": [        {            "entities": [                {                    "type": "ENTITY",                    "isPattern": "false",                    "id": "ENTITY2"                }            ],            "attributes": [                {                    "name": "ATTR1",                    "type": "ATTR",                    "isDomain": "false"                }            ],            "providingApplication": "http://mysensors.com/ENTITY"        }    ],    "duration": "P1M"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "orionError" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "service not found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID5">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:53.381</timestamp>
+          <execution-time-ms>159</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY2</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>404:Not Found</response_code>
+          <response_payload>{"error":"NotFound","description":"The requested entity has not been found. Check type and id"}</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="EntityUpdateUrlError_cd0d">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:53.540</timestamp>
+        <execution-time-ms>127</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="UpdateEntity6">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:53.540</timestamp>
+          <execution-time-ms>127</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateEntity</value>
+          <isinvalid>true</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": ""            }            ]        }    ],    "updateAction": "UPDATE"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "orionError" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "service not found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="EntityCreationJSONPayloadError_e4c4">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:53.667</timestamp>
+        <execution-time-ms>236</execution-time-ms>
+        <stepstotalnumber>2</stepstotalnumber>
+        <resultpass>2</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="CreateNewEntity7">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:53.667</timestamp>
+          <execution-time-ms>122</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "errorCode" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "JSON Parse Error"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID8">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:53.789</timestamp>
+          <execution-time-ms>114</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY2</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>404:Not Found</response_code>
+          <response_payload>{"error":"NotFound","description":"The requested entity has not been found. Check type and id"}</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="UnsubscribeContextSubscriptiondoes_not_exists_acdc">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:53.903</timestamp>
+        <execution-time-ms>105</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>0</resultpass>
+        <resultfailed>1</resultfailed>
+      </execution-results>
+      <teststep name="UnsubscribeContextSubscription9">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:53.903</timestamp>
+          <execution-time-ms>105</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/ngsi10/unsubscribeContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{"subscriptionId":"ENTITY1"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>404</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "subscriptionId" : "000000000000000000000000",
+  "statusCode" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "Invalid Subscription Id: /ENTITY1/: bad length - 24 chars expected"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="ContextSubscriptionJSONPayloadError_f1f3">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:54.008</timestamp>
+        <execution-time-ms>112</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="ContextSubscription10">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:54.008</timestamp>
+          <execution-time-ms>112</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/ngsi10/subscribeContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "subscribeError" : {
+    "errorCode" : {
+      "code" : "400",
+      "reasonPhrase" : "Bad Request",
+      "details" : "JSON Parse Error"
+    }
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="DiscoverContextAvailabilityUrlError_2f7f">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:54.120</timestamp>
+        <execution-time-ms>107</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="DiscoverContextAvailability11">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:54.120</timestamp>
+          <execution-time-ms>107</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/Error/registry/discoverEntityAvailability</value>
+          <isinvalid>true</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "orionError" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "service not found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="DeleteEntityByIDEntityDoesNotExist_2db9">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:54.227</timestamp>
+        <execution-time-ms>154</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="DeleteEntityByID12">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:54.227</timestamp>
+          <execution-time-ms>154</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY1</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>error</key>
+            <value>NotFound</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>404:Not Found</response_code>
+          <response_payload>{"error":"NotFound","description":"The requested entity has not been found. Check type and id"}</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="QueryContextContextDoesNotExists_871a">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:54.381</timestamp>
+        <execution-time-ms>109</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="QueryEntity13">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:54.381</timestamp>
+          <execution-time-ms>109</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/queryContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>404</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "errorCode" : {
+    "code" : "404",
+    "reasonPhrase" : "No context element found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="QueryContextUrlError_ab62">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:54.490</timestamp>
+        <execution-time-ms>98</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="QueryEntity14">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:54.490</timestamp>
+          <execution-time-ms>98</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/queryEntity</value>
+          <isinvalid>true</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "orionError" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "service not found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="GetAllEntitiesJSON_PAYLOAD_ERROR_88be">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:54.588</timestamp>
+        <execution-time-ms>120</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="GetAllEntities15">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:54.588</timestamp>
+          <execution-time-ms>120</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/queryContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "errorCode" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "JSON Parse Error"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="UnsubscribeContextSubscriptionInvalidurl_b2c2">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:54.708</timestamp>
+        <execution-time-ms>121</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="UnsubscribeContextSubscription16">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:54.708</timestamp>
+          <execution-time-ms>121</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/ngsi10/unsubscribeContexxxt</value>
+          <isinvalid>true</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{"subscriptionId":"ENTITY1"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "orionError" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "service not found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="EntityUpdateJSONPayloadError_5bc1">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:54.829</timestamp>
+        <execution-time-ms>108</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="UpdateEntity17">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:54.829</timestamp>
+          <execution-time-ms>108</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "errorCode" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "JSON Parse Error"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="RegisterContextJSONPayloadError_aa75">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:54.937</timestamp>
+        <execution-time-ms>253</execution-time-ms>
+        <stepstotalnumber>2</stepstotalnumber>
+        <resultpass>2</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="RegisterContext18">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:54.937</timestamp>
+          <execution-time-ms>104</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/registry/registerContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "registrationId" : "000000000000000000000000",
+  "errorCode" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "JSON Parse Error"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID19">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:55.041</timestamp>
+          <execution-time-ms>149</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY2</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>404:Not Found</response_code>
+          <response_payload>{"error":"NotFound","description":"The requested entity has not been found. Check type and id"}</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="UnsubscribeContextSubscriptionJSONPayloadError_0d49">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:55.190</timestamp>
+        <execution-time-ms>137</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="UnsubscribeContextSubscription20">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:55.190</timestamp>
+          <execution-time-ms>137</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/ngsi10/unsubscribeContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "subscriptionId" : "000000000000000000000000",
+  "statusCode" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "JSON Parse Error"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="ContextSubscriptionInvalidurl_d16c">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:55.327</timestamp>
+        <execution-time-ms>107</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="ContextSubscription21">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:55.327</timestamp>
+          <execution-time-ms>107</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/ngsi10/subscribeContexxxt</value>
+          <isinvalid>true</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{ "entities": [   {     "type": "ENTITY",     "isPattern": "false",     "id": "ENTITY2"   } ], "attributes": [   "ATTR1" ], "reference": "http://www.mysensors.com", "duration": "P1M", "notifyConditions": [   {     "type": "ONCHANGE",     "condValues": [       "ATTR1"     ]   } ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "orionError" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "service not found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="GetAllEntitiesUrlError_357b">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:55.434</timestamp>
+        <execution-time-ms>138</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="GetAllEntities22">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:55.434</timestamp>
+          <execution-time-ms>138</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/queryNotAContext</value>
+          <isinvalid>true</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "true",            "id": ".*"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "orionError" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "service not found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="EntityCreationEmptyContextValueError_dcc8">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:55.572</timestamp>
+        <execution-time-ms>265</execution-time-ms>
+        <stepstotalnumber>2</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>1</resultfailed>
+      </execution-results>
+      <teststep name="CreateNewEntity23">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:55.572</timestamp>
+          <execution-time-ms>120</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": ""            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY3",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID24">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:55.692</timestamp>
+          <execution-time-ms>145</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY3</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>204:No Content</response_code>
+          <response_payload></response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="DiscoverContextAvailabilityJSONPayloadError_96f4">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:55.837</timestamp>
+        <execution-time-ms>107</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="DiscoverContextAvailability25">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:55.837</timestamp>
+          <execution-time-ms>107</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/registry/discoverContextAvailability</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "errorCode" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "JSON Parse Error"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="DeleteEntityByIDUrlError_e595">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:55.944</timestamp>
+        <execution-time-ms>107</execution-time-ms>
+        <stepstotalnumber>1</stepstotalnumber>
+        <resultpass>1</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="DeleteEntityByID26">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:55.944</timestamp>
+          <execution-time-ms>107</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v4Abbas2/contexts/ENTITY1</value>
+          <isinvalid>true</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "orionError" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "service not found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="EntityCreationUrlError_33c9">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:56.051</timestamp>
+        <execution-time-ms>268</execution-time-ms>
+        <stepstotalnumber>2</stepstotalnumber>
+        <resultpass>2</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="CreateNewEntity27">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:56.051</timestamp>
+          <execution-time-ms>108</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v/updateEntity</value>
+          <isinvalid>true</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "orionError" : {
+    "code" : "400",
+    "reasonPhrase" : "Bad Request",
+    "details" : "service not found"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID28">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:56.159</timestamp>
+          <execution-time-ms>160</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY2</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>404:Not Found</response_code>
+          <response_payload>{"error":"NotFound","description":"The requested entity has not been found. Check type and id"}</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="QueryContextJSONPayloadSuccess_019a">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:56.319</timestamp>
+        <execution-time-ms>368</execution-time-ms>
+        <stepstotalnumber>3</stepstotalnumber>
+        <resultpass>3</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="CreateNewEntity29">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:56.319</timestamp>
+          <execution-time-ms>113</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY1",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="QueryEntity30">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:56.432</timestamp>
+          <execution-time-ms>136</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/queryContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY1",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : "23"
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID31">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:56.568</timestamp>
+          <execution-time-ms>119</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY1</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>204:No Content</response_code>
+          <response_payload></response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="DiscoverContextAvailabilityJSONPayloadSuccess_faa9">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:56.687</timestamp>
+        <execution-time-ms>431</execution-time-ms>
+        <stepstotalnumber>3</stepstotalnumber>
+        <resultpass>3</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="RegisterContext32">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:56.687</timestamp>
+          <execution-time-ms>108</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/registry/registerContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextRegistrations": [        {            "entities": [                {                    "type": "ENTITY",                    "isPattern": "false",                    "id": "ENTITY1"                }            ],            "attributes": [                {                    "name": "ATTR1",                    "type": "ATTR",                    "isDomain": "false"                }            ],            "providingApplication": "http://mysensors.com/ENTITY"        }    ],    "duration": "P1M"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>STRING</type>
+            <key>registrationId</key>
+            <value>registrationId</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "duration" : "P1M",
+  "registrationId" : "57ecd322ec380867fe5654c0"
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DiscoverContextAvailability33">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:56.795</timestamp>
+          <execution-time-ms>167</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/registry/discoverContextAvailability</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>CODE</type>
+            <key>200</key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextRegistrationResponses" : [
+    {
+      "contextRegistration" : {
+        "entities" : [
+          {
+            "type" : "ENTITY",
+            "isPattern" : "false",
+            "id" : "ENTITY1"
+          }
+        ],
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "ATTR",
+            "isDomain" : "false"
+          }
+        ],
+        "providingApplication" : "http://mysensors.com/ENTITY"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID34">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:56.962</timestamp>
+          <execution-time-ms>156</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY1</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>404:Not Found</response_code>
+          <response_payload>{"error":"NotFound","description":"The requested entity has not been found. Check type and id"}</response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="DeleteEntityByIDSuccess_a180">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:57.118</timestamp>
+        <execution-time-ms>233</execution-time-ms>
+        <stepstotalnumber>2</stepstotalnumber>
+        <resultpass>2</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="CreateNewEntity35">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:57.118</timestamp>
+          <execution-time-ms>105</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY1",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID36">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:57.223</timestamp>
+          <execution-time-ms>128</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY1</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>CODE</type>
+            <key>204</key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>204:No Content</response_code>
+          <response_payload></response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="EntityUpdateEmptyContextValueError_78ea">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:57.351</timestamp>
+        <execution-time-ms>386</execution-time-ms>
+        <stepstotalnumber>3</stepstotalnumber>
+        <resultpass>2</resultpass>
+        <resultfailed>1</resultfailed>
+      </execution-results>
+      <teststep name="CreateNewEntity37">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:57.351</timestamp>
+          <execution-time-ms>109</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY3",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="UpdateEntity38">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:57.460</timestamp>
+          <execution-time-ms>146</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": ""            }            ]        }    ],    "updateAction": "UPDATE"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY3",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID39">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:57.606</timestamp>
+          <execution-time-ms>131</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY3</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>204:No Content</response_code>
+          <response_payload></response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="EntityUpdateJSONPayloadSuccess_e31c">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:57.737</timestamp>
+        <execution-time-ms>383</execution-time-ms>
+        <stepstotalnumber>3</stepstotalnumber>
+        <resultpass>3</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="CreateNewEntity40">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:57.737</timestamp>
+          <execution-time-ms>111</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY3",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="UpdateEntity41">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:57.848</timestamp>
+          <execution-time-ms>131</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "42"            }            ]        }    ],    "updateAction": "UPDATE"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY3",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID42">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:57.979</timestamp>
+          <execution-time-ms>141</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY3</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>204:No Content</response_code>
+          <response_payload></response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="UnsubscribeContextSubscriptionsuccess_7e25">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:58.120</timestamp>
+        <execution-time-ms>674</execution-time-ms>
+        <stepstotalnumber>4</stepstotalnumber>
+        <resultpass>4</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="CreateNewEntity43">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:58.120</timestamp>
+          <execution-time-ms>109</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY2",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="ContextSubscription44">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:58.229</timestamp>
+          <execution-time-ms>218</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/ngsi10/subscribeContext/</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{ "entities": [   {     "type": "ENTITY",     "isPattern": "false",     "id": "ENTITY2"   } ], "attributes": [   "ATTR1" ], "reference": "http://www.mysensors.com", "duration": "P1M", "notifyConditions": [   {     "type": "ONCHANGE",     "condValues": [       "ATTR1"     ]   } ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>STRING</type>
+            <key>subscriptionId</key>
+            <value>subscriptionId</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "subscribeResponse" : {
+    "subscriptionId" : "57ecd324ec380867fe5654c5",
+    "duration" : "P1M"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="UnsubscribeContextSubscription45">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:58.447</timestamp>
+          <execution-time-ms>144</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/ngsi10/unsubscribeContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{"subscriptionId":"57ecd324ec380867fe5654c5"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>STRING</type>
+            <key>subscriptionId</key>
+            <value>subscriptionId</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "subscriptionId" : "57ecd324ec380867fe5654c5",
+  "statusCode" : {
+    "code" : "200",
+    "reasonPhrase" : "OK"
+  }
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID46">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:58.591</timestamp>
+          <execution-time-ms>101</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY2</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>204:No Content</response_code>
+          <response_payload></response_payload>
+        </response>
+      </teststep>
+    </testcase>
+    <testcase name="GetAllEntitiesSUCESS_b694">
+      <execution-results>
+        <timestamp>2016-09-29T10:38:58.794</timestamp>
+        <execution-time-ms>878</execution-time-ms>
+        <stepstotalnumber>7</stepstotalnumber>
+        <resultpass>7</resultpass>
+        <resultfailed>0</resultfailed>
+      </execution-results>
+      <teststep name="CreateNewEntity47">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:58.794</timestamp>
+          <execution-time-ms>131</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY3",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="CreateNewEntity48">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:58.925</timestamp>
+          <execution-time-ms>143</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY1",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="CreateNewEntity49">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:59.068</timestamp>
+          <execution-time-ms>167</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/updateContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY2",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : ""
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="GetAllEntities50">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:59.235</timestamp>
+          <execution-time-ms>105</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v1/queryContext</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "true",            "id": ".*"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{
+  "contextResponses" : [
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY3",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : "23"
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    },
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY1",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : "23"
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    },
+    {
+      "contextElement" : {
+        "type" : "ENTITY",
+        "isPattern" : "false",
+        "id" : "ENTITY2",
+        "attributes" : [
+          {
+            "name" : "ATTR1",
+            "type" : "float",
+            "value" : "23"
+          }
+        ]
+      },
+      "statusCode" : {
+        "code" : "200",
+        "reasonPhrase" : "OK"
+      }
+    }
+  ]
+}
+</response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID51">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:59.340</timestamp>
+          <execution-time-ms>115</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY3</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>204:No Content</response_code>
+          <response_payload></response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID52">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:59.455</timestamp>
+          <execution-time-ms>111</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY1</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>204:No Content</response_code>
+          <response_payload></response_payload>
+        </response>
+      </teststep>
+      <teststep name="DeleteEntityByID53">
+        <execution-results>
+          <timestamp>2016-09-29T10:38:59.566</timestamp>
+          <execution-time-ms>106</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://185.52.32.122:1026/v2/entities/ENTITY2</value>
+          <isinvalid>false</isinvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>204:No Content</response_code>
+          <response_payload></response_payload>
+        </response>
+      </teststep>
+    </testcase>
+  </testsuite>
+</report>
