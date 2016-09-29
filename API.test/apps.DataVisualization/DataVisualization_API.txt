@@ -1,0 +1,573 @@
+﻿###########  COMMON ###########
+Login on Front-End SpagoBI by "biadmin" "biadmin"
+
+
+########### FI.APP.DV.API.02 ###########
+Request GET
+http://161.27.159.67:8080/SpagoBI/restful-services/2.0/documents
+
+Response:
+	Status 200 OK in 239ms
+Headers:
+content-length 456
+content-type application/json;charset=utf-8
+date Fri, 29 Apr 2016 13:48:45 GMT
+server Apache-Coyote/1.1
+
+Body:
+[
+  {
+    "id": 1,
+    "name": "Accessible and TEST",
+    "description": "",
+    "label": "TEST2",
+    "visible": true,
+    "stateCode": "REL",
+    "creationUser": "biadmin",
+    "objMetaDataAndContents": null,
+    "tenant": "SPAGOBI",
+    "previewFile": null,
+    "docVersion": null,
+    "parametersRegion": "east",
+    "dataSourceLabel": "foodmart",
+    "dataSetLabel": "Customers",
+    "typeCode": "ACCESSIBLE_HTML",
+    "public": true,
+    "engine": "SpagoBIAccessibleEng",
+    "functionalities": [
+      "/Functionalities/Test"
+    ],
+    "creationDate": "2016-04-29 13:47:51.0"
+  }
+]
+
+
+########### FI.APP.DV.API.03 ###########
+Request POST
+
+{
+  "name": "Accessible and TEST",
+  "description": "",
+  "label": "TEST2",
+  "visible": true,
+  "stateCode": "REL",
+  "creationUser": "biadmin",
+  "objMetaDataAndContents": null,
+  "tenant": "SPAGOBI",
+  "previewFile": null,
+  "docVersion": null,
+  "parametersRegion": "east",
+  "dataSourceLabel": "foodmart",
+  "dataSetLabel": "Customers",
+  "typeCode": "ACCESSIBLE_HTML",
+  "public": true,
+  "engine": "SpagoBIAccessibleEng",
+  "functionalities": [
+    "/Functionalities/Test"
+  ],
+  "creationDate": "2015-04-20 10:12:08.0"
+}
+
+Response:
+	Status 200 OK in 433ms
+Headers:
+	content-length 0
+	content-type application/json;charset=utf-8
+	date Fri, 29 Apr 2016 13:45:15 GMT
+	server Apache-Coyote/1.1
+
+Body:
+
+
+########### FI.APP.DV.API.04 ###########
+Request GET
+
+Response:
+	Status 200 OK in 206ms
+
+Headers:
+	content-length 467
+	content-type application/json;charset=utf-8
+	date Mon, 02 May 2016 14:09:35 GMT
+	server Apache-Coyote/1.1
+
+Body:
+{
+  "id": 1,
+  "name": "TEST_Update_Nome",
+  "description": "ROBC Test FIWARE",
+  "label": "TEST2",
+  "visible": true,
+  "stateCode": "REL",
+  "creationUser": "biadmin",
+  "objMetaDataAndContents": null,
+  "tenant": "SPAGOBI",
+  "previewFile": null,
+  "docVersion": null,
+  "parametersRegion": "east",
+  "dataSourceLabel": "foodmart",
+  "dataSetLabel": "Customers",
+  "typeCode": "ACCESSIBLE_HTML",
+  "public": true,
+  "engine": "SpagoBIAccessibleEng",
+  "functionalities": [
+    "/Functionalities/Test"
+  ],
+  "creationDate": "2016-04-29 13:47:51.0"
+}
+
+########### FI.APP.DV.API.05 ###########
+Request PUT
+
+Body:
+{
+  "id": 1,
+  "name": "RRR TEST",
+  "description": "ROBC Test FIWARE",
+  "label": "TEST2",
+  "visible": true,
+  "stateCode": "REL",
+  "creationUser": "biadmin",
+  "objMetaDataAndContents": null,
+  "tenant": "SPAGOBI",
+  "previewFile": null,
+  "docVersion": null,
+  "parametersRegion": "east",
+  "dataSourceLabel": "foodmart",
+  "dataSetLabel": "Customers",
+  "typeCode": "ACCESSIBLE_HTML",
+  "public": true,
+  "engine": "SpagoBIAccessibleEng",
+  "functionalities": [
+    "/Functionalities/Test"
+  ],
+  "creationDate": "2016-04-29 13:47:51.0"
+}
+
+Response:
+	Status 200 OK in 521ms
+Headers:
+	content-length 0
+	date Mon, 02 May 2016 14:21:53 GMT
+	server Apache-Coyote/1.1
+
+
+########### FI.APP.DV.API.06 ###########
+Request DELETE
+
+Response:
+	Status 200 OK in 289ms
+Headers:
+content-length 0
+date Mon, 02 May 2016 14:24:50 GMT
+server Apache-Coyote/1.1
+
+Body:
+
+########### FI.APP.DV.API.07 ###########
+Request GET
+
+Response:
+	Status 200 OK in 289ms
+Headers:
+	authorization: Basic YmlhZG1pbjpiaWFkbWlu
+	content-type: multipart/form-data; boundary=----WebKitFormBoundaryFjXmvbakAcwOrHso
+	content-length: 2240
+ 
+ ------WebKitFormBoundaryFjXmvbakAcwOrHso
+ Content-Disposition: form-data; name="file"; filename="OMS_grep_query.txt"
+ Content-Type: text/plain
+ 
+File content not lsited.
+
+ 
+ ------WebKitFormBoundaryFjXmvbakAcwOrHso--
+
+ 
+Body: 
+
+
+########### FI.APP.DV.API.08 ###########
+Request POST
+
+
+
+Response:
+	Status 200 OK in 289ms
+Headers:
+content-disposition attachment; filename=1180_58_smsNotify.xls
+content-length 124928
+content-type */ *;charset=utf-8
+date Mon, 04 May 2016 16:28:36 GMT
+server Apache-Coyote/1.1
+
+Body: File content
+
+
+########### FI.APP.DV.API.10 ###########
+Request GET
+
+Status 200 OK in 5311ms
+Headers:
+content-length 577
+content-type application/json;charset=utf-8
+date Wed, 04 May 2016 07:25:41 GMT
+server Apache-Coyote/1.1
+
+Body:
+[
+  {
+    "id": 1,"biObjectID": 10,"parID": 1,
+    "parameter": {"id": 1,"description": "","length": null,"label": "","name": "","type": "","mask": "",
+"typeId": null,"modality": "","modalityValue": null,"modalityValueForDefault": null,"defaultFormula": "","checks": null,
+"functional": false,"temporal": false    },
+    "label": "Test1",    "required": false,    "modifiable": 0,    "visible": 1,    "multivalue": false,    "colSpan": null,
+    "thickPerc": null,    "prog": 1,    "priority": 1,    "parameterUrlName": "sadasdswa",    "parameterValues": null,
+    "parameterValuesDescription": null,    "transientParmeters": false,    "parameterValuesRetriever": null,    "iterative": false  }
+]
+
+
+########### FI.APP.DV.API.11 ###########
+Request POST
+
+Response:
+	Status 200 OK in 531ms
+Headers:
+	content-length 0
+	date Wed, 04 May 2016 08:41:36 GMT
+	server Apache-Coyote/1.1
+
+Body:
+
+
+########### FI.APP.DV.API.12 ###########
+Request GET
+
+Response:
+	Status 200 OK in 227ms
+Headers:
+	content-length 574
+	content-type application/json;charset=utf-8
+	date Wed, 04 May 2016 09:09:05 GMT
+	server Apache-Coyote/1.1
+
+Body:
+{
+	"id": 10,"biObjectID": 10,"parID": 1,
+	"parameter": {"id": 1,"description": "","length": null,"label": "","name": "","type": "","mask": "","typeId": null,
+	"modality": "","modalityValue": null,"modalityValueForDefault": null,"defaultFormula": "","checks": null,"functional": false,"temporal": false},
+	"label": "Test2","required": false,"modifiable": 0,"visible": 1,"multivalue": false,"colSpan": null,"thickPerc": null,"prog": 1,
+	"priority": 1,"parameterUrlName": "urlROBC","parameterValues": null,"parameterValuesDescription": null,"transientParmeters": false,
+	"parameterValuesRetriever": null,"iterative": false
+}
+
+
+########### FI.APP.DV.API.13 ###########
+Request PUT
+
+Response:
+	Status 200 OK in 401ms
+Headers:
+	content-length 0
+	date Wed, 04 May 2016 09:26:23 GMT
+	server Apache-Coyote/1.1
+
+Body:
+
+
+########### FI.APP.DV.API.14 ###########
+Request DELETE
+
+Response:
+	Status 200 OK in 354ms
+Headers:
+	content-length 0
+	date Wed, 04 May 2016 09:33:22 GMT
+	server Apache-Coyote/1.1
+	
+Body:
+
+
+########### FI.APP.DV.API.15 ###########
+Request POST
+
+Body:
+[
+  {
+    "id": "1",
+    "label": "Country",
+    "type": "string",
+    "urlName": "country",
+    "values": [
+      "Italy",
+      "USA"
+    ]
+  }
+]
+
+Response:
+	Status 200 OK in 5561ms
+Headers:
+content-disposition attachment; filename=DOC_RPT_001.html
+content-length 21129
+content-type application/pdf;charset=utf-8
+date Fri, 06 May 2016 10:41:13 GMT
+server Apache-Coyote/1.1	
+
+Body: The content of the attached file DOC_RPT_001.html
+
+########### FI.APP.DV.API.16 ###########
+Request GET
+http://161.27.159.67:8080/SpagoBI/restful-services/2.0/datasets
+
+Response
+	Status 200 OK in 1095ms
+Headers:
+	content-length 2892
+	content-type application/json;charset=utf-8
+	date Fri, 29 Apr 2016 08:30:40 GMT
+	server Apache-Coyote/1.1
+Body:
+[
+{"commonInfo": {"userIn": "server","userUp": null,"userDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"sbiVersionDe": null,"organization": null,"timeIn": 1461856373000,"timeUp": null,"timeDe": null},"id": {"dsId": 1,"versionNum": 1,"organization": "SPAGOBI"},"name": "Meter","description": null,"label": "Meter","active": true,"type": "SbiQueryDataSet","configuration": {"Query": "select * from business_demo_meter","dataSource": "Cosmos","queryScript": "","queryScriptLanguage": ""},"pivotColumnName": null,"pivotRowName": null,"pivotColumnValue": null,"numRows": false,"persisted": false,"persistTableName": "","owner": "biadmin","publicDS": true,"userIn": null,"userUp": null,"userDe": null,"sbiVersionIn": null,"sbiVersionUp": null,"sbiVersionDe": null,"metaVersion": null,"timeIn": null,"timeUp": null,"timeDe": null,"scope": {"commonInfo": {"userIn": "server","userUp": null,"userDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"sbiVersionDe": null,"organization": null,"timeIn": 1461769224000,"timeUp": null,"timeDe": null},"valueId": 185,"domainCd": "LAYER_TYPE","domainNm": "Layer Type","valueCd": "OSM","valueNm": "OSM","valueDs": "Layer Type"},"metadata": {"fieldsMeta": [
+{"name": "id","alias": "id","type": "java.lang.String","properties": {},"fieldType": "ATTRIBUTE"},
+{"name": "recvtime","alias": "recvtime","type": "java.lang.String","properties": {},"fieldType": "ATTRIBUTE"}
+],"properties": {"resultNumber": "3276"}},"scopeId": 185,"transformerId": null,"categoryId": null,"parameters": [
+]},
+{"commonInfo": {"userIn": "server","userUp": null,"userDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"sbiVersionDe": null,"organization": null,"timeIn": 1461857162000,"timeUp": null,"timeDe": null},"id": {"dsId": 2,"versionNum": 5,"organization": "SPAGOBI"},"name": "Meter","description": "Prova Test FIWARE","label": "Prova","active": true,"type": "SbiQueryDataSet","configuration": {"Query": "select * from business_demo_meter","dataSource": "Cosmos","queryScript": "","queryScriptLanguage": ""},"pivotColumnName": null,"pivotRowName": null,"pivotColumnValue": null,"numRows": false,"persisted": false,"persistTableName": "","owner": "biadmin","publicDS": true,"userIn": null,"userUp": null,"userDe": null,"sbiVersionIn": null,"sbiVersionUp": null,"sbiVersionDe": null,"metaVersion": null,"timeIn": null,"timeUp": null,"timeDe": null,"scope": {"commonInfo": {"userIn": "server","userUp": null,"userDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"sbiVersionDe": null,"organization": null,"timeIn": 1461769224000,"timeUp": null,"timeDe": null},"valueId": 185,"domainCd": "LAYER_TYPE","domainNm": "Layer Type","valueCd": "OSM","valueNm": "OSM","valueDs": "Layer Type"},"metadata": {"fieldsMeta": [
+{"name": "id","alias": "id","type": "java.lang.String","properties": {},"fieldType": "ATTRIBUTE"},
+{"name": "recvtime","alias": "recvtime","type": "java.lang.String","properties": {},"fieldType": "ATTRIBUTE"}
+],"properties": {"resultNumber": "3276"}},"scopeId": 185,"transformerId": null,"categoryId": null,"parameters": [
+]}
+]
+
+
+########### FI.APP.DV.API.17 ###########
+Request POST
+{
+"active": true,"categoryId": null,"commonInfo": {"organization": null,"sbiVersionDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"timeDe": null,"timeIn": 1437646316000,"timeUp": null,"userDe": null,"userIn": "biadmin","userUp": null
+},"configuration": {"Query": "select * from business_demo_meter","dataSource": "Cosmos","queryScript": "","queryScriptLanguage": ""
+},"description": "Test2","id": {"dsId": 4,"organization": "SPAGOBI","versionNum": 7
+},"label": "Meter","metaVersion": null,"metadata": {"fieldsMeta": [
+{"alias": "id","fieldType": "ATTRIBUTE","name": "id","properties": {},"type": "java.lang.String"},
+{"alias": "recvtime","fieldType": "ATTRIBUTE","name": "recvtime","properties": {},"type": "java.lang.String"
+}],"properties": {"resultNumber": "3276"}
+},"name": "Meter","numRows": false,"owner": "biadmin","parameters": [],"persistTableName": "","persisted": false,"pivotColumnName": null,"pivotColumnValue": null,"pivotRowName": null,"publicDS": true,"sbiVersionDe": null,"sbiVersionIn": null,"sbiVersionUp": null,"scope": {"commonInfo": {
+"organization": null,"sbiVersionDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"timeDe": null,"timeIn": 1436791308000,"timeUp": null,"userDe": null,"userIn": "server","userUp": null
+},"domainCd": "DS_SCOPE","domainNm": "Dataset scope","valueCd": "USER","valueDs": "Dataset scope","valueId": 185,"valueNm": "User"
+},"scopeId": 185,"timeDe": null,"timeIn": null,"timeUp": null,"transformerId": null,"type": "SbiQueryDataSet","userDe": null,"userIn": null,"userUp": null
+}
+
+Response:
+	Status 201 Created in 475ms
+Headers:
+	content-length 0
+	date Fri, 29 Apr 2016 08:50:45 GMT
+	location http://161.27.159.67:8080/SpagoBI/restful-services/1.0/datasets/Meter
+	server Apache-Coyote/1.1
+Body:
+
+
+########### FI.APP.DV.API.18 ###########
+Request GET
+http://161.27.159.67:8080/SpagoBI/restful-services/2.0/datasets/Prova
+
+
+Response:
+	Status 200 OK in 270ms
+
+Headers:
+	content-length 1452
+	content-type application/json;charset=utf-8
+	date Fri, 29 Apr 2016 08:57:57 GMT
+	server Apache-Coyote/1.1
+Body:
+{
+"commonInfo": {"userIn": "server","userUp": null,"userDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"sbiVersionDe": null,"organization": null,"timeIn": 1461857162000,"timeUp": null,"timeDe": null},"id": {"dsId": 2,"versionNum": 5,"organization": "SPAGOBI"
+},"name": "Meter","description": "Prova Test FIWARE","label": "Prova","active": true,"type": "SbiQueryDataSet","configuration": {
+"Query": "select * from business_demo_meter","dataSource": "Cosmos","queryScript": "","queryScriptLanguage": ""
+},"pivotColumnName": null,"pivotRowName": null,"pivotColumnValue": null,"numRows": false,"persisted": false,"persistTableName": "","owner": "biadmin","publicDS": true,"userIn": null,"userUp": null,"userDe": null,"sbiVersionIn": null,"sbiVersionUp": null,"sbiVersionDe": null,"metaVersion": null,"timeIn": null,"timeUp": null,"timeDe": null,"scope": {
+"commonInfo": {"userIn": "server","userUp": null,"userDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"sbiVersionDe": null,"organization": null,"timeIn": 1461769224000,"timeUp": null,"timeDe": null
+},"valueId": 185,"domainCd": "LAYER_TYPE","domainNm": "Layer Type","valueCd": "OSM","valueNm": "OSM","valueDs": "Layer Type"
+},"metadata": {"fieldsMeta": [{"name": "id","alias": "id","type": "java.lang.String","properties": {},"fieldType": "ATTRIBUTE"},
+{"name": "recvtime","alias": "recvtime","type": "java.lang.String","properties": {},"fieldType": "ATTRIBUTE"}],"properties": {"resultNumber": "3276"}},"scopeId": 185,"transformerId": null,"categoryId": null,"parameters": []
+}
+
+
+
+
+########### FI.APP.DV.API.19 ###########
+Request PUT
+
+{"active": false,"categoryId": null,"commonInfo": {"organization": null,"sbiVersionDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"timeDe": null,"timeIn": 1437646316000,"timeUp": null,"userDe": null,"userIn": "biadmin","userUp": null},"configuration": 
+{"Query": "select * from business_demo_meter","dataSource": "Cosmos","queryScript": "","queryScriptLanguage": ""},"description": "FIWARE Test Update","id": {"dsId": 4,"organization": "SPAGOBI","versionNum": 7},"label": "Meter","metaVersion": null,"metadata": 
+{"fieldsMeta": [{"alias": "id","fieldType": "ATTRIBUTE","name": "id","properties": {},"type": "java.lang.String"},{"alias": "recvtime","fieldType": "ATTRIBUTE","name": "recvtime","properties": {},"type": "java.lang.String"}],"properties": {"resultNumber": "3276"}},
+"name": "Meter","numRows": false,"owner": "biadmin","parameters": [],"persistTableName": "","persisted": false,"pivotColumnName": null,"pivotColumnValue": null,"pivotRowName": null,"publicDS": true,"sbiVersionDe": null,"sbiVersionIn": null,"sbiVersionUp": null,"scope": 
+{"commonInfo": {"organization": null,"sbiVersionDe": null,"sbiVersionIn": "4.0","sbiVersionUp": null,"timeDe": null,"timeIn": 1436791308000,"timeUp": null,"userDe": null,"userIn": "server","userUp": null},"domainCd": "DS_SCOPE","domainNm": "Dataset scope","valueCd": "USER","valueDs": "Dataset scope","valueId": 185,"valueNm": "User"},"scopeId": 185,"timeDe": null,"timeIn": null,"timeUp": null,"transformerId": null,"type": "SbiQueryDataSet","userDe": null,"userIn": null,"userUp": null}
+
+
+
+Response:
+	Status 200 OK in 515ms
+Headers:
+	content-length 0
+	date Fri, 29 Apr 2016 09:07:14 GMT
+	server Apache-Coyote/1.1
+
+Body:
+
+########### FI.APP.DV.API.20 ###########
+Request DELETE
+
+Response:
+	Status 200 OK in 170ms
+Headers:
+content-length 0
+date Mon, 02 May 2016 14:36:59 GMT
+server Apache-Coyote/1.1
+
+Body:
+
+########### FI.APP.DV.API.21 ###########
+Request GET
+
+Response:
+	Status 200 OK in 192ms
+Headers:
+content-type application/json;charset=utf-8
+date Mon, 02 May 2016 14:38:33 GMT
+server Apache-Coyote/1.1
+transfer-encoding chunked
+
+
+Body:
+{
+  "metaData": {"totalProperty": "results","root": "rows","id": "id","fields": ["recNo",
+		{"name": "column_1","header": "CUSTOMER_ID","dataIndex": "column_1","type": "int"
+      },{"name": "column_2","header": "ACCOUNT_NUM","dataIndex": "column_2","type": "int"
+      },{"name": "column_3","header": "LNAME","dataIndex": "column_3","type": "string"
+      },{"name": "column_4","header": "FNAME","dataIndex": "column_4","type": "string"
+      },{"name": "column_5","header": "MI","dataIndex": "column_5","type": "string"
+      },{"name": "column_6","header": "ADDRESS1","dataIndex": "column_6","type": "string"
+      },{"name": "column_7","header": "ADDRESS2","dataIndex": "column_7","type": "string"
+      },{"name": "column_8","header": "ADDRESS3","dataIndex": "column_8","type": "string"
+      },{"name": "column_9","header": "ADDRESS4","dataIndex": "column_9","type": "string"
+      },{"name": "column_10","header": "CITY","dataIndex": "column_10","type": "string"
+      },{"name": "column_11","header": "STATE_PROVINCE","dataIndex": "column_11","type": "string"
+      },{"name": "column_12","header": "POSTAL_CODE","dataIndex": "column_12","type": "string"
+      },{"name": "column_13","header": "COUNTRY","dataIndex": "column_13","type": "string"
+      },{"name": "column_14","header": "CUSTOMER_REGION_ID","dataIndex": "column_14","type": "int"
+      },{"name": "column_15","header": "PHONE1","dataIndex": "column_15","type": "string"
+      },{"name": "column_16","header": "PHONE2","dataIndex": "column_16","type": "string"
+      },{"name": "column_17","header": "BIRTHDATE","dataIndex": "column_17","type": "date","dateFormat": "d/m/Y"
+      },{"name": "column_18","header": "MARITAL_STATUS","dataIndex": "column_18","type": "string"
+      },{"name": "column_19","header": "YEARLY_INCOME","dataIndex": "column_19","type": "string"
+      },{"name": "column_20","header": "GENDER","dataIndex": "column_20","type": "string"
+      },{"name": "column_21","header": "TOTAL_CHILDREN","dataIndex": "column_21","type": "int"
+      },{"name": "column_22","header": "NUM_CHILDREN_AT_HOME","dataIndex": "column_22","type": "int"
+      },{"name": "column_23","header": "EDUCATION","dataIndex": "column_23","type": "string"
+      },{"name": "column_24","header": "DATE_ACCNT_OPENED","dataIndex": "column_24","type": "date","dateFormat": "d/m/Y"
+      },{"name": "column_25","header": "MEMBER_CARD","dataIndex": "column_25","type": "string"
+      },{"name": "column_26","header": "OCCUPATION","dataIndex": "column_26","type": "string"
+      },{"name": "column_27","header": "HOUSEOWNER","dataIndex": "column_27","type": "string"
+      },{"name": "column_28","header": "NUM_CARS_OWNED","dataIndex": "column_28","type": "int"
+      }
+    ]
+  },
+  "results": 19,
+  "rows": [
+    {"id": 1,"column_1": "1","column_2": "87462024688","column_3": "Nowmer","column_4": "Sheri","column_5": "A.","column_6": "2433 Bailey Road","column_7": "","column_8": "","column_9": "","column_10": "Tlaxiaco","column_11": "Oaxaca","column_12": "15057","column_13": "Mexico","column_14": "30","column_15": "271-555-9715","column_16": "119-555-1969","column_17": "26/08/1961","column_18": "M","column_19": "$30K - $50K","column_20": "F","column_21": "4","column_22": "2","column_23": "Partial High School","column_24": "10/09/1991","column_25": "Bronze","column_26": "Skilled Manual","column_27": "Y","column_28": "4"},
+    {"id": 2,"column_1": "2","column_2": "87470586299","column_3": "Whelply","column_4": "Derrick","column_5": "I.","column_6": "2219 Dewing Avenue","column_7": "","column_8": "","column_9": "","column_10": "Sooke","column_11": "BC","column_12": "17172","column_13": "Canada","column_14": "101","column_15": "211-555-7669","column_16": "807-555-9033","column_17": "03/07/1915","column_18": "S","column_19": "$70K - $90K","column_20": "M","column_21": "1","column_22": "0","column_23": "Partial High School","column_24": "11/03/1993","column_25": "Bronze","column_26": "Professional","column_27": "N","column_28": "3"},
+    {"id": 3,"column_1": "3","column_2": "87475757600","column_3": "Derry","column_4": "Jeanne","column_5": "","column_6": "7640 First Ave.","column_7": "","column_8": "","column_9": "","column_10": "Issaquah","column_11": "WA","column_12": "73980","column_13": "USA","column_14": "21","column_15": "656-555-2272","column_16": "221-555-2493","column_17": "21/06/1910","column_18": "M","column_19": "$50K - $70K","column_20": "F","column_21": "1","column_22": "1","column_23": "Bachelors Degree","column_24": "11/06/1991","column_25": "Bronze","column_26": "Professional","column_27": "Y","column_28": "2"},
+    {"id": 4,"column_1": "4","column_2": "87500482201","column_3": "Spence","column_4": "Michael","column_5": "J.","column_6": "337 Tosca Way","column_7": "","column_8": "","column_9": "","column_10": "Burnaby","column_11": "BC","column_12": "74674","column_13": "Canada","column_14": "92","column_15": "929-555-7279","column_16": "272-555-2844","column_17": "20/06/1969","column_18": "M","column_19": "$10K - $30K","column_20": "M","column_21": "4","column_22": "4","column_23": "Partial High School","column_24": "21/05/1994","column_25": "Normal","column_26": "Skilled Manual","column_27": "N","column_28": "2"},
+    {"id": 5,"column_1": "5","column_2": "87514054179","column_3": "Gutierrez","column_4": "Maya","column_5": "","column_6": "8668 Via Neruda","column_7": "","column_8": "","column_9": "","column_10": "Novato","column_11": "CA","column_12": "57355","column_13": "USA","column_14": "42","column_15": "387-555-7172","column_16": "260-555-6936","column_17": "10/05/1951","column_18": "S","column_19": "$30K - $50K","column_20": "F","column_21": "3","column_22": "0","column_23": "Partial College","column_24": "21/08/1992","column_25": "Silver","column_26": "Manual","column_27": "N","column_28": "3"},
+    {"id": 6,"column_1": "6","column_2": "87517782449","column_3": "Damstra","column_4": "Robert","column_5": "F.","column_6": "1619 Stillman Court","column_7": "","column_8": "","column_9": "","column_10": "Lynnwood","column_11": "WA","column_12": "90792","column_13": "USA","column_14": "75","column_15": "922-555-5465","column_16": "333-555-5915","column_17": "08/10/1942","column_18": "S","column_19": "$70K - $90K","column_20": "F","column_21": "3","column_22": "0","column_23": "Bachelors Degree","column_24": "05/04/1992","column_25": "Bronze","column_26": "Professional","column_27": "Y","column_28": "3"},
+    {"id": 7,"column_1": "7","column_2": "87521172800","column_3": "Kanagaki","column_4": "Rebecca","column_5": "","column_6": "2860 D Mt. Hood Circle","column_7": "","column_8": "","column_9": "","column_10": "Tlaxiaco","column_11": "Oaxaca","column_12": "13343","column_13": "Mexico","column_14": "30","column_15": "515-555-6247","column_16": "934-555-9211","column_17": "27/03/1949","column_18": "M","column_19": "$30K - $50K","column_20": "F","column_21": "2","column_22": "1","column_23": "Partial High School","column_24": "01/05/1991","column_25": "Bronze","column_26": "Manual","column_27": "Y","column_28": "3"},
+    {"id": 8,"column_1": "8","column_2": "87539744377","column_3": "Brunner","column_4": "Kim","column_5": "H.","column_6": "6064 Brodia Court","column_7": "","column_8": "","column_9": "","column_10": "San Andres","column_11": "DF","column_12": "12942","column_13": "Mexico","column_14": "106","column_15": "411-555-6825","column_16": "130-555-6818","column_17": "10/08/1922","column_18": "M","column_19": "$50K - $70K","column_20": "M","column_21": "2","column_22": "2","column_23": "Bachelors Degree","column_24": "11/06/1992","column_25": "Bronze","column_26": "Professional","column_27": "Y","column_28": "3"},
+    {"id": 9,"column_1": "9","column_2": "87544797658","column_3": "Blumberg","column_4": "Brenda","column_5": "C.","column_6": "7560 Trees Drive","column_7": "","column_8": "","column_9": "","column_10": "Richmond","column_11": "BC","column_12": "17256","column_13": "Canada","column_14": "90","column_15": "815-555-3975","column_16": "642-555-6483","column_17": "23/06/1979","column_18": "M","column_19": "$10K - $30K","column_20": "M","column_21": "5","column_22": "3","column_23": "Partial High School","column_24": "14/11/1993","column_25": "Normal","column_26": "Skilled Manual","column_27": "Y","column_28": "1"},
+    {"id": 10,"column_1": "10","column_2": "87568712234","column_3": "Stanz","column_4": "Darren","column_5": "M.","column_6": "1019 Kenwal Rd.","column_7": "","column_8": "","column_9": "","column_10": "Lake Oswego","column_11": "OR","column_12": "82017","column_13": "USA","column_14": "64","column_15": "847-555-5443","column_16": "212-555-8635","column_17": "26/08/1949","column_18": "S","column_19": "$30K - $50K","column_20": "M","column_21": "4","column_22": "0","column_23": "Bachelors Degree","column_24": "04/05/1993","column_25": "Golden","column_26": "Management","column_27": "N","column_28": "4"},
+    {"id": 11,"column_1": "11","column_2": "87572821378","column_3": "Murraiin","column_4": "Jonathan","column_5": "V.","column_6": "5423 Camby Rd.","column_7": "","column_8": "","column_9": "","column_10": "La Mesa","column_11": "CA","column_12": "35890","column_13": "USA","column_14": "11","column_15": "612-555-4878","column_16": "747-555-6928","column_17": "20/06/1967","column_18": "S","column_19": "$50K - $70K","column_20": "M","column_21": "4","column_22": "0","column_23": "High School Degree","column_24": "23/04/1992","column_25": "Bronze","column_26": "Manual","column_27": "N","column_28": "2"},
+    {"id": 12,"column_1": "12","column_2": "87579237222","column_3": "Creek","column_4": "Jewel","column_5": "C.","column_6": "1792 Belmont Rd.","column_7": "","column_8": "","column_9": "","column_10": "Chula Vista","column_11": "CA","column_12": "40520","column_13": "USA","column_14": "13","column_15": "555-555-2714","column_16": "228-555-5450","column_17": "18/10/1971","column_18": "S","column_19": "$30K - $50K","column_20": "F","column_21": "1","column_22": "0","column_23": "High School Degree","column_24": "06/07/1991","column_25": "Bronze","column_26": "Skilled Manual","column_27": "N","column_28": "3"},
+    {"id": 13,"column_1": "13","column_2": "87587122917","column_3": "Medina","column_4": "Peggy","column_5": "A.","column_6": "3796 Keller Ridge","column_7": "","column_8": "","column_9": "","column_10": "Mexico City","column_11": "Mexico","column_12": "59554","column_13": "Mexico","column_14": "2","column_15": "343-555-9778","column_16": "785-555-2371","column_17": "12/10/1975","column_18": "S","column_19": "$30K - $50K","column_20": "M","column_21": "4","column_22": "0","column_23": "High School Degree","column_24": "09/10/1990","column_25": "Bronze","column_26": "Manual","column_27": "N","column_28": "4"},
+    {"id": 14,"column_1": "14","column_2": "87592626810","column_3": "Rutledge","column_4": "Bryan","column_5": "K.","column_6": "3074 Ardith Drive","column_7": "","column_8": "","column_9": "","column_10": "Lincoln Acres","column_11": "CA","column_12": "30346","column_13": "USA","column_14": "10","column_15": "659-555-3160","column_16": "640-555-5439","column_17": "09/07/1912","column_18": "M","column_19": "$50K - $70K","column_20": "F","column_21": "2","column_22": "2","column_23": "Bachelors Degree","column_24": "19/10/1992","column_25": "Bronze","column_26": "Management","column_27": "Y","column_28": "2"},
+    {"id": 15,"column_1": "15","column_2": "87597749829","column_3": "Cavestany","column_4": "Walter","column_5": "G.","column_6": "7987 Seawind Dr.","column_7": "","column_8": "","column_9": "","column_10": "Oak Bay","column_11": "BC","column_12": "15542","column_13": "Canada","column_14": "99","column_15": "471-555-8853","column_16": "560-555-4646","column_17": "05/11/1941","column_18": "S","column_19": "$90K - $110K","column_20": "M","column_21": "3","column_22": "0","column_23": "Graduate Degree","column_24": "09/08/1991","column_25": "Bronze","column_26": "Professional","column_27": "Y","column_28": "3"},
+    {"id": 16,"column_1": "16","column_2": "87603285908","column_3": "Planck","column_4": "Peggy","column_5": "M.","column_6": "4864 San Carlos","column_7": "","column_8": "","column_9": "","column_10": "Camacho","column_11": "Zacatecas","column_12": "77787","column_13": "Mexico","column_14": "27","column_15": "698-555-7603","column_16": "986-555-9424","column_17": "02/06/1919","column_18": "M","column_19": "$50K - $70K","column_20": "F","column_21": "2","column_22": "2","column_23": "High School Degree","column_24": "17/12/1993","column_25": "Bronze","column_26": "Skilled Manual","column_27": "Y","column_28": "2"},
+    {"id": 17,"column_1": "17","column_2": "87625473141","column_3": "Marshall","column_4": "Brenda","column_5": "S.","column_6": "2687 Ridge Road","column_7": "","column_8": "","column_9": "","column_10": "Arcadia","column_11": "CA","column_12": "28530","column_13": "USA","column_14": "51","column_15": "771-555-6581","column_16": "929-555-7260","column_17": "20/03/1928","column_18": "S","column_19": "$90K - $110K","column_20": "M","column_21": "3","column_22": "0","column_23": "High School Degree","column_24": "23/10/1993","column_25": "Bronze","column_26": "Management","column_27": "Y","column_28": "3"},
+    {"id": 18,"column_1": "18","column_2": "87637655735","column_3": "Wolter","column_4": "Daniel","column_5": "P.","column_6": "2473 Orchard Way","column_7": "","column_8": "","column_9": "","column_10": "Altadena","column_11": "CA","column_12": "49680","column_13": "USA","column_14": "50","column_15": "121-555-3960","column_16": "717-555-5324","column_17": "21/09/1914","column_18": "M","column_19": "$30K - $50K","column_20": "M","column_21": "3","column_22": "2","column_23": "Partial College","column_24": "24/10/1992","column_25": "Bronze","column_26": "Professional","column_27": "Y","column_28": "4"},
+    {"id": 19,"column_1": "19","column_2": "87650814652","column_3": "Collins","column_4": "Dianne","column_5": "","column_6": "551 Rainier Dr","column_7": "","column_8": "","column_9": "","column_10": "Oakland","column_11": "CA","column_12": "21486","column_13": "USA","column_14": "37","column_15": "217-555-1567","column_16": "921-555-5446","column_17": "20/07/1953","column_18": "S","column_19": "$70K - $90K","column_20": "F","column_21": "1","column_22": "0","column_23": "High School Degree","column_24": "21/09/1992","column_25": "Bronze","column_26": "Professional","column_27": "N","column_28": "1"}
+  ]
+}
+
+########### FI.APP.DV.API.22 ###########
+Request GET
+
+
+Response:
+	Status 200 OK in 284ms
+Headers:
+	content-type application/json;charset=utf-8
+	date Fri, 29 Apr 2016 09:20:21 GMT
+	server Apache-Coyote/1.1
+	transfer-encoding chunked
+Body:
+[  
+	{"id": 1,"criptable": 0,"name": "Dashboard Engine","description": "Dashboard Engine","url": "","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "","label": "SpagoBIDashboardEng","className": "it.eng.spagobi.engines.dashboard.SpagoBIDashboardInternalEngine","biobjTypeId": 9,"engineTypeId": 56,"useDataSource": false,"useDataSet": true  },  
+	{"id": 2,"criptable": 0,"name": "JFreeChart Engine","description": "JFree Chart Engine","url": "","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "","label": "SpagoBIJFreeChartEng","className": "it.eng.spagobi.engines.chart.SpagoBIChartInternalEngine","biobjTypeId": 9,"engineTypeId": 56,"useDataSource": false,"useDataSet": true  },  
+	{"id": 3,"criptable": 0,"name": "Dossier Engine","description": "Dossier Engine","url": "","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "","label": "SpagoBIDossierEngine","className": "it.eng.spagobi.engines.dossier.SpagoBIDossierInternalEngine","biobjTypeId": 12,"engineTypeId": 56,"useDataSource": false,"useDataSet": false  },  
+	{"id": 4,"criptable": 0,"name": "Office Document Engine","description": "Office Document Engine","url": "","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "","label": "SpagoBIOfficeEngine","className": "it.eng.spagobi.engines.officedocument.SpagoBIOfficeDocumentInternalEngine","biobjTypeId": 13,"engineTypeId": 56,"useDataSource": false,"useDataSet": false  },  
+	{"id": 5,"criptable": 0,"name": "Document Composition Engine","description": "Document Composition Engine","url": "","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "","label": "SpagoBICompositeDocE","className": "it.eng.spagobi.engines.documentcomposition.SpagoBIDocumentCompositionInternalEngine","biobjTypeId": 15,"engineTypeId": 56,"useDataSource": false,"useDataSet": false  },  
+	{"id": 6,"criptable": 0,"name": "Kpi Engine","description": "Kpi Engine","url": "","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "","label": "SpagoBIKpiEngine","className": "it.eng.spagobi.engines.kpi.SpagoBIKpiInternalEngine","biobjTypeId": 16,"engineTypeId": 56,"useDataSource": false,"useDataSet": false  },  
+	{"id": 7,"criptable": 0,"name": "Birt Report Engine","description": "Birt Report Engine","url": "/SpagoBIBirtReportEngine/BirtReportServlet","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.birt.BirtReportDriver","label": "SpagoBIBirtReportEng","className": "","biobjTypeId": 6,"engineTypeId": 55,"useDataSource": true,"useDataSet": false  },  
+	{"id": 8,"criptable": 0,"name": "Geo Engine","description": "Geo Engine","url": "/SpagoBIGeoEngine/servlet/AdapterHTTP","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.geo.GeoDriver","label": "SpagoBIGeoEngine","className": "","biobjTypeId": 11,"engineTypeId": 55,"useDataSource": true,"useDataSet": true  },  
+	{"id": 9,"criptable": 0,"name": "JPivot Engine","description": "JPivot Mondrian Engine","url": "/SpagoBIJPivotEngine/JPivotServlet","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.jpivot.JPivotDriver","label": "SpagoBIJPivotEngine","className": "","biobjTypeId": 7,"engineTypeId": 55,"useDataSource": true,"useDataSet": false  },  
+	{"id": 10,"criptable": 0,"name": "Jasper Report Engine","description": "Jasper Report Engine","url": "/SpagoBIJasperReportEngine/JasperReportServlet","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.jasperreport.JasperReportDriver","label": "SpagoBIJasperReportE","className": "","biobjTypeId": 6,"engineTypeId": 55,"useDataSource": true,"useDataSet": false  },  
+	{"id": 11,"criptable": 0,"name": "Qbe Engine","description": "Qbe Engine","url": "/SpagoBIQbeEngine/servlet/AdapterHTTP","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.qbe.QbeDriver","label": "SpagoBIQbeEngine","className": "","biobjTypeId": 10,"engineTypeId": 55,"useDataSource": true,"useDataSet": false  },  
+	{"id": 12,"criptable": 0,"name": "Talend Engine","description": "Talend Engine","url": "/SpagoBITalendEngine/JobRunService","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.talend.TalendDriver","label": "SpagoBITalendEngine","className": "","biobjTypeId": 14,"engineTypeId": 55,"useDataSource": true,"useDataSet": false  },  
+	{"id": 13,"criptable": 0,"name": "Data-mining Engine","description": "Data-mining Engine","url": "/SpagoBIDataMiningEngine/restful-services/start","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.datamining.DataMiningDriver","label": "SpagoBIDataMiningEngine","className": "","biobjTypeId": 8,"engineTypeId": 55,"useDataSource": true,"useDataSet": false  },  
+	{"id": 14,"criptable": 0,"name": "Accessible Report Engine","description": "Accessible Report Engine","url": "/SpagoBIAccessibilityEngine/servlet/AccessibilityServlet","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.accessibility.AccessibilityDriver","label": "SpagoBIAccessibleEng","className": "","biobjTypeId": 133,"engineTypeId": 55,"useDataSource": true,"useDataSet": true  },  
+	{"id": 15,"criptable": 0,"name": "Process Engine","description": "Process Engine","url": "/SpagoBICommonJEngine/servlet/AdapterHTTP","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.commonj.CommonjDriver","label": "SpagoBIProcessEngine","className": "","biobjTypeId": 14,"engineTypeId": 55,"useDataSource": false,"useDataSet": false  },  
+	{"id": 16,"criptable": 0,"name": "Smart Filter Engine","description": " Smart Filter Engine","url": "/SpagoBIQbeEngine/servlet/AdapterHTTP","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.smartfilter.SmartFilterDriver","label": "SpagoBISmartFilterEn","className": "","biobjTypeId": 17,"engineTypeId": 55,"useDataSource": true,"useDataSet": false  },  
+	{"id": 17,"criptable": 0,"name": "Gis Engine","description": "Gis Engine","url": "/SpagoBIGeoReportEngine/GeoReportEngineStartAction","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.gis.GisDriver","label": "SpagoBIGisEngine","className": "","biobjTypeId": 11,"engineTypeId": 55,"useDataSource": true,"useDataSet": true  },  
+	{"id": 18,"criptable": 0,"name": "Console Engine","description": "Console Engine","url": "/SpagoBIConsoleEngine/servlet/AdapterHTTP","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.console.ConsoleDriver","label": "SpagoBIConsoleEngine","className": "","biobjTypeId": 18,"engineTypeId": 55,"useDataSource": true,"useDataSet": true  },  
+	{"id": 19,"criptable": 0,"name": "Worksheet Engine","description": "Worksheet Engine","url": "/SpagoBIQbeEngine/servlet/AdapterHTTP","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.worksheet.WorksheetDriver","label": "SpagoBIWorksheetEng","className": "","biobjTypeId": 19,"engineTypeId": 55,"useDataSource": true,"useDataSet": true  },  
+	{"id": 20,"criptable": 0,"name": "JSChart Engine","description": "JSChart Engine","url": "/SpagoBIChartEngine/servlet/AdapterHTTP","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.chart.ChartDriver","label": "SpagoBIJSChartEngine","className": "","biobjTypeId": 20,"engineTypeId": 55,"useDataSource": false,"useDataSet": true  },  
+	{"id": 21,"criptable": 0,"name": "Mobile Report Engine","description": "Report engine for mobile devices","url": "/SpagoBIMobileEngine/servlet/AdapterHTTP?ACTION_NAME=MOBILE_ENGINE_START_ACTION","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.mobile.report.MobileReportDriver","label": "SpagoBITableMobileEn","className": "","biobjTypeId": 21,"engineTypeId": 55,"useDataSource": true,"useDataSet": true  },  
+	{"id": 22,"criptable": 0,"name": "Mobile Chart Engine","description": "Chart engine for mobile devices","url": "/SpagoBIMobileEngine/servlet/AdapterHTTP?ACTION_NAME=MOBILE_ENGINE_START_ACTION","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.mobile.chart.MobileChartDriver","label": "SpagoBIChartMobileEn","className": "","biobjTypeId": 22,"engineTypeId": 55,"useDataSource": true,"useDataSet": true  },  
+	{"id": 23,"criptable": 0,"name": "Mobile Cockpit Engine","description": "Cockpit engine for mobile devices","url": "/SpagoBIMobileEngine/servlet/AdapterHTTP?ACTION_NAME=MOBILE_ENGINE_START_ACTION","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.mobile.cockpit.MobileCockpitDriver","label": "SpagoBICockpitMobile","className": "","biobjTypeId": 23,"engineTypeId": 55,"useDataSource": false,"useDataSet": false  },  
+	{"id": 24,"criptable": 0,"name": "Network Analysis Engine","description": "Network Analysis Engine","url": "/SpagoBINetworkEngine/servlet/AdapterHTTP","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.network.NetworkDriver","label": "SpagoBINetworkEngine","className": "","biobjTypeId": 24,"engineTypeId": 55,"useDataSource": false,"useDataSet": true  },  
+	{"id": 25,"criptable": 0,"name": "Cockpit Engine","description": "Cockpit Engine","url": "/SpagoBICockpitEngine/api/1.0/pages/execute","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.cockpit.CockpitDriver","label": "SpagoBICockpitEngine","className": "","biobjTypeId": 15,"engineTypeId": 55,"useDataSource": false,"useDataSet": false  },  
+	{"id": 26,"criptable": 0,"name": "What-If Engine","description": "What-If Engine","url": "/SpagoBIWhatIfEngine/restful-services/start","secondaryUrl": null,"dirUpload": null,"dirUsable": null,"driverName": "it.eng.spagobi.engines.drivers.whatif.WhatIfDriver","label": "SpagoBIWhatIfEngine","className": "","biobjTypeId": 7,"engineTypeId": 55,"useDataSource": true,"useDataSet": false  }
+]
+
+
+
+########### FI.APP.DV.API.23 ###########
+Request GET
+
+
+Response:
+	Status 200 OK in 273ms
+Headers:
+	content-length 337
+	content-type application/json;charset=utf-8
+	date Fri, 29 Apr 2016 09:27:09 GMT
+	server Apache-Coyote/1.1
+
+Body:
+{
+  "id": 3,
+  "criptable": 0,
+  "name": "Dossier Engine",
+  "description": "Dossier Engine",
+  "url": "",
+  "secondaryUrl": null,
+  "dirUpload": null,
+  "dirUsable": null,
+  "driverName": "",
+  "label": "SpagoBIDossierEngine",
+  "className": "it.eng.spagobi.engines.dossier.SpagoBIDossierInternalEngine",
+  "biobjTypeId": 12,
+  "engineTypeId": 56,
+  "useDataSource": false,
+  "useDataSet": false
+}
