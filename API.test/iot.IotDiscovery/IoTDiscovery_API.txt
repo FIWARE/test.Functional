@@ -1,0 +1,1587 @@
+
+
+########### IoTDiscovery ###########
+
+
+########### FI.IOT.DS.API.02 - registerContext ###########
+			
+REQUEST:
+curl --request POST --header "Content-Type: application/json" --data '{ "contextRegistrations": [ { "entities": [ { "type": "Room", "isPattern": "false", "id": "Room1" }, { "type": "Room", "isPattern": "false", "id": "Room2" } ], "attributes": [ { "name": "temperature", "type": "float", "isDomain": "false" }, { "name": "pressure", "type": "integer", "isDomain": "false" } ], "providingApplication": "http://mysensors.com/Rooms" } ], "duration": "P1M" }' http://161.27.159.139:5900/ngsi9/registerContext
+	
+RESPONSE BODY:
+
+	{
+  "duration": "P1M",
+  "registrationId": "UniS_ap3TpO5ZaA",
+  "errorCode": {
+    "code": 200,
+    "reasonPhrase": "OK",
+    "details": "Stored"
+  }
+}"
+
+
+########### FI.IOT.DS.API.03	discoverContextAvailability	 ###########
+REQUEST:
+curl --request POST --header "Content-Type: application/json" --data '{ "entities": [ { "type": "Room", "isPattern": "false", "id": "Room1" } ], "attributes": [ "temperature" ] }' http://161.27.159.139:5900/ngsi9/discoverContextAvailability 
+
+RESPONSE BODY:
+{
+  "contextRegistrationResponses": [
+    {
+      "contextRegistration": {
+        "entities": [
+          {
+            "id": "Room1",
+            "type": "Room",
+            "isPattern": false
+          }
+        ],
+        "attributes": [
+          {
+            "name": "temperature",
+            "type": "float",
+            "isDomain": false
+          },
+          {
+            "name": "pressure",
+            "type": "integer",
+            "isDomain": false
+          }
+        ],
+        "providingApplication": "http://mysensors.com/Rooms"
+      }
+    }
+  ],
+  "errorCode": {
+    "code": 200,
+    "reasonPhrase": "OK",
+    "details": "Result"
+  }"
+  
+  
+########### FI.IOT.DS.API.04	subscribeContextAvailabilityRequest	 ########### 
+REQUEST:
+curl --request POST --header "Content-Type: application/xml" --data '<?xml version="1.0" encoding="UTF-8"?> <subscribeContextAvailabilityRequest> <entityIdList> <entityId type="Room1" isPattern="false"> <id>ConferenceRoom</id> </entityId> <entityId type="Room2" isPattern="false"> <id>OfficeRoom</id> </entityId> </entityIdList> <attributeList> <attribute>temperature</attribute> <attribute>occupancy</attribute> <attribute>lightstatus</attribute> </attributeList> <reference>http://mysensors.com/Rooms </reference> <duration>PT1M</duration> <subscriptionId></subscriptionId> </subscribeContextAvailabilityRequest>' http://161.27.159.139:5900/ngsi9/subscribeContextAvailability
+
+RESPONSE BODY:
+<?xml version='1.0' encoding='UTF-8'?>
+<subscribeContextAvailabilityResponse>
+  <subscriptionId>
+    UniS_mkND9U5LeN
+  </subscriptionId>
+  <duration>
+    PT1M
+  </duration>
+  <errorCode>
+    <code>
+      200
+    </code>
+    <reasonPhrase>
+      OK
+    </reasonPhrase>
+    <details xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:type='xs:string'>
+      Stored
+    </details>
+  </errorCode>
+</subscribeContextAvailabilityResponse>"
+
+
+########### FI.IOT.DS.API.05	updateContextAvailabilitySubscription	 ########### 
+REQUEST:
+curl --request POST --header "Content-Type: application/json" --data '{ "entities": [ { "type": "Room1", "isPattern": "true", "id": ".*" } ], "attributes": [ "temperature" ], "reference": "http://mysensors.com/Rooms", "duration": "P" }' http://161.27.159.139:5900/ngsi9/updateContextAvailabilitySubscription	 
+
+RESPONSE BODY:
+{
+  "subscriptionId": "UniS_IGbbZRbPJg",
+  "duration": "P",
+  "errorCode": {
+    "code": 200,
+    "reasonPhrase": "OK",
+    "details": "Stored"
+  }
+}"
+
+
+########### FI.IOT.DS.API.06	unsubscribeContextAvailability	 ########### 
+Delete the subscriptionId: UniS_mkND9U5LeN obtained in the previous test subscribeContextAvailabilityRequest
+
+REQUEST:
+curl --request POST --header "Content-Type: application/xml" --data '<?xml version='1.0' encoding='UTF-8'?> <unsubscribeContextAvailabilityRequest> <subscriptionId> UniS_mkND9U5LeN </subscriptionId> </unsubscribeContextAvailabilityRequest>' http://161.27.159.139:5900/ngsi9/unsubscribeContextAvailability"	 
+
+RESPONSE BODY:
+<?xml version='1.0' encoding='UTF-8'?>
+<unsubscribeContextAvailabilityResponse>
+  <subscriptionId>
+     UniS_7AMSw1V7vj 
+  </subscriptionId>
+</unsubscribeContextAvailabilityResponse>"
+
+
+########### FI.IOT.DS.API.07	Convenience Operation Resources - Register Context Entity	 ########### 
+URL: http://{serverRoot}/ngsi9/contextEntities/{EntityID}
+
+REQUEST:
+curl --request POST --header "Content-Type: application/xml" --data '<?xml version="1.0" encoding="UTF-8"?> <registerContextRequest> <contextRegistrationList> <contextRegistration> <registrationMetadata> <contextMetadata> <name>association1</name> <type>Association</type> <value> <entityAssociation> <sourceEntityId type="TemperatureSensor" isPattern="false"> <id>Sensor5</id> </sourceEntityId> <targetEntityId type="House" isPattern="false"> <id>house3</id> </targetEntityId> </entityAssociation> <attributeAssociationList> <attributeAssociation> <sourceAttribute>measurement</sourceAttribute> <targetAttribute>indoorTemperature</targetAttribute> </attributeAssociation> </attributeAssociationList> </value> </contextMetadata> </registrationMetadata> <providingApplication>http://www.fi-ware.eu/NGSI/association</providingApplication> </contextRegistration> </contextRegistrationList> <duration>PT1M</duration> <registrationId>1579964ss5t</registrationId> </registerContextRequest>' http://161.27.159.139:5900/ngsi9/contextEntities/Sensor5		 
+
+RESPONSE BODY -  registrationId = UniS_YzPETPZ8Mn
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<registerContextResponse>
+  <duration>
+    PT1M
+  </duration>
+  <registrationId>
+    UniS_YzPETPZ8Mn
+  </registrationId>
+  <errorCode>
+    <code>
+      200
+    </code>
+    <reasonPhrase>
+      OK
+    </reasonPhrase>
+    <details xsi:type='xs:string' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+      Stored
+    </details>
+  </errorCode>
+</registerContextResponse>"
+
+
+########### FI.IOT.DS.API.08	"Convenience Operation Resources - Discover Context Entity Availability	 ########### 
+URL: http://{serverRoot}/ngsi9/contextEntities/{EntityID} 
+
+REQUEST:
+curl --request GET --header "Content-Type: application/xml" http://161.27.159.139:5900/ngsi9/contextEntities/Room1		
+
+RESPONSE BODY:
+
+{
+  "contextRegistrationResponses": [
+    {
+      "contextRegistration": {
+        "entities": [
+          {
+            "id": "Room1",
+            "type": "Room",
+            "isPattern": false
+          }
+        ],
+        "attributes": [
+          {
+            "name": "temperature",
+            "type": "float",
+            "isDomain": false
+          },
+          {
+            "name": "pressure",
+            "type": "integer",
+            "isDomain": false
+          }
+        ],
+        "providingApplication": "http://mysensors.com/Rooms"
+      }
+    }
+  ],
+  "errorCode": {
+    "code": 200,
+    "reasonPhrase": "OK",
+    "details": "Result"
+  }
+}"
+
+
+########### FI.IOT.DS.API.09	"Convenience Operation Resources - Get Entity Attributes	 ########### 
+URL: http://{serverRoot}/ngsi9/contextEntities/{EntityID}/attributes 
+
+REQUEST:
+curl --request GET --header "Content-Type: application/xml" http://161.27.159.139:5900/ngsi9/contextEntities/Room1/attributes		
+
+RESPONSE BODY:
+{
+  "contextRegistrationResponses": [
+    {
+      "contextRegistration": {
+        "entities": [
+          {
+            "id": "Room1",
+            "type": "Room",
+            "isPattern": false
+          }
+        ],
+        "attributes": [
+          {
+            "name": "temperature",
+            "type": "float",
+            "isDomain": false
+          },
+          {
+            "name": "pressure",
+            "type": "integer",
+            "isDomain": false
+          }
+        ],
+        "providingApplication": "http://mysensors.com/Rooms"
+      }
+    }
+  ],
+  "errorCode": {
+    "code": 200,
+    "reasonPhrase": "OK",
+    "details": "Result"
+  }
+}"
+
+########### FI.IOT.DS.API.10	"Convenience Operation Resources - Get Entity Attribute Name	 ########### 
+URL: http://{serverRoot}/ngsi9/contextEntities/{EntityID}/attributes/{attributeName} - Method: GET
+
+REQUEST:
+curl --request GET --header "Content-Type: application/xml" http://161.27.159.139:5900/ngsi9/contextEntities/Room1/attributes/pressure		
+
+RESPONSE BODY:
+{
+  "contextRegistrationResponses": [
+    {
+      "contextRegistration": {
+        "entities": [
+          {
+            "id": "Room1",
+            "type": "Room",
+            "isPattern": false
+          }
+        ],
+        "attributes": [
+          {
+            "name": "temperature",
+            "type": "float",
+            "isDomain": false
+          },
+          {
+            "name": "pressure",
+            "type": "integer",
+            "isDomain": false
+          }
+        ],
+        "providingApplication": "http://mysensors.com/Rooms"
+      }
+    }
+  ],
+  "errorCode": {
+    "code": 200,
+    "reasonPhrase": "OK",
+    "details": "Result"
+  }
+}
+"
+
+########### FI.IOT.DS.API.11	"Convenience Operation Resources - Get Attribute domain of entity type	 ########### 
+URL: http://{serverRoot}/ngsi9/contextEntities/{EntityID}/attributeDomains/{attributeDomainName} - Method: GET 
+
+PRECONDITION: it's necessary that <isDomain>true</isDomain> in order to define an attributeDomains
+curl --request POST --header "Content-Type: application/xml" --data '<?xml version="1.0" encoding="UTF-8"?> <registerContextRequest> <contextRegistrationList> <contextRegistration> <entityIdList> <entityId type="Room" isPattern="false"> <id>Room103</id> </entityId> </entityIdList> <contextRegistrationAttributeList> <contextRegistrationAttribute> <name>temperature</name> <type>degree</type> <isDomain>true</isDomain> <metadata> <contextMetadata> <name>unit</name> <type>string</type> <value>celsius</value> </contextMetadata> </metadata> </contextRegistrationAttribute> <contextRegistrationAttribute> <name>pressure</name> <type>degree</type> <isDomain>false</isDomain> <metadata> <contextMetadata> <name>unit</name> <type>string</type> <value>celsius</value> </contextMetadata> </metadata> </contextRegistrationAttribute> </contextRegistrationAttributeList> <registrationMetaData> <contextMetadata> <name></name> <type></type> <value></value> </contextMetadata> </registrationMetaData> <providingApplication>http://192.168.100.1:70/tempApplication </providingApplication> </contextRegistration> </contextRegistrationList> <duration>PT1M</duration> <registrationId></registrationId> </registerContextRequest>' http://161.27.159.139:5900/ngsi9/contextEntities/Room103
+
+
+TEST REQUEST
+curl --request GET --header "Content-Type: application/xml" http://161.27.159.139:5900/ngsi9/contextEntities/Room103/attributeDomains/temperature
+
+RESPONSE BODY:
+if the entity has NOT an attribute set: <isDomain>true</isDomain>
+
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<discoverContextAvailabilityResponse>
+  <contextRegistrationResponseList/>
+  <errorCode>
+    <code>
+      404
+    </code>
+    <reasonPhrase>
+      Context Element Not Found
+    </reasonPhrase>
+    <details xsi:type='xs:string' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+      Result
+    </details>
+  </errorCode>
+</discoverContextAvailabilityResponse>
+
+
+SUCCESS BODY RESPONSE
+if the entity has an attribute set <isDomain>true</isDomain>
+ 
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<discoverContextAvailabilityResponse>
+  <contextRegistrationResponseList>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room103
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+          <contextRegistrationAttribute>
+            <name>
+              pressure
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+  </contextRegistrationResponseList>
+  <errorCode>
+    <code>
+      500
+    </code>
+    <reasonPhrase>
+      Internal Error
+    </reasonPhrase>
+    <details xsi:type='xs:string' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+      result
+    </details>
+  </errorCode>
+</discoverContextAvailabilityResponse>
+
+
+########### FI.IOT.DS.API.12	"Convenience Operation Resources - Get Context Entity Type Name	 ########### 
+URL: http://{serverRoot}/ngsi9/contextEntityTypes/{typeName} - Method: GET
+REQUEST:
+curl --request GET --header "Content-Type: application/xml" http://161.27.159.139:5900/ngsi9/contextEntityTypes/Room
+
+RESPONSE BODY:
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<discoverContextAvailabilityResponse>
+  <contextRegistrationResponseList>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room1
+            </id>
+          </entityId>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room2
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              float
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+          </contextRegistrationAttribute>
+          <contextRegistrationAttribute>
+            <name>
+              pressure
+            </name>
+            <type>
+              integer
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://mysensors.com/Rooms
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              ConferenceRoom
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              LivingRoom
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+  </contextRegistrationResponseList>
+  <errorCode>
+    <code>
+      200
+    </code>
+    <reasonPhrase>
+      OK
+    </reasonPhrase>
+    <details xsi:type='xs:string' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+      Result
+    </details>
+  </errorCode>
+</discoverContextAvailabilityResponse>"
+
+
+########### FI.IOT.DS.API.13	"Convenience Operation Resources - Get attributes for a Context Entity Types Name	 ########### 
+URL: http://{serverRoot}/ngsi9/contextEntityTypes/{typeName}/attributes - Method: GET
+REQUEST:
+curl --request GET --header "Content-Type: application/xml" http://161.27.159.139:5900/ngsi9/contextEntityTypes/Room/attributes		
+
+RESPONSE BODY:
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<discoverContextAvailabilityResponse>
+  <contextRegistrationResponseList>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room1
+            </id>
+          </entityId>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room2
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              float
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+          </contextRegistrationAttribute>
+          <contextRegistrationAttribute>
+            <name>
+              pressure
+            </name>
+            <type>
+              integer
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://mysensors.com/Rooms
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              ConferenceRoom
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              LivingRoom
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+  </contextRegistrationResponseList>
+  <errorCode>
+    <code>
+      200
+    </code>
+    <reasonPhrase>
+      OK
+    </reasonPhrase>
+    <details xsi:type='xs:string' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+      Result
+    </details>
+  </errorCode>
+</discoverContextAvailabilityResponse>"
+
+########### FI.IOT.DS.API.14	"Convenience Operation Resources - Get attributeName of a contextEntityType Name	 ########### 
+URL: http://{serverRoot}/ngsi9/contextEntityTypes/{typeName}/attributes/{attributeName} - Method: GET
+
+REQUEST:
+curl --request GET --header "Content-Type: application/xml" http://161.27.159.139:5900/ngsi9/contextEntityTypes/Room/attributes/temperature	
+
+RESPONSE BODY:
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<discoverContextAvailabilityResponse>
+  <contextRegistrationResponseList>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room1
+            </id>
+          </entityId>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room2
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              float
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+          </contextRegistrationAttribute>
+          <contextRegistrationAttribute>
+            <name>
+              pressure
+            </name>
+            <type>
+              integer
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://mysensors.com/Rooms
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              ConferenceRoom
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              LivingRoom
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+  </contextRegistrationResponseList>
+  <errorCode>
+    <code>
+      200
+    </code>
+    <reasonPhrase>
+      OK
+    </reasonPhrase>
+    <details xsi:type='xs:string' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+      Result
+    </details>
+  </errorCode>
+</discoverContextAvailabilityResponse>"
+
+
+########### FI.IOT.DS.API.15	Convenience Operation Resources ########### 
+URL: http://{serverRoot}/ngsi9/contextEntityTypes/{typeName}/attributeDomains/{attributeDomainName} - Method: GET	
+
+REQUEST:
+curl --request GET --header "Content-Type: application/xml" http://161.27.159.139:5900/ngsi9/contextEntityTypes/Room/attributeDomains/temperature		
+
+RESPONSE BODY:
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<discoverContextAvailabilityResponse>
+  <contextRegistrationResponseList>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Bath1
+            </id>
+          </entityId>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Bath2
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              float
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+          </contextRegistrationAttribute>
+          <contextRegistrationAttribute>
+            <name>
+              pressure
+            </name>
+            <type>
+              integer
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+           http://mysensors.com/Rooms 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room99
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room99
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room100
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room100
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room101
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room101
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+          <contextRegistrationAttribute>
+            <name>
+              pressure
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room102
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+          <contextRegistrationAttribute>
+            <name>
+              pressure
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type='Room' isPattern='false'>
+            <id>
+              Room103
+            </id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>
+              temperature
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              true
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+          <contextRegistrationAttribute>
+            <name>
+              pressure
+            </name>
+            <type>
+              degree
+            </type>
+            <isDomain>
+              false
+            </isDomain>
+            <metadata>
+              <contextMetadata>
+                <name>
+                  unit
+                </name>
+                <type>
+                  string
+                </type>
+                <value>
+                  celsius
+                </value>
+              </contextMetadata>
+            </metadata>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>
+          http://192.168.100.1:70/tempApplication 
+        </providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+  </contextRegistrationResponseList>
+  <errorCode>
+    <code>
+      200
+    </code>
+    <reasonPhrase>
+      OK
+    </reasonPhrase>
+    <details xsi:type='xs:string' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+      result
+    </details>
+  </errorCode>
+</discoverContextAvailabilityResponse>"
+
+
+########### FI.IOT.DS.API.16	subscribeContextAvailabilityRequest ########### 
+URL: http://{serverRoot}/ngsi9/contextAvailabilitySubscriptions - Method: POST 
+
+REQUEST:
+curl --request POST --header "Content-Type: application/xml" --data '<?xml version="1.0" encoding="UTF-8"?> <subscribeContextAvailabilityRequest> <entityIdList> <entityId type="Room9" isPattern="false"> <id>PersonalRoom</id> </entityId> </entityIdList> <attributeList> <attribute>temperature</attribute> <attribute>occupancy</attribute> <attribute>lightstatus</attribute> </attributeList> <reference>http://mysensors.com/Rooms </reference> <duration>PT1M</duration> <subscriptionId></subscriptionId> </subscribeContextAvailabilityRequest>' http://161.27.159.139:5900/ngsi9/contextAvailabilitySubscriptions
+
+RESPONSE BODY:
+<?xml version='1.0' encoding='UTF-8'?>
+<subscribeContextAvailabilityResponse>
+  <subscriptionId>
+    UniS_TYdhaKBvuB
+  </subscriptionId>
+  <duration>
+    PT1M
+  </duration>
+  <errorCode>
+    <code>
+      200
+    </code>
+    <reasonPhrase>
+      OK
+    </reasonPhrase>
+    <details xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:type='xs:string'>
+      Stored
+    </details>
+  </errorCode>
+</subscribeContextAvailabilityResponse>"
+
+########### FI.IOT.DS.API.17	updateContextAvailabilitySubscriptionRequest ########### 
+URL: http://{serverRoot}/ngsi9/contextAvailabilitySubscriptions/{subscriptionID} - Method: PUT - Payload: updateContextAvailabilitySubscriptionRequest
+
+REQUEST:
+curl --request PUT --header "Content-Type: application/xml" --data '<?xml version="1.0" encoding="UTF-8"?> <updateContextAvailabilitySubscriptionRequest> <entityIdList> <entityId type="Room" isPattern="false"> <id>AnnamariaRoom</id> </entityId> </entityIdList> <attributeList> <attribute>temperature</attribute> <attribute>occupancy</attribute> <attribute>lightstatus</attribute> </attributeList> <reference>http://mysensors.com/Rooms </reference> <duration>PT1M</duration> <subscriptionId></subscriptionId> </updateContextAvailabilitySubscriptionRequest>' http://161.27.159.139:5900/ngsi9/contextAvailabilitySubscriptions/UniS_TYdhaKBvuB		
+
+RESPONSE BODY:
+<?xml version='1.0' encoding='UTF-8'?>
+<updateContextAvailabilitySubscriptionResponse>
+  <subscriptionId>
+    UniS_voBEma8c4n
+  </subscriptionId>
+  <duration>
+    PT1M
+  </duration>
+  <errorCode>
+    <code>
+      200
+    </code>
+    <reasonPhrase>
+      OK
+    </reasonPhrase>
+    <details xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:type='xs:string'>
+      Stored
+    </details>
+  </errorCode>
+</updateContextAvailabilitySubscriptionResponse>
+
+
+########### FI.IOT.DS.API.18	delete Subscription ########### 
+URL: http://{serverRoot}/ngsi9/contextAvailabilitySubscriptions/{subscriptionID} - Method: DELETE
+
+REQUEST:
+curl --request DELETE --header "Content-Type: application/xml" http://161.27.159.139:5900/ngsi9/contextAvailabilitySubscriptions/UniS_TYdhaKBvuB	
+
+RESPONSE BODY:
+{
+  "subscriptionId": "UniS_TYdhaKBvuB"
+}
+
+
+########### FI.IOT.DS.API.18_2	//{notificationURI} ###########
+Not Passed	IOT-777
+http:/
+{serverRoot}
+/ngsi9/
+{notificationURI}
+Method POST
+
+
+########### FI.IOT.DS.API.19	Get Version ###########
+								
+REQUEST:
+curl --request GET --header "Content-Type: application/xml" http://161.27.159.139:5900/s2w/repository/getVersion		
+RESPONSE BODY:
+<sanityCheck>
+  <name>IoT Discovery</name>
+  <type>Sanity Check</type>
+  <version>Version: 3.2.3.SNAPSHOT</version>
+  </sanityCheck>
+  
+
+########### FI.IOT.DS.API.20	Register Multiple Descriptions ###########
+REQUEST:
+curl --request POST --header "Content-Type: application/json" --data '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#" xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#" xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dm="http://www.surrey.ac.uk/ccsr/ontologies/DeviceModel.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:swrl="http://www.w3.org/2003/11/swrl#" xmlns:swrlb="http://www.w3.org/2003/11/swrlb#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:j.0="http://purl.oclc.org/NET/ssnx/ssn#" xml:base="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl"> <OnDeviceResource rdf:ID="Resource_16_BA_03_temperature_sensor"> <hasResourceLocation> <Location rdf:ID="Location_16_BA_02_temperature_sensor"> <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-0.57</hasLongitude> <hasLocalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E16</hasLocalLocation> <hasGlobalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.geonames.org/2647793/</hasGlobalLocation> <hasAltitude rdf:datatype="http://www.w3.org/2001/XMLSchema#int">45</hasAltitude> <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">51.23</hasLatitude> </Location> </hasResourceLocation> <isHostedOn><j.0:SensingDevice rdf:ID="PloggBoard_16_BA_02_temperature"/></isHostedOn> <hasResourceID rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">16_BA_02_temperature_sensor</hasResourceID> <hasType rdf:resource="#Sensor"/> <isExposedThroughService rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI" >http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#16_BA_02_temperature_sensingService</isExposedThroughService> <hasTag rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature sensor 16,2nd,BA,office</hasTag> <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperaturesensor16_BA_02</hasName> <hasTimeOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</hasTimeOffset> </OnDeviceResource> <OnDeviceResource rdf:ID="Resource_16_BA_04_temperature_sensor"> <hasResourceLocation> <Location rdf:ID="Location_16_BA_02_temperature_sensor"> <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-0.57</hasLongitude> <hasLocalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E16</hasLocalLocation> <hasGlobalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.geonames.org/2647793/</hasGlobalLocation> <hasAltitude rdf:datatype="http://www.w3.org/2001/XMLSchema#int">45</hasAltitude> <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">51.23</hasLatitude> </Location> </hasResourceLocation> <isHostedOn><j.0:SensingDevice rdf:ID="PloggBoard_16_BA_02_temperature"/></isHostedOn> <hasResourceID rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">16_BA_02_temperature_sensor</hasResourceID> <hasType rdf:resource="#Sensor"/> <isExposedThroughService rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI" >http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#16_BA_02_temperature_sensingService</isExposedThroughService> <hasTag rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature sensor 16,2nd,BA,office</hasTag> <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperaturesensor16_BA_02</hasName> <hasTimeOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</hasTimeOffset> </OnDeviceResource> </rdf:RDF>' http://161.27.159.139:5900/s2w/repository/register/iot-a/resource		
+
+RESPONSE BODY:
+{
+  "type": "resource",
+  "stored": true,
+  "indexing": true,
+  "responseStatus": "undergoing index retrain"
+}
+
+The same test has been executed via web app:
+http://161.27.159.139:5900/s2w/register/description.html
+
+
+########### FI.IOT.DS.API.21	Register Description ###########
+REQUEST:
+curl --request POST --header "Content-Type: application/json" --data '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#" xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#" xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dm="http://www.surrey.ac.uk/ccsr/ontologies/DeviceModel.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:swrl="http://www.w3.org/2003/11/swrl#" xmlns:swrlb="http://www.w3.org/2003/11/swrlb#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:j.0="http://purl.oclc.org/NET/ssnx/ssn#" xml:base="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl"> <OnDeviceResource rdf:ID="Resource_16_BA_02_temperature_sensor"> <hasResourceLocation> <Location rdf:ID="Location_16_BA_02_temperature_sensor"> <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-0.57</hasLongitude> <hasLocalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E16</hasLocalLocation> <hasGlobalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.geonames.org/2647793/</hasGlobalLocation> <hasAltitude rdf:datatype="http://www.w3.org/2001/XMLSchema#int">45</hasAltitude> <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">51.23</hasLatitude> </Location> </hasResourceLocation> <isHostedOn><j.0:SensingDevice rdf:ID="PloggBoard_16_BA_02_temperature"/></isHostedOn> <hasResourceID rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">16_BA_02_temperature_sensor</hasResourceID> <hasType rdf:resource="#Sensor"/> <isExposedThroughService rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI" >http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#16_BA_02_temperature_sensingService</isExposedThroughService> <hasTag rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature sensor 16,2nd,BA,office</hasTag> <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperaturesensor16_BA_02</hasName> <hasTimeOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</hasTimeOffset> </OnDeviceResource> </rdf:RDF>' http://161.27.159.139:5900/s2w/repository/register/iot-a/resource/Resource_16_BA_02_temperature_sensor	
+
+RESPONSE BODY:
+{
+  "id": "Resource_16_BA_02_temperature_sensor",
+  "type": "resource",
+  "stored": true,
+  "indexed": false,
+  "association": "",
+  "responseStatus": "Fold-in failed: Index not yet created"
+}
+
+
+########### FI.IOT.DS.API.22	Update Description ###########
+REQUEST:
+curl --request PUT --header "Content-Type: application/json" --data '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#" xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#" xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dm="http://www.surrey.ac.uk/ccsr/ontologies/DeviceModel.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:swrl="http://www.w3.org/2003/11/swrl#" xmlns:swrlb="http://www.w3.org/2003/11/swrlb#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:j.0="http://purl.oclc.org/NET/ssnx/ssn#" xml:base="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl"> <OnDeviceResource rdf:ID="Resource_16_BA_02_temperature_sensor"> <hasResourceLocation> <Location rdf:ID="Location_16_BA_02_temperature_sensor"> <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-0.58</hasLongitude> <hasLocalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E16</hasLocalLocation> <hasGlobalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.geonames.org/2647793/</hasGlobalLocation> <hasAltitude rdf:datatype="http://www.w3.org/2001/XMLSchema#int">46</hasAltitude> <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">52.23</hasLatitude> </Location> </hasResourceLocation> <isHostedOn><j.0:SensingDevice rdf:ID="PloggBoard_16_BA_02_temperature"/></isHostedOn> <hasResourceID rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">16_BA_02_temperature_sensor</hasResourceID> <hasType rdf:resource="#Sensor"/> <isExposedThroughService rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI" >http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#16_BA_02_temperature_sensingService</isExposedThroughService> <hasTag rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature sensor 16,2nd,BA,office</hasTag> <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperaturesensor16_BA_02</hasName> <hasTimeOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</hasTimeOffset> </OnDeviceResource> </rdf:RDF>' http://161.27.159.139:5900/s2w/repository/update/iot-a/resource/Resource_16_BA_02_temperature_sensor	
+
+RESPONSE BODY:
+{
+  "id": "Resource_16_BA_02_temperature_sensor",
+  "type": "resource",
+  "stored": true,
+  "association": "",
+  "responseStatus": "OK"
+}
+
+The same test has been executed via web app:
+http://161.27.159.139:5900/s2w/update/description.html"
+
+
+########### FI.IOT.DS.API.23	Lookup Description ###########
+REQUEST:
+curl --request GET --header "Content-Type: application/json" http://161.27.159.139:5900/s2w/repository/lookup/iot-a/resource/Resource_16_BA_02_temperature_sensor?resultFormat=RDF/XML
+//{hostname}/s2w/repository/lookup/iot-a/{descriptionType}/{objectID}?resultFormat={resultFormat}
+
+RESPONSE BODY:
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:j.0="http://purl.oclc.org/NET/ssnx/ssn#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#"
+    xmlns:dm="http://www.surrey.ac.uk/ccsr/ontologies/DeviceModel.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#" > 
+  <rdf:Description rdf:about="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#Resource_16_BA_02_temperature_sensor">
+    <hasTag rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature sensor 16,2nd,BA,office</hasTag>
+    <hasTimeOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</hasTimeOffset>
+    <hasResourceLocation rdf:resource="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#Location_16_BA_02_temperature_sensor"/>
+    <rdf:type rdf:resource="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#OnDeviceResource"/>
+    <rdf:type rdf:resource="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#Resource"/>
+    <isHostedOn rdf:resource="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#PloggBoard_16_BA_02_temperature"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <hasType rdf:resource="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#Sensor"/>
+    <hasResourceID rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">16_BA_02_temperature_sensor</hasResourceID>
+    <isExposedThroughService rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#16_BA_02_temperature_sensingService</isExposedThroughService>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperaturesensor16_BA_02</hasName>
+  </rdf:Description>
+</rdf:RDF>
+
+
+The same test has been executed via web app:
+http://161.27.159.139:5900/s2w/lookup/description.html
+or running via browser
+http://161.27.159.139:5900/s2w/repository/lookup/iot-a/resource/Resource_16_BA_02_temperature_sensor?resultFormat=RDF/XML
+
+
+########### FI.IOT.DS.API.24	Query Description - GET ###########
+REQUEST:
+curl --request GET --header "Content-Type: application/json" http://161.27.159.139:5900/s2w/repository/query/sparql/iot-a/resource?sparql=PREFIX%20em%3A%20%3Chttp%3A%2F%2Fwww.surrey.ac.uk%2Fccsr%2Fontologies%2FVirtualEntityModel.owl%23%3E%0ASelect%20*%0AWHERE%20%7B%0A%3Furi%20em%3AhasName%20%3FResource_16_BA_02_temperature_sensor.%0AOPTIONAL%7B%3Furi%20em%3AhasTag%20%3FhasTag.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasType%20%3FhasType.%7D%0A%3Furi%20em%3AhasLatitude%20%3FhasLatitude.%0A%3Furi%20em%3AhasLongitude%20%3FhasLongitude.%0AOPTIONAL%7B%3Furi%20em%3AhasAltitude%20%3FhasAltitude.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasGlobalLocation%20%3FhasGlobalLocation.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasLocalLocation%20%3FhasLocalLocation.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasLocalIdentifier%20%3FhasLocalIdentifier.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasGlobalIdentifier%20%3FhasGlobalIdentifier.%7D%0AOPTIONAL%7B%3Furi%20em%3AisAssociatedToService%20%3FisAssociatedToService%7D%0A%7D
+
+RESPONSSE BODY:
+<?xml version='1.0'?>
+<sparql xmlns='http://www.w3.org/2005/sparql-results#'>
+  <head>
+    <variable name='uri'/>
+    <variable name='Resource_16_BA_02_temperature_sensor'/>
+    <variable name='hasTag'/>
+    <variable name='hasType'/>
+    <variable name='hasLatitude'/>
+    <variable name='hasLongitude'/>
+    <variable name='hasAltitude'/>
+    <variable name='hasGlobalLocation'/>
+    <variable name='hasLocalLocation'/>
+    <variable name='hasLocalIdentifier'/>
+    <variable name='hasGlobalIdentifier'/>
+    <variable name='isAssociatedToService'/>
+  </head>
+  <results>
+  </results>
+</sparql>
+
+The same test has been executed via web app:
+The parameter sparql= must be URL-encoded 
+see http://meyerweb.com/eric/tools/dencoder/
+
+URL
+http://161.27.159.139:5900/s2w/repository/query/sparql/iot-a/resource?sparql=PREFIX%20em%3A%20%3Chttp%3A%2F%2Fwww.surrey.ac.uk%2Fccsr%2Fontologies%2FVirtualEntityModel.owl%23%3E%0ASelect%20*%0AWHERE%20%7B%0A%3Furi%20em%3AhasName%20%3FResource_16_BA_02_temperature_sensor.%0AOPTIONAL%7B%3Furi%20em%3AhasTag%20%3FhasTag.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasType%20%3FhasType.%7D%0A%3Furi%20em%3AhasLatitude%20%3FhasLatitude.%0A%3Furi%20em%3AhasLongitude%20%3FhasLongitude.%0AOPTIONAL%7B%3Furi%20em%3AhasAltitude%20%3FhasAltitude.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasGlobalLocation%20%3FhasGlobalLocation.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasLocalLocation%20%3FhasLocalLocation.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasLocalIdentifier%20%3FhasLocalIdentifier.%7D%0AOPTIONAL%7B%3Furi%20em%3AhasGlobalIdentifier%20%3FhasGlobalIdentifier.%7D%0AOPTIONAL%7B%3Furi%20em%3AisAssociatedToService%20%3FisAssociatedToService%7D%0A%7D"
+
+########### FI.IOT.DS.API.25	Query Description - POST ###########
+
+REQUEST:
+curl --request POST --header "Content-Type: application/json" --data 'PREFIX rm: <http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#> Select * WHERE { ?uri rm:hasName ?Resource_16_BA_02_temperature_sensor. OPTIONAL{?uri rm:hasTag ?hasTag.} OPTIONAL{?uri rm:hasType ?hasType.} OPTIONAL{?uri rm:isExposedThroughService ?isExposedThroughService.} OPTIONAL{?uri rm:hasTimeOffset ?hasTimeOffset.} OPTIONAL{?uri rm:isHostedOn ?isHostedOn.} ?uri rm:hasLatitude ?hasLatitude. ?uri rm:hasLongitude ?hasLongitude. OPTIONAL{?uri rm:hasAltitude ?hasAltitude.} OPTIONAL{?uri rm:hasGlobalLocation ?hasGlobalLocation.} OPTIONAL{?uri rm:hasLocalLocation ?hasLocalLocation.} }' http://161.27.159.139:5900/s2w/repository/query/sparql/iot-a/resource?resultFormat=XML		
+
+RESPONSE BODY:
+<?xml version='1.0'?>
+<sparql xmlns='http://www.w3.org/2005/sparql-results#'>
+  <head>
+    <variable name='uri'/>
+    <variable name='Resource_16_BA_02_temperature_sensor'/>
+    <variable name='hasTag'/>
+    <variable name='hasType'/>
+    <variable name='isExposedThroughService'/>
+    <variable name='hasTimeOffset'/>
+    <variable name='isHostedOn'/>
+    <variable name='hasLatitude'/>
+    <variable name='hasLongitude'/>
+    <variable name='hasAltitude'/>
+    <variable name='hasGlobalLocation'/>
+    <variable name='hasLocalLocation'/>
+  </head>
+  <results>
+  </results> 
+</sparql>
+
+The same test has been executed via web app:
+http://161.27.159.139:5900/s2w/query/description.html
+selecting Query
+
+
+########### FI.IOT.DS.API.26	Discover ###########
+REQUEST:
+curl --request POST --header "Content-Type: application/json" --data '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#" xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#" xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dm="http://www.surrey.ac.uk/ccsr/ontologies/DeviceModel.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:swrl="http://www.w3.org/2003/11/swrl#" xmlns:swrlb="http://www.w3.org/2003/11/swrlb#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:j.0="http://purl.oclc.org/NET/ssnx/ssn#" xml:base="http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl"> <OnDeviceResource rdf:ID="Resource_16_BA_03_temperature_sensor"> <hasResourceLocation> <Location rdf:ID="Location_16_BA_02_temperature_sensor"> <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">-0.57</hasLongitude> <hasLocalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E16</hasLocalLocation> <hasGlobalLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.geonames.org/2647793/</hasGlobalLocation> <hasAltitude rdf:datatype="http://www.w3.org/2001/XMLSchema#int">45</hasAltitude> <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#float">51.23</hasLatitude> </Location> </hasResourceLocation> <isHostedOn><j.0:SensingDevice rdf:ID="PloggBoard_16_BA_02_temperature"/></isHostedOn> <hasResourceID rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">16_BA_02_temperature_sensor</hasResourceID> <hasType rdf:resource="#Sensor"/> <isExposedThroughService rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI" >http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#16_BA_02_temperature_sensingService</isExposedThroughService> <hasTag rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature sensor 16,2nd,BA,office</hasTag> <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperaturesensor16_BA_02</hasName> <hasTimeOffset rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</hasTimeOffset> </OnDeviceResource> </rdf:RDF>' http://161.27.159.139:5900/s2w/repository/discover/iot-a/resource		
+
+RESPONSE:
+Status 200 OK in 538ms
+Headers:
+accept-ranges 
+bytes
+content-length 
+106
+content-type 
+text/plain;charset=UTF-8
+date 
+Tue, 10 May 2016 09:25:28 GMT
+server 
+Restlet-Framework/2.0.14
+vary 
+Accept-Charset, Accept-Encoding, Accept-Language, Accept
+Copy
+RESPONSE BODY:
+{"iota_resource_index_created":false,"iota_entity_index_created":false,"iota_service_index_created":false}
+
+
+The same test has been executed via web app:
+http://161.27.159.139:5900/s2w/discover/description.html
+
+IOT-757 - Response:
+{"iota_resource_index_created":false,"iota_entity_index_created":false,"iota_service_index_created":false}
+
+Tarek Elsaleh comment:
+This "error" response is intentional, since the discovery mechanism will only work until the minimum number of descriptions have been registered. This is set by the deployer, which can be configured in the web.xml file. Please see http://fiware-iot-discovery-ngsi9.readthedocs.io/en/0.4.0/install/install
+Typically, an index would only be created if there is a reasonable amount of descriptions registered for each type of IoT Element (Resource, Entity or Service)."
+
+########### FI.IOT.DS.API.27	Delete Description ###########
+REQUEST:
+curl --request DELETE --header "Content-Type: application/json" http://161.27.159.139:5900/s2w/repository/delete/iot-a/resource/Resource_16_BA_03_temperature_sensor		
+
+RESPONSE BODY:
+{
+  "id": "Resource_16_BA_03_temperature_sensor",
+  "type": "resource",
+  "deleted": true,
+  "responseStatus": "OK"
+}
+
+The same test has been executed via web app:
+http://161.27.159.139:5900/s2w/delete/description.html
+
+
+########### FI.IOT.DS.API.27	Delete Description ###########
+The test has been executed via web app selecting Locate from menu.
+http://161.27.159.139:5900/s2w/app/MapOverlay.html
+You can see the Object Map Overlay
+
