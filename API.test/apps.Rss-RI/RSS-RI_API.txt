@@ -1,0 +1,483 @@
+﻿###########  COMMON ###########
+http://161.27.159.143:8080/fiware-rss/
+
+########### FI.APP.RSS.API.02 ###########
+Request (GET)
+http://161.27.159.143:8080/fiware-rss/rss/aggregators
+
+Response
+[
+  {
+    "aggregatorName": "Raffa",
+    "aggregatorId": "raffaela.gambone@eng.it"
+  },
+  {
+    "aggregatorName": "WStoreRaffa",
+    "aggregatorId": "raffaella.gambone@eng.it"
+  }
+]
+
+########### FI.APP.RSS.API.03 ###########
+Request (POST)
+http://161.27.159.143:8080/fiware-rss/rss/aggregators
+body 
+{
+  "aggregatorName": "WStoreRaffa",
+  "aggregatorId": "raffaella.gambone@eng.it"
+}
+Response 
+201
+
+http://161.27.159.144:8080/fiware-rss/callback
+
+
+########### FI.APP.RSS.API.05 ###########
+Request (POST)
+http://161.27.159.143:8080/fiware-rss/rss/providers
+{
+  "aggregatorId": "raffaela.gambone@eng.it",
+  "providerId": "conwet2",
+  "providerName": "Raffa"
+}
+Response
+201
+
+########### FI.APP.RSS.API.04 ###########
+Request (GET)
+http://161.27.159.143:8080/fiware-rss/rss/providers
+
+Response
+[
+  {
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "providerId": "conwet",
+    "providerName": "CoNWeT"
+  },
+  {
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "providerId": "conwet2",
+    "providerName": "Raffa"
+  }
+]
+
+
+
+########### FI.APP.RSS.API.06 ###########
+Request (GET)
+http://161.27.159.143:8080/fiware-rss/rss/algorithms
+
+Response
+[
+  {
+    "algorithmId": "FIXED_PERCENTAGE",
+    "description": "Fixed percentage distribution of revenues"
+  }
+]
+
+
+########### FI.APP.RSS.API.08 ###########
+Request (POST)
+http://161.27.159.143:8080/fiware-rss/rss/models
+{
+  "ownerProviderId": "conwet",
+  "ownerValue": 65,
+  "productClass": "orionServices",
+  "algorithmType": "FIXED_PERCENTAGE",
+  "aggregatorId": "raffaela.gambone@eng.it",
+  "aggregatorValue": 20,
+  "stakeholders": [
+    {
+      "stakeholderId": "conwet2",
+      "modelValue": 15
+    }
+  ]
+}
+
+Response
+Status 201 Created
+
+
+{
+  "ownerProviderId": "conwet",
+  "ownerValue": 65,
+  "productClass": "orionServices",
+  "algorithmType": "FIXED_PERCENTAGE",
+  "aggregatorId": "raffaela.gambone@eng.it",
+  "aggregatorValue": 20,
+  "stakeholders": [
+    {
+      "modelValue": 15,
+      "stakeholderId": "conwet2"
+    }
+  ]
+}
+
+########### FI.APP.RSS.API.07 ###########
+Request (GET)
+http://161.27.159.143:8080/fiware-rss/rss/models
+
+Response
+
+[
+  {
+    "ownerProviderId": "conwet",
+    "ownerValue": 65,
+    "productClass": "orionServices",
+    "algorithmType": "FIXED_PERCENTAGE",
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "aggregatorValue": 20,
+    "stakeholders": [
+      {
+        "modelValue": 15,
+        "stakeholderId": "conwet2"
+      }
+    ]
+  },
+  {
+    "ownerProviderId": "conwet",
+    "ownerValue": 65,
+    "productClass": "SanityClass",
+    "algorithmType": "FIXED_PERCENTAGE",
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "aggregatorValue": 20,
+    "stakeholders": [
+      {
+        "modelValue": 15,
+        "stakeholderId": "conwet2"
+      }
+    ]
+  }
+]
+
+http://161.27.159.143:8080/fiware-rss/rss/models?aggregatorId=raffaela.gambone@eng.it
+
+
+[
+  {
+    "ownerProviderId": "conwet",
+    "ownerValue": 65,
+    "productClass": "orionServices",
+    "algorithmType": "FIXED_PERCENTAGE",
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "aggregatorValue": 20,
+    "stakeholders": [
+      {
+        "modelValue": 15,
+        "stakeholderId": "conwet2"
+      }
+    ]
+  },
+  {
+    "ownerProviderId": "conwet",
+    "ownerValue": 50,
+    "productClass": "Sanity Class",
+    "algorithmType": "FIXED_PERCENTAGE",
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "aggregatorValue": 50,
+    "stakeholders": [
+
+    ]
+  },
+  {
+    "ownerProviderId": "conwet",
+    "ownerValue": 65,
+    "productClass": "SanityClass",
+    "algorithmType": "FIXED_PERCENTAGE",
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "aggregatorValue": 20,
+    "stakeholders": [
+      {
+        "modelValue": 15,
+        "stakeholderId": "conwet2"
+      }
+    ]
+  }
+]
+
+http://161.27.159.143:8080/fiware-rss/rss/models?aggregatorId=raffaela.gambone@eng.it&productClass=orionServices
+
+[
+  {
+    "ownerProviderId": "conwet",
+    "ownerValue": 65,
+    "productClass": "orionServices",
+    "algorithmType": "FIXED_PERCENTAGE",
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "aggregatorValue": 20,
+    "stakeholders": [
+      {
+        "modelValue": 15,
+        "stakeholderId": "conwet2"
+      }
+    ]
+  },
+  {
+    "ownerProviderId": "conwet",
+    "ownerValue": 50,
+    "productClass": "Sanity Class",
+    "algorithmType": "FIXED_PERCENTAGE",
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "aggregatorValue": 50,
+    "stakeholders": [
+
+    ]
+  },
+  {
+    "ownerProviderId": "conwet",
+    "ownerValue": 65,
+    "productClass": "SanityClass",
+    "algorithmType": "FIXED_PERCENTAGE",
+    "aggregatorId": "raffaela.gambone@eng.it",
+    "aggregatorValue": 20,
+    "stakeholders": [
+      {
+        "modelValue": 15,
+        "stakeholderId": "conwet2"
+      }
+    ]
+  }
+]
+
+
+########### FI.APP.RSS.API.09 ###########
+Request (GET)
+http://161.27.159.143:8080/fiware-rss/rss/cdrs?aggregatorId=raffaela.gambone@eng.it&providerId=conwet
+
+Response
+
+
+
+
+
+########### FI.APP.RSS.API.10 ###########
+Request (POST)
+http://161.27.159.143:8080/fiware-rss/rss/cdrs
+
+body
+{
+  "cdrSource": "raffaela.gambone@eng.it",
+  "productClass": "orionServices",
+  "correlationNumber": 2,
+  "timestamp": "2016-05-16T19:00:01.000Z",
+  "application": "OrionStarterKit",
+  "transactionType": "C",
+  "event": "use",
+  "referenceCode": "555b079d8e05ac213ff15827",
+  "description": "Usage of OrionStarterKit Offering",
+  "chargedAmount": 10,
+  "chargedTaxAmount": 3,
+  "currency": "EUR",
+  "customerId": "amagan",
+  "appProvider": "conwet2"
+}
+
+Response
+
+
+########### FI.APP.RSS.API.11 ###########
+Request (GET)
+http://161.27.159.143:8080/fiware-rss/rss/settlement?aggregatorId=raffaela.gambone@eng.it&providerId=conwet&productClass=orionServices
+
+Response:
+Status 202 Accepted 
+
+########### FI.APP.RSS.API.12 ###########
+Request (GET)
+http://161.27.159.143:8080/fiware-rss/rss/settlement/reports?aggregatorId=raffaela.gambone@eng.it&providerId=conwet&productClass=orionServices
+
+
+Response:
+Status 202 Accepted 
+
+
+########### FI.APP.RSS.API.14 ###########
+Request (POST)
+
+http://161.27.159.144:8080/expenditureLimit/limits/raffaela.gambone@eng.it/conwet2
+body
+{
+    "service": "fiware",
+    "limits": [
+        {
+            "type": "perTransaction",
+            "currency": "EUR", 
+            "maxAmount": 100,
+        },
+        {
+            "type": "weekly",
+            "currency": "GBP",
+            "maxAmount": 500
+        },
+        {
+            "type":"daily",
+            "currency": "EUR",
+            "maxAmount": 200
+        },
+        {
+            "type":"monthly",
+            "currency": "EUR",
+            "maxAmount": 5000
+        },
+        {
+            "type":"monthly",
+            "currency": "GBP",  
+            "maxAmount": 3000
+        }
+    ]
+}
+
+Response:
+Status 500 Internal Server Error in 176ms
+
+No message body writer has been found for class es.upm.fiware.rss.expenditureLimit.api.ExceptionTypeBean, ContentType: */*
+
+########### FI.APP.RSS.API.13 ###########
+Request (GET)
+
+http://161.27.159.144:8080/expenditureLimit/limits/raffaela.gambone@eng.it/conwet2?service=fiware2&currency=EUR&type=monthly
+Response:
+{
+  "service": "fiware2",
+  "limits": [
+
+  ]
+}
+
+########### FI.APP.RSS.API.15###########
+Request (DELETE)
+
+http://161.27.159.144:8080/expenditureLimit/limits/raffaela.gambone@eng.it/conwet2?service=fiware2&currency=EUR&type=monthly
+Response:
+Status 204
+
+########### FI.APP.RSS.API.16###########
+Request (GET)
+
+http://161.27.159.144:8080/expenditureLimit/limits/raffaela.gambone@eng.it/conwet2/user?service=fiware2&currency=EUR&type=monthly
+
+
+Response:
+
+########### FI.APP.RSS.API.17###########
+Request (POST)
+
+http://161.27.159.144:8080/expenditureLimit/limits/raffaela.gambone@eng.it/conwet2/raffa
+body
+{
+    "service": "fiware",
+    "limits":  {
+        {
+            "type": "perTransaction",
+            "currency": "EUR", 
+            "maxAmount": 100,
+        },
+        {
+            "type": "weekly",
+            "currency": "GBP",
+            "maxAmount": 500
+        },
+        {
+            "type":"daily",
+            "currency": "EUR",
+            "maxAmount": 200
+        },
+        {
+            "type":"monthly",
+            "currency": "EUR",
+            "maxAmount": 5000
+        },
+        {
+            "type":"monthly",
+            "currency": "GBP",  
+            "maxAmount": 3000
+        }
+    }
+}
+
+Response:
+
+########### FI.APP.RSS.API.18###########
+Request (DELETE)
+http://161.27.159.144:8080/expenditureLimit/limits/raffaela.gambone@eng.it/conwet2/raffa?service=fiware2&currency=EUR&type=monthly
+Response:
+
+
+########### FI.APP.RSS.API.19###########
+Request (GET)
+http://161.27.159.144:8080/expenditureLimit/balance/raffa?service=fiware&appProvider=conwet2&currency=EUR&type=weekly
+Response:
+
+
+########### FI.APP.RSS.API.20###########
+Request (POST)
+http://161.27.159.144:8080/expenditureLimit/balance/raffa
+body
+{
+  "service": "fiware",
+  "aggregator": "raffaela.gambone@eng.it",
+  "appProvider": "conwet2",
+  "chargeType": "C",
+  "currency": "EUR",
+  "amount": 50
+}
+
+Response:
+201
+{
+  "service": "fiware",
+  "appProvider": "conwet2",
+  "aggregator": "raffaela.gambone@eng.it",
+  "accums": [
+
+  ]
+}
+
+
+########### FI.APP.RSS.API.21###########
+Request (PUT)
+http://161.27.159.144:8080/expenditureLimit/balance/raffa
+body
+{
+  "service": "fiware",
+  "aggregator": "raffaela.gambone@eng.it",
+  "appProvider": "conwet2",
+  "chargeType": "C",
+  "currency": "EUR",
+  "amount": 100
+}
+
+Response:
+201
+{
+  "service": "fiware",
+  "appProvider": "conwet2",
+  "aggregator": "raffaela.gambone@eng.it",
+  "accums": [
+
+  ]
+}
+
+
+########### FI.APP.RSS.API.22###########
+Request (PUT)
+http://161.27.159.144:8080/expenditureLimit/balance/raffa/reset
+body
+{
+  "service": "fiware",
+  "aggregator": "raffaela.gambone@eng.it",
+  "appProvider": "conwet2",
+  "currency": "EUR",
+  "type": "weekly"
+}
+
+Response:
+Status 200
+
+
+
+
+
+
+
+
+
