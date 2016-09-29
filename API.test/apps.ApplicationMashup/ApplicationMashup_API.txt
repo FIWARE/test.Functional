@@ -1,0 +1,1632 @@
+﻿###########  COMMON ###########
+http://161.27.159.118/login?next=%2F
+
+username:admin
+password:admin
+
+########### TEST FI.APP.AM.API.02 ###########
+Request (GET)
+http://161.27.159.118/api/features
+
+Response
+
+{
+  "Wirecloud": "0.9.0",
+  "OAuth2Provider": "0.5",
+  "DashboardManagement": "1.0",
+  "ApplicationMashup": "1.0",
+  "FullscreenWidget": "0.5",
+  "StyledElements": "0.6.3"
+}
+
+########### TEST FI.APP.AM.API.03 ###########
+Request (GET)
+http://161.27.159.118/api/preferences/platform
+
+Response
+
+{
+  "language": {
+    "value": "en-gb",
+    "inherit": false
+  }
+}
+
+########### TEST FI.APP.AM.API.04 ###########
+Request (POST)
+http://161.27.159.118/api/preferences/platform
+
+Response
+Status 204
+
+==> access.log <==
+192.168.88.81 - - [05/May/2016:07:49:06 +0000] "POST /api/preferences/platform HTTP/1.1" 204 395 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+
+########### TEST FI.APP.AM.API.05.01 ###########
+Request (GET)
+http://161.27.159.118/api/workspaces
+(request made with user credentials --> the request returns all workspaces
+Response
+
+[
+  {
+    "active": false,
+    "name": "Workspace",
+    "removable": true,
+    "lastmodified": 1462286038196,
+    "owner": "admin",
+    "shared": false,
+    "longdescription": "",
+    "id": 1,
+    "owned": true,
+    "description": ""
+  },
+  {
+    "active": true,
+    "name": "Raffa 2",
+    "removable": true,
+    "lastmodified": 1462368620265,
+    "owner": "admin",
+    "shared": true,
+    "longdescription": "",
+    "id": 3,
+    "owned": true,
+    "description": ""
+  },
+  {
+    "active": false,
+    "name": "Raffy",
+    "removable": true,
+    "lastmodified": 1462374277051,
+    "owner": "admin",
+    "shared": false,
+    "longdescription": "",
+    "id": 6,
+    "owned": true,
+    "description": ""
+  },
+  {
+    "active": false,
+    "name": "Frank",
+    "removable": true,
+    "lastmodified": 1462374411115,
+    "owner": "admin",
+    "shared": false,
+    "longdescription": "",
+    "id": 7,
+    "owned": true,
+    "description": ""
+  }
+]
+
+########### TEST FI.APP.AM.API.05.02 ###########
+Request (GET)
+http://161.27.159.118/api/workspaces
+(request made without user credentials --> the request returns all public workspaces
+Response
+
+[
+  {
+    "active": false,
+    "name": "Raffa 2",
+    "removable": false,
+    "lastmodified": 1462368620265,
+    "owner": "admin",
+    "shared": true,
+    "longdescription": "",
+    "id": 3,
+    "owned": false,
+    "description": ""
+  }
+]
+
+
+########### TEST FI.APP.AM.API.06 ###########
+Request (POST)
+http://161.27.159.118/api/workspaces
+{
+  "name": "Jenny"
+}
+Response
+{
+  "removable": true,
+  "tabs": [
+    {
+      "iwidgets": [
+
+      ],
+      "visible": true,
+      "id": 8,
+      "preferences": {
+        "sharelist": {
+          "value": "[]",
+          "inherit": true
+        },
+        "initiallayout": {
+          "value": "Fixed",
+          "inherit": true
+        },
+        "baselayout": {
+          "value": "{\"verticalmargin\": 3, \"smart\": \"false\", \"horizontalmargin\": 4, \"type\": \"columnlayout\", \"columns\": 20, \"cellheight\": 12}",
+          "inherit": true
+        }
+      },
+      "name": "Tab"
+    }
+  ],
+  "lastmodified": 1462434976720,
+  "owned": true,
+  "owner": "admin",
+  "active": false,
+  "users": [
+    {
+      "username": "admin",
+      "organization": false,
+      "fullname": "",
+      "accesslevel": "owner"
+    }
+  ],
+  "id": 8,
+  "extra_prefs": [
+
+  ],
+  "description": "",
+  "preferences": {
+    "sharelist": {
+      "value": "[]",
+      "inherit": false
+    },
+    "initiallayout": {
+      "value": "Fixed",
+      "inherit": false
+    },
+    "public": {
+      "value": "false",
+      "inherit": false
+    },
+    "baselayout": {
+      "value": "{\"verticalmargin\": 3, \"smart\": \"false\", \"horizontalmargin\": 4, \"type\": \"columnlayout\", \"columns\": 20, \"cellheight\": 12}",
+      "inherit": false
+    }
+  },
+  "name": "Jenny",
+  "wiring": {
+    "connections": [
+
+    ],
+    "operators": {
+    },
+    "version": "2.0",
+    "visualdescription": {
+      "connections": [
+
+      ],
+      "behaviours": [
+
+      ],
+      "components": {
+        "operator": {
+        },
+        "widget": {
+        }
+      }
+    }
+  },
+  "longdescription": "",
+  "empty_params": [
+
+  ],
+  "context": {
+    "owner": {
+      "description": "Workspace's owner username",
+      "value": "admin",
+      "label": "Owner"
+    },
+    "name": {
+      "description": "Current name of the workspace",
+      "value": "Jenny",
+      "label": "Name"
+    }
+  },
+  "shared": false
+}
+
+########### TEST FI.APP.AM.API.07 ###########
+Request (GET)
+http://161.27.159.118/api/workspace/8
+
+Response
+{
+  "removable": true,
+  "tabs": [
+    {
+      "iwidgets": [
+
+      ],
+      "visible": true,
+      "id": 8,
+      "preferences": {
+        "sharelist": {
+          "value": "[]",
+          "inherit": true
+        },
+        "initiallayout": {
+          "value": "Fixed",
+          "inherit": true
+        },
+        "baselayout": {
+          "value": "{\"verticalmargin\": 3, \"smart\": \"false\", \"horizontalmargin\": 4, \"type\": \"columnlayout\", \"columns\": 20, \"cellheight\": 12}",
+          "inherit": true
+        }
+      },
+      "name": "Tab"
+    }
+  ],
+  "lastmodified": 1462434976720,
+  "owned": true,
+  "owner": "admin",
+  "active": false,
+  "users": [
+    {
+      "username": "admin",
+      "organization": false,
+      "fullname": "",
+      "accesslevel": "owner"
+    }
+  ],
+  "id": 8,
+  "extra_prefs": [
+
+  ],
+  "description": "",
+  "preferences": {
+    "sharelist": {
+      "value": "[]",
+      "inherit": false
+    },
+    "initiallayout": {
+      "value": "Fixed",
+      "inherit": false
+    },
+    "public": {
+      "value": "false",
+      "inherit": false
+    },
+    "baselayout": {
+      "value": "{\"verticalmargin\": 3, \"smart\": \"false\", \"horizontalmargin\": 4, \"type\": \"columnlayout\", \"columns\": 20, \"cellheight\": 12}",
+      "inherit": false
+    }
+  },
+  "name": "Jenny",
+  "wiring": {
+    "connections": [
+
+    ],
+    "operators": {
+    },
+    "version": "2.0",
+    "visualdescription": {
+      "connections": [
+
+      ],
+      "behaviours": [
+
+      ],
+      "components": {
+        "operator": {
+        },
+        "widget": {
+        }
+      }
+    }
+  },
+  "longdescription": "",
+  "empty_params": [
+
+  ],
+  "context": {
+    "owner": {
+      "description": "Workspace's owner username",
+      "value": "admin",
+      "label": "Owner"
+    },
+    "name": {
+      "description": "Current name of the workspace",
+      "value": "Jenny",
+      "label": "Name"
+    }
+  },
+  "shared": false
+}
+
+########### TEST FI.APP.AM.API.08 ###########
+Request (POST)
+http://161.27.159.118/api/workspace/8
+{
+  "name": "UpdateName"
+}
+Response
+Status 204 
+
+########### TEST FI.APP.AM.API.09 ###########
+Request (POST)
+http://161.27.159.118/api/workspace/8/preferences
+{
+  "public": {
+    "value": "true"
+  }
+}
+
+Response
+Status 204 No Content 
+
+########### TEST FI.APP.AM.API.10 ###########
+Request (PUT)
+http://161.27.159.118/api/workspace/8/wiring
+{  
+   "connections":[  
+      {  
+         "source":{  
+            "endpoint":"location_event",
+            "type":"widget",
+            "id":2
+         },
+         "readonly":false,
+         "target":{  
+            "endpoint":"coord",
+            "type":"widget",
+            "id":1
+         }
+      },
+      {  
+         "source":{  
+            "endpoint":"location_coord",
+            "type":"widget",
+            "id":1
+         },
+         "readonly":false,
+         "target":{  
+            "endpoint":"location_slot",
+            "type":"widget",
+            "id":2
+         }
+      }
+   ],
+   "operators":{  
+
+   },
+   "version":"2.0",
+   "visualdescription":{  
+      "connections":[  
+
+      ],
+      "behaviours":[  
+
+      ],
+      "components":{  
+         "operator":{  
+
+         },
+         "widget":{  
+            "1":{  
+               "position":{  
+                  "y":50,
+                  "x":298
+               },
+               "collapsed":false,
+               "endpoints":{  
+                  "source":[  
+                     "location_coord"
+                  ],
+                  "target":[  
+                     "coord"
+                  ]
+               },
+               "name":"CoNWeT/weather-example/1.0.4"
+            },
+            "2":{  
+               "position":{  
+                  "y":196,
+                  "x":305
+               },
+               "collapsed":false,
+               "endpoints":{  
+                  "source":[  
+                     "map_info_event",
+                     "location_event",
+                     "center_event",
+                     "feature_info_event",
+                     "legend_url"
+                  ],
+                  "target":[  
+                     "map_info_slot",
+                     "wms_service_slot",
+                     "location_slot",
+                     "location_info_slot",
+                     "locations_info_slot"
+                  ]
+               },
+               "name":"CoNWeT/wms-viewer-geowidget/0.5.5"
+            }
+         }
+      }
+   }
+}
+
+Response
+Status 204 No Content 
+
+RESPONSE AFTER WIRING UPDATE (TEST FI.APP.AM.API.07)
+
+{
+  "removable": true,
+  "tabs": [
+    {
+      "iwidgets": [
+
+      ],
+      "visible": true,
+      "id": 8,
+      "preferences": {
+        "sharelist": {
+          "value": "[]",
+          "inherit": true
+        },
+        "initiallayout": {
+          "value": "Fixed",
+          "inherit": true
+        },
+        "baselayout": {
+          "value": "{\"verticalmargin\": 3, \"smart\": \"false\", \"horizontalmargin\": 4, \"type\": \"columnlayout\", \"columns\": 20, \"cellheight\": 12}",
+          "inherit": true
+        }
+      },
+      "name": "Tab"
+    }
+  ],
+  "lastmodified": 1462441117062,
+  "owned": true,
+  "owner": "admin",
+  "active": false,
+  "users": [
+    {
+      "username": "admin",
+      "organization": false,
+      "fullname": "",
+      "accesslevel": "owner"
+    }
+  ],
+  "id": 8,
+  "extra_prefs": [
+
+  ],
+  "description": "",
+  "preferences": {
+    "sharelist": {
+      "value": "[]",
+      "inherit": false
+    },
+    "initiallayout": {
+      "value": "Fixed",
+      "inherit": false
+    },
+    "public": {
+      "value": "True",
+      "inherit": false
+    },
+    "baselayout": {
+      "value": "{\"verticalmargin\": 3, \"smart\": \"false\", \"horizontalmargin\": 4, \"type\": \"columnlayout\", \"columns\": 20, \"cellheight\": 12}",
+      "inherit": false
+    }
+  },
+  "name": "UpdateName",
+  "wiring": {
+    "connections": [
+      {
+        "source": {
+          "endpoint": "location_event",
+          "type": "widget",
+          "id": 2
+        },
+        "readonly": false,
+        "target": {
+          "endpoint": "coord",
+          "type": "widget",
+          "id": 1
+        }
+      },
+      {
+        "source": {
+          "endpoint": "location_coord",
+          "type": "widget",
+          "id": 1
+        },
+        "readonly": true,
+        "target": {
+          "endpoint": "location_slot",
+          "type": "widget",
+          "id": 2
+        }
+      }
+    ],
+    "operators": {
+    },
+    "version": "1.0",
+    "visualdescription": {
+      "connections": [
+
+      ],
+      "behaviours": [
+
+      ],
+      "components": {
+        "operator": {
+        },
+        "widget": {
+          "1": {
+            "position": {
+              "y": 50,
+              "x": 298
+            },
+            "collapsed": false,
+            "endpoints": {
+              "source": [
+                "location_coord"
+              ],
+              "target": [
+                "coord"
+              ]
+            },
+            "name": "CoNWeT/weather-example/1.0.4"
+          },
+          "2": {
+            "position": {
+              "y": 196,
+              "x": 305
+            },
+            "collapsed": false,
+            "endpoints": {
+              "source": [
+                "map_info_event",
+                "location_event",
+                "center_event",
+                "feature_info_event",
+                "legend_url"
+              ],
+              "target": [
+                "map_info_slot",
+                "wms_service_slot",
+                "location_slot",
+                "location_info_slot",
+                "locations_info_slot"
+              ]
+            },
+            "name": "CoNWeT/wms-viewer-geowidget/0.5.5"
+          }
+        }
+      }
+    }
+  },
+  "longdescription": "",
+  "empty_params": [
+
+  ],
+  "context": {
+    "owner": {
+      "description": "Workspace's owner username",
+      "value": "admin",
+      "label": "Owner"
+    },
+    "name": {
+      "description": "Current name of the workspace",
+      "value": "UpdateName",
+      "label": "Name"
+    }
+  },
+  "shared": true
+}
+
+########### TEST FI.APP.AM.API.11 ###########
+Request (DELETE)
+http://161.27.159.118/api/workspace/8
+
+Response
+Status 204 No Content 
+192.168.88.81 - - [05/May/2016:09:45:26 +0000] "DELETE /api/workspace/8 HTTP/1.1" 204 
+
+
+########### TEST FI.APP.AM.API.12 ###########
+Request (POST)
+http://161.27.159.118/api/workspace/9/tabs
+
+Response:
+Status 201 Created in 244ms
+{
+  "id": 10,
+  "name": "RaffaTab"
+}
+
+
+########### TEST FI.APP.AM.API.13 ###########
+Request (PUT)
+http://161.27.159.118/api/workspace/9/tab/10
+
+{
+  "name": "RosyTab"
+}
+
+Response
+Status 204 No Content 
+192.168.88.81 - - [05/May/2016:10:08:39 +0000]
+ "PUT /api/workspace/9/tab/10 HTTP/1.1" 204 265 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+
+########### TEST FI.APP.AM.API.14 ###########
+Request (POST)
+http://161.27.159.118/api/workspace/9/tab/10/preferences
+{
+    "baselayout": 
+        {
+            "inherit": false,
+            "value": "{\"verticalmargin\":3,\"smart\":\"false\",\"horizontalmargin\":4,\"type\":\"gridlayout\",\"columns\":20,\"cellheight\":12,\"rows\":12}"
+        }
+    }
+	
+Response:
+Status 204
+192.168.88.81 - - [05/May/2016:10:22:59 +0000] 
+"POST /api/workspace/9/tab/10/preferences HTTP/1.1" 204 265 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+########### TEST FI.APP.AM.API.15 ###########
+Request (DELETE)
+http://161.27.159.118/api/workspace/9/tab/10
+
+	
+Response:
+192.168.88.81 - - [05/May/2016:10:28:33 +0000] 
+"DELETE /api/workspace/9/tab/10 HTTP/1.1" 204 265 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+########### TEST FI.APP.AM.API.16 ###########
+Request (POST)
+http://161.27.159.118/api/workspace/9/tab/11/iwidgets
+{
+  "widget": "CoNWeT/wms-viewer-geowidget/0.5.5"
+}
+
+Response:
+Status 200 OK 
+{
+  "refused_version": null,
+  "layout": 0,
+  "preferences": {
+  },
+  "title": "Web Map Service",
+  "top": 0,
+  "icon_top": 0,
+  "widget": "CoNWeT/wms-viewer-geowidget/0.5.5",
+  "height": 0,
+  "zIndex": 0,
+  "width": 0,
+  "readonly": false,
+  "icon_left": 0,
+  "properties": {
+    "services": {
+      "readonly": false,
+      "hidden": false,
+      "name": "services",
+      "value": "",
+      "secure": false
+    },
+    "state": {
+      "readonly": false,
+      "hidden": false,
+      "name": "state",
+      "value": "",
+      "secure": false
+    },
+    "layersData": {
+      "readonly": false,
+      "hidden": false,
+      "name": "layersData",
+      "value": "",
+      "secure": false
+    }
+  },
+  "tab": 11,
+  "minimized": false,
+  "id": 3,
+  "fulldragboard": false,
+  "left": 0
+}
+
+########### TEST FI.APP.AM.API.17 ###########
+Request (POST)
+http://161.27.159.118/api/workspace/9/tab/11/iwidget/3
+{
+  "name": "WidgetNewName"
+}
+
+Response:
+Status 204 No Content
+
+192.168.88.81 - - [05/May/2016:11:07:23 +0000] 
+"POST /api/workspace/9/tab/11/iwidget/3 HTTP/1.1" 204 265 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+########### TEST FI.APP.AM.API.18 ###########
+Request (POST)
+
+http://161.27.159.118/api/workspace/9/tab/11/iwidget/4/preferences
+
+Response:
+Status 204 No Content
+192.168.88.81 - - [05/May/2016:11:50:05 +0000] 
+"POST /api/workspace/9/tab/11/iwidget/4/preferences HTTP/1.1" 204 265 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+
+########### TEST FI.APP.AM.API.19 ###########
+Request (DELETE)
+http://161.27.159.118/api/workspace/9/tab/11/iwidget/3
+Response:
+Status 204 
+192.168.88.81 - - [05/May/2016:11:42:07 +0000] 
+"DELETE /api/workspace/9/tab/11/iwidget/3 HTTP/1.1" 204 265 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+########### TEST FI.APP.AM.API.20 ###########
+Request (GET)
+http://161.27.159.118/api/resources
+Response:
+
+*****************
+{
+  "CoNWeT/map-viewer/2.5.7": {
+    "contributors": [
+      {
+        "name": "Álvaro Arranz García",
+        "email": "aarranz@fi.upm.es"
+      }
+    ],
+    "image": "http://161.27.159.118/catalogue/media/CoNWeT/map-viewer/2.5.7/images/catalogue.png",
+    "type": "widget",
+    "smartphoneimage": "http://161.27.159.118/catalogue/media/CoNWeT/map-viewer/2.5.7/images/cataloguePhone.png",
+    "contents": {
+      "src": "http://161.27.159.118/catalogue/media/CoNWeT/map-viewer/2.5.7/index.html",
+      "charset": "utf-8",
+      "contenttype": "text/html",
+      "cacheable": false,
+      "useplatformstyle": false
+    },
+    "requirements": [
+
+    ],
+    "preferences": [
+      {
+        "secure": false,
+        "description": "When you click in a mark you will see a circle with this radius",
+        "default": "10",
+        "value": null,
+        "label": "Mark shadow radius",
+        "readonly": false,
+        "type": "text",
+        "name": "radiusPreference"
+      },
+      {
+        "secure": false,
+        "description": "Location or decimal coordinates where map will be centered on load (e.g. 'New York' or '52, 5'). Leave this setting empty if you don't want to center the map at init. Remember to change the initial zoom level if you provide an initial place.",
+        "default": "",
+        "value": null,
+        "label": "Initial Location",
+        "readonly": false,
+        "type": "text",
+        "name": "centerPreference"
+      },
+      {
+        "secure": false,
+        "description": "Zoom level when the map is centered. From 1 to 22, where '1' represents the furthest level and '22' the maximum zoom level.",
+        "default": "13",
+        "value": null,
+        "label": "Zoom Level",
+        "readonly": false,
+        "type": "text",
+        "name": "zoomPreference"
+      },
+      {
+        "secure": false,
+        "description": "Initial zoom level. From 1 to 22, where '1' represents the furthest level and '22' the maximum zoom level.",
+        "default": "3",
+        "value": null,
+        "label": "Initial Zoom Level",
+        "readonly": false,
+        "type": "text",
+        "name": "initialZoom"
+      }
+    ],
+    "title": "Map Viewer",
+    "wiring": {
+      "inputs": [
+        {
+          "friendcode": "address",
+          "name": "addressInput",
+          "actionlabel": "Map Viewer Address",
+          "label": "Address",
+          "type": "text",
+          "description": "Address to be displayed on the map."
+        },
+        {
+          "friendcode": "Coords",
+          "name": "coordsInput",
+          "actionlabel": "Map Viewer Coordinates",
+          "label": "Coordinates",
+          "type": "text",
+          "description": "Google Map Marker will be show in this decimal coordinates."
+        },
+        {
+          "friendcode": "route",
+          "name": "routeInput",
+          "actionlabel": "Map Viewer Route",
+          "label": "Route",
+          "type": "text",
+          "description": "Google Maps route to be displayed on the map."
+        },
+        {
+          "friendcode": "detailStep",
+          "name": "routeStepInput",
+          "actionlabel": "Map Viewer Details Steps Route",
+          "label": "Route Step",
+          "type": "text",
+          "description": "Detailed Step of a route. It may be connected with Route Description widget."
+        },
+        {
+          "friendcode": "poi",
+          "name": "poiInput",
+          "actionlabel": "Map Viewer Insert/Update PoI",
+          "label": "Insert/Update PoI",
+          "type": "text",
+          "description": "Insert or update a Point of Interest."
+        },
+        {
+          "friendcode": "poi",
+          "name": "deletePoiInput",
+          "actionlabel": "Map Viewer Delete PoI",
+          "label": "Delete PoI",
+          "type": "text",
+          "description": "Removes a point or more point of interests from the map."
+        },
+        {
+          "friendcode": "poi",
+          "name": "poiInputCenter",
+          "actionlabel": "Map Viewer Centered PoI",
+          "label": "Insert/Update Centered PoI",
+          "type": "text",
+          "description": "Insert or update a PoI and change the viewport centering the map on it"
+        },
+        {
+          "friendcode": "poi",
+          "name": "selectPoiInput",
+          "actionlabel": "Map Viewer Select PoI",
+          "label": "Select PoI",
+          "type": "text",
+          "description": "Select a PoI and change the viewport centering the map on it"
+        }
+      ],
+      "outputs": [
+        {
+          "description": "Route description step by step. It may be connected with Route Description widget.",
+          "type": "text",
+          "friendcode": "routeDescription",
+          "name": "routeDescriptionOutput",
+          "label": "Route Description"
+        },
+        {
+          "description": "URL Route Map",
+          "type": "text",
+          "friendcode": "url",
+          "name": "urlRouteMapOutput",
+          "label": "URL Route Map"
+        },
+        {
+          "description": "Address of a Google Map marker.",
+          "type": "text",
+          "friendcode": "address",
+          "name": "addressOutput",
+          "label": "Address"
+        },
+        {
+          "description": "UTM X, Y coordinates that is displayed in the map.",
+          "type": "text",
+          "friendcode": "utmCoord",
+          "name": "utmCoordOutput",
+          "label": "UTM Coordinates"
+        },
+        {
+          "description": "Decimal X, Y coordinates that is displayed in the map.",
+          "type": "text",
+          "friendcode": "decimalCoord",
+          "name": "decimalCoordOutput",
+          "label": "Decimal Coordinates"
+        },
+        {
+          "description": "A PoI has been selected on the map",
+          "type": "text",
+          "friendcode": "poi",
+          "name": "poiOutput",
+          "label": "PoI selected"
+        },
+        {
+          "description": "Change PoI list inside the viewport",
+          "type": "text",
+          "friendcode": "poiList",
+          "name": "poiListOutput",
+          "label": "PoI visibility change"
+        },
+        {
+          "description": "Change bounds of the current viewport.",
+          "type": "text",
+          "friendcode": "viewport",
+          "name": "boundsOutput",
+          "label": "Change Viewport"
+        }
+      ]
+    },
+    "longdescription": "DESCRIPTION.md",
+    "version": "2.5.7",
+    "widget_height": "50",
+    "homepage": "https://github.com/Wirecloud/map-viewer-widget",
+    "email": "wirecloud@conwet.com",
+    "default_lang": "en",
+    "issuetracker": "https://github.com/Wirecloud/map-viewer-widget/issues",
+    "vendor": "CoNWeT",
+    "description": "Basic map viewer widget using the Google Maps API",
+    "authors": [
+      {
+        "name": "Santiago Blanco Ventas",
+        "email": "sblanco@conwet.com"
+      }
+    ],
+    "properties": [
+
+    ],
+    "altcontents": [
+
+    ],
+    "name": "map-viewer",
+    "license": "Apache License 2.0",
+    "changelog": "doc/changelog.md",
+    "doc": "http://161.27.159.118/catalogue/media/CoNWeT/map-viewer/2.5.7/doc/userguide.md",
+    "licenseurl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+    "widget_width": "7"
+  },
+  "CoNWeT/wms-viewer-geowidget/0.5.5": {
+    "contributors": [
+
+    ],
+    "image": "http://161.27.159.118/catalogue/media/CoNWeT/wms-viewer-geowidget/0.5.5/img/wms_widget.png",
+    "homepage": "",
+    "smartphoneimage": "http://161.27.159.118/catalogue/media/CoNWeT/wms-viewer-geowidget/0.5.5/img/wms_widget.png",
+    "contents": {
+      "src": "http://161.27.159.118/catalogue/media/CoNWeT/wms-viewer-geowidget/0.5.5/index.html",
+      "charset": "utf-8",
+      "contenttype": "text/html",
+      "cacheable": true,
+      "useplatformstyle": false
+    },
+    "requirements": [
+
+    ],
+    "preferences": [
+
+    ],
+    "title": "Web Map Service",
+    "wiring": {
+      "inputs": [
+        {
+          "friendcode": "map_info",
+          "name": "map_info_slot",
+          "actionlabel": "",
+          "label": "Map info",
+          "type": "text",
+          "description": ""
+        },
+        {
+          "friendcode": "service_info",
+          "name": "wms_service_slot",
+          "actionlabel": "",
+          "label": "WMS info",
+          "type": "text",
+          "description": ""
+        },
+        {
+          "friendcode": "location",
+          "name": "location_slot",
+          "actionlabel": "",
+          "label": "Highlight Location",
+          "type": "text",
+          "description": ""
+        },
+        {
+          "friendcode": "location_info",
+          "name": "location_info_slot",
+          "actionlabel": "",
+          "label": "Location info",
+          "type": "text",
+          "description": ""
+        },
+        {
+          "friendcode": "location_info",
+          "name": "locations_info_slot",
+          "actionlabel": "",
+          "label": "Locations info",
+          "type": "text",
+          "description": ""
+        }
+      ],
+      "outputs": [
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "map_info",
+          "name": "map_info_event",
+          "label": "Map info"
+        },
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "location",
+          "name": "location_event",
+          "label": "Location LongLat"
+        },
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "location",
+          "name": "center_event",
+          "label": "Center LongLat"
+        },
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "feature_info",
+          "name": "feature_info_event",
+          "label": "Feature info"
+        },
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "url",
+          "name": "legend_url",
+          "label": "Url de leyenda"
+        }
+      ]
+    },
+    "longdescription": "",
+    "version": "0.5.5",
+    "widget_height": "28",
+    "type": "widget",
+    "email": "billescas@conwet.com",
+    "default_lang": "en",
+    "issuetracker": "",
+    "vendor": "CoNWeT",
+    "description": " This widget gives users the ability to handle different map layers coming from several sources, showing all of them on the same map. It has a bunch of both events and slots that enables the user to have different instances of this widget wired, so she can compare with different cartographies at a glance. Is compatible with WMS, WMTS and WMS-C.",
+    "authors": [
+      {
+        "name": "billescas"
+      }
+    ],
+    "properties": [
+      {
+        "description": "",
+        "name": "services",
+        "default": "",
+        "label": "Services",
+        "type": "text",
+        "secure": false
+      },
+      {
+        "description": "",
+        "name": "state",
+        "default": "",
+        "label": "State",
+        "type": "text",
+        "secure": false
+      },
+      {
+        "description": "",
+        "name": "layersData",
+        "default": "",
+        "label": "State",
+        "type": "text",
+        "secure": false
+      }
+    ],
+    "altcontents": [
+
+    ],
+    "name": "wms-viewer-geowidget",
+    "license": "",
+    "changelog": "",
+    "doc": "http://hercules.ls.fi.upm.es/public/conwet/ogf.html#wms-widget",
+    "licenseurl": "",
+    "widget_width": "8"
+  },
+  "CoNWeT/simple-history-module2linear-graph/2.3.2": {
+    "contributors": [
+
+    ],
+    "image": "http://161.27.159.118/catalogue/media/CoNWeT/simple-history-module2linear-graph/2.3.2/images/catalogue.png",
+    "type": "operator",
+    "smartphoneimage": "",
+    "requirements": [
+
+    ],
+    "preferences": [
+      {
+        "secure": false,
+        "description": "Maximum number of days for which historical information request",
+        "default": "http://130.206.82.141:80",
+        "value": null,
+        "label": "HistoryMod Server URL",
+        "readonly": false,
+        "type": "text",
+        "name": "historymod_server"
+      },
+      {
+        "secure": false,
+        "description": "Maximum number of days for which historical information request",
+        "default": "10",
+        "value": null,
+        "label": "Number of days requested",
+        "readonly": false,
+        "type": "text",
+        "name": "number_of_days"
+      }
+    ],
+    "title": "History Module to Linear Graph",
+    "wiring": {
+      "inputs": [
+        {
+          "friendcode": "SensorId",
+          "name": "SensorIdInput",
+          "actionlabel": "",
+          "label": "Sensor Id",
+          "type": "text",
+          "description": "The Sensor to observe"
+        }
+      ],
+      "outputs": [
+        {
+          "description": "Historic Sensor information",
+          "type": "text",
+          "friendcode": "graphData",
+          "name": "OutputStatus",
+          "label": "Historic Info"
+        }
+      ]
+    },
+    "longdescription": "",
+    "version": "2.3.2",
+    "homepage": "",
+    "email": "cblanco@conwet.com",
+    "default_lang": "en",
+    "issuetracker": "",
+    "vendor": "CoNWeT",
+    "description": "Produces data from Historical Mod to feed a line graph.",
+    "authors": [
+      {
+        "name": "cblanco"
+      }
+    ],
+    "properties": [
+
+    ],
+    "js_files": [
+      "http://161.27.159.118/catalogue/media/CoNWeT/simple-history-module2linear-graph/2.3.2/js/AUXdata.js",
+      "http://161.27.159.118/catalogue/media/CoNWeT/simple-history-module2linear-graph/2.3.2/js/main.js"
+    ],
+    "name": "simple-history-module2linear-graph",
+    "license": "",
+    "changelog": "",
+    "doc": "http://conwet.fi.upm.es/docs/display/wirecloud",
+    "licenseurl": ""
+  },
+  "CoNWeT/weather-mashup-example/1.0.2": {
+    "contributors": [
+
+    ],
+    "tabs": [
+      {
+        "name": "Tab",
+        "resources": [
+          {
+            "vendor": "CoNWeT",
+            "preferences": {
+            },
+            "title": "Weather Widget Example",
+            "id": "12225",
+            "rendering": {
+              "width": "9",
+              "layout": "0",
+              "minimized": false,
+              "fulldragboard": false,
+              "height": "34"
+            },
+            "readonly": false,
+            "version": "1.0.4",
+            "position": {
+              "y": "0",
+              "x": "10",
+              "z": "1"
+            },
+            "properties": {
+            },
+            "name": "weather-example"
+          },
+          {
+            "vendor": "CoNWeT",
+            "preferences": {
+            },
+            "title": "Web Map Service",
+            "id": "12226",
+            "rendering": {
+              "width": "10",
+              "layout": "0",
+              "minimized": false,
+              "fulldragboard": false,
+              "height": "34"
+            },
+            "readonly": false,
+            "version": "0.5.5",
+            "position": {
+              "y": "0",
+              "x": "0",
+              "z": "0"
+            },
+            "properties": {
+              "services": {
+                "readonly": false,
+                "value": ""
+              },
+              "state": {
+                "readonly": false,
+                "value": ""
+              },
+              "layersData": {
+                "readonly": false,
+                "value": ""
+              }
+            },
+            "name": "wms-viewer-geowidget"
+          }
+        ],
+        "preferences": {
+        }
+      }
+    ],
+    "image": "",
+    "type": "mashup",
+    "smartphoneimage": "",
+    "requirements": [
+
+    ],
+    "preferences": {
+    },
+    "title": "Weather Mashup Example",
+    "wiring": {
+      "inputs": [
+        {
+          "friendcode": "map_info",
+          "name": "map_info_slot",
+          "actionlabel": "",
+          "label": "Map info",
+          "type": "text",
+          "description": ""
+        },
+        {
+          "friendcode": "service_info",
+          "name": "wms_service_slot",
+          "actionlabel": "",
+          "label": "WMS info",
+          "type": "text",
+          "description": ""
+        },
+        {
+          "friendcode": "location",
+          "name": "location_slot",
+          "actionlabel": "",
+          "label": "Highlight Location",
+          "type": "text",
+          "description": ""
+        },
+        {
+          "friendcode": "location_info",
+          "name": "location_info_slot",
+          "actionlabel": "",
+          "label": "Location info",
+          "type": "text",
+          "description": ""
+        },
+        {
+          "friendcode": "location_info",
+          "name": "locations_info_slot",
+          "actionlabel": "",
+          "label": "Locations info",
+          "type": "text",
+          "description": ""
+        },
+        {
+          "friendcode": "location",
+          "name": "coord",
+          "actionlabel": "",
+          "label": "Show forecast by coord",
+          "type": "text",
+          "description": "Shows the weather forecast for a given location (a latitude longitude coordinate)."
+        }
+      ],
+      "visualdescription": {
+        "connections": [
+
+        ],
+        "behaviours": [
+
+        ],
+        "components": {
+          "operator": {
+          },
+          "widget": {
+            "12226": {
+              "position": {
+                "y": 196,
+                "x": 305
+              },
+              "collapsed": false,
+              "endpoints": {
+                "source": [
+                  "map_info_event",
+                  "location_event",
+                  "center_event",
+                  "feature_info_event",
+                  "legend_url"
+                ],
+                "target": [
+                  "map_info_slot",
+                  "wms_service_slot",
+                  "location_slot",
+                  "location_info_slot",
+                  "locations_info_slot"
+                ]
+              }
+            },
+            "12225": {
+              "position": {
+                "y": 50,
+                "x": 298
+              },
+              "collapsed": false,
+              "endpoints": {
+                "source": [
+                  "location_coord"
+                ],
+                "target": [
+                  "coord"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "outputs": [
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "map_info",
+          "name": "map_info_event",
+          "label": "Map info"
+        },
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "location",
+          "name": "location_event",
+          "label": "Location LongLat"
+        },
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "location",
+          "name": "center_event",
+          "label": "Center LongLat"
+        },
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "feature_info",
+          "name": "feature_info_event",
+          "label": "Feature info"
+        },
+        {
+          "description": "",
+          "type": "text",
+          "friendcode": "url",
+          "name": "legend_url",
+          "label": "Url de leyenda"
+        },
+        {
+          "description": "This event is launched when the user clicks on the location name of current forecast.",
+          "type": "text",
+          "friendcode": "location",
+          "name": "location_coord",
+          "label": "Forecast location"
+        }
+      ],
+      "operators": {
+      },
+      "connections": [
+        {
+          "source": {
+            "endpoint": "location_event",
+            "type": "widget",
+            "id": "12226"
+          },
+          "readonly": false,
+          "target": {
+            "endpoint": "coord",
+            "type": "widget",
+            "id": "12225"
+          }
+        },
+        {
+          "source": {
+            "endpoint": "location_coord",
+            "type": "widget",
+            "id": "12225"
+          },
+          "readonly": false,
+          "target": {
+            "endpoint": "location_slot",
+            "type": "widget",
+            "id": "12226"
+          }
+        }
+      ],
+      "version": "2.0"
+    },
+    "longdescription": "",
+    "version": "1.0.2",
+    "params": [
+
+    ],
+    "homepage": "",
+    "email": "wirecloud@conwet.com",
+    "default_lang": "en",
+    "issuetracker": "",
+    "vendor": "CoNWeT",
+    "description": "Example build using the Web Map Service and the Weather Widget Example widgets",
+    "authors": [
+      {
+        "name": "CoNWeT"
+      }
+    ],
+    "name": "weather-mashup-example",
+    "embedded": [
+      {
+        "src": "macs/CoNWeT_wms-viewer-geowidget_0.5.5.wgt",
+        "version": "0.5.5",
+        "vendor": "CoNWeT",
+        "name": "wms-viewer-geowidget"
+      },
+      {
+        "src": "macs/CoNWeT_weather-example_1.0.4.wgt",
+        "version": "1.0.4",
+        "vendor": "CoNWeT",
+        "name": "weather-example"
+      }
+    ],
+    "license": "",
+    "changelog": "",
+    "doc": "https://edu.fiware.org/course/view.php?id=53#section-3",
+    "licenseurl": ""
+  },
+  "CoNWeT/weather-example/1.0.4": {
+    "contributors": [
+
+    ],
+    "image": "http://161.27.159.118/catalogue/media/CoNWeT/weather-example/1.0.4/images/catalogue.png",
+    "type": "widget",
+    "smartphoneimage": "http://161.27.159.118/images/catalogue/widget_image.png",
+    "contents": {
+      "src": "http://161.27.159.118/catalogue/media/CoNWeT/weather-example/1.0.4/index.html",
+      "charset": "utf-8",
+      "contenttype": "text/html",
+      "cacheable": true,
+      "useplatformstyle": false
+    },
+    "requirements": [
+
+    ],
+    "preferences": [
+
+    ],
+    "title": "Weather Widget Example",
+    "wiring": {
+      "inputs": [
+        {
+          "friendcode": "location",
+          "name": "coord",
+          "actionlabel": "",
+          "label": "Show forecast by coord",
+          "type": "text",
+          "description": "Shows the weather forecast for a given location (a latitude longitude coordinate)."
+        }
+      ],
+      "outputs": [
+        {
+          "description": "This event is launched when the user clicks on the location name of current forecast.",
+          "type": "text",
+          "friendcode": "location",
+          "name": "location_coord",
+          "label": "Forecast location"
+        }
+      ]
+    },
+    "longdescription": "",
+    "version": "1.0.4",
+    "widget_height": "24",
+    "homepage": "",
+    "email": "aarranz@conwet.com",
+    "default_lang": "en",
+    "issuetracker": "",
+    "vendor": "CoNWeT",
+    "description": "Example of widget for the Wirecloud Plaftorm.",
+    "authors": [
+      {
+        "name": "aarranz"
+      }
+    ],
+    "properties": [
+
+    ],
+    "altcontents": [
+
+    ],
+    "name": "weather-example",
+    "license": "",
+    "changelog": "",
+    "doc": "http://161.27.159.118/catalogue/media/CoNWeT/weather-example/1.0.4/doc/index.md",
+    "licenseurl": "",
+    "widget_width": "6"
+  }
+}
+
+########### TEST FI.APP.AM.API.22 ###########
+Request (GET)
+http://161.27.159.118/api/resource/CoNWeT/map-viewer/2.5.7
+Header: Accept: */*
+
+Response:
+Status 200 OK (Binary data)
+192.168.88.81 - - [05/May/2016:12:33:35 +0000] 
+"GET /api/resource/CoNWeT/map-viewer/2.5.7 HTTP/1.1" 200 79284 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+########### TEST FI.APP.AM.API.23 ###########
+(test eseguito dopo il FI.APP.AM.API.24 per cui è stato necessario fare nuovamente l'upload della risorsa)
+Request (DELETE)
+http://161.27.159.118/api/resource/CoNWeT/map-viewer
+Accept: application/json
+
+Response:
+Status 204
+==> access.log <==
+192.168.88.81 - - [05/May/2016:13:21:16 +0000] 
+"DELETE /api/resource/CoNWeT/map-viewer HTTP/1.1" 204 265 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+########### TEST FI.APP.AM.API.24 ###########
+Request (DELETE)
+http://161.27.159.118/api/resource/CoNWeT/map-viewer/2.5.7
+Accept: application/json
+
+Response:
+Status 204
+192.168.88.81 - - [05/May/2016:13:17:32 +0000] 
+"DELETE /api/resource/CoNWeT/map-viewer/2.5.7 HTTP/1.1" 204 265 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+
+
+
