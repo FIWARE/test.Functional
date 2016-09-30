@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository id="b433358c-c48d-4666-b526-fc6105b36b1a" name="All tags">
+  <tags class="list">
+    <tag id="5bc0fcf4-3b38-4841-9667-6c5c08152184" name="EntityCreation" type="REQ">
+      <tags class="list">
+        <tag id="ef29613b-a747-4961-8447-3d2c5cfeb265" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>true</validated>
+        </tag>
+        <tag id="444fbf68-0dff-4717-afb0-3daaa1e2b14a" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>true</validated>
+        </tag>
+        <tag id="28cf091d-2c4c-48c6-bd9e-718bfa3a81e1" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>true</validated>
+        </tag>
+        <tag id="34baf89a-78d6-41c7-811e-819617a6bb0f" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>true</validated>
+        </tag>
+        <tag id="d1fe1cac-12c1-4d5d-9bba-d1e715816659" name="INVALID" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="828468c4-beb5-4ccd-a1ab-ffffd91b5449" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="07637dca-0e1a-4b22-ab45-89135fdc5f2f" name="getAllEntities" type="REQ">
+      <tags class="list">
+        <tag id="6b928894-9a79-4f64-af62-40554a5b253d" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="5c1b8ec6-074e-42db-8b49-c4c364b6d80a" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="f07e7b99-8b0e-4e40-814b-1b7235076c70" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="ac7d947a-f614-413f-9f48-a9b3e1cf50d7" name="getAllEntitiesById" type="REQ">
+      <tags class="list">
+        <tag id="02194912-711c-4a75-9cc9-346b06079167" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="e31de8e6-f8b6-4d3b-8af0-6fe1f4c3a507" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="c9135a20-4a12-4488-927d-1573cd54699f" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="3566cd96-8bee-4543-8167-394cf532d49b" name="getAllEntitiesByType" type="REQ">
+      <tags class="list">
+        <tag id="bc48221c-1219-4467-968c-8f56a3dc90d1" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="28542d03-c613-4543-8c2c-99903f12839a" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="7bf102e7-a7bf-4127-8626-bc723b742444" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="848ebd2f-7481-48b7-9662-4158b6dfbcec" name="getEntityById" type="REQ">
+      <tags class="list">
+        <tag id="d79e6f17-2aca-49cf-bfe0-de6a9c28d631" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="24f387e6-2e69-4e65-b404-3e373bb49322" name="NotFound" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="70ff9ce6-727f-457c-878e-b9166deb488c" name="TooManyResults" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="8993cba9-4f2c-43a2-a33c-741267dd1f6f" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="922703de-94fe-4c7c-af4e-fae950b3780b" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="97650cc6-7b1a-4102-bedc-294ffe389596" name="getEntityAttributsById" type="REQ">
+      <tags class="list">
+        <tag id="5e040412-bea4-45e0-a3c9-96ba1a386b43" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="006287e5-b04b-490f-875b-8e2dfcc2b771" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="858d018d-8c63-4d56-bbb8-e54c53b84619" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="8413a403-867c-4305-9151-1373fdf3c3e3" name="AppendEntityAttributById" type="REQ">
+      <tags class="list">
+        <tag id="5410a892-2ffb-4f17-a884-ba46d82c1be1" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="a2487a74-6ea3-47d8-a4e0-5b381528f40b" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="d71924e9-a4e3-4dcd-880a-35e258a54f3d" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="841563ed-9911-4563-9ed0-95bd20cd45e0" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="823aaebb-9ea3-45d5-9d84-c4b72798de14" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="786adadf-16ed-4847-a01b-9e634c6dcf58" name="RemoveEntityById" type="REQ">
+      <tags class="list">
+        <tag id="3c65e029-8730-44ea-8d42-29b66ac3bfd2" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="96c77dfd-8617-4349-a3e3-3cae891c6cfb" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="6509692f-fb8d-4b66-8a40-ff2d5cee257d" name="OnlyAppendEntityAttributById" type="REQ">
+      <tags class="list">
+        <tag id="55be9b8f-ef78-4193-98d5-f2da15f97987" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="e6a873bb-be3f-4bb9-84e2-394a81447ce8" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="1c7b3806-ddcb-4320-8fec-9ad2fc169766" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="c73399b5-8c08-41e0-a668-80667c82b303" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="d5c3aed3-7b62-45ae-8eb9-4549e20516fc" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="8ba518e8-bb9f-40cd-9477-df9f6ce4d423" name="replaceAllEntityAttributesByEntityID" type="REQ">
+      <tags class="list">
+        <tag id="91f2c60a-7610-4f45-98ef-0c040a8dadc3" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="e900474b-7a47-4db3-b171-a592007b7954" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="14636d8a-1aba-4116-be37-94eaa5a0b11c" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="16820b72-8cb6-44f2-b9e9-3f0b14693c92" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="17a1fb0f-f03c-4799-b71e-4d9c91488c85" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="7ee10ea6-5340-44a2-bb0d-13b845a9367b" name="getAttributeDataByEntityID" type="REQ">
+      <tags class="list">
+        <tag id="8f4f7036-1c82-4cd8-922c-1fbb2636f798" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="68e3bfef-453c-4dd8-83e8-f3dc8ba28838" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="8805ba14-d255-4020-9940-23673a308abb" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="7671829c-21d7-4d3e-b140-8dae83d5c247" name="updateOneAttributeByEntityID" type="REQ">
+      <tags class="list">
+        <tag id="e21f4d7a-f032-4a6c-84c0-60427b16a667" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="9246e385-4711-4e75-be38-f14b83cfd4e2" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="b3751974-5b70-41cd-bff0-895412d2f2f7" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="cacd2b33-b1d0-4386-b451-38d63e9ad25b" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="5dbf43d2-83df-40ff-891a-9d8426ede3ad" name="removeOneAttributeByEntityID" type="REQ">
+      <tags class="list">
+        <tag id="fef10f8c-61d9-4c5f-82c7-3b10e0204464" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="90509896-9212-4694-b1b4-b1937a96a570" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="f0b2e9ac-dfa2-496d-b9f8-809051a408c6" name="NotFound" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="2012b658-952e-4895-82c1-f4155b80969c" name="updateJsonAttributeValueByEntityID" type="REQ">
+      <tags class="list">
+        <tag id="dc3f2fc3-d1b4-4da2-9244-74248e1f76ca" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="e507c2fd-8949-423a-ab13-02e8749cc76d" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="add81267-8ed3-4918-aa72-84657c0d5a7c" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="19bf2dff-c0c0-4419-9218-fd617524d96d" name="NotFound" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="01901f26-e432-44f1-8bbe-b857d52c6cc0" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="727713ff-31e6-4250-a123-49fcb50f99ea" name="updateNotJsonAttributeValueByEntityID" type="REQ">
+      <tags class="list">
+        <tag id="0942edf9-c7c6-4f1b-add3-4b66012912b2" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="a23dca37-66e4-4f6f-acde-1783b0e99c28" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="d7eee5f1-a6b6-4805-94dc-a6ed0e77c2f2" name="retrieveAPIResources" type="REQ">
+      <tags class="list"/>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="105f7fe6-1aeb-4ad2-b4c8-f4dc12761089" name="getAllTypesWithoutOptionValues" type="REQ">
+      <tags class="list">
+        <tag id="c1ca67a5-e6d7-4a19-a3f5-e4876e6a382a" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="af040bef-0446-43b7-a6d7-1c6e367cd2b3" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="0aa74d9c-81aa-4a1e-9671-66c8d4e026ad" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="23d72fea-9b23-48c9-84f2-7e98f56f5f16" name="getAllTypesWithOptionValues" type="REQ">
+      <tags class="list">
+        <tag id="e2196789-54d1-47de-a06d-6c09a8d15bf1" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="447e01fe-0666-4a03-992d-5c1650a653c4" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="d599ac91-271f-4781-a691-149928d078f3" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="1bba341a-3e92-4481-83eb-a0457e246825" name="getEntityType" type="REQ">
+      <tags class="list">
+        <tag id="a742bc9b-7122-4bf1-bdaa-1ae0a92da6ce" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="c7b520fe-53d1-4008-afaa-6fc5a82585e7" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="3d3bd3b0-5b63-474a-a7f1-1e5f1a28dc3d" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="eee7f0d9-8de9-4e7b-9f99-3256415b1c1f" name="NotFound" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="8268f273-6837-4be9-b55a-9e5dbbc889fa" name="getAllSubscriptions" type="REQ">
+      <tags class="list">
+        <tag id="fd7a8bee-ee9a-4a55-8974-029a6ef3e045" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="0ec6fbbb-4e2a-4ada-bc3c-48098046423e" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="f750cd35-e683-4716-bbd4-eac79c057ed1" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="928c9614-6726-47d9-a405-e7da16760bd8" name="createSubscription" type="REQ">
+      <tags class="list">
+        <tag id="de3fb6c2-24a6-4419-94d4-1b72f7bb1b57" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="3ffee4aa-ece8-493e-a95e-507ae848e296" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="86d4470a-ea5c-4469-9c57-a80dfe8e8e18" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="d9831372-00df-46f0-a16e-f9552c59fa99" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="0ec99b0e-968c-4dfb-b567-0833ba70bea4" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="2740e44f-1465-4d87-af08-418856e790dd" name="getSubscriptionByID" type="REQ">
+      <tags class="list">
+        <tag id="1de0a673-b9a8-4cb5-b2ed-a49fc639b384" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="07bff250-337e-4233-92e9-44df77e9b779" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="83f170c5-2f6a-4ad4-b11c-4f3eb70e9031" name="NotFound" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="6e179b6d-4f81-4e66-b85f-907bd299f231" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="25304fd9-e571-448b-9876-2a15a90ffdd4" name="updateSubscriptionByID" type="REQ">
+      <tags class="list">
+        <tag id="346847d7-3075-4fc7-a7bd-55f5cac0c4d3" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="1dff7d81-dcca-4dc7-8c43-d0bde38d8b56" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="43475a0e-a025-4c3e-aab0-ec0eec457afc" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="4a96bf11-fc4a-43c8-badc-9cfe768757b0" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="d2f72085-83eb-4f83-b52c-fa2e70f0ac0c" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="dd3392c2-5057-4d0f-996e-22a8aacc7769" name="NotFound" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="49b70905-d9c5-4162-a956-68a0b954ab4e" name="batchAppend" type="REQ">
+      <tags class="list">
+        <tag id="ab5d8685-7f2e-4072-b45d-b9b5e3dec96c" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="9f5d1352-47e7-45d4-ba47-10c025d8d18c" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="e52bd6d9-f08f-4dfa-87ab-d1ee804394af" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="3930e5b6-c02d-40f2-a930-1e73888b7405" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="d76de2ac-678a-4253-90b8-68c6e9851fd6" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="15a8a626-64bc-4b70-b463-f9785b0959da" name="batchDelete" type="REQ">
+      <tags class="list">
+        <tag id="6f742b4d-0294-47a1-958b-0049ab46975c" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="0e422748-0032-4e10-9019-100d63c8eee0" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="67627350-1833-4002-b470-5f150dad0644" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="ad91ec28-9cf0-4fee-b8c3-de8621394880" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="6fc90a45-e1cb-4c17-9bef-9eb482cc4d81" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="c2cb1533-f707-433b-8314-3775381bb68d" name="batchStrictAppend" type="REQ">
+      <tags class="list">
+        <tag id="9876cab2-c8e1-4a1d-a460-ade5a1869c9b" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="dd22e2b4-1bce-4fbd-acc1-173bcda97374" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="d6e2da2f-ece1-4ea7-a8fb-f398f290a4b2" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="257c17f7-8ab3-4ed4-a1a5-86f36b1442f5" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="2bda1e5c-81d4-4312-87ab-0117c46e9e07" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="e762c948-0b7b-48e0-8253-89ae1e9a8cfd" name="batchUpdate" type="REQ">
+      <tags class="list">
+        <tag id="e57ae923-701d-4e3b-8adc-dec6043df6c8" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="5a3fcf72-d059-4779-a8ad-fcf2a024471a" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="f9885ce0-f823-4b6c-85c4-cefe7cda1c9e" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="fb4d4a52-aff5-4b44-8a62-77d3e9e32e1e" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="b87352a2-dbda-4808-98e7-659891b89d82" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="12676bcb-99fe-48cf-9c84-7031e71d2c37" name="batchUpdateUsingAppend" type="REQ">
+      <tags class="list">
+        <tag id="1d8e9388-bfab-4a58-9bb0-8ae447e2ff76" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="de9c1fd8-9b79-41aa-bc14-d6e1eb080f66" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="ae6de175-4aab-4020-a87c-c2a36a08ad9c" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="729fcb47-b613-4a46-9272-4b4ddbcc6f4e" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="0f4e8eda-2dfc-4636-9a37-6ed28c363837" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="3c1388ca-0817-484e-8d01-dcb67a83cfa6" name="batchQueryById" type="REQ">
+      <tags class="list">
+        <tag id="928570ed-2735-4ac5-b151-563217e60de6" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="b5ac00ac-610d-4205-8772-f20be11864bf" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="ca236212-ca8b-4c57-80be-a1371057a51f" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="326f1775-1fc9-411f-bd1c-a369bd5310bf" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="052c208f-5e33-4424-9e8f-8bf1cc3f3762" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="0bf72346-8fe1-49a1-84e4-e3f1d90599a1" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="f67ec609-5fed-4bd0-a699-ff4bf7207866" name="batchQueryByIdAndType" type="REQ">
+      <tags class="list">
+        <tag id="5205bb0b-1fc8-4467-919d-864b05550428" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="233dd7a6-68a1-4491-a829-50031235fe68" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="cacf58da-d32d-473d-a705-22a46716ce66" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="647a9b07-e29a-4794-9817-26d0b24fe4f6" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="2c28e5c3-8d27-4848-8621-adc35900725e" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="fe388eb7-6dc2-4dcb-a4f6-80c804a8a20a" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="584e6f73-98f7-42c1-9732-c8c0e64efbe6" name="batchQueryByAttribute" type="REQ">
+      <tags class="list">
+        <tag id="8400dd19-baf5-417b-bbc8-fd830ff7950e" name="BadRequestError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="bd50eb6f-bfe4-4fb5-90e5-bbceb6d00f0a" name="ContentLengthRequired" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="9411219e-526e-4180-a43e-43651d974d77" name="UnsupportedMediaType" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="7d60acb9-37ed-46ea-8073-93e53e877936" name="NotAcceptableMIMEtype" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="37303d0d-c8fc-42ad-bd16-d8e6ef0f7217" name="ParseError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="95b0034c-4ebd-4b7f-bdf0-06b8cf4749fb" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+  </tags>
+  <subFolders class="list"/>
+  <fragmentReferences/>
+</repository>

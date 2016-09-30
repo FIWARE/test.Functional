@@ -1,0 +1,234 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+	<link rel="stylesheet" type="text/css" href="../resources/smartesting.css">
+</head>
+
+<title>
+	Smartesting CertifyIt: test EntityUpdate/EmptyContextValueError_78ea
+</title>
+
+<body>
+	<br><br>
+	<table width="80%" height="100%" align="center" cellpadding="0" cellspacing="0" class="title">
+		
+		<tr>
+			
+			<td height="100" valign="top" align="left">
+				<img src="../resources/logo.gif">
+			</td>
+			
+			<td valign="top" width="100%">
+				
+				<table border="0" height="100" width="100%" cellspacing="0">
+					
+					<tr>
+						
+						<td class="title" valign="top">
+							<h1>Test: EntityUpdate/EmptyContextValueError_78ea</h1>
+							
+						</td>
+						
+					</tr>
+					
+				</table>
+				
+			</td>
+			
+		</tr>
+		
+		<tr>
+			
+			<td height="5" align="left" bgcolor="#9B998C">
+				<img src="../resources/underline.png">
+			</td>
+			
+			<td height="5" width="100%" bgcolor="#9B998C">
+				
+			</td>
+			
+		</tr>
+		
+		<tr>
+			
+			<td colspan="3" valign="top">
+				<br>
+				<table width="100%" align="center">
+					
+					<tr>
+						
+						<td>
+							<br>
+							<table width="95%" align="center">
+								
+								<tr>
+									
+									<td>
+										<a href="index.html">Show test suite OCB_GE_TestSuite and its information</a>
+									</td>
+									
+								</tr>
+								
+							</table>
+							
+						</td>
+						
+					</tr>
+					
+					<tr>
+						
+						<td>
+							<br><br>
+						</td>
+						
+					</tr>
+					
+					<tr>
+						
+						<td>
+							<br>
+							<table width="95%" align="center" class="synthesis">
+								
+								<tr>
+									
+									<td class="titleSynthesis">
+										Steps
+									</td>
+									
+									<td class="titleSynthesis">
+										Actions
+									</td>
+									
+									<td class="titleSynthesis">
+										Requirements, aims and custom tags
+									</td>
+									
+								</tr>
+								
+								<tr>
+									
+									<td class="stepDetailsStep">
+										Step 1<br><I>(SUTInstance)</I>
+									</td>
+									
+									<td class="evenCall">
+										
+										<table width="100%" border="0" class="stepDetails">
+											
+											<tr>
+												
+												<td class="stepDetailsOperation">
+													<I>CreateNewEntity</I><br><br>
+												</td>
+												
+											</tr>
+											
+											<tr>
+												
+												<td class="stepDetailsActions">
+													<b>NGSI10 Standard </b><br/>POST /v1/updateContext <b><br/></b>update operation:<br/>• append: it adds the new attribute. Note: this may<br/>result in multiple attributes with the same name;<br/><br><br>
+												</td>
+												
+											</tr>
+											
+										</table>
+										
+									</td>
+									
+									<td class="evenCall" rowspan="2">
+										REQ&nbsp;&nbsp;&nbsp;&nbsp;EntityCreation<br><br>AIM&nbsp;&nbsp;&nbsp;&nbsp;EntityCreation/JSONPayloadSuccess<br><br>&nbsp;
+									</td>
+									
+								</tr>
+								
+								<tr>
+									
+									<td class="stepDetailsObs">
+										
+										<li class="observationOperation">
+											1.1
+										</li>
+										
+									</td>
+									
+									<td class="evenObservationOperation">
+										@synthesis@<br/>Check that the error code is REQUEST_OK<br/>@/synthesis@<br/><br/>Check if an error code REQUEST_OK is returned 
+									</td>
+									
+								</tr>
+								
+								<tr>
+									
+									<td class="stepDetailsStep">
+										Step 2<br><I>(SUTInstance)</I>
+									</td>
+									
+									<td class="oddCall">
+										
+										<table width="100%" border="0" class="stepDetails">
+											
+											<tr>
+												
+												<td class="stepDetailsOperation">
+													<I>UpdateEntity</I><br><br>
+												</td>
+												
+											</tr>
+											
+											<tr>
+												
+												<td class="stepDetailsActions">
+													<b>NGSI10 Standard</b> <br/>POST /v1/updateContext <br/>update operation:<br/>•&nbsp; update: it replaces the value and metadata of the<br/>existing attributes with the same name;<br><br>
+												</td>
+												
+											</tr>
+											
+										</table>
+										
+									</td>
+									
+									<td class="oddCall" rowspan="2">
+										REQ&nbsp;&nbsp;&nbsp;&nbsp;EntityUpdate<br><br>AIM&nbsp;&nbsp;&nbsp;&nbsp;EntityUpdate/EmptyContextValueError<br><br>&nbsp;
+									</td>
+									
+								</tr>
+								
+								<tr>
+									
+									<td class="stepDetailsObs">
+										
+										<li class="observationOperation">
+											2.1
+										</li>
+										
+									</td>
+									
+									<td class="oddObservationOperation">
+										@synthesis@<br/>Check that the error code is EMPTY_VALUE_NOT_ALLOWED<br/>@/synthesis@<br/><br/>Check if an error code EMPTY_VALUE_NOT_ALLOWED is returned 
+									</td>
+									
+								</tr>
+								
+							</table>
+							
+						</td>
+						
+					</tr>
+					
+					<tr>
+						
+						<td>
+							<br><br>
+						</td>
+						
+					</tr>
+					
+				</table>
+				
+			</td>
+			
+		</tr>
+		
+	</table>
+	</body>
+</html>

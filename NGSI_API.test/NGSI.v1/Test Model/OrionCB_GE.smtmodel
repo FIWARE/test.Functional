@@ -1,0 +1,2636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?Smartesting_project scit-version="6.4.0.68548" license-details="NodeLocked for U-Test until 31 déc. 2045" version="2.4"?>
+<project id="1">
+  <modelProvider class="action-model-provider" id="2">
+    <model id="3" name="OrionCB_GE">
+      <packages id="4">
+        <package id="5" identifier="0e4ce35bc420eac19f4d1103ad234890" name="OrionContextBroker_GEi">
+          <stereotypes id="6"/>
+          <sourceLocation>OrionContextBroker_GEi</sourceLocation>
+          <properties id="7"/>
+          <subpackages id="8">
+            <package id="9" identifier="9179b275e7423e7d92fca693b7e4dea0" name="Classes">
+              <stereotypes id="10"/>
+              <sourceLocation>OrionContextBroker_GEi::Classes</sourceLocation>
+              <properties id="11"/>
+              <pakage reference="5"/>
+              <subpackages id="12"/>
+              <importedPackages id="13"/>
+              <types id="14">
+                <class id="15" identifier="463760228162f015a6d646ba2deafa54" name="Entity">
+                  <stereotypes id="16"/>
+                  <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+                  <properties id="17"/>
+                  <pakage reference="9"/>
+                  <description></description>
+                  <operations id="18"/>
+                  <attributes id="19">
+                    <attribute id="20" identifier="6ed8f97b31e4e3be88c2e907ab16a273" name="Id" type="ENTITYID">
+                      <stereotypes id="21"/>
+                      <sourceLocation>OrionContextBroker_GEi::Classes::Entity::Id</sourceLocation>
+                      <properties id="22"/>
+                      <ownerClass reference="15"/>
+                      <type class="enumeration" id="23" identifier="ffbe6e7cc4a6f3a45235155aa218aeeb" name="ENTITYID">
+                        <stereotypes id="24"/>
+                        <sourceLocation>OrionContextBroker_GEi::Enums::ENTITYID</sourceLocation>
+                        <properties id="25"/>
+                        <pakage id="26" identifier="29ec02071f28cf737416c9f0eb6707af" name="Enums">
+                          <stereotypes id="27"/>
+                          <sourceLocation>OrionContextBroker_GEi::Enums</sourceLocation>
+                          <properties id="28"/>
+                          <pakage reference="5"/>
+                          <subpackages id="29"/>
+                          <importedPackages id="30"/>
+                          <types id="31">
+                            <enumeration reference="23"/>
+                            <enumeration id="32" identifier="2e7398c28d0608dd6f0bec4d9ab64141" name="PAYLOAD_TYPE">
+                              <stereotypes id="33"/>
+                              <sourceLocation>OrionContextBroker_GEi::Enums::PAYLOAD_TYPE</sourceLocation>
+                              <properties id="34"/>
+                              <pakage reference="26"/>
+                              <description></description>
+                              <enumLiterals id="35">
+                                <literal id="36" identifier="7c4f0ed366da2c23b0b8edba1fe67c80" name="EMPTY_CONTEXT_VALUE" index="0">
+                                  <stereotypes id="37"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::EMPTY_CONTEXT_VALUE</sourceLocation>
+                                  <properties id="38"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="32"/>
+                                </literal>
+                                <literal id="39" identifier="6a768c15f9c2ab2fdd045c1e6bd886c2" name="JSON" index="1">
+                                  <stereotypes id="40"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::JSON</sourceLocation>
+                                  <properties id="41"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="32"/>
+                                </literal>
+                                <literal id="42" identifier="0da23a81c2ba0c6372e3fa328d1515e6" name="JSON_ERROR" index="2">
+                                  <stereotypes id="43"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::JSON_ERROR</sourceLocation>
+                                  <properties id="44"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="32"/>
+                                </literal>
+                              </enumLiterals>
+                            </enumeration>
+                            <enumeration id="45" identifier="4fc12b94f03111b1863542c8ac0d4448" name="RETURN_MESSAGE">
+                              <stereotypes id="46"/>
+                              <sourceLocation>OrionContextBroker_GEi::Enums::RETURN_MESSAGE</sourceLocation>
+                              <properties id="47"/>
+                              <pakage reference="26"/>
+                              <description></description>
+                              <enumLiterals id="48">
+                                <literal id="49" identifier="5a65d73b210a8e2879b968fe29fa0e4e" name="ALREADY_REGISTERED" index="0">
+                                  <stereotypes id="50"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::ALREADY_REGISTERED</sourceLocation>
+                                  <properties id="51"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="52" identifier="6866c2df1b09b1c12f1e63f0fca82b8b" name="ALREADY_SUBSCRIBED" index="1">
+                                  <stereotypes id="53"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::ALREADY_SUBSCRIBED</sourceLocation>
+                                  <properties id="54"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="55" identifier="9e0ecb43486ab468ea464d4f7dc4c7db" name="BAD_REQUEST" index="2">
+                                  <stereotypes id="56"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::BAD_REQUEST</sourceLocation>
+                                  <properties id="57"/>
+                                  <description></description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="58" identifier="de670e6d453c48ad842c1f9dc57e5a59" name="CODE_OK" index="3">
+                                  <stereotypes id="59"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::CODE_OK</sourceLocation>
+                                  <properties id="60"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="61" identifier="47e03ebd6b1d1e1704de8e24e4d91768" name="DELETE_OK" index="4">
+                                  <stereotypes id="62"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::DELETE_OK</sourceLocation>
+                                  <properties id="63"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="64" identifier="bd2d0520d4f10ceb4ba5148b39497725" name="DOESNT_EXIST" index="5">
+                                  <stereotypes id="65"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::DOESNT_EXIST</sourceLocation>
+                                  <properties id="66"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="67" identifier="5e78edc71a7a3809494187a9e6cb76bd" name="EMPTY_VALUE" index="6">
+                                  <stereotypes id="68"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::EMPTY_VALUE</sourceLocation>
+                                  <properties id="69"/>
+                                  <description></description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="70" identifier="14b0f8f7b49abd80212a1d62fc7f9b21" name="EMPTY_VALUE_NOT_ALLOWED" index="7">
+                                  <stereotypes id="71"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::EMPTY_VALUE_NOT_ALLOWED</sourceLocation>
+                                  <properties id="72"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="73" identifier="c6ba229b2bbc6c582dd9a60a811b36e1" name="LITERAL" index="8">
+                                  <stereotypes id="74"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::LITERAL</sourceLocation>
+                                  <properties id="75"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="76" identifier="028e88548eda18028ee80412cd00269c" name="QUERY_RESPONSE" index="9">
+                                  <stereotypes id="77"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::QUERY_RESPONSE</sourceLocation>
+                                  <properties id="78"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="79" identifier="36e93ae1cb57ac596b94462664949fee" name="REGISTER_OK" index="10">
+                                  <stereotypes id="80"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::REGISTER_OK</sourceLocation>
+                                  <properties id="81"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="82" identifier="44a80d82c4779252f3e6b58f6283d4c8" name="REGISTRATION_ID" index="11">
+                                  <stereotypes id="83"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::REGISTRATION_ID</sourceLocation>
+                                  <properties id="84"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="85" identifier="58c976b90a687e467ef34d1d36978050" name="REQUEST_OK" index="12">
+                                  <stereotypes id="86"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::REQUEST_OK</sourceLocation>
+                                  <properties id="87"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="88" identifier="d8955bca45d08d95933f66b20fbad7e4" name="SERVER_ERROR" index="13">
+                                  <stereotypes id="89"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::SERVER_ERROR</sourceLocation>
+                                  <properties id="90"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="91" identifier="8bb6beaa0a925d6061ba956c94911a06" name="SUBSCRIBTION_ID" index="14">
+                                  <stereotypes id="92"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::SUBSCRIBTION_ID</sourceLocation>
+                                  <properties id="93"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="94" identifier="5baf01b79b240c2cf92dbf2df1760590" name="UPDATE_RESPONSE" index="15">
+                                  <stereotypes id="95"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::UPDATE_RESPONSE</sourceLocation>
+                                  <properties id="96"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                                <literal id="97" identifier="cc8e6e7510015746fb856fc43c9551e0" name="URL_ERROR" index="16">
+                                  <stereotypes id="98"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::URL_ERROR</sourceLocation>
+                                  <properties id="99"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="45"/>
+                                </literal>
+                              </enumLiterals>
+                            </enumeration>
+                            <enumeration id="100" identifier="88b79420327962815a21a2ee8a56757d" name="SUBSCRIBTION_ID">
+                              <stereotypes id="101"/>
+                              <sourceLocation>OrionContextBroker_GEi::Enums::SUBSCRIBTION_ID</sourceLocation>
+                              <properties id="102"/>
+                              <pakage reference="26"/>
+                              <description></description>
+                              <enumLiterals id="103">
+                                <literal id="104" identifier="ef69a44222915539b4b63c259ffad696" name="SUBS_ID1" index="0">
+                                  <stereotypes id="105"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::SUBS_ID1</sourceLocation>
+                                  <properties id="106"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="100"/>
+                                </literal>
+                                <literal id="107" identifier="3e7e834e0f24e4ddb07bf7e905e041f8" name="SUBS_ID2" index="1">
+                                  <stereotypes id="108"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::SUBS_ID2</sourceLocation>
+                                  <properties id="109"/>
+                                  <description></description>
+                                  <enumeration reference="100"/>
+                                </literal>
+                                <literal id="110" identifier="e1c2da3b30de32e7a649a3277d423efd" name="SUBS_ID3" index="2">
+                                  <stereotypes id="111"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::SUBS_ID3</sourceLocation>
+                                  <properties id="112"/>
+                                  <description></description>
+                                  <enumeration reference="100"/>
+                                </literal>
+                              </enumLiterals>
+                            </enumeration>
+                            <enumeration id="113" identifier="0e3d3f4f74ec7dba763f8041ae0f9c66" name="URL">
+                              <stereotypes id="114"/>
+                              <sourceLocation>OrionContextBroker_GEi::Enums::URL</sourceLocation>
+                              <properties id="115"/>
+                              <pakage reference="26"/>
+                              <description></description>
+                              <enumLiterals id="116">
+                                <literal id="117" identifier="e3b9eae4d3119504a399034c796a23fe" name="INVALIDURL" index="0">
+                                  <stereotypes id="118"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::INVALIDURL</sourceLocation>
+                                  <properties id="119"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="113"/>
+                                </literal>
+                                <literal id="120" identifier="3dc01e6fc7a063604922576dc34ba7c1" name="VALIDURL" index="1">
+                                  <stereotypes id="121"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Enums::VALIDURL</sourceLocation>
+                                  <properties id="122"/>
+                                  <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                                  <enumeration reference="113"/>
+                                </literal>
+                              </enumLiterals>
+                            </enumeration>
+                          </types>
+                          <associations id="123"/>
+                        </pakage>
+                        <description></description>
+                        <enumLiterals id="124">
+                          <literal id="125" identifier="f92461b5d80ab64478f32da98b88ec10" name="ENTITY1" index="0">
+                            <stereotypes id="126"/>
+                            <sourceLocation>OrionContextBroker_GEi::Enums::ENTITY1</sourceLocation>
+                            <properties id="127"/>
+                            <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                            <enumeration reference="23"/>
+                          </literal>
+                          <literal id="128" identifier="d0c3cbb0276a95a64b6718bef7b06924" name="ENTITY2" index="1">
+                            <stereotypes id="129"/>
+                            <sourceLocation>OrionContextBroker_GEi::Enums::ENTITY2</sourceLocation>
+                            <properties id="130"/>
+                            <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                            <enumeration reference="23"/>
+                          </literal>
+                          <literal id="131" identifier="3d09d8f0da0866970174f942010baa72" name="ENTITY3" index="2">
+                            <stereotypes id="132"/>
+                            <sourceLocation>OrionContextBroker_GEi::Enums::ENTITY3</sourceLocation>
+                            <properties id="133"/>
+                            <description></description>
+                            <enumeration reference="23"/>
+                          </literal>
+                        </enumLiterals>
+                      </type>
+                      <initialValue class="undefinedValue" id="134"/>
+                    </attribute>
+                    <attribute id="135" identifier="bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType" type="PAYLOAD_TYPE">
+                      <stereotypes id="136"/>
+                      <sourceLocation>OrionContextBroker_GEi::Classes::Entity::payloadType</sourceLocation>
+                      <properties id="137"/>
+                      <ownerClass reference="15"/>
+                      <type class="enumeration" reference="32"/>
+                      <initialValue class="undefinedValue" id="138"/>
+                    </attribute>
+                    <attribute id="139" identifier="a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated" type="Boolean">
+                      <stereotypes id="140"/>
+                      <sourceLocation>OrionContextBroker_GEi::Classes::Entity::isUpdated</sourceLocation>
+                      <properties id="141"/>
+                      <ownerClass reference="15"/>
+                      <initialValue class="booleanValue" id="142">
+                        <value>false</value>
+                      </initialValue>
+                    </attribute>
+                  </attributes>
+                  <associationEnds id="143">
+                    <association-end id="144" identifier="1cdab32f959ab9599d6b999038474a73-client" name="sut">
+                      <stereotypes id="145"/>
+                      <sourceLocation>OrionContextBroker_GEi::Classes::Entity::sut</sourceLocation>
+                      <properties id="146"/>
+                      <ownerClass reference="15"/>
+                      <elementType id="147" identifier="68becee0be904ba084042de00d197b47" name="SUT">
+                        <stereotypes id="148"/>
+                        <sourceLocation>OrionContextBroker_GEi::Classes::SUT</sourceLocation>
+                        <properties id="149"/>
+                        <pakage reference="9"/>
+                        <description></description>
+                        <operations id="150">
+                          <operation id="151" identifier="951de802b69b08ab4bcc0bab6958a788" name="ContextSubscription">
+                            <stereotypes id="152">
+                              <user-stereotype id="153" name="Description"/>
+                              <user-stereotype id="154" name="uncertainty"/>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::ContextSubscription</sourceLocation>
+                            <properties id="155"/>
+                            <description>&lt;multiple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;descriptions class=&quot;list&quot;&gt;
+    &lt;simple&gt;
+      &lt;keywords class=&quot;list&quot;&gt;
+        &lt;string&gt;Description&lt;/string&gt;
+      &lt;/keywords&gt;
+      &lt;text&gt;NGSI10 Standard &amp;lt;br /&amp;gt;POST /ngsi10/subscribeContext&amp;lt;br /&amp;gt;Subscribe to a context/entity operation:&amp;lt;br /&amp;gt;• This operation allows the asynchronous retrieval of Context Information. It is used for subscription to Context Information.&amp;lt;br /&amp;gt;The subscription triggers the notifications about the matching ContextEntities based on the defined NotifyCondition&amp;lt;br /&amp;gt;information passed in the subscribeContextRequest operation. In the subscribeContextResponse operation a subscription id&amp;lt;br /&amp;gt;is returned, which is used for notifications and in update and unsubscribe operations. The subscription duration is negotiated&amp;lt;br /&amp;gt;during the subscription request/response operation.&lt;/text&gt;
+      &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+    &lt;/simple&gt;
+  &lt;/descriptions&gt;
+&lt;/multiple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="156">
+                              <parameter id="157" identifier="a654a447c6e4ab427749a848ab540e3b" name="IN_ENTITYID" type="ENTITYID">
+                                <stereotypes id="158"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::ContextSubscription::IN_ENTITYID</sourceLocation>
+                                <properties id="159">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="151"/>
+                                <type class="enumeration" reference="23"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="160" identifier="2820775da04aefa5b2a5c6f91b74613d" name="IN_URL" type="URL">
+                                <stereotypes id="161"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::ContextSubscription::IN_URL</sourceLocation>
+                                <properties id="162">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="151"/>
+                                <type class="enumeration" reference="113"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="163" identifier="6790b4dbb18776d4f3e59468dcfc3274" name="IN_PAYLOAD_TYPE" type="PAYLOAD_TYPE">
+                                <stereotypes id="164"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::ContextSubscription::IN_PAYLOAD_TYPE</sourceLocation>
+                                <properties id="165">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="151"/>
+                                <type class="enumeration" reference="32"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="166" identifier="ac82603016e96fc238e566f57fe2f21c" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="167"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::ContextSubscription::result</sourceLocation>
+                                <properties id="168"/>
+                                <description></description>
+                                <operation reference="151"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <precondition>IN_PAYLOAD_TYPE &lt;&gt; PAYLOAD_TYPE::EMPTY_CONTEXT_VALUE</precondition>
+                            <postcondition>---@REQ:ContextSubscription&#xd;
+let  entiti : Entity = Entity.allInstances()-&gt;any(e : Entity | e.Id = IN_ENTITYID and e.sut.oclIsUndefined()) in&#xd;
+if (IN_URL = URL::INVALIDURL)&#xd;
+then&#xd;
+	---@AIM:Invalid url&#xd;
+	self.return_message = RETURN_MESSAGE::URL_ERROR&#xd;
+else&#xd;
+	let subs : Subscribtion  = Subscribtion.allInstances()-&gt;any(s : Subscribtion | IN_ENTITYID = s.ID) in&#xd;
+	if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON_ERROR)&#xd;
+	then&#xd;
+		---@AIM:JSONPayloadError&#xd;
+		self.return_message = RETURN_MESSAGE::BAD_REQUEST&#xd;
+	else&#xd;
+		let  entiti : Entity = Entity.allInstances()-&gt;any(e : Entity | e.Id = IN_ENTITYID and not e.sut.oclIsUndefined()) in  &#xd;
+		if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON)&#xd;
+		then&#xd;
+			---@AIM:success&#xd;
+			---@uncertaintyapp:reference_notReacheable&#xd;
+			---@uncertaintyapp:negative_throttle&#xd;
+			---@uncertaintyint:notregistered_sensor&#xd;
+			self.subscriber-&gt;includes(subs) and&#xd;
+			self.return_message = RETURN_MESSAGE::SUBSCRIBTION_ID&#xd;
+		else&#xd;
+			false&#xd;
+		endif&#xd;
+	endif&#xd;
+endif and&#xd;
+result = self.return_message and&#xd;
+checkReturnMessage()</postcondition>
+                          </operation>
+                          <operation id="169" identifier="7d58eb132fed59eef7bc5094c91e0e53" name="CreateNewEntity">
+                            <stereotypes id="170">
+                              <user-stereotype id="171" name="Description"/>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::CreateNewEntity</sourceLocation>
+                            <properties id="172"/>
+                            <description>&lt;multiple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;descriptions class=&quot;list&quot;&gt;
+    &lt;simple&gt;
+      &lt;keywords class=&quot;list&quot;&gt;
+        &lt;string&gt;Description&lt;/string&gt;
+      &lt;/keywords&gt;
+      &lt;text&gt;&amp;lt;b&amp;gt;NGSI10 Standard &amp;lt;/b&amp;gt;&amp;#xd;
+POST /v1/updateContext &amp;lt;b&amp;gt;&amp;#xd;
+&amp;lt;/b&amp;gt;update operation:&amp;#xd;
+• append: it adds the new attribute. Note: this may&amp;#xd;
+result in multiple attributes with the same name;&amp;#xd;
+&lt;/text&gt;
+      &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+    &lt;/simple&gt;
+  &lt;/descriptions&gt;
+&lt;/multiple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="173">
+                              <parameter id="174" identifier="d8812b63c0a724f0853f32081a55084b" name="IN_ENTITYID" type="ENTITYID">
+                                <stereotypes id="175"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::CreateNewEntity::IN_ENTITYID</sourceLocation>
+                                <properties id="176">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="169"/>
+                                <type class="enumeration" reference="23"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="177" identifier="a8b4839967f1a73c6cc18181988c6bf0" name="IN_PAYLOAD_TYPE" type="PAYLOAD_TYPE">
+                                <stereotypes id="178"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::CreateNewEntity::IN_PAYLOAD_TYPE</sourceLocation>
+                                <properties id="179">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="169"/>
+                                <type class="enumeration" reference="32"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="180" identifier="0f115179e69ca2d0ad5f4b340c75d2c1" name="IN_URL" type="URL">
+                                <stereotypes id="181"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::CreateNewEntity::IN_URL</sourceLocation>
+                                <properties id="182">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="169"/>
+                                <type class="enumeration" reference="113"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="183" identifier="7422dbcedafdd77d276a4e5e3f20d323" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="184"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::CreateNewEntity::result</sourceLocation>
+                                <properties id="185"/>
+                                <description></description>
+                                <operation reference="169"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <postcondition>let entity : Entity = Entity.allInstances()-&gt;any( e : Entity | e.sut.oclIsUndefined() and e.payloadType = IN_PAYLOAD_TYPE and e.Id = IN_ENTITYID) in&#xd;
+---@REQ:EntityCreation&#xd;
+if(IN_URL = URL::INVALIDURL)&#xd;
+then&#xd;
+	---@AIM:UrlError&#xd;
+	self.return_message = RETURN_MESSAGE::URL_ERROR&#xd;
+else&#xd;
+	if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON_ERROR)&#xd;
+	then&#xd;
+		---@AIM:JSONPayloadError&#xd;
+		self.return_message = RETURN_MESSAGE::BAD_REQUEST&#xd;
+	else&#xd;
+		if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::EMPTY_CONTEXT_VALUE)&#xd;
+		then&#xd;
+			---@AIM:EmptyContextValueError&#xd;
+			self.return_message = RETURN_MESSAGE::EMPTY_VALUE_NOT_ALLOWED&#xd;
+		else&#xd;
+			if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON)&#xd;
+			then&#xd;
+				self.entities-&gt;includes(entity) and&#xd;
+				---@AIM:JSONPayloadSuccess&#xd;
+				self.return_message = RETURN_MESSAGE::REQUEST_OK&#xd;
+			--//Test en retirant le Else False	&#xd;
+			else&#xd;
+				false&#xd;
+			endif&#xd;
+		endif&#xd;
+	endif&#xd;
+endif and &#xd;
+result = self.return_message&#xd;
+and checkReturnMessage()&#xd;
+&#xd;
+&#xd;
+&#xd;
+</postcondition>
+                          </operation>
+                          <operation id="186" identifier="7c85fd0eedf77df9038aad0439627a7c" name="DeleteEntityByID">
+                            <stereotypes id="187">
+                              <user-stereotype id="188" name="Description"/>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::DeleteEntityByID</sourceLocation>
+                            <properties id="189"/>
+                            <description>&lt;multiple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;descriptions class=&quot;list&quot;&gt;
+    &lt;simple&gt;
+      &lt;keywords class=&quot;list&quot;&gt;
+        &lt;string&gt;Description&lt;/string&gt;
+      &lt;/keywords&gt;
+      &lt;prerequisites class=&quot;list&quot;&gt;
+        &lt;prerequisite&gt;
+          &lt;key&gt;&lt;/key&gt;
+          &lt;value&gt;&lt;/value&gt;
+        &lt;/prerequisite&gt;
+        &lt;prerequisite reference=&quot;../prerequisite&quot;/&gt;
+      &lt;/prerequisites&gt;
+      &lt;text&gt;&amp;lt;b&amp;gt;NGSI10 convenience /v2&amp;lt;/b&amp;gt;&amp;#xd;
+DELETE /v2/entities/&amp;lt;entityId&amp;gt;&amp;#xd;
+Delete an entity by its ID &amp;#xd;
+&amp;#xd;
+&lt;/text&gt;
+      &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+    &lt;/simple&gt;
+  &lt;/descriptions&gt;
+&lt;/multiple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="190">
+                              <parameter id="191" identifier="52e11c5f76899df5301a9ce7d0c0cc1a" name="IN_ENTITYID" type="ENTITYID">
+                                <stereotypes id="192"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::DeleteEntityByID::IN_ENTITYID</sourceLocation>
+                                <properties id="193">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="186"/>
+                                <type class="enumeration" reference="23"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="194" identifier="d34b415c86236cb35e7098a0d7f4f844" name="IN_URL" type="URL">
+                                <stereotypes id="195"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::DeleteEntityByID::IN_URL</sourceLocation>
+                                <properties id="196">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="186"/>
+                                <type class="enumeration" reference="113"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="197" identifier="95bca1d223a942eccf2b4b24f41e6515" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="198"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::DeleteEntityByID::result</sourceLocation>
+                                <properties id="199"/>
+                                <description></description>
+                                <operation reference="186"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <postcondition>---@REQ:DeleteEntityByID&#xd;
+if(IN_URL = URL::INVALIDURL)&#xd;
+then&#xd;
+	---@AIM:UrlError&#xd;
+	self.return_message = RETURN_MESSAGE::URL_ERROR&#xd;
+else&#xd;
+	let entity : Entity = Entity.allInstances()-&gt;any( e : Entity | e.Id = IN_ENTITYID and e.payloadType = PAYLOAD_TYPE::JSON) in&#xd;
+	if(entity.sut.oclIsUndefined())&#xd;
+	then&#xd;
+		---@AIM:EntityDoesNotExist&#xd;
+		self.return_message = RETURN_MESSAGE::DOESNT_EXIST&#xd;
+	else&#xd;
+		---@AIM:Success&#xd;
+		self.entities-&gt;excludes(entity) and&#xd;
+		self.return_message = RETURN_MESSAGE::DELETE_OK&#xd;
+	endif&#xd;
+endif and &#xd;
+result = self.return_message &#xd;
+and self.checkReturnMessage()&#xd;
+</postcondition>
+                          </operation>
+                          <operation id="200" identifier="eacfb59ac0bb92405adb89d71ea6bbd1" name="DiscoverContextAvailability">
+                            <stereotypes id="201">
+                              <user-stereotype id="202" name="Description"/>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::DiscoverContextAvailability</sourceLocation>
+                            <properties id="203"/>
+                            <description>&lt;multiple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;descriptions class=&quot;list&quot;&gt;
+    &lt;simple&gt;
+      &lt;keywords class=&quot;list&quot;&gt;
+        &lt;string&gt;Description&lt;/string&gt;
+      &lt;/keywords&gt;
+      &lt;text&gt;&amp;lt;b&amp;gt;NGSI10 Standard &amp;lt;/b&amp;gt;&amp;#xd;
+POST /v1/queryContext &amp;#xd;
+This operation allows for the synchronous retrieval of Context Information&lt;/text&gt;
+      &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+    &lt;/simple&gt;
+  &lt;/descriptions&gt;
+&lt;/multiple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="204">
+                              <parameter id="205" identifier="54ab57d5f9a1636076a946edab9ddad2" name="IN_ENTITYID" type="ENTITYID">
+                                <stereotypes id="206"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::DiscoverContextAvailability::IN_ENTITYID</sourceLocation>
+                                <properties id="207">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="200"/>
+                                <type class="enumeration" reference="23"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="208" identifier="3bc745a801a5e209813cbaac40523d64" name="IN_PAYLOAD_TYPE" type="PAYLOAD_TYPE">
+                                <stereotypes id="209"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::DiscoverContextAvailability::IN_PAYLOAD_TYPE</sourceLocation>
+                                <properties id="210">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="200"/>
+                                <type class="enumeration" reference="32"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="211" identifier="e61f1b3300424070ecd32d00c72a9422" name="IN_URL" type="URL">
+                                <stereotypes id="212"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::DiscoverContextAvailability::IN_URL</sourceLocation>
+                                <properties id="213">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="200"/>
+                                <type class="enumeration" reference="113"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="214" identifier="decc4ee609dfe47ff4387042303f2845" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="215"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::DiscoverContextAvailability::result</sourceLocation>
+                                <properties id="216"/>
+                                <description></description>
+                                <operation reference="200"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <precondition>IN_PAYLOAD_TYPE &lt;&gt; PAYLOAD_TYPE::EMPTY_CONTEXT_VALUE&#xd;
+</precondition>
+                            <postcondition>---@REQ:DiscoverContextAvailability&#xd;
+if(IN_URL = URL::INVALIDURL )&#xd;
+then&#xd;
+	---@AIM:UrlError&#xd;
+	self.return_message = RETURN_MESSAGE::URL_ERROR&#xd;
+else&#xd;
+	let entity : Entity = Entity.allInstances()-&gt;any( e : Entity | e.Id = IN_ENTITYID and not(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::EMPTY_CONTEXT_VALUE) and e.payloadType = IN_PAYLOAD_TYPE) in&#xd;
+	if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON_ERROR )&#xd;
+	then&#xd;
+		---@AIM:JSONPayloadError&#xd;
+		self.return_message = RETURN_MESSAGE::BAD_REQUEST&#xd;
+	else&#xd;
+	&#xd;
+		if(entity.sut.oclIsUndefined())&#xd;
+		then&#xd;
+			---@AIM:ContextDoesNotExists&#xd;
+			self.return_message = RETURN_MESSAGE::DOESNT_EXIST&#xd;
+		else&#xd;
+			if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON)&#xd;
+			then&#xd;
+				---@AIM:JSONPayloadSuccess&#xd;
+				&#xd;
+				self.return_message = RETURN_MESSAGE::CODE_OK&#xd;
+			else&#xd;
+				false&#xd;
+			endif&#xd;
+		endif&#xd;
+	endif&#xd;
+endif and &#xd;
+result = self.return_message&#xd;
+and checkReturnMessage()&#xd;
+&#xd;
+&#xd;
+&#xd;
+</postcondition>
+                          </operation>
+                          <operation id="217" identifier="6f9d70af12ab7c415cd0db461ce0c4bb" name="GetAllEntities">
+                            <stereotypes id="218">
+                              <user-stereotype id="219" name="Description"/>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::GetAllEntities</sourceLocation>
+                            <properties id="220"/>
+                            <description>&lt;multiple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;descriptions class=&quot;list&quot;&gt;
+    &lt;simple&gt;
+      &lt;keywords class=&quot;list&quot;&gt;
+        &lt;string&gt;Description&lt;/string&gt;
+      &lt;/keywords&gt;
+      &lt;text&gt;&amp;lt;b&amp;gt;NGSI10 Standard &amp;lt;/b&amp;gt;&amp;#xd;
+POST /v1/updateContext &amp;lt;b&amp;gt;&amp;#xd;
+&amp;lt;/b&amp;gt;update operation:&amp;#xd;
+• append: it adds the new attribute. Note: this may&amp;#xd;
+result in multiple attributes with the same name;&amp;#xd;
+&lt;/text&gt;
+      &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+    &lt;/simple&gt;
+  &lt;/descriptions&gt;
+&lt;/multiple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="221">
+                              <parameter id="222" identifier="ffaa912638a21c796c5e8b1f02df8c50" name="IN_URL" type="URL">
+                                <stereotypes id="223"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::GetAllEntities::IN_URL</sourceLocation>
+                                <properties id="224">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="217"/>
+                                <type class="enumeration" reference="113"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="225" identifier="aab6f90feff0c256afdffa86e2d49ae5" name="IN_PAYLOAD" type="PAYLOAD_TYPE">
+                                <stereotypes id="226"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::GetAllEntities::IN_PAYLOAD</sourceLocation>
+                                <properties id="227">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="217"/>
+                                <type class="enumeration" reference="32"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="228" identifier="90871307b6f4b8e4d02b45300e1475d8" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="229"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::GetAllEntities::result</sourceLocation>
+                                <properties id="230"/>
+                                <description></description>
+                                <operation reference="217"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <precondition>IN_PAYLOAD &lt;&gt; PAYLOAD_TYPE::EMPTY_CONTEXT_VALUE</precondition>
+                            <postcondition>---@REQ:GetAllEntities&#xd;
+let   linkedEntities : Set(Entity) = Entity.allInstances() -&gt; select( e:Entity | e.payloadType =PAYLOAD_TYPE::JSON ) in&#xd;
+if(IN_URL = URL::INVALIDURL )&#xd;
+then&#xd;
+	---@AIM:UrlError&#xd;
+	self.return_message = RETURN_MESSAGE::URL_ERROR&#xd;
+else&#xd;
+		if(IN_PAYLOAD = PAYLOAD_TYPE::JSON_ERROR) &#xd;
+		then&#xd;
+			---@AIM:JSON_PAYLOAD_ERROR&#xd;
+			self.return_message = RETURN_MESSAGE::BAD_REQUEST&#xd;
+		else&#xd;
+			if(linkedEntities -&gt; size() = self.entities -&gt; size())&#xd;
+	        then&#xd;
+	        	---@AIM:SUCESS&#xd;
+				&#xd;
+				self.return_message = RETURN_MESSAGE::REQUEST_OK&#xd;
+			else&#xd;
+				false&#xd;
+			endif&#xd;
+		endif&#xd;
+	&#xd;
+endif and &#xd;
+result = self.return_message&#xd;
+and checkReturnMessage()</postcondition>
+                          </operation>
+                          <operation id="231" identifier="255a37538a0285358d4e2648d2c6f985" name="QueryEntity">
+                            <stereotypes id="232">
+                              <user-stereotype id="233" name="Description"/>
+                              <user-stereotype id="234" name="uncertainty"/>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::QueryEntity</sourceLocation>
+                            <properties id="235"/>
+                            <description>&lt;multiple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;descriptions class=&quot;list&quot;&gt;
+    &lt;simple&gt;
+      &lt;keywords class=&quot;list&quot;&gt;
+        &lt;string&gt;Description&lt;/string&gt;
+      &lt;/keywords&gt;
+      &lt;text&gt;&amp;lt;b&amp;gt;NGSI10 Standard &amp;lt;/b&amp;gt;&amp;#xd;
+POST /v1/queryContext &amp;#xd;
+This operation allows for the synchronous retrieval of Context Information&lt;/text&gt;
+      &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+    &lt;/simple&gt;
+  &lt;/descriptions&gt;
+&lt;/multiple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="236">
+                              <parameter id="237" identifier="95223c36b8fa8d31d6e128e17f060e4e" name="IN_ENTITYID" type="ENTITYID">
+                                <stereotypes id="238"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::QueryEntity::IN_ENTITYID</sourceLocation>
+                                <properties id="239">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="231"/>
+                                <type class="enumeration" reference="23"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="240" identifier="ee14d79d606d4c48fd2bbad7f34faf98" name="IN_PAYLOAD_TYPE" type="PAYLOAD_TYPE">
+                                <stereotypes id="241"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::QueryEntity::IN_PAYLOAD_TYPE</sourceLocation>
+                                <properties id="242">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="231"/>
+                                <type class="enumeration" reference="32"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="243" identifier="504268054daac9925efd66eef24b332d" name="IN_URL" type="URL">
+                                <stereotypes id="244"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::QueryEntity::IN_URL</sourceLocation>
+                                <properties id="245">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="231"/>
+                                <type class="enumeration" reference="113"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="246" identifier="c7f84a782fd626f7b79ac287046a5432" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="247"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::QueryEntity::result</sourceLocation>
+                                <properties id="248"/>
+                                <description></description>
+                                <operation reference="231"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <precondition>IN_PAYLOAD_TYPE &lt;&gt; PAYLOAD_TYPE::EMPTY_CONTEXT_VALUE&#xd;
+</precondition>
+                            <postcondition>---@REQ:QueryContext&#xd;
+if(IN_URL = URL::INVALIDURL)&#xd;
+then&#xd;
+	---@AIM:UrlError&#xd;
+	self.return_message = RETURN_MESSAGE::URL_ERROR&#xd;
+else&#xd;
+	let entity : Entity = Entity.allInstances()-&gt;any( e : Entity | e.Id = IN_ENTITYID and e.payloadType = IN_PAYLOAD_TYPE) in&#xd;
+	if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON_ERROR)&#xd;
+	then&#xd;
+		---@AIM:JSONPayloadError&#xd;
+		self.return_message = RETURN_MESSAGE::BAD_REQUEST&#xd;
+	else&#xd;
+		if(entity.sut.oclIsUndefined() )&#xd;
+		then&#xd;
+			---@AIM:ContextDoesNotExists&#xd;
+			self.return_message = RETURN_MESSAGE::DOESNT_EXIST&#xd;
+		else&#xd;
+			if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON)&#xd;
+			then&#xd;
+				---@AIM:JSONPayloadSuccess&#xd;
+				---@uncertaintyplt:missing_sensor&#xd;
+				---@uncertaintyapp:sleeping_sensor&#xd;
+				---@uncertaintyint:notregistered_sensor&#xd;
+				self.return_message = RETURN_MESSAGE::REQUEST_OK&#xd;
+			else&#xd;
+				false&#xd;
+			endif&#xd;
+		endif&#xd;
+	endif&#xd;
+endif and &#xd;
+result = self.return_message&#xd;
+and checkReturnMessage()</postcondition>
+                          </operation>
+                          <operation id="249" identifier="d79c25bac9fe1a77a4a8196e519dd723" name="RegisterContext">
+                            <stereotypes id="250">
+                              <user-stereotype id="251" name="Description"/>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::RegisterContext</sourceLocation>
+                            <properties id="252"/>
+                            <description>&lt;multiple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;descriptions class=&quot;list&quot;&gt;
+    &lt;simple&gt;
+      &lt;keywords class=&quot;list&quot;&gt;
+        &lt;string&gt;Description&lt;/string&gt;
+      &lt;/keywords&gt;
+      &lt;text&gt;&amp;lt;b&amp;gt;NGSI10 Standard &amp;lt;/b&amp;gt;&amp;#xd;
+POST /v1/updateContext &amp;lt;b&amp;gt;&amp;#xd;
+&amp;lt;/b&amp;gt;update operation:&amp;#xd;
+• append: it adds the new attribute. Note: this may&amp;#xd;
+result in multiple attributes with the same name;&amp;#xd;
+&lt;/text&gt;
+      &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+    &lt;/simple&gt;
+  &lt;/descriptions&gt;
+&lt;/multiple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="253">
+                              <parameter id="254" identifier="a4e7a6546c074c4ea95863702fbffe5d" name="IN_ENTITYID" type="ENTITYID">
+                                <stereotypes id="255"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::RegisterContext::IN_ENTITYID</sourceLocation>
+                                <properties id="256">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="249"/>
+                                <type class="enumeration" reference="23"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="257" identifier="62ec9d0c8b547b7c4870f21bd20c7fb6" name="IN_PAYLOAD_TYPE" type="PAYLOAD_TYPE">
+                                <stereotypes id="258"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::RegisterContext::IN_PAYLOAD_TYPE</sourceLocation>
+                                <properties id="259">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="249"/>
+                                <type class="enumeration" reference="32"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="260" identifier="297ad59de5d0168063ee47d4803e07d7" name="IN_URL" type="URL">
+                                <stereotypes id="261"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::RegisterContext::IN_URL</sourceLocation>
+                                <properties id="262">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="249"/>
+                                <type class="enumeration" reference="113"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="263" identifier="fc50990c30f8cc79f2f86a4a19b2239e" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="264"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::RegisterContext::result</sourceLocation>
+                                <properties id="265"/>
+                                <description></description>
+                                <operation reference="249"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <postcondition>let entity : Entity = Entity.allInstances()-&gt;any( &#xd;
+e : Entity | e.sut.oclIsUndefined() and e.payloadType = IN_PAYLOAD_TYPE and e.Id = IN_ENTITYID) in&#xd;
+---@REQ:RegisterContext&#xd;
+if(IN_URL = URL::INVALIDURL)&#xd;
+then ---@AIM:UrlError&#xd;
+	self.return_message = RETURN_MESSAGE::URL_ERROR&#xd;
+else&#xd;
+	if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON_ERROR)&#xd;
+	then&#xd;
+		---@AIM:JSONPayloadError&#xd;
+		self.return_message = RETURN_MESSAGE::BAD_REQUEST&#xd;
+	else&#xd;
+		if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON)&#xd;
+		then&#xd;
+			self.entities-&gt;includes(entity) and&#xd;
+			---@AIM:JSONPayloadSuccess&#xd;
+			self.return_message = RETURN_MESSAGE::REGISTER_OK&#xd;
+		else&#xd;
+			false&#xd;
+		endif&#xd;
+	endif&#xd;
+endif and &#xd;
+result = self.return_message&#xd;
+and checkReturnMessage()&#xd;
+&#xd;
+&#xd;
+&#xd;
+</postcondition>
+                          </operation>
+                          <operation id="266" identifier="98a4049de87d2bc524930210ed37fb8c" name="UnsubscribeContextSubscription">
+                            <stereotypes id="267">
+                              <user-stereotype id="268" name="Description"/>
+                              <user-stereotype id="269" name="uncertainty"/>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UnsubscribeContextSubscription</sourceLocation>
+                            <properties id="270"/>
+                            <description>&lt;multiple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;descriptions class=&quot;list&quot;&gt;
+    &lt;simple&gt;
+      &lt;keywords class=&quot;list&quot;&gt;
+        &lt;string&gt;Description&lt;/string&gt;
+      &lt;/keywords&gt;
+      &lt;text&gt;NGSI10 Standard &amp;lt;br /&amp;gt;POST /ngsi10/unsubscribeContext&amp;lt;br /&amp;gt;Unsubscribe to a context/entity operation&amp;lt;br /&amp;gt;&lt;/text&gt;
+      &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+    &lt;/simple&gt;
+  &lt;/descriptions&gt;
+&lt;/multiple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="271">
+                              <parameter id="272" identifier="9541673ba62f6053c42cf15ec42862b8" name="IN_ENTITYID" type="ENTITYID">
+                                <stereotypes id="273"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UnsubscribeContextSubscription::IN_ENTITYID</sourceLocation>
+                                <properties id="274">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="266"/>
+                                <type class="enumeration" reference="23"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="275" identifier="bf4c539f0a630ee94bdf73bb8df14840" name="IN_URL" type="URL">
+                                <stereotypes id="276"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UnsubscribeContextSubscription::IN_URL</sourceLocation>
+                                <properties id="277">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="266"/>
+                                <type class="enumeration" reference="113"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="278" identifier="aa6c0e3398bd56ca11769ba0a8f87700" name="IN_PAYLOAD_TYPE" type="PAYLOAD_TYPE">
+                                <stereotypes id="279"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UnsubscribeContextSubscription::IN_PAYLOAD_TYPE</sourceLocation>
+                                <properties id="280">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="266"/>
+                                <type class="enumeration" reference="32"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="281" identifier="ab6d126e50e8ca008a1a68dbeca6e17c" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="282"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UnsubscribeContextSubscription::result</sourceLocation>
+                                <properties id="283"/>
+                                <description></description>
+                                <operation reference="266"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <postcondition>---@REQ:UnsubscribeContextSubscription&#xd;
+if (IN_URL = URL::INVALIDURL)&#xd;
+then&#xd;
+	---@AIM:Invalid url&#xd;
+	self.return_message = RETURN_MESSAGE::URL_ERROR&#xd;
+else&#xd;
+	let subs : Subscribtion  = Subscribtion.allInstances()-&gt;any(s : Subscribtion | IN_ENTITYID = s.ID) in&#xd;
+	&#xd;
+	if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON_ERROR)&#xd;
+	then&#xd;
+		---@AIM:JSONPayloadError&#xd;
+		self.return_message = RETURN_MESSAGE::BAD_REQUEST&#xd;
+	else  &#xd;
+		if(self.subscriber-&gt;excludes(subs))&#xd;
+		then&#xd;
+			---@AIM:does_not_exists&#xd;
+			self.return_message = RETURN_MESSAGE::DOESNT_EXIST&#xd;
+		else&#xd;
+			if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON)&#xd;
+			then&#xd;
+				---@AIM:success&#xd;
+				---@uncertaintyapp:code_ko&#xd;
+				self.subscriber-&gt;excludes(subs) and&#xd;
+				self.return_message = RETURN_MESSAGE::SUBSCRIBTION_ID&#xd;
+			else&#xd;
+				false&#xd;
+			endif&#xd;
+		endif&#xd;
+	endif&#xd;
+endif and&#xd;
+result = self.return_message and&#xd;
+checkReturnMessage()</postcondition>
+                          </operation>
+                          <operation id="284" identifier="27aeb03040ecdbc95d7617d5e0e9e48a" name="UpdateEntity">
+                            <stereotypes id="285">
+                              <user-stereotype id="286" name="Description"/>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UpdateEntity</sourceLocation>
+                            <properties id="287"/>
+                            <description>&lt;multiple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;descriptions class=&quot;list&quot;&gt;
+    &lt;simple&gt;
+      &lt;keywords class=&quot;list&quot;&gt;
+        &lt;string&gt;Description&lt;/string&gt;
+      &lt;/keywords&gt;
+      &lt;text&gt;&amp;lt;b&amp;gt;NGSI10 Standard&amp;lt;/b&amp;gt; &amp;#xd;
+POST /v1/updateContext &amp;#xd;
+update operation:&amp;#xd;
+•  update: it replaces the value and metadata of the&amp;#xd;
+existing attributes with the same name;&lt;/text&gt;
+      &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+    &lt;/simple&gt;
+  &lt;/descriptions&gt;
+&lt;/multiple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="288">
+                              <parameter id="289" identifier="34adcb3cbef7feb8aa673b67ebe574ac" name="IN_ENTITYID" type="ENTITYID">
+                                <stereotypes id="290"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UpdateEntity::IN_ENTITYID</sourceLocation>
+                                <properties id="291">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="284"/>
+                                <type class="enumeration" reference="23"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="292" identifier="a7a5559ba447c21356699ec58ab17e1d" name="IN_PAYLOAD_TYPE" type="PAYLOAD_TYPE">
+                                <stereotypes id="293"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UpdateEntity::IN_PAYLOAD_TYPE</sourceLocation>
+                                <properties id="294">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="284"/>
+                                <type class="enumeration" reference="32"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="295" identifier="781f1eb0ab83d5b0f3f2840565f97ed5" name="IN_URL" type="URL">
+                                <stereotypes id="296"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UpdateEntity::IN_URL</sourceLocation>
+                                <properties id="297">
+                                  <entry>
+                                    <string>com.smartesting.metamodel.ValuePropagation</string>
+                                    <string>NONE:</string>
+                                  </entry>
+                                </properties>
+                                <description></description>
+                                <operation reference="284"/>
+                                <type class="enumeration" reference="113"/>
+                                <direction>in</direction>
+                              </parameter>
+                              <parameter id="298" identifier="1949f5b57a636010ade69076c3dc0453" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="299"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::UpdateEntity::result</sourceLocation>
+                                <properties id="300"/>
+                                <description></description>
+                                <operation reference="284"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <postcondition>---@REQ:EntityUpdate&#xd;
+if(IN_URL = URL::INVALIDURL)&#xd;
+then&#xd;
+	---@AIM:UrlError&#xd;
+	self.return_message = RETURN_MESSAGE::URL_ERROR&#xd;
+else&#xd;
+	let entity : Entity = Entity.allInstances()-&gt;any( e : Entity | e.Id = IN_ENTITYID) in&#xd;
+	if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON_ERROR)&#xd;
+	then&#xd;
+		---@AIM:JSONPayloadError&#xd;
+		self.return_message = RETURN_MESSAGE::BAD_REQUEST&#xd;
+	else&#xd;
+		if(entity.sut.oclIsUndefined())&#xd;
+		then&#xd;
+			---@AIM:ContextDoesNotExists&#xd;
+				self.return_message = RETURN_MESSAGE::DOESNT_EXIST&#xd;
+			&#xd;
+		else&#xd;
+			&#xd;
+			if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::EMPTY_CONTEXT_VALUE)&#xd;
+			then&#xd;
+				---@AIM:EmptyContextValueError&#xd;
+				self.return_message = RETURN_MESSAGE::EMPTY_VALUE_NOT_ALLOWED&#xd;
+			else&#xd;
+				if(IN_PAYLOAD_TYPE = PAYLOAD_TYPE::JSON)&#xd;
+				then&#xd;
+					entity.isUpdated = true and&#xd;
+					---@AIM:JSONPayloadSuccess&#xd;
+					self.return_message = RETURN_MESSAGE::REQUEST_OK&#xd;
+				else&#xd;
+					false&#xd;
+				endif&#xd;
+			endif&#xd;
+		endif&#xd;
+	endif&#xd;
+endif and &#xd;
+result = self.return_message&#xd;
+and checkReturnMessage()</postcondition>
+                          </operation>
+                          <operation id="301" identifier="a7826f370d083838d180e958de2834b2" name="checkReturnMessage">
+                            <stereotypes id="302">
+                              <observation-stereotype id="303">
+                                <triggers id="304"/>
+                                <mode>CALL</mode>
+                              </observation-stereotype>
+                            </stereotypes>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::checkReturnMessage</sourceLocation>
+                            <properties id="305"/>
+                            <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;@synthesis@&amp;lt;br/&amp;gt;Check that the error code is $result$&amp;lt;br/&amp;gt;@/synthesis@&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;Check if an error code $result$ is returned &lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+                            <ownerClass reference="147"/>
+                            <parameters id="306">
+                              <parameter id="307" identifier="4a8e7c93684a177814f5b8705bf54bad" name="result" type="RETURN_MESSAGE">
+                                <stereotypes id="308"/>
+                                <sourceLocation>OrionContextBroker_GEi::Classes::SUT::checkReturnMessage::result</sourceLocation>
+                                <properties id="309"/>
+                                <description></description>
+                                <operation reference="301"/>
+                                <type class="enumeration" reference="45"/>
+                                <direction>return</direction>
+                              </parameter>
+                            </parameters>
+                            <visibility>PUBLIC</visibility>
+                            <postcondition>result = self.return_message</postcondition>
+                          </operation>
+                        </operations>
+                        <attributes id="310">
+                          <attribute id="311" identifier="dda70da1e9c5bd38bad572b97d2a4ca9" name="return_message" type="RETURN_MESSAGE">
+                            <stereotypes id="312"/>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::return_message</sourceLocation>
+                            <properties id="313"/>
+                            <ownerClass reference="147"/>
+                            <type class="enumeration" reference="45"/>
+                            <initialValue class="undefinedValue" id="314"/>
+                          </attribute>
+                        </attributes>
+                        <associationEnds id="315">
+                          <association-end id="316" identifier="8066a0830f089b53c4825d912a40d469-supplier" name="subscriber">
+                            <stereotypes id="317"/>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::subscriber</sourceLocation>
+                            <properties id="318"/>
+                            <ownerClass reference="147"/>
+                            <elementType id="319" identifier="c53d551ffe9ca13585dab9eaa34f488e" name="Subscribtion">
+                              <stereotypes id="320"/>
+                              <sourceLocation>OrionContextBroker_GEi::Classes::Subscribtion</sourceLocation>
+                              <properties id="321"/>
+                              <pakage reference="9"/>
+                              <description></description>
+                              <operations id="322"/>
+                              <attributes id="323">
+                                <attribute id="324" identifier="0425ceda4bc5f5784c7cd2b9e58542b6" name="ID" type="ENTITYID">
+                                  <stereotypes id="325"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Classes::Subscribtion::ID</sourceLocation>
+                                  <properties id="326"/>
+                                  <ownerClass reference="319"/>
+                                  <type class="enumeration" reference="23"/>
+                                  <initialValue class="undefinedValue" id="327"/>
+                                </attribute>
+                              </attributes>
+                              <associationEnds id="328">
+                                <association-end id="329" identifier="8066a0830f089b53c4825d912a40d469-client" name="sut">
+                                  <stereotypes id="330"/>
+                                  <sourceLocation>OrionContextBroker_GEi::Classes::Subscribtion::sut</sourceLocation>
+                                  <properties id="331"/>
+                                  <ownerClass reference="319"/>
+                                  <elementType reference="147"/>
+                                  <association id="332" identifier="8066a0830f089b53c4825d912a40d469" name="Subscribers">
+                                    <stereotypes id="333"/>
+                                    <sourceLocation>OrionContextBroker_GEi::Classes::Subscribers</sourceLocation>
+                                    <properties id="334"/>
+                                    <pakage reference="9"/>
+                                    <clientEnd reference="329"/>
+                                    <supplierEnd reference="316"/>
+                                  </association>
+                                  <multiplicity id="335" lowerBound="0" upperBound="1"/>
+                                  <navigable>true</navigable>
+                                </association-end>
+                              </associationEnds>
+                            </elementType>
+                            <association reference="332"/>
+                            <multiplicity id="336" lowerBound="0" upperBound="255"/>
+                            <navigable>true</navigable>
+                          </association-end>
+                          <association-end id="337" identifier="1cdab32f959ab9599d6b999038474a73-supplier" name="entities">
+                            <stereotypes id="338"/>
+                            <sourceLocation>OrionContextBroker_GEi::Classes::SUT::entities</sourceLocation>
+                            <properties id="339"/>
+                            <ownerClass reference="147"/>
+                            <elementType reference="15"/>
+                            <association id="340" identifier="1cdab32f959ab9599d6b999038474a73" name="registered">
+                              <stereotypes id="341"/>
+                              <sourceLocation>OrionContextBroker_GEi::Classes::registered</sourceLocation>
+                              <properties id="342"/>
+                              <pakage reference="9"/>
+                              <clientEnd reference="144"/>
+                              <supplierEnd reference="337"/>
+                            </association>
+                            <multiplicity id="343" lowerBound="0" upperBound="255"/>
+                            <navigable>true</navigable>
+                          </association-end>
+                        </associationEnds>
+                      </elementType>
+                      <association reference="340"/>
+                      <multiplicity id="344" lowerBound="0" upperBound="1"/>
+                      <navigable>true</navigable>
+                    </association-end>
+                  </associationEnds>
+                </class>
+                <class reference="147"/>
+                <class reference="319"/>
+              </types>
+              <associations id="345">
+                <association reference="332"/>
+                <association reference="340"/>
+              </associations>
+            </package>
+            <package reference="26"/>
+            <package id="346" identifier="2487424a55fd931e1cd6f16bbd0b75c4" name="InitialData">
+              <stereotypes id="347"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData</sourceLocation>
+              <properties id="348"/>
+              <pakage reference="5"/>
+              <subpackages id="349"/>
+              <importedPackages id="350"/>
+              <types id="351"/>
+              <associations id="352"/>
+            </package>
+          </subpackages>
+          <importedPackages id="353">
+            <package reference="26"/>
+          </importedPackages>
+          <types id="354"/>
+          <associations id="355"/>
+        </package>
+      </packages>
+      <container id="356">
+        <elements class="tree-map" id="357">
+          <entry>
+            <string>028e88548eda18028ee80412cd00269c</string>
+            <literal reference="76"/>
+          </entry>
+          <entry>
+            <string>0425ceda4bc5f5784c7cd2b9e58542b6</string>
+            <attribute reference="324"/>
+          </entry>
+          <entry>
+            <string>0da23a81c2ba0c6372e3fa328d1515e6</string>
+            <literal reference="42"/>
+          </entry>
+          <entry>
+            <string>0e3d3f4f74ec7dba763f8041ae0f9c66</string>
+            <enumeration reference="113"/>
+          </entry>
+          <entry>
+            <string>0e4ce35bc420eac19f4d1103ad234890</string>
+            <package reference="5"/>
+          </entry>
+          <entry>
+            <string>0f115179e69ca2d0ad5f4b340c75d2c1</string>
+            <parameter reference="180"/>
+          </entry>
+          <entry>
+            <string>14b0f8f7b49abd80212a1d62fc7f9b21</string>
+            <literal reference="70"/>
+          </entry>
+          <entry>
+            <string>1949f5b57a636010ade69076c3dc0453</string>
+            <parameter reference="298"/>
+          </entry>
+          <entry>
+            <string>1cdab32f959ab9599d6b999038474a73</string>
+            <association reference="340"/>
+          </entry>
+          <entry>
+            <string>1cdab32f959ab9599d6b999038474a73-client</string>
+            <association-end reference="144"/>
+          </entry>
+          <entry>
+            <string>1cdab32f959ab9599d6b999038474a73-supplier</string>
+            <association-end reference="337"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4</string>
+            <package reference="346"/>
+          </entry>
+          <entry>
+            <string>255a37538a0285358d4e2648d2c6f985</string>
+            <operation reference="231"/>
+          </entry>
+          <entry>
+            <string>27aeb03040ecdbc95d7617d5e0e9e48a</string>
+            <operation reference="284"/>
+          </entry>
+          <entry>
+            <string>2820775da04aefa5b2a5c6f91b74613d</string>
+            <parameter reference="160"/>
+          </entry>
+          <entry>
+            <string>297ad59de5d0168063ee47d4803e07d7</string>
+            <parameter reference="260"/>
+          </entry>
+          <entry>
+            <string>29ec02071f28cf737416c9f0eb6707af</string>
+            <package reference="26"/>
+          </entry>
+          <entry>
+            <string>2e7398c28d0608dd6f0bec4d9ab64141</string>
+            <enumeration reference="32"/>
+          </entry>
+          <entry>
+            <string>34adcb3cbef7feb8aa673b67ebe574ac</string>
+            <parameter reference="289"/>
+          </entry>
+          <entry>
+            <string>36e93ae1cb57ac596b94462664949fee</string>
+            <literal reference="79"/>
+          </entry>
+          <entry>
+            <string>3bc745a801a5e209813cbaac40523d64</string>
+            <parameter reference="208"/>
+          </entry>
+          <entry>
+            <string>3d09d8f0da0866970174f942010baa72</string>
+            <literal reference="131"/>
+          </entry>
+          <entry>
+            <string>3dc01e6fc7a063604922576dc34ba7c1</string>
+            <literal reference="120"/>
+          </entry>
+          <entry>
+            <string>3e7e834e0f24e4ddb07bf7e905e041f8</string>
+            <literal reference="107"/>
+          </entry>
+          <entry>
+            <string>44a80d82c4779252f3e6b58f6283d4c8</string>
+            <literal reference="82"/>
+          </entry>
+          <entry>
+            <string>463760228162f015a6d646ba2deafa54</string>
+            <class reference="15"/>
+          </entry>
+          <entry>
+            <string>47e03ebd6b1d1e1704de8e24e4d91768</string>
+            <literal reference="61"/>
+          </entry>
+          <entry>
+            <string>4a8e7c93684a177814f5b8705bf54bad</string>
+            <parameter reference="307"/>
+          </entry>
+          <entry>
+            <string>4fc12b94f03111b1863542c8ac0d4448</string>
+            <enumeration reference="45"/>
+          </entry>
+          <entry>
+            <string>504268054daac9925efd66eef24b332d</string>
+            <parameter reference="243"/>
+          </entry>
+          <entry>
+            <string>52e11c5f76899df5301a9ce7d0c0cc1a</string>
+            <parameter reference="191"/>
+          </entry>
+          <entry>
+            <string>54ab57d5f9a1636076a946edab9ddad2</string>
+            <parameter reference="205"/>
+          </entry>
+          <entry>
+            <string>58c976b90a687e467ef34d1d36978050</string>
+            <literal reference="85"/>
+          </entry>
+          <entry>
+            <string>5a65d73b210a8e2879b968fe29fa0e4e</string>
+            <literal reference="49"/>
+          </entry>
+          <entry>
+            <string>5baf01b79b240c2cf92dbf2df1760590</string>
+            <literal reference="94"/>
+          </entry>
+          <entry>
+            <string>5e78edc71a7a3809494187a9e6cb76bd</string>
+            <literal reference="67"/>
+          </entry>
+          <entry>
+            <string>62ec9d0c8b547b7c4870f21bd20c7fb6</string>
+            <parameter reference="257"/>
+          </entry>
+          <entry>
+            <string>6790b4dbb18776d4f3e59468dcfc3274</string>
+            <parameter reference="163"/>
+          </entry>
+          <entry>
+            <string>6866c2df1b09b1c12f1e63f0fca82b8b</string>
+            <literal reference="52"/>
+          </entry>
+          <entry>
+            <string>68becee0be904ba084042de00d197b47</string>
+            <class reference="147"/>
+          </entry>
+          <entry>
+            <string>6a768c15f9c2ab2fdd045c1e6bd886c2</string>
+            <literal reference="39"/>
+          </entry>
+          <entry>
+            <string>6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <attribute reference="20"/>
+          </entry>
+          <entry>
+            <string>6f9d70af12ab7c415cd0db461ce0c4bb</string>
+            <operation reference="217"/>
+          </entry>
+          <entry>
+            <string>7422dbcedafdd77d276a4e5e3f20d323</string>
+            <parameter reference="183"/>
+          </entry>
+          <entry>
+            <string>781f1eb0ab83d5b0f3f2840565f97ed5</string>
+            <parameter reference="295"/>
+          </entry>
+          <entry>
+            <string>7c4f0ed366da2c23b0b8edba1fe67c80</string>
+            <literal reference="36"/>
+          </entry>
+          <entry>
+            <string>7c85fd0eedf77df9038aad0439627a7c</string>
+            <operation reference="186"/>
+          </entry>
+          <entry>
+            <string>7d58eb132fed59eef7bc5094c91e0e53</string>
+            <operation reference="169"/>
+          </entry>
+          <entry>
+            <string>8066a0830f089b53c4825d912a40d469</string>
+            <association reference="332"/>
+          </entry>
+          <entry>
+            <string>8066a0830f089b53c4825d912a40d469-client</string>
+            <association-end reference="329"/>
+          </entry>
+          <entry>
+            <string>8066a0830f089b53c4825d912a40d469-supplier</string>
+            <association-end reference="316"/>
+          </entry>
+          <entry>
+            <string>88b79420327962815a21a2ee8a56757d</string>
+            <enumeration reference="100"/>
+          </entry>
+          <entry>
+            <string>8bb6beaa0a925d6061ba956c94911a06</string>
+            <literal reference="91"/>
+          </entry>
+          <entry>
+            <string>90871307b6f4b8e4d02b45300e1475d8</string>
+            <parameter reference="228"/>
+          </entry>
+          <entry>
+            <string>9179b275e7423e7d92fca693b7e4dea0</string>
+            <package reference="9"/>
+          </entry>
+          <entry>
+            <string>951de802b69b08ab4bcc0bab6958a788</string>
+            <operation reference="151"/>
+          </entry>
+          <entry>
+            <string>95223c36b8fa8d31d6e128e17f060e4e</string>
+            <parameter reference="237"/>
+          </entry>
+          <entry>
+            <string>9541673ba62f6053c42cf15ec42862b8</string>
+            <parameter reference="272"/>
+          </entry>
+          <entry>
+            <string>95bca1d223a942eccf2b4b24f41e6515</string>
+            <parameter reference="197"/>
+          </entry>
+          <entry>
+            <string>98a4049de87d2bc524930210ed37fb8c</string>
+            <operation reference="266"/>
+          </entry>
+          <entry>
+            <string>9e0ecb43486ab468ea464d4f7dc4c7db</string>
+            <literal reference="55"/>
+          </entry>
+          <entry>
+            <string>a0ef5d07eb5078fd19f647322f9388c7</string>
+            <attribute reference="139"/>
+          </entry>
+          <entry>
+            <string>a4e7a6546c074c4ea95863702fbffe5d</string>
+            <parameter reference="254"/>
+          </entry>
+          <entry>
+            <string>a654a447c6e4ab427749a848ab540e3b</string>
+            <parameter reference="157"/>
+          </entry>
+          <entry>
+            <string>a7826f370d083838d180e958de2834b2</string>
+            <operation reference="301"/>
+          </entry>
+          <entry>
+            <string>a7a5559ba447c21356699ec58ab17e1d</string>
+            <parameter reference="292"/>
+          </entry>
+          <entry>
+            <string>a8b4839967f1a73c6cc18181988c6bf0</string>
+            <parameter reference="177"/>
+          </entry>
+          <entry>
+            <string>aa6c0e3398bd56ca11769ba0a8f87700</string>
+            <parameter reference="278"/>
+          </entry>
+          <entry>
+            <string>aab6f90feff0c256afdffa86e2d49ae5</string>
+            <parameter reference="225"/>
+          </entry>
+          <entry>
+            <string>ab6d126e50e8ca008a1a68dbeca6e17c</string>
+            <parameter reference="281"/>
+          </entry>
+          <entry>
+            <string>ac82603016e96fc238e566f57fe2f21c</string>
+            <parameter reference="166"/>
+          </entry>
+          <entry>
+            <string>bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <attribute reference="135"/>
+          </entry>
+          <entry>
+            <string>bd2d0520d4f10ceb4ba5148b39497725</string>
+            <literal reference="64"/>
+          </entry>
+          <entry>
+            <string>bf4c539f0a630ee94bdf73bb8df14840</string>
+            <parameter reference="275"/>
+          </entry>
+          <entry>
+            <string>c53d551ffe9ca13585dab9eaa34f488e</string>
+            <class reference="319"/>
+          </entry>
+          <entry>
+            <string>c6ba229b2bbc6c582dd9a60a811b36e1</string>
+            <literal reference="73"/>
+          </entry>
+          <entry>
+            <string>c7f84a782fd626f7b79ac287046a5432</string>
+            <parameter reference="246"/>
+          </entry>
+          <entry>
+            <string>cc8e6e7510015746fb856fc43c9551e0</string>
+            <literal reference="97"/>
+          </entry>
+          <entry>
+            <string>d0c3cbb0276a95a64b6718bef7b06924</string>
+            <literal reference="128"/>
+          </entry>
+          <entry>
+            <string>d34b415c86236cb35e7098a0d7f4f844</string>
+            <parameter reference="194"/>
+          </entry>
+          <entry>
+            <string>d79c25bac9fe1a77a4a8196e519dd723</string>
+            <operation reference="249"/>
+          </entry>
+          <entry>
+            <string>d8812b63c0a724f0853f32081a55084b</string>
+            <parameter reference="174"/>
+          </entry>
+          <entry>
+            <string>d8955bca45d08d95933f66b20fbad7e4</string>
+            <literal reference="88"/>
+          </entry>
+          <entry>
+            <string>dda70da1e9c5bd38bad572b97d2a4ca9</string>
+            <attribute reference="311"/>
+          </entry>
+          <entry>
+            <string>de670e6d453c48ad842c1f9dc57e5a59</string>
+            <literal reference="58"/>
+          </entry>
+          <entry>
+            <string>decc4ee609dfe47ff4387042303f2845</string>
+            <parameter reference="214"/>
+          </entry>
+          <entry>
+            <string>e1c2da3b30de32e7a649a3277d423efd</string>
+            <literal reference="110"/>
+          </entry>
+          <entry>
+            <string>e3b9eae4d3119504a399034c796a23fe</string>
+            <literal reference="117"/>
+          </entry>
+          <entry>
+            <string>e61f1b3300424070ecd32d00c72a9422</string>
+            <parameter reference="211"/>
+          </entry>
+          <entry>
+            <string>eacfb59ac0bb92405adb89d71ea6bbd1</string>
+            <operation reference="200"/>
+          </entry>
+          <entry>
+            <string>ee14d79d606d4c48fd2bbad7f34faf98</string>
+            <parameter reference="240"/>
+          </entry>
+          <entry>
+            <string>ef69a44222915539b4b63c259ffad696</string>
+            <literal reference="104"/>
+          </entry>
+          <entry>
+            <string>f92461b5d80ab64478f32da98b88ec10</string>
+            <literal reference="125"/>
+          </entry>
+          <entry>
+            <string>fc50990c30f8cc79f2f86a4a19b2239e</string>
+            <parameter reference="263"/>
+          </entry>
+          <entry>
+            <string>ffaa912638a21c796c5e8b1f02df8c50</string>
+            <parameter reference="222"/>
+          </entry>
+          <entry>
+            <string>ffbe6e7cc4a6f3a45235155aa218aeeb</string>
+            <enumeration reference="23"/>
+          </entry>
+        </elements>
+      </container>
+    </model>
+  </modelProvider>
+  <suite id="358" name="OCB_GE_TestSuite" uid="e026999d-6d7f-48a3-9fa7-71d173842e42" definition="">
+    <inlineDefinition></inlineDefinition>
+    <description></description>
+    <properties id="359">
+      <entry>
+        <string>TOcl.generateUnreachableStoriesOnly</string>
+        <string>false</string>
+      </entry>
+    </properties>
+    <testNameDefinition class="script-test-naming" id="360">
+      <scriptPath>C:\Users\Abbas AHMAD\Cloudstation\HOME\IBM\rationalsdp\workspace\OrionCB_GE\MyNamingTestScript.js</scriptPath>
+    </testNameDefinition>
+    <modelProvider class="action-model-provider" reference="2"/>
+    <initialModelInstance id="361">
+      <instances id="362">
+        <instance id="363" identifier="2487424a55fd931e1cd6f16bbd0b75c4:a6da57be208ff3df255938663d95d7fc" name="SubscribtionInstance">
+          <stereotypes id="364"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Subscribtion</sourceLocation>
+          <properties id="365"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="319"/>
+          <slots id="366">
+            <slot id="367" identifier="2487424a55fd931e1cd6f16bbd0b75c4:a6da57be208ff3df255938663d95d7fc:0425ceda4bc5f5784c7cd2b9e58542b6" name="ID">
+              <stereotypes id="368"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::SubscribtionInstance::ID</sourceLocation>
+              <properties id="369"/>
+              <ownerInstance reference="363"/>
+              <attribute reference="324"/>
+              <value class="enumerationLiteralValue" id="370">
+                <literal reference="131"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="371"/>
+          <supplierLinks id="372"/>
+        </instance>
+        <instance id="373" identifier="2487424a55fd931e1cd6f16bbd0b75c4:64aa3ba3338046e587db55e98e5e94dd" name="SubscribtionInstanceID2">
+          <stereotypes id="374"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Subscribtion</sourceLocation>
+          <properties id="375"/>
+          <description></description>
+          <pakage reference="346"/>
+          <klass reference="319"/>
+          <slots id="376">
+            <slot id="377" identifier="2487424a55fd931e1cd6f16bbd0b75c4:64aa3ba3338046e587db55e98e5e94dd:0425ceda4bc5f5784c7cd2b9e58542b6" name="ID">
+              <stereotypes id="378"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::SubscribtionInstanceID2::ID</sourceLocation>
+              <properties id="379"/>
+              <ownerInstance reference="373"/>
+              <attribute reference="324"/>
+              <value class="enumerationLiteralValue" id="380">
+                <literal reference="128"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="381"/>
+          <supplierLinks id="382"/>
+        </instance>
+        <instance id="383" identifier="2487424a55fd931e1cd6f16bbd0b75c4:eb7299eb3bd1dbd3e78ebe8364faca65" name="SubscribtionInstance_ID1">
+          <stereotypes id="384"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Subscribtion</sourceLocation>
+          <properties id="385"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="319"/>
+          <slots id="386">
+            <slot id="387" identifier="2487424a55fd931e1cd6f16bbd0b75c4:eb7299eb3bd1dbd3e78ebe8364faca65:0425ceda4bc5f5784c7cd2b9e58542b6" name="ID">
+              <stereotypes id="388"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::SubscribtionInstance_ID1::ID</sourceLocation>
+              <properties id="389"/>
+              <ownerInstance reference="383"/>
+              <attribute reference="324"/>
+              <value class="enumerationLiteralValue" id="390">
+                <literal reference="125"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="391"/>
+          <supplierLinks id="392"/>
+        </instance>
+        <instance id="393" identifier="2487424a55fd931e1cd6f16bbd0b75c4:fb4df19ae369786338351fe7d9fa0a83" name="SUTInstance">
+          <stereotypes id="394"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::SUT</sourceLocation>
+          <properties id="395"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="147"/>
+          <slots id="396">
+            <slot id="397" identifier="2487424a55fd931e1cd6f16bbd0b75c4:fb4df19ae369786338351fe7d9fa0a83:dda70da1e9c5bd38bad572b97d2a4ca9" name="return_message">
+              <stereotypes id="398"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::SUTInstance::return_message</sourceLocation>
+              <properties id="399"/>
+              <ownerInstance reference="393"/>
+              <attribute reference="311"/>
+              <value class="enumerationLiteralValue" id="400">
+                <literal reference="85"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="401"/>
+          <supplierLinks id="402"/>
+        </instance>
+        <instance id="403" identifier="2487424a55fd931e1cd6f16bbd0b75c4:c1db3a8c40d7ab1b0d2d72c989d9543e" name="JSON_Entity1">
+          <stereotypes id="404"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+          <properties id="405"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="15"/>
+          <slots id="406">
+            <slot id="407" identifier="2487424a55fd931e1cd6f16bbd0b75c4:c1db3a8c40d7ab1b0d2d72c989d9543e:a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated">
+              <stereotypes id="408"/>
+              <sourceLocation>OrionContextBroker_GEi::Classes::Entity::isUpdated</sourceLocation>
+              <properties id="409"/>
+              <ownerInstance reference="403"/>
+              <attribute reference="139"/>
+              <value class="booleanValue" id="410">
+                <value>false</value>
+              </value>
+            </slot>
+            <slot id="411" identifier="2487424a55fd931e1cd6f16bbd0b75c4:c1db3a8c40d7ab1b0d2d72c989d9543e:6ed8f97b31e4e3be88c2e907ab16a273" name="Id">
+              <stereotypes id="412"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_Entity1::Id</sourceLocation>
+              <properties id="413"/>
+              <ownerInstance reference="403"/>
+              <attribute reference="20"/>
+              <value class="enumerationLiteralValue" id="414">
+                <literal reference="125"/>
+              </value>
+            </slot>
+            <slot id="415" identifier="2487424a55fd931e1cd6f16bbd0b75c4:c1db3a8c40d7ab1b0d2d72c989d9543e:bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType">
+              <stereotypes id="416"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_Entity1::payloadType</sourceLocation>
+              <properties id="417"/>
+              <ownerInstance reference="403"/>
+              <attribute reference="135"/>
+              <value class="enumerationLiteralValue" id="418">
+                <literal reference="39"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="419"/>
+          <supplierLinks id="420"/>
+        </instance>
+        <instance id="421" identifier="2487424a55fd931e1cd6f16bbd0b75c4:0d450649c53b765f085d9201390382ff" name="JSON_ERROR_Entity2">
+          <stereotypes id="422"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+          <properties id="423"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="15"/>
+          <slots id="424">
+            <slot id="425" identifier="2487424a55fd931e1cd6f16bbd0b75c4:0d450649c53b765f085d9201390382ff:a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated">
+              <stereotypes id="426"/>
+              <sourceLocation>OrionContextBroker_GEi::Classes::Entity::isUpdated</sourceLocation>
+              <properties id="427"/>
+              <ownerInstance reference="421"/>
+              <attribute reference="139"/>
+              <value class="booleanValue" id="428">
+                <value>false</value>
+              </value>
+            </slot>
+            <slot id="429" identifier="2487424a55fd931e1cd6f16bbd0b75c4:0d450649c53b765f085d9201390382ff:6ed8f97b31e4e3be88c2e907ab16a273" name="Id">
+              <stereotypes id="430"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_ERROR_Entity2::Id</sourceLocation>
+              <properties id="431"/>
+              <ownerInstance reference="421"/>
+              <attribute reference="20"/>
+              <value class="enumerationLiteralValue" id="432">
+                <literal reference="128"/>
+              </value>
+            </slot>
+            <slot id="433" identifier="2487424a55fd931e1cd6f16bbd0b75c4:0d450649c53b765f085d9201390382ff:bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType">
+              <stereotypes id="434"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_ERROR_Entity2::payloadType</sourceLocation>
+              <properties id="435"/>
+              <ownerInstance reference="421"/>
+              <attribute reference="135"/>
+              <value class="enumerationLiteralValue" id="436">
+                <literal reference="42"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="437"/>
+          <supplierLinks id="438"/>
+        </instance>
+        <instance id="439" identifier="2487424a55fd931e1cd6f16bbd0b75c4:748bf7583d5742dded1d74cc553beaf5" name="EMPTY_VALUE_Entity1">
+          <stereotypes id="440"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+          <properties id="441"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="15"/>
+          <slots id="442">
+            <slot id="443" identifier="2487424a55fd931e1cd6f16bbd0b75c4:748bf7583d5742dded1d74cc553beaf5:a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated">
+              <stereotypes id="444"/>
+              <sourceLocation>OrionContextBroker_GEi::Classes::Entity::isUpdated</sourceLocation>
+              <properties id="445"/>
+              <ownerInstance reference="439"/>
+              <attribute reference="139"/>
+              <value class="booleanValue" id="446">
+                <value>false</value>
+              </value>
+            </slot>
+            <slot id="447" identifier="2487424a55fd931e1cd6f16bbd0b75c4:748bf7583d5742dded1d74cc553beaf5:6ed8f97b31e4e3be88c2e907ab16a273" name="Id">
+              <stereotypes id="448"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::EMPTY_VALUE_Entity1::Id</sourceLocation>
+              <properties id="449"/>
+              <ownerInstance reference="439"/>
+              <attribute reference="20"/>
+              <value class="enumerationLiteralValue" id="450">
+                <literal reference="125"/>
+              </value>
+            </slot>
+            <slot id="451" identifier="2487424a55fd931e1cd6f16bbd0b75c4:748bf7583d5742dded1d74cc553beaf5:bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType">
+              <stereotypes id="452"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::EMPTY_VALUE_Entity1::payloadType</sourceLocation>
+              <properties id="453"/>
+              <ownerInstance reference="439"/>
+              <attribute reference="135"/>
+              <value class="enumerationLiteralValue" id="454">
+                <literal reference="36"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="455"/>
+          <supplierLinks id="456"/>
+        </instance>
+        <instance id="457" identifier="2487424a55fd931e1cd6f16bbd0b75c4:442046837e9ae72f3ff58de571036649" name="JSON_Entity2">
+          <stereotypes id="458"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+          <properties id="459"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="15"/>
+          <slots id="460">
+            <slot id="461" identifier="2487424a55fd931e1cd6f16bbd0b75c4:442046837e9ae72f3ff58de571036649:6ed8f97b31e4e3be88c2e907ab16a273" name="Id">
+              <stereotypes id="462"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_Entity2::Id</sourceLocation>
+              <properties id="463"/>
+              <ownerInstance reference="457"/>
+              <attribute reference="20"/>
+              <value class="enumerationLiteralValue" id="464">
+                <literal reference="128"/>
+              </value>
+            </slot>
+            <slot id="465" identifier="2487424a55fd931e1cd6f16bbd0b75c4:442046837e9ae72f3ff58de571036649:a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated">
+              <stereotypes id="466"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_Entity2::isUpdated</sourceLocation>
+              <properties id="467"/>
+              <ownerInstance reference="457"/>
+              <attribute reference="139"/>
+              <value class="booleanValue" id="468">
+                <value>false</value>
+              </value>
+            </slot>
+            <slot id="469" identifier="2487424a55fd931e1cd6f16bbd0b75c4:442046837e9ae72f3ff58de571036649:bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType">
+              <stereotypes id="470"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_Entity2::payloadType</sourceLocation>
+              <properties id="471"/>
+              <ownerInstance reference="457"/>
+              <attribute reference="135"/>
+              <value class="enumerationLiteralValue" id="472">
+                <literal reference="39"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="473"/>
+          <supplierLinks id="474"/>
+        </instance>
+        <instance id="475" identifier="2487424a55fd931e1cd6f16bbd0b75c4:e776aec65756d98ea12f9ba2b3d6bcda" name="EMPTY_VALUE_Entity2">
+          <stereotypes id="476"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+          <properties id="477"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="15"/>
+          <slots id="478">
+            <slot id="479" identifier="2487424a55fd931e1cd6f16bbd0b75c4:e776aec65756d98ea12f9ba2b3d6bcda:6ed8f97b31e4e3be88c2e907ab16a273" name="Id">
+              <stereotypes id="480"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::EMPTY_VALUE_Entity2::Id</sourceLocation>
+              <properties id="481"/>
+              <ownerInstance reference="475"/>
+              <attribute reference="20"/>
+              <value class="enumerationLiteralValue" id="482">
+                <literal reference="128"/>
+              </value>
+            </slot>
+            <slot id="483" identifier="2487424a55fd931e1cd6f16bbd0b75c4:e776aec65756d98ea12f9ba2b3d6bcda:a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated">
+              <stereotypes id="484"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::EMPTY_VALUE_Entity2::isUpdated</sourceLocation>
+              <properties id="485"/>
+              <ownerInstance reference="475"/>
+              <attribute reference="139"/>
+              <value class="booleanValue" id="486">
+                <value>false</value>
+              </value>
+            </slot>
+            <slot id="487" identifier="2487424a55fd931e1cd6f16bbd0b75c4:e776aec65756d98ea12f9ba2b3d6bcda:bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType">
+              <stereotypes id="488"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::EMPTY_VALUE_Entity2::payloadType</sourceLocation>
+              <properties id="489"/>
+              <ownerInstance reference="475"/>
+              <attribute reference="135"/>
+              <value class="enumerationLiteralValue" id="490">
+                <literal reference="36"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="491"/>
+          <supplierLinks id="492"/>
+        </instance>
+        <instance id="493" identifier="2487424a55fd931e1cd6f16bbd0b75c4:d83947d8dd16e320b45213e3792658f5" name="JSON_ERROR_Entity1">
+          <stereotypes id="494"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+          <properties id="495"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="15"/>
+          <slots id="496">
+            <slot id="497" identifier="2487424a55fd931e1cd6f16bbd0b75c4:d83947d8dd16e320b45213e3792658f5:a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated">
+              <stereotypes id="498"/>
+              <sourceLocation>OrionContextBroker_GEi::Classes::Entity::isUpdated</sourceLocation>
+              <properties id="499"/>
+              <ownerInstance reference="493"/>
+              <attribute reference="139"/>
+              <value class="booleanValue" id="500">
+                <value>false</value>
+              </value>
+            </slot>
+            <slot id="501" identifier="2487424a55fd931e1cd6f16bbd0b75c4:d83947d8dd16e320b45213e3792658f5:6ed8f97b31e4e3be88c2e907ab16a273" name="Id">
+              <stereotypes id="502"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_ERROR_Entity1::Id</sourceLocation>
+              <properties id="503"/>
+              <ownerInstance reference="493"/>
+              <attribute reference="20"/>
+              <value class="enumerationLiteralValue" id="504">
+                <literal reference="125"/>
+              </value>
+            </slot>
+            <slot id="505" identifier="2487424a55fd931e1cd6f16bbd0b75c4:d83947d8dd16e320b45213e3792658f5:bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType">
+              <stereotypes id="506"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_ERROR_Entity1::payloadType</sourceLocation>
+              <properties id="507"/>
+              <ownerInstance reference="493"/>
+              <attribute reference="135"/>
+              <value class="enumerationLiteralValue" id="508">
+                <literal reference="42"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="509"/>
+          <supplierLinks id="510"/>
+        </instance>
+        <instance id="511" identifier="2487424a55fd931e1cd6f16bbd0b75c4:c1e24087002d82ed79856eb320f7c491" name="EMPTY_VALUE_Entity3">
+          <stereotypes id="512"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+          <properties id="513"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="15"/>
+          <slots id="514">
+            <slot id="515" identifier="2487424a55fd931e1cd6f16bbd0b75c4:c1e24087002d82ed79856eb320f7c491:a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated">
+              <stereotypes id="516"/>
+              <sourceLocation>OrionContextBroker_GEi::Classes::Entity::isUpdated</sourceLocation>
+              <properties id="517"/>
+              <ownerInstance reference="511"/>
+              <attribute reference="139"/>
+              <value class="booleanValue" id="518">
+                <value>false</value>
+              </value>
+            </slot>
+            <slot id="519" identifier="2487424a55fd931e1cd6f16bbd0b75c4:c1e24087002d82ed79856eb320f7c491:6ed8f97b31e4e3be88c2e907ab16a273" name="Id">
+              <stereotypes id="520"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::EMPTY_VALUE_Entity3::Id</sourceLocation>
+              <properties id="521"/>
+              <ownerInstance reference="511"/>
+              <attribute reference="20"/>
+              <value class="enumerationLiteralValue" id="522">
+                <literal reference="131"/>
+              </value>
+            </slot>
+            <slot id="523" identifier="2487424a55fd931e1cd6f16bbd0b75c4:c1e24087002d82ed79856eb320f7c491:bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType">
+              <stereotypes id="524"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::EMPTY_VALUE_Entity3::payloadType</sourceLocation>
+              <properties id="525"/>
+              <ownerInstance reference="511"/>
+              <attribute reference="135"/>
+              <value class="enumerationLiteralValue" id="526">
+                <literal reference="36"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="527"/>
+          <supplierLinks id="528"/>
+        </instance>
+        <instance id="529" identifier="2487424a55fd931e1cd6f16bbd0b75c4:599795779170f3eba7126845e14655ef" name="JSON_ERROR_Entity3">
+          <stereotypes id="530"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+          <properties id="531"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="15"/>
+          <slots id="532">
+            <slot id="533" identifier="2487424a55fd931e1cd6f16bbd0b75c4:599795779170f3eba7126845e14655ef:a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated">
+              <stereotypes id="534"/>
+              <sourceLocation>OrionContextBroker_GEi::Classes::Entity::isUpdated</sourceLocation>
+              <properties id="535"/>
+              <ownerInstance reference="529"/>
+              <attribute reference="139"/>
+              <value class="booleanValue" id="536">
+                <value>false</value>
+              </value>
+            </slot>
+            <slot id="537" identifier="2487424a55fd931e1cd6f16bbd0b75c4:599795779170f3eba7126845e14655ef:6ed8f97b31e4e3be88c2e907ab16a273" name="Id">
+              <stereotypes id="538"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_ERROR_Entity3::Id</sourceLocation>
+              <properties id="539"/>
+              <ownerInstance reference="529"/>
+              <attribute reference="20"/>
+              <value class="enumerationLiteralValue" id="540">
+                <literal reference="131"/>
+              </value>
+            </slot>
+            <slot id="541" identifier="2487424a55fd931e1cd6f16bbd0b75c4:599795779170f3eba7126845e14655ef:bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType">
+              <stereotypes id="542"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_ERROR_Entity3::payloadType</sourceLocation>
+              <properties id="543"/>
+              <ownerInstance reference="529"/>
+              <attribute reference="135"/>
+              <value class="enumerationLiteralValue" id="544">
+                <literal reference="42"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="545"/>
+          <supplierLinks id="546"/>
+        </instance>
+        <instance id="547" identifier="2487424a55fd931e1cd6f16bbd0b75c4:21ff5138e7eda22d335e3dc1ed94806a" name="JSON_Entity3">
+          <stereotypes id="548"/>
+          <sourceLocation>OrionContextBroker_GEi::Classes::Entity</sourceLocation>
+          <properties id="549"/>
+          <description>&lt;simple&gt;
+  &lt;keywords class=&quot;list&quot;/&gt;
+  &lt;text&gt;&lt;/text&gt;
+  &lt;isPlainText&gt;false&lt;/isPlainText&gt;
+&lt;/simple&gt;</description>
+          <pakage reference="346"/>
+          <klass reference="15"/>
+          <slots id="550">
+            <slot id="551" identifier="2487424a55fd931e1cd6f16bbd0b75c4:21ff5138e7eda22d335e3dc1ed94806a:a0ef5d07eb5078fd19f647322f9388c7" name="isUpdated">
+              <stereotypes id="552"/>
+              <sourceLocation>OrionContextBroker_GEi::Classes::Entity::isUpdated</sourceLocation>
+              <properties id="553"/>
+              <ownerInstance reference="547"/>
+              <attribute reference="139"/>
+              <value class="booleanValue" id="554">
+                <value>false</value>
+              </value>
+            </slot>
+            <slot id="555" identifier="2487424a55fd931e1cd6f16bbd0b75c4:21ff5138e7eda22d335e3dc1ed94806a:6ed8f97b31e4e3be88c2e907ab16a273" name="Id">
+              <stereotypes id="556"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_Entity3::Id</sourceLocation>
+              <properties id="557"/>
+              <ownerInstance reference="547"/>
+              <attribute reference="20"/>
+              <value class="enumerationLiteralValue" id="558">
+                <literal reference="131"/>
+              </value>
+            </slot>
+            <slot id="559" identifier="2487424a55fd931e1cd6f16bbd0b75c4:21ff5138e7eda22d335e3dc1ed94806a:bb1226c2ea28a84837aa0a30e904e6d6" name="payloadType">
+              <stereotypes id="560"/>
+              <sourceLocation>OrionContextBroker_GEi::InitialData::JSON_Entity3::payloadType</sourceLocation>
+              <properties id="561"/>
+              <ownerInstance reference="547"/>
+              <attribute reference="135"/>
+              <value class="enumerationLiteralValue" id="562">
+                <literal reference="39"/>
+              </value>
+            </slot>
+          </slots>
+          <clientLinks id="563"/>
+          <supplierLinks id="564"/>
+        </instance>
+      </instances>
+      <definitionPackage reference="346"/>
+      <container id="565">
+        <elements class="tree-map" id="566">
+          <entry>
+            <string>0e4ce35bc420eac19f4d1103ad234890</string>
+            <package reference="5"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4</string>
+            <package reference="346"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:0d450649c53b765f085d9201390382ff</string>
+            <instance reference="421"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:0d450649c53b765f085d9201390382ff:6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <slot reference="429"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:0d450649c53b765f085d9201390382ff:a0ef5d07eb5078fd19f647322f9388c7</string>
+            <slot reference="425"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:0d450649c53b765f085d9201390382ff:bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <slot reference="433"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:21ff5138e7eda22d335e3dc1ed94806a</string>
+            <instance reference="547"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:21ff5138e7eda22d335e3dc1ed94806a:6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <slot reference="555"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:21ff5138e7eda22d335e3dc1ed94806a:a0ef5d07eb5078fd19f647322f9388c7</string>
+            <slot reference="551"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:21ff5138e7eda22d335e3dc1ed94806a:bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <slot reference="559"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:442046837e9ae72f3ff58de571036649</string>
+            <instance reference="457"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:442046837e9ae72f3ff58de571036649:6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <slot reference="461"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:442046837e9ae72f3ff58de571036649:a0ef5d07eb5078fd19f647322f9388c7</string>
+            <slot reference="465"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:442046837e9ae72f3ff58de571036649:bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <slot reference="469"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:599795779170f3eba7126845e14655ef</string>
+            <instance reference="529"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:599795779170f3eba7126845e14655ef:6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <slot reference="537"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:599795779170f3eba7126845e14655ef:a0ef5d07eb5078fd19f647322f9388c7</string>
+            <slot reference="533"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:599795779170f3eba7126845e14655ef:bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <slot reference="541"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:64aa3ba3338046e587db55e98e5e94dd</string>
+            <instance reference="373"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:64aa3ba3338046e587db55e98e5e94dd:0425ceda4bc5f5784c7cd2b9e58542b6</string>
+            <slot reference="377"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:748bf7583d5742dded1d74cc553beaf5</string>
+            <instance reference="439"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:748bf7583d5742dded1d74cc553beaf5:6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <slot reference="447"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:748bf7583d5742dded1d74cc553beaf5:a0ef5d07eb5078fd19f647322f9388c7</string>
+            <slot reference="443"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:748bf7583d5742dded1d74cc553beaf5:bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <slot reference="451"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:a6da57be208ff3df255938663d95d7fc</string>
+            <instance reference="363"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:a6da57be208ff3df255938663d95d7fc:0425ceda4bc5f5784c7cd2b9e58542b6</string>
+            <slot reference="367"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:c1db3a8c40d7ab1b0d2d72c989d9543e</string>
+            <instance reference="403"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:c1db3a8c40d7ab1b0d2d72c989d9543e:6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <slot reference="411"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:c1db3a8c40d7ab1b0d2d72c989d9543e:a0ef5d07eb5078fd19f647322f9388c7</string>
+            <slot reference="407"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:c1db3a8c40d7ab1b0d2d72c989d9543e:bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <slot reference="415"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:c1e24087002d82ed79856eb320f7c491</string>
+            <instance reference="511"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:c1e24087002d82ed79856eb320f7c491:6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <slot reference="519"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:c1e24087002d82ed79856eb320f7c491:a0ef5d07eb5078fd19f647322f9388c7</string>
+            <slot reference="515"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:c1e24087002d82ed79856eb320f7c491:bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <slot reference="523"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:d83947d8dd16e320b45213e3792658f5</string>
+            <instance reference="493"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:d83947d8dd16e320b45213e3792658f5:6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <slot reference="501"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:d83947d8dd16e320b45213e3792658f5:a0ef5d07eb5078fd19f647322f9388c7</string>
+            <slot reference="497"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:d83947d8dd16e320b45213e3792658f5:bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <slot reference="505"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:e776aec65756d98ea12f9ba2b3d6bcda</string>
+            <instance reference="475"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:e776aec65756d98ea12f9ba2b3d6bcda:6ed8f97b31e4e3be88c2e907ab16a273</string>
+            <slot reference="479"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:e776aec65756d98ea12f9ba2b3d6bcda:a0ef5d07eb5078fd19f647322f9388c7</string>
+            <slot reference="483"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:e776aec65756d98ea12f9ba2b3d6bcda:bb1226c2ea28a84837aa0a30e904e6d6</string>
+            <slot reference="487"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:eb7299eb3bd1dbd3e78ebe8364faca65</string>
+            <instance reference="383"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:eb7299eb3bd1dbd3e78ebe8364faca65:0425ceda4bc5f5784c7cd2b9e58542b6</string>
+            <slot reference="387"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:fb4df19ae369786338351fe7d9fa0a83</string>
+            <instance reference="393"/>
+          </entry>
+          <entry>
+            <string>2487424a55fd931e1cd6f16bbd0b75c4:fb4df19ae369786338351fe7d9fa0a83:dda70da1e9c5bd38bad572b97d2a4ca9</string>
+            <slot reference="397"/>
+          </entry>
+        </elements>
+      </container>
+    </initialModelInstance>
+    <storyGenerators id="567">
+      <user-defined-generator id="568" name="scenarios" identifier="scenarios_e026999d-6d7f-48a3-9fa7-71d173842e42">
+        <stories class="list" id="569"/>
+      </user-defined-generator>
+      <user-defined-generator id="570" name="user tests" identifier="UserTestGenerator_e026999d-6d7f-48a3-9fa7-71d173842e42">
+        <stories class="list" id="571"/>
+      </user-defined-generator>
+    </storyGenerators>
+    <fixtures id="572"/>
+    <fixtureOperations id="573">
+      <operation reference="151"/>
+      <operation reference="169"/>
+      <operation reference="186"/>
+      <operation reference="200"/>
+      <operation reference="217"/>
+      <operation reference="231"/>
+      <operation reference="249"/>
+      <operation reference="266"/>
+      <operation reference="284"/>
+    </fixtureOperations>
+    <userTests id="574"/>
+  </suite>
+</project>

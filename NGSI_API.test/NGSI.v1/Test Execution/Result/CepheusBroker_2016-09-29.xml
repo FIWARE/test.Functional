@@ -1,0 +1,1683 @@
+<?xml version="1.0" ?>
+<report>
+  <properties>
+    <owner>EGM_TE_XML_PUBLISHER </owner>
+    <sut_endpoint>http://192.168.1.50:8081</sut_endpoint>
+    <sut_version>##SUT_VERSION##</sut_version>
+    <ngsi_version>ngsi-v1</ngsi_version>
+    <location value="http://185.52.32.107:8081/report" type="POST_URL"></location>
+  </properties>
+  <execution-results>
+    <timestamp>2016-09-29T16:28:06.912</timestamp>
+    <execution-time-ms>2322</execution-time-ms>
+    <suitesTotalNumber>1</suitesTotalNumber>
+    <casesTotalNumber>30</casesTotalNumber>
+    <stepsTotalNumber>53</stepsTotalNumber>
+    <testCasesResults>
+      <resultPass>9</resultPass>
+      <resultFailed>21</resultFailed>
+    </testCasesResults>
+    <testStepsResults>
+      <resultPass>29</resultPass>
+      <resultFailed>24</resultFailed>
+    </testStepsResults>
+  </execution-results>
+  <testSuite name="OCB_GE_TestSuite">
+    <execution-results>
+      <timestamp>2016-09-29T16:28:04.585</timestamp>
+      <execution-time-ms>2322</execution-time-ms>
+      <casesTotalNumber>30</casesTotalNumber>
+      <stepsTotalNumber>53</stepsTotalNumber>
+      <resultPass>29</resultPass>
+      <resultFailed>24</resultFailed>
+    </execution-results>
+    <testCase name="QueryContextJSONPayloadError_ef8e">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.585</timestamp>
+        <execution-time-ms>20</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>1</resultPass>
+        <resultFailed>0</resultFailed>
+      </execution-results>
+      <testStep name="QueryEntity1">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.585</timestamp>
+          <execution-time-ms>20</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/queryContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"400","reasonPhrase":"Bad request","details":"Bad request"},"contextResponses":null}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="DiscoverContextAvailabilityContextDoesNotExists_1caf">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.605</timestamp>
+        <execution-time-ms>36</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="DiscoverContextAvailability2">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.605</timestamp>
+          <execution-time-ms>36</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/registry/discoverContextAvailability</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>404</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159286560","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/v1/registry/discoverContextAvailability"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="EntityUpdateContextDoesNotExists_d06a">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.641</timestamp>
+        <execution-time-ms>32</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="UpdateEntity3">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.641</timestamp>
+          <execution-time-ms>32</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": ""            }            ]        }    ],    "updateAction": "UPDATE"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>404</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"contextElementResponses":[{"contextElement":{"id":"ENTITY2","type":"ENTITY","isPattern":"false","attributes":[{"name":"ATTR1","type":"float","value":"","metadatas":[]}]},"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"}}]}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="RegisterContextUrlError_7277">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.673</timestamp>
+        <execution-time-ms>63</execution-time-ms>
+        <stepsTotalNumber>2</stepsTotalNumber>
+        <resultPass>1</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="RegisterContext4">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.673</timestamp>
+          <execution-time-ms>29</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/Error/registry/registerEntity</value>
+          <isInvalid>true</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextRegistrations": [        {            "entities": [                {                    "type": "ENTITY",                    "isPattern": "false",                    "id": "ENTITY2"                }            ],            "attributes": [                {                    "name": "ATTR1",                    "type": "ATTR",                    "isDomain": "false"                }            ],            "providingApplication": "http://mysensors.com/ENTITY"        }    ],    "duration": "P1M"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159286609","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/v1/Error/registry/registerEntity"}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID5">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.702</timestamp>
+          <execution-time-ms>34</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY2</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159286652","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY2"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="EntityUpdateUrlError_cd0d">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.736</timestamp>
+        <execution-time-ms>33</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="UpdateEntity6">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.736</timestamp>
+          <execution-time-ms>33</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateEntity</value>
+          <isInvalid>true</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": ""            }            ]        }    ],    "updateAction": "UPDATE"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159286680","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/v1/updateEntity"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="EntityCreationJSONPayloadError_e4c4">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.769</timestamp>
+        <execution-time-ms>27</execution-time-ms>
+        <stepsTotalNumber>2</stepsTotalNumber>
+        <resultPass>2</resultPass>
+        <resultFailed>0</resultFailed>
+      </execution-results>
+      <testStep name="CreateNewEntity7">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.769</timestamp>
+          <execution-time-ms>13</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"400","reasonPhrase":"Bad request","details":"Bad request"},"contextElementResponses":null}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID8">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.782</timestamp>
+          <execution-time-ms>14</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY2</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159286717","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY2"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="UnsubscribeContextSubscriptiondoes_not_exists_acdc">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.796</timestamp>
+        <execution-time-ms>20</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="UnsubscribeContextSubscription9">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.796</timestamp>
+          <execution-time-ms>20</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/ngsi10/unsubscribeContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{"subscriptionId":"ENTITY1"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>404</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"statusCode":{"code":"470","reasonPhrase":"Subscription ID not found","details":"The subscription ID specified ENTITY1 does not correspond to an active subscription"},"subscriptionId":"ENTITY1"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="ContextSubscriptionJSONPayloadError_f1f3">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.816</timestamp>
+        <execution-time-ms>34</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>1</resultPass>
+        <resultFailed>0</resultFailed>
+      </execution-results>
+      <testStep name="ContextSubscription10">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.816</timestamp>
+          <execution-time-ms>34</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/ngsi10/subscribeContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"subscribeResponse":null,"subscribeError":{"errorCode":{"code":"400","reasonPhrase":"Bad request","details":"Bad request"}}}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="DiscoverContextAvailabilityUrlError_2f7f">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.850</timestamp>
+        <execution-time-ms>21</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="DiscoverContextAvailability11">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.850</timestamp>
+          <execution-time-ms>21</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/Error/registry/discoverEntityAvailability</value>
+          <isInvalid>true</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159286784","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/v1/Error/registry/discoverEntityAvailability"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="DeleteEntityByIDEntityDoesNotExist_2db9">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.871</timestamp>
+        <execution-time-ms>26</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="DeleteEntityByID12">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.871</timestamp>
+          <execution-time-ms>26</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY1</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>error</key>
+            <value>NotFound</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159286813","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY1"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="QueryContextContextDoesNotExists_871a">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:04.897</timestamp>
+        <execution-time-ms>992</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="QueryEntity13">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:04.897</timestamp>
+          <execution-time-ms>992</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/queryContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>404</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"500","reasonPhrase":"Receiver internal error","details":"An unknown error at the receiver has occured"},"contextResponses":null}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="QueryContextUrlError_ab62">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:05.889</timestamp>
+        <execution-time-ms>23</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="QueryEntity14">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:05.889</timestamp>
+          <execution-time-ms>23</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/queryEntity</value>
+          <isInvalid>true</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159287826","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/v1/queryEntity"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="GetAllEntitiesJSON_PAYLOAD_ERROR_88be">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:05.912</timestamp>
+        <execution-time-ms>13</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>1</resultPass>
+        <resultFailed>0</resultFailed>
+      </execution-results>
+      <testStep name="GetAllEntities15">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:05.912</timestamp>
+          <execution-time-ms>13</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/queryContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"400","reasonPhrase":"Bad request","details":"Bad request"},"contextResponses":null}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="UnsubscribeContextSubscriptionInvalidurl_b2c2">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:05.925</timestamp>
+        <execution-time-ms>36</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="UnsubscribeContextSubscription16">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:05.925</timestamp>
+          <execution-time-ms>36</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/ngsi10/unsubscribeContexxxt</value>
+          <isInvalid>true</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{"subscriptionId":"ENTITY1"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159287879","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/ngsi10/unsubscribeContexxxt"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="EntityUpdateJSONPayloadError_5bc1">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:05.961</timestamp>
+        <execution-time-ms>12</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>1</resultPass>
+        <resultFailed>0</resultFailed>
+      </execution-results>
+      <testStep name="UpdateEntity17">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:05.961</timestamp>
+          <execution-time-ms>12</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"400","reasonPhrase":"Bad request","details":"Bad request"},"contextElementResponses":null}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="RegisterContextJSONPayloadError_aa75">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:05.973</timestamp>
+        <execution-time-ms>54</execution-time-ms>
+        <stepsTotalNumber>2</stepsTotalNumber>
+        <resultPass>2</resultPass>
+        <resultFailed>0</resultFailed>
+      </execution-results>
+      <testStep name="RegisterContext18">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:05.973</timestamp>
+          <execution-time-ms>10</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/registry/registerContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"duration":null,"registrationId":null,"errorCode":{"code":"400","reasonPhrase":"Bad request","details":"Bad request"}}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID19">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:05.983</timestamp>
+          <execution-time-ms>44</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY2</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159287947","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY2"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="UnsubscribeContextSubscriptionJSONPayloadError_0d49">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.027</timestamp>
+        <execution-time-ms>14</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>1</resultPass>
+        <resultFailed>0</resultFailed>
+      </execution-results>
+      <testStep name="UnsubscribeContextSubscription20">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.027</timestamp>
+          <execution-time-ms>14</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/ngsi10/unsubscribeContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"statusCode":{"code":"400","reasonPhrase":"Bad request","details":"Bad request"},"subscriptionId":null}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="ContextSubscriptionInvalidurl_d16c">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.041</timestamp>
+        <execution-time-ms>20</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="ContextSubscription21">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.041</timestamp>
+          <execution-time-ms>20</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/ngsi10/subscribeContexxxt</value>
+          <isInvalid>true</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{ "entities": [   {     "type": "ENTITY",     "isPattern": "false",     "id": "ENTITY2"   } ], "attributes": [   "ATTR1" ], "reference": "http://www.mysensors.com", "duration": "P1M", "notifyConditions": [   {     "type": "ONCHANGE",     "condValues": [       "ATTR1"     ]   } ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159287975","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/ngsi10/subscribeContexxxt"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="GetAllEntitiesUrlError_357b">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.061</timestamp>
+        <execution-time-ms>45</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="GetAllEntities22">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.061</timestamp>
+          <execution-time-ms>45</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/queryNotAContext</value>
+          <isInvalid>true</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "true",            "id": ".*"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288023","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/v1/queryNotAContext"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="EntityCreationEmptyContextValueError_dcc8">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.106</timestamp>
+        <execution-time-ms>107</execution-time-ms>
+        <stepsTotalNumber>2</stepsTotalNumber>
+        <resultPass>1</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="CreateNewEntity23">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.106</timestamp>
+          <execution-time-ms>62</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": ""            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"contextElementResponses":[{"contextElement":{"id":"ENTITY3","type":"ENTITY","isPattern":"false","attributes":[{"name":"ATTR1","type":"float","value":"","metadatas":[]}]},"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"}}]}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID24">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.168</timestamp>
+          <execution-time-ms>45</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY3</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288104","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY3"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="DiscoverContextAvailabilityJSONPayloadError_96f4">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.213</timestamp>
+        <execution-time-ms>34</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="DiscoverContextAvailability25">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.213</timestamp>
+          <execution-time-ms>34</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/registry/discoverContextAvailability</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288148","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/v1/registry/discoverContextAvailability"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="DeleteEntityByIDUrlError_e595">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.247</timestamp>
+        <execution-time-ms>20</execution-time-ms>
+        <stepsTotalNumber>1</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="DeleteEntityByID26">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.247</timestamp>
+          <execution-time-ms>20</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v4Abbas2/contexts/ENTITY1</value>
+          <isInvalid>true</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288181","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v4Abbas2/contexts/ENTITY1"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="EntityCreationUrlError_33c9">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.267</timestamp>
+        <execution-time-ms>42</execution-time-ms>
+        <stepsTotalNumber>2</stepsTotalNumber>
+        <resultPass>1</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="CreateNewEntity27">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.267</timestamp>
+          <execution-time-ms>18</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v/updateEntity</value>
+          <isInvalid>true</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>sdfhgsdrshhsrhsr            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND")</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288201","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/v/updateEntity"}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID28">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.285</timestamp>
+          <execution-time-ms>24</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY2</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288220","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY2"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="QueryContextJSONPayloadSuccess_019a">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.309</timestamp>
+        <execution-time-ms>62</execution-time-ms>
+        <stepsTotalNumber>3</stepsTotalNumber>
+        <resultPass>1</resultPass>
+        <resultFailed>2</resultFailed>
+      </execution-results>
+      <testStep name="CreateNewEntity29">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.309</timestamp>
+          <execution-time-ms>28</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"500","reasonPhrase":"Receiver internal error","details":"An unknown error at the receiver has occured"},"contextElementResponses":null}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="QueryEntity30">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.337</timestamp>
+          <execution-time-ms>21</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/queryContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"500","reasonPhrase":"Receiver internal error","details":"An unknown error at the receiver has occured"},"contextResponses":null}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID31">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.358</timestamp>
+          <execution-time-ms>13</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY1</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288290","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY1"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="DiscoverContextAvailabilityJSONPayloadSuccess_faa9">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.371</timestamp>
+        <execution-time-ms>107</execution-time-ms>
+        <stepsTotalNumber>3</stepsTotalNumber>
+        <resultPass>2</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="RegisterContext32">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.371</timestamp>
+          <execution-time-ms>78</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/registry/registerContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextRegistrations": [        {            "entities": [                {                    "type": "ENTITY",                    "isPattern": "false",                    "id": "ENTITY1"                }            ],            "attributes": [                {                    "name": "ATTR1",                    "type": "ATTR",                    "isDomain": "false"                }            ],            "providingApplication": "http://mysensors.com/ENTITY"        }    ],    "duration": "P1M"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>STRING</type>
+            <key>registrationId</key>
+            <value>registrationId</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"duration":null,"registrationId":"489b2f8c-4ac3-4770-affa-27acd2834b88","errorCode":null}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DiscoverContextAvailability33">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.449</timestamp>
+          <execution-time-ms>16</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/registry/discoverContextAvailability</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>CODE</type>
+            <key>200</key>
+            <value></value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288381","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'POST' not supported","path":"/v1/registry/discoverContextAvailability"}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID34">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.465</timestamp>
+          <execution-time-ms>13</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY1</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288396","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY1"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="DeleteEntityByIDSuccess_a180">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.478</timestamp>
+        <execution-time-ms>51</execution-time-ms>
+        <stepsTotalNumber>2</stepsTotalNumber>
+        <resultPass>0</resultPass>
+        <resultFailed>2</resultFailed>
+      </execution-results>
+      <testStep name="CreateNewEntity35">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.478</timestamp>
+          <execution-time-ms>31</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"500","reasonPhrase":"Receiver internal error","details":"An unknown error at the receiver has occured"},"contextElementResponses":null}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID36">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.509</timestamp>
+          <execution-time-ms>20</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY1</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>CODE</type>
+            <key>204</key>
+            <value></value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288450","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY1"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="EntityUpdateEmptyContextValueError_78ea">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.529</timestamp>
+        <execution-time-ms>47</execution-time-ms>
+        <stepsTotalNumber>3</stepsTotalNumber>
+        <resultPass>2</resultPass>
+        <resultFailed>1</resultFailed>
+      </execution-results>
+      <testStep name="CreateNewEntity37">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.529</timestamp>
+          <execution-time-ms>12</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"contextElementResponses":[{"contextElement":{"id":"ENTITY3","type":"ENTITY","isPattern":"false","attributes":[{"name":"ATTR1","type":"float","value":"23","metadatas":[]}]},"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"}}]}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="UpdateEntity38">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.541</timestamp>
+          <execution-time-ms>21</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": ""            }            ]        }    ],    "updateAction": "UPDATE"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>400</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"contextElementResponses":[{"contextElement":{"id":"ENTITY3","type":"ENTITY","isPattern":"false","attributes":[{"name":"ATTR1","type":"float","value":"","metadatas":[]}]},"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"}}]}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID39">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.562</timestamp>
+          <execution-time-ms>14</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY3</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288493","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY3"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="EntityUpdateJSONPayloadSuccess_e31c">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.576</timestamp>
+        <execution-time-ms>68</execution-time-ms>
+        <stepsTotalNumber>3</stepsTotalNumber>
+        <resultPass>3</resultPass>
+        <resultFailed>0</resultFailed>
+      </execution-results>
+      <testStep name="CreateNewEntity40">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.576</timestamp>
+          <execution-time-ms>12</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"contextElementResponses":[{"contextElement":{"id":"ENTITY3","type":"ENTITY","isPattern":"false","attributes":[{"name":"ATTR1","type":"float","value":"23","metadatas":[]}]},"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"}}]}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="UpdateEntity41">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.588</timestamp>
+          <execution-time-ms>39</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "42"            }            ]        }    ],    "updateAction": "UPDATE"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"contextElementResponses":[{"contextElement":{"id":"ENTITY3","type":"ENTITY","isPattern":"false","attributes":[{"name":"ATTR1","type":"float","value":"42","metadatas":[]}]},"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"}}]}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID42">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.627</timestamp>
+          <execution-time-ms>17</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY3</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288563","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY3"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="UnsubscribeContextSubscriptionsuccess_7e25">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.644</timestamp>
+        <execution-time-ms>98</execution-time-ms>
+        <stepsTotalNumber>4</stepsTotalNumber>
+        <resultPass>4</resultPass>
+        <resultFailed>0</resultFailed>
+      </execution-results>
+      <testStep name="CreateNewEntity43">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.644</timestamp>
+          <execution-time-ms>16</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"contextElementResponses":[{"contextElement":{"id":"ENTITY2","type":"ENTITY","isPattern":"false","attributes":[{"name":"ATTR1","type":"float","value":"23","metadatas":[]}]},"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"}}]}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="ContextSubscription44">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.660</timestamp>
+          <execution-time-ms>20</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/ngsi10/subscribeContext/</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{ "entities": [   {     "type": "ENTITY",     "isPattern": "false",     "id": "ENTITY2"   } ], "attributes": [   "ATTR1" ], "reference": "http://www.mysensors.com", "duration": "P1M", "notifyConditions": [   {     "type": "ONCHANGE",     "condValues": [       "ATTR1"     ]   } ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>STRING</type>
+            <key>subscriptionId</key>
+            <value>subscriptionId</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"subscribeResponse":{"subscriptionId":"def14913-2d70-48f5-8331-e56f64a3fea1","duration":"P1M"}}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="UnsubscribeContextSubscription45">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.680</timestamp>
+          <execution-time-ms>21</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/ngsi10/unsubscribeContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{"subscriptionId":"def14913-2d70-48f5-8331-e56f64a3fea1"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>STRING</type>
+            <key>subscriptionId</key>
+            <value>subscriptionId</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"},"subscriptionId":"def14913-2d70-48f5-8331-e56f64a3fea1"}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID46">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.701</timestamp>
+          <execution-time-ms>17</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY2</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288637","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY2"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+    <testCase name="GetAllEntitiesSUCESS_b694">
+      <execution-results>
+        <timestamp>2016-09-29T16:28:06.742</timestamp>
+        <execution-time-ms>165</execution-time-ms>
+        <stepsTotalNumber>7</stepsTotalNumber>
+        <resultPass>5</resultPass>
+        <resultFailed>2</resultFailed>
+      </execution-results>
+      <testStep name="CreateNewEntity47">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.742</timestamp>
+          <execution-time-ms>13</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY3",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"contextElementResponses":[{"contextElement":{"id":"ENTITY3","type":"ENTITY","isPattern":"false","attributes":[{"name":"ATTR1","type":"float","value":"23","metadatas":[]}]},"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"}}]}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="CreateNewEntity48">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.755</timestamp>
+          <execution-time-ms>26</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY1",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"500","reasonPhrase":"Receiver internal error","details":"An unknown error at the receiver has occured"},"contextElementResponses":null}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="CreateNewEntity49">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.781</timestamp>
+          <execution-time-ms>12</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/updateContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "contextElements": [        {            "type": "ENTITY",            "isPattern": "false",            "id": "ENTITY2",            "attributes": [            {                "name": "ATTR1",                "type": "float",                "value": "23"            }            ]        }    ],    "updateAction": "APPEND"}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"contextElementResponses":[{"contextElement":{"id":"ENTITY2","type":"ENTITY","isPattern":"false","attributes":[{"name":"ATTR1","type":"float","value":"23","metadatas":[]}]},"statusCode":{"code":"200","reasonPhrase":"OK","details":"All is OK"}}]}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="GetAllEntities50">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.793</timestamp>
+          <execution-time-ms>36</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v1/queryContext</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>POST</method>
+        <headers>{Accept=application/json, Content-Type=application/json}</headers>
+        <payload>{    "entities": [        {            "type": "ENTITY",            "isPattern": "true",            "id": ".*"        }    ]}</payload>
+        <assertion_list>
+          <assertion>
+            <type>JSON</type>
+            <key>code</key>
+            <value>200</value>
+            <result>false</result>
+          </assertion>
+        </assertion_list>
+        <result>FALSE</result>
+        <response>
+          <response_code>200:OK</response_code>
+          <response_payload>{"errorCode":{"code":"500","reasonPhrase":"Receiver internal error","details":"An unknown error at the receiver has occured"},"contextResponses":null}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID51">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.829</timestamp>
+          <execution-time-ms>34</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY3</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288784","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY3"}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID52">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.863</timestamp>
+          <execution-time-ms>21</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY1</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288804","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY1"}</response_payload>
+        </response>
+      </testStep>
+      <testStep name="DeleteEntityByID53">
+        <execution-results>
+          <timestamp>2016-09-29T16:28:06.884</timestamp>
+          <execution-time-ms>23</execution-time-ms>
+        </execution-results>
+        <endpoint>
+          <value>http://192.168.1.50:8081/v2/entities/ENTITY2</value>
+          <isInvalid>false</isInvalid>
+        </endpoint>
+        <method>DELETE</method>
+        <headers>{Accept=application/json}</headers>
+        <payload></payload>
+        <assertion_list>
+          <assertion>
+            <type>NA</type>
+            <key></key>
+            <value></value>
+            <result>true</result>
+          </assertion>
+        </assertion_list>
+        <result>TRUE</result>
+        <response>
+          <response_code>405:Method Not Allowed</response_code>
+          <response_payload>{"timestamp":"1475159288821","status":"405","error":"Method Not Allowed","exception":"org.springframework.web.HttpRequestMethodNotSupportedException","message":"Request method 'DELETE' not supported","path":"/v2/entities/ENTITY2"}</response_payload>
+        </response>
+      </testStep>
+    </testCase>
+  </testSuite>
+</report>

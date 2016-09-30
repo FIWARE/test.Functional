@@ -1,0 +1,17 @@
+version = 1.0
+modelFile = NGSI_v2.smtmodel
+Xml.Filepath = 
+Project.Identifier = db5bd9ac-a1f2-42a1-9786-31e7e6daf610
+Publisher.Name.00 = Adaptation specification publisher
+Publisher.Path.00 = C:/Program Files (x86)/Smartesting CertifyIt/publishers/com.smartesting.publisher.specification.jar
+Publisher.Args.00 = --output #outputDirectory# #xmlFile#
+Publisher.Name.01 = HTML publisher
+Publisher.Path.01 = C:/Program Files (x86)/Smartesting CertifyIt/publishers/com.smartesting.publisher.html.jar
+Publisher.Args.01 = --locale #language# --output #outputDirectory# #xmlFile#
+Publisher.Name.02 = JUnit publisher
+Publisher.Path.02 = C:/Program Files (x86)/Smartesting CertifyIt/publishers/com.smartesting.publisher.junit.jar
+Publisher.Args.02 = --output #outputDirectory# #xmlFile#
+Publisher.Name.03 = Scepter Excel publisher
+Publisher.Path.03 = C:/Program Files (x86)/Smartesting CertifyIt/publishers/com.smartesting.publisher.scepter.jar
+Publisher.Args.03 = --output #outputDirectory# #xmlFile#
+Publisher.Active = HTML publisher

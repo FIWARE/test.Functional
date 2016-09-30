@@ -1,0 +1,147 @@
+--SHELL--
+(curl localhost:${BROKER_PORT}/NGSI9/registerContext -s -S --header 'Content-Type: application/xml' -d @- | xmllint --format - ) <<EOF
+<?xml version="1.0"?>
+<registerContextRequest>
+<contextRegistrationList>
+		<contextRegistration>
+			<entityIdList>
+				<entityId type="TemperatureSensor" isPattern="false">
+					<id>Sensor5</id>			
+				</entityId>
+			</entityIdList>
+			<contextRegistrationAttributeList>
+				<contextRegistrationAttribute>
+					<name>measurement</name>
+					<isDomain>false</isDomain>
+				</contextRegistrationAttribute>
+			</contextRegistrationAttributeList>
+			<providingApplication>http://myHomeGateway22.org</providingApplication>
+		</contextRegistration>
+	</contextRegistrationList>
+	<duration>PT1M</duration>
+	<registrationId></registrationId>
+</registerContextRequest>
+EOF
+echo "1: ++++++++++++++++++++"
+
+(curl localhost:${BROKER_PORT}/NGSI9/registerContext -s -S --header 'Content-Type: application/xml' -d @- | xmllint --format - ) <<EOF
+<?xml version="1.0"?>
+<registerContextRequest>
+<contextRegistrationList>
+		<contextRegistration>
+			<registrationMetaData>
+				<contextMetadata>
+					<name>association1</name>
+					<type>Association</type>
+					<value>
+						<entityAssociation>
+							<sourceEntityId type="TemperatureSensor" isPattern=”false”>
+								<id>Sensor5</id>			
+							</sourceEntityId>
+							<targetEntityId type="House" isPattern=”false”>
+								<id>house_3</id>			
+							</targetEntityId>
+						</entityAssociation>
+						<AttributeAssociationList>
+							<AttributeAssociation>
+        						<sourceAttribute>measurement</sourceAttribute>
+       							<targetAttribute>indoorTemperature</targetAttribute>
+							</AttributeAssociation>
+						</AttributeAssociationList>
+					</value>
+				</contextMetadata>			
+			</registrationMetaData>
+			<providingApplication>http://www.fi-ware.eu/NGSI/association</providingApplication>
+		</contextRegistration>
+	</contextRegistrationList>
+	<duration>PT1M</duration>
+	<registrationId></registrationId>
+</registerContextRequest>
+EOF
+echo "2: ++++++++++++++++++++"
+
+(curl localhost:${BROKER_PORT}/NGSI9/discoverContextAvailability -s -S --header 'Content-Type: application/xml' -d @- | xmllint --format - ) <<EOF
+<?xml version="1.0"?>
+<discoverContextAvailabilityRequest>
+	<entityIdList>
+		<entityId type="House" isPattern="false">
+			<id>house_3</id>			
+		</entityId>
+	</entityIdList>
+	<attributeList>
+		<attribute>indoorTemperature</attribute>
+	</attributeList>
+	<restriction>
+			<scope>
+				<operationScope>
+					<scopeType>Include Associations</scopeType>
+					<scopeValue>SOURCES</scopeValue>
+				</operationScope>			
+			</scope>
+	</restriction>
+</discoverContextAvailabilityRequest>
+EOF
+echo "3: ++++++++++++++++++++"
+
+--REGEXPECT-
+<?xml version="1.0"?>
+<registerContextResponse>
+  <registrationId>REGEX([0-9a-f]{24})</registrationId>
+  <duration>PT1M</duration>
+</registerContextResponse>
+1: ++++++++++++++++++++
+<?xml version="1.0"?>
+<registerContextResponse>
+  <registrationId>REGEX([0-9a-f]{24})</registrationId>
+  <duration>PT1M</duration>
+</registerContextResponse>
+2: ++++++++++++++++++++
+<?xml version="1.0"?>
+<discoverContextAvailabilityResponse>
+  <contextRegistrationResponseList>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <entityIdList>
+          <entityId type="TemperatureSensor" isPattern="false">
+            <id>Sensor5</id>
+          </entityId>
+        </entityIdList>
+        <contextRegistrationAttributeList>
+          <contextRegistrationAttribute>
+            <name>measurement</name>
+            <isDomain>false</isDomain>
+          </contextRegistrationAttribute>
+        </contextRegistrationAttributeList>
+        <providingApplication>http://myHomeGateway22.org</providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+    <contextRegistrationResponse>
+      <contextRegistration>
+        <registrationMetaData>
+          <contextMetadata>
+            <name>association1</name>
+            <type>Association</type>
+            <value>
+              <entityAssociation>
+                <sourceEntityId type="TemperatureSensor" isPattern="false">
+                  <id>Sensor5</id>
+                </sourceEntityId>
+                <targetEntityId type="House" isPattern="false">
+                  <id>house_3</id>
+                </targetEntityId>
+              </entityAssociation>
+              <AttributeAssociationList>
+                <AttributeAssociation>
+                  <sourceAttribute>measurement</sourceAttribute>
+                  <targetAttribute>indoorTemperature</targetAttribute>
+                </AttributeAssociation>
+              </AttributeAssociationList>
+            </value>
+          </contextMetadata>
+        </registrationMetaData>
+        <providingApplication>http://www.fi-ware.eu/NGSI/association</providingApplication>
+      </contextRegistration>
+    </contextRegistrationResponse>
+  </contextRegistrationResponseList>
+</discoverContextAvailabilityResponse>
+3: ++++++++++++++++++++

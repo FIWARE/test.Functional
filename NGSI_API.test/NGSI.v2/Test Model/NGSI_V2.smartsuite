@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite-data name="NGSI_V2" identifier="7c99f1f3-085a-41a8-a46e-6c3db1b5ca35">
+  <filter></filter>
+  <inlineFilter></inlineFilter>
+  <description></description>
+  <initialModelInstance>SmartestingModel::instances</initialModelInstance>
+  <fixtures>
+    <string>SmartestingModel</string>
+  </fixtures>
+  <fixtureOperations/>
+  <endOfTestPredicate></endOfTestPredicate>
+  <testNaming class="script-test-naming">
+    <scriptPath>/NGSI_v2/MyNamingTestScript.js</scriptPath>
+  </testNaming>
+  <storyGeneratorDefinitions/>
+  <protoStoriesDefinitions/>
+  <customProperties>
+    <entry>
+      <string>TOcl.generateUnreachableStoriesOnly</string>
+      <string>false</string>
+    </entry>
+  </customProperties>
+  <testPurposeDefinitions/>
+  <keywordDefinitions/>
+  <tagTableDefinitions/>
+  <tOclPropertyDefinitions/>
+  <tests/>
+</suite-data>

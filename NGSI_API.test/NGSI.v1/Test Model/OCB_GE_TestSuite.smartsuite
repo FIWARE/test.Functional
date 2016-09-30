@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite-data name="OCB_GE_TestSuite" identifier="e026999d-6d7f-48a3-9fa7-71d173842e42">
+  <filter></filter>
+  <inlineFilter></inlineFilter>
+  <description></description>
+  <initialModelInstance>OrionContextBroker_GEi::InitialData</initialModelInstance>
+  <fixtures>
+    <string>OrionContextBroker_GEi</string>
+  </fixtures>
+  <fixtureOperations/>
+  <endOfTestPredicate></endOfTestPredicate>
+  <testNaming class="script-test-naming">
+    <scriptPath>/OrionCB_GE/MyNamingTestScript.js</scriptPath>
+  </testNaming>
+  <storyGeneratorDefinitions/>
+  <protoStoriesDefinitions/>
+  <customProperties>
+    <entry>
+      <string>TOcl.generateUnreachableStoriesOnly</string>
+      <string>false</string>
+    </entry>
+  </customProperties>
+  <testPurposeDefinitions/>
+  <keywordDefinitions/>
+  <tagTableDefinitions/>
+  <tOclPropertyDefinitions/>
+  <tests/>
+</suite-data>

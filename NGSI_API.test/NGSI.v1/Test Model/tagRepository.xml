@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository id="b3058173-e070-4120-8703-2e119bce5a61" name="All tags">
+  <tags class="list">
+    <tag id="06fe0636-9056-4aa6-9b07-337da6b078c1" name="EntityCreation" type="REQ">
+      <tags class="list">
+        <tag id="3ec411c1-452e-4758-8cd6-37bc789594db" name="UrlError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="d76ad23e-b347-4d9e-aff8-489d03e5943b" name="JSONPayloadError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="391464f7-4ce3-4ac7-a2dc-385ed857de6e" name="EmptyContextValueError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="fa33687e-97f8-4eb6-af2a-2e2ff1beb834" name="JSONPayloadSuccess" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="7c296d4c-cd7d-41a7-b98e-17af0977b036" name="DeleteEntityByID" type="REQ">
+      <tags class="list">
+        <tag id="45d9a838-4b1e-4166-b91f-7438c2223480" name="UrlError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="5834e04d-ce40-4f63-b3e7-ae8cd2d59df6" name="EntityDoesNotExist" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="1ad514c7-bead-4b31-aa9e-7ac0da9a00f8" name="Success" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="c1305595-01c8-4727-a6e3-a8ede8d122c0" name="EntityUpdate" type="REQ">
+      <tags class="list">
+        <tag id="830eaccc-1de4-4691-8b71-5734c48c4c36" name="UrlError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="beb78d97-61fc-4f69-a4c6-80b423511dca" name="JSONPayloadError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="4068bbc4-86f6-4d30-9593-4dec4d64bb80" name="EmptyContextValueError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="8624cd47-6600-41b6-97fb-cc7e86fd1f81" name="ContextDoesNotExists" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="0490720f-032e-4014-a315-8ffa4fcebf48" name="JSONPayloadSuccess" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="43ad4f11-adc8-426a-a0f6-bada586d60e4" name="QueryContext" type="REQ">
+      <tags class="list">
+        <tag id="899678c5-2083-49ae-aae3-79923100bbfa" name="UrlError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="96823646-2eff-4aee-97c1-9ab1e17d67f1" name="JSONPayloadError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="9791b0ea-1dab-4456-aaee-20144f69621b" name="ContextDoesNotExists" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="1e3f3b25-ed4d-4175-883e-a718a2274d62" name="JSONPayloadSuccess" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="4a24d019-7b5b-456e-957d-2b41efb84e1e" name="missing_sensor" type="uncertaintyplt">
+      <tags class="list"/>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="e3d33dbd-321a-454c-acba-8a92845ac124" name="sleeping_sensor" type="uncertaintyapp">
+      <tags class="list"/>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="3c6e6ce7-3f14-40c5-ac0e-d4e5eae343f3" name="notregistered_sensor" type="uncertaintyint">
+      <tags class="list"/>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="0cd2adb7-8327-4614-86dd-9ee47124d876" name="RegisterContext" type="REQ">
+      <tags class="list">
+        <tag id="487dff41-667c-4907-9394-9852c7712b94" name="UrlError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="da68b8c0-6979-4554-9c91-fe98c7cc937a" name="JSONPayloadError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="1979f989-bcd2-4206-8ded-dbc31238e2db" name="JSONPayloadSuccess" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+    <tag id="4bc66263-c8d8-45d6-87cd-802629411dcc" name="DiscoverContextAvailability" type="REQ">
+      <tags class="list">
+        <tag id="8d23752b-8e27-42b1-b4b3-856a1d88669a" name="UrlError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="a8e590e7-ffbb-477a-936e-cc643b64767d" name="JSONPayloadError" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="dce16479-0a24-40d0-9b34-31585221ff4e" name="ContextDoesNotExists" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+        <tag id="914c0a76-a9ca-4a93-9d4f-63a0492076ec" name="JSONPayloadSuccess" type="AIM">
+          <tags class="list"/>
+          <parent class="tag" reference="../../.."/>
+          <properties/>
+          <validated>false</validated>
+        </tag>
+      </tags>
+      <parent class="repository" reference="../../.."/>
+      <properties/>
+      <validated>false</validated>
+    </tag>
+  </tags>
+  <subFolders class="list"/>
+  <fragmentReferences/>
+</repository>

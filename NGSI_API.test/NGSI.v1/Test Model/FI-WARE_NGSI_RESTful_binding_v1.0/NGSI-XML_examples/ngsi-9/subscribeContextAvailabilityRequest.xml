@@ -1,0 +1,24 @@
+<!-- This file is provided as an example message body for
+version 1.0 of the FI-WARE RESTful binding of OMA NGSI 9/10-->
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<subscribeContextAvailabilityRequest>
+	<entityIdList>
+		<entityId type="Room" isPattern="false">
+			<id>ConferenceRoom</id>			
+		</entityId>
+		<entityId type="Room" isPattern="false">
+			<id>OfficeRoom</id>
+		</entityId>
+	</entityIdList>
+	<attributeList>
+		<attribute>temperature</attribute>
+		<attribute>occupancy</attribute>
+		<attribute>lightstatus</attribute>
+	</attributeList>
+	<reference>http://192.206.123.11:80/test/interfaceNotification
+	</reference>
+	<duration>PT1M</duration>
+	<subscriptionId>12458896</subscriptionId>
+</subscribeContextAvailabilityRequest>
