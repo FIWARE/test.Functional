@@ -50,15 +50,31 @@
           </elementProp>
           <elementProp name="AGENT_URL" elementType="Argument">
             <stringProp name="Argument.name">AGENT_URL</stringProp>
-            <stringProp name="Argument.value">http://IoTAgent1:8071/ngsi10</stringProp>
+            <stringProp name="Argument.value">http://192.168.111.24:8071/ngsi10</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Endpoint of an IoT agent able to answer to a QueryContext from the the IoTBroker</stringProp>
           </elementProp>
-          <elementProp name="ENTITY_ID" elementType="Argument">
-            <stringProp name="Argument.name">ENTITY_ID</stringProp>
-            <stringProp name="Argument.value">OfficeRoom7</stringProp>
+          <elementProp name="S_ENTITY_ID" elementType="Argument">
+            <stringProp name="Argument.name">S_ENTITY_ID</stringProp>
+            <stringProp name="Argument.value">ConferenceRoom5</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">Entity id used within several tests</stringProp>
+            <stringProp name="Argument.desc">Entity id used within std APIs tests</stringProp>
+          </elementProp>
+          <elementProp name="S1_ENTITY_ID" elementType="Argument">
+            <stringProp name="Argument.name">S1_ENTITY_ID</stringProp>
+            <stringProp name="Argument.value">ConferenceRoom6</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="S2_ENTITY_ID" elementType="Argument">
+            <stringProp name="Argument.name">S2_ENTITY_ID</stringProp>
+            <stringProp name="Argument.value">ConferenceRoom7</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="C_ENTITY_ID" elementType="Argument">
+            <stringProp name="Argument.name">C_ENTITY_ID</stringProp>
+            <stringProp name="Argument.value">ConferenceRoom8</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Entity id used within convenience APIs tests</stringProp>
           </elementProp>
           <elementProp name="NGSI9_SPECS_REL_PATH" elementType="Argument">
             <stringProp name="Argument.name">NGSI9_SPECS_REL_PATH</stringProp>
@@ -151,7 +167,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
         <stringProp name="TestPlan.comments">Check GEri version</stringProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.25" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check version" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -176,7 +192,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Check version</stringProp>
+          <stringProp name="TestPlan.comments">FI.IOT.BK.API.25</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
@@ -189,7 +205,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.26.PRO(JSON)" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ngsi9.registerContext(JSON)" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -202,7 +218,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
                 {&#xd;
                     &quot;type&quot;: &quot;Room&quot;,&#xd;
                     &quot;isPattern&quot;: &quot;false&quot;,&#xd;
-                    &quot;id&quot;: &quot;${ENTITY_ID}&quot;&#xd;
+                    &quot;id&quot;: &quot;${S1_ENTITY_ID}&quot;&#xd;
                 }&#xd;
                                 ],&#xd;
             &quot;attributes&quot;: [&#xd;
@@ -236,14 +252,14 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Propedeutic call to IoTDiscovery for being able to test a ContextQuery with IoTBroker</stringProp>
+          <stringProp name="TestPlan.comments">FI.IOT.BK.API.26.PRO(JSON): Propedeutic call to IoTDiscovery for being able to test a ContextQuery with IoTBroker</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
+                <stringProp name="Header.value">application/json, application/xml</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -262,7 +278,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.26.PRO(XML)" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ngsi9.registerContext" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -274,7 +290,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
         &lt;contextRegistration&gt;&#xd;
                 &lt;entityIdList&gt;&#xd;
                         &lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt;&#xd;
-                        		&lt;id&gt;${ENTITY_ID}&lt;/id&gt;&#xd;
+                        		&lt;id&gt;${S2_ENTITY_ID}&lt;/id&gt;&#xd;
                         &lt;/entityId&gt;&#xd;
                 &lt;/entityIdList&gt;&#xd;
                 &lt;contextRegistrationAttributeList&gt;&#xd;
@@ -321,14 +337,14 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Propedeutic call to IoTDiscovery for being able to test a ContextQuery with IoTBroker</stringProp>
+          <stringProp name="TestPlan.comments">FI.IOT.BK.API.26.PRO(XML): Propedeutic call to IoTDiscovery for being able to test a ContextQuery with IoTBroker</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
+                <stringProp name="Header.value">application/xml, application/json</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -342,7 +358,125 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XMLSchemaAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.27" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="standard.queryContext(JSON)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;entities&quot;: [{ &quot;type&quot;: &quot;Room&quot;, &quot;isPattern&quot;: &quot;false&quot;, &quot;id&quot;: &quot;${S1_ENTITY_ID}&quot;}]}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/queryContext</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Issue a context query
+(FI.IOT.BK.API.26(JSON))</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, application/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="2092731981">contextElement</stringProp>
+              <stringProp name="-77766256">${S1_ENTITY_ID}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="standard.queryContext" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;queryContextRequest&gt;&#xd;
+	&lt;entityIdList&gt;&#xd;
+		&lt;entityId isPattern=&quot;false&quot; type=&quot;Room&quot;&gt; &#xd;
+			&lt;id&gt;${S2_ENTITY_ID}&lt;/id&gt;&#xd;
+		&lt;/entityId&gt;&#xd;
+	&lt;/entityIdList&gt;&#xd;
+	&lt;attributeList&gt;&#xd;
+		&lt;attribute&gt;temperature&lt;/attribute&gt;&#xd;
+	&lt;/attributeList&gt; &#xd;
+&lt;/queryContextRequest&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/queryContext</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Issue a context query
+(FI.IOT.BK.API.26(XML))</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/xml, application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
+            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
+          </XMLSchemaAssertion>
+          <hashTree/>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">/queryContextResponse/contextResponseList/contextElementResponse/contextElement/entityId/id=&quot;${S2_ENTITY_ID}&quot;</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="standard.subscribeContext" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -351,7 +485,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
                 <stringProp name="Argument.value">&lt;subscribeContextRequest&gt; &#xd;
 	&lt;entityIdList&gt;&#xd;
 		&lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt; &#xd;
-			&lt;id&gt;${ENTITY_ID}&lt;/id&gt;&#xd;
+			&lt;id&gt;${S_ENTITY_ID}&lt;/id&gt;&#xd;
 		&lt;/entityId&gt; &#xd;
 	&lt;/entityIdList&gt; &#xd;
 	&lt;attributeList&gt; &#xd;
@@ -393,7 +527,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Issue a context subscription</stringProp>
+          <stringProp name="TestPlan.comments">Issue a context subscription 
+(FI.IOT.BK.API.27)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -415,7 +550,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <hashTree/>
           <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
             <stringProp name="XPathExtractor.default">NOT FOUND</stringProp>
-            <stringProp name="XPathExtractor.refname">subscriptionId</stringProp>
+            <stringProp name="XPathExtractor.refname">s_subscriptionId</stringProp>
             <stringProp name="XPathExtractor.xpathQuery">subscribeContextResponse/subscribeResponse/subscriptionId</stringProp>
             <boolProp name="XPathExtractor.validate">true</boolProp>
             <boolProp name="XPathExtractor.tolerant">false</boolProp>
@@ -426,14 +561,14 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathExtractor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.28" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="standard.updateContextSubscription" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">&lt;updateContextSubscriptionRequest&gt;&#xd;
-	&lt;subscriptionId&gt;${subscriptionId}&lt;/subscriptionId&gt;&#xd;
+	&lt;subscriptionId&gt;${s_subscriptionId}&lt;/subscriptionId&gt;&#xd;
 	&lt;duration&gt;P5Y&lt;/duration&gt; &#xd;
 	&lt;restriction&gt; &#xd;
 		&lt;attributeExpression&gt;&lt;/attributeExpression&gt;&#xd;
@@ -465,7 +600,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Issue a context subscription UDPDATE</stringProp>
+          <stringProp name="TestPlan.comments">Issue a context subscription update
+UDPDATE (FI.IOT.BK.API.28)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -487,7 +623,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <hashTree/>
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
             <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">//updateContextSubscriptionResponse/subscribeResponse/subscriptionId=&quot;${subscriptionId}&quot;</stringProp>
+            <stringProp name="XPath.xpath">//updateContextSubscriptionResponse/subscribeResponse/subscriptionId=&quot;${s_subscriptionId}&quot;</stringProp>
             <boolProp name="XPath.validate">false</boolProp>
             <boolProp name="XPath.whitespace">false</boolProp>
             <boolProp name="XPath.tolerant">false</boolProp>
@@ -495,14 +631,14 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.29" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="standard.unsubscribeContext" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">&lt;unsubscribeContextRequest&gt;&#xd;
-&lt;subscriptionId&gt;${subscriptionId}&lt;/subscriptionId&gt;&#xd;
+&lt;subscriptionId&gt;${s_subscriptionId}&lt;/subscriptionId&gt;&#xd;
 &lt;/unsubscribeContextRequest&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -522,7 +658,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Unsubscribe</stringProp>
+          <stringProp name="TestPlan.comments">Unsubscribe 
+(FI.IOT.BK.API.29)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -544,7 +681,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <hashTree/>
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
             <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">//unsubscribeContextResponse/statusCode/code=200 and //unsubscribeContextResponse/subscriptionId=&quot;${subscriptionId}&quot;</stringProp>
+            <stringProp name="XPath.xpath">//unsubscribeContextResponse/statusCode/code=200 and //unsubscribeContextResponse/subscriptionId=&quot;${s_subscriptionId}&quot;</stringProp>
             <boolProp name="XPath.validate">false</boolProp>
             <boolProp name="XPath.whitespace">false</boolProp>
             <boolProp name="XPath.tolerant">false</boolProp>
@@ -552,20 +689,20 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.30" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="standard.notifyContext" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">&lt;notifyContextRequest&gt; &#xd;
-	&lt;subscriptionId&gt;${subscriptionId}&lt;/subscriptionId&gt; &#xd;
+	&lt;subscriptionId&gt;${s_subscriptionId}&lt;/subscriptionId&gt; &#xd;
 	&lt;originator&gt;http://localhost/test&lt;/originator&gt; &#xd;
 	&lt;contextResponseList&gt; &#xd;
 		&lt;contextElementResponse&gt; &#xd;
 			&lt;contextElement&gt;&#xd;
 				&lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt; &#xd;
-					&lt;id&gt;${ENTITY_ID}&lt;/id&gt;&#xd;
+					&lt;id&gt;${S_ENTITY_ID}&lt;/id&gt;&#xd;
 				&lt;/entityId&gt;&#xd;
 				&lt;contextAttributeList&gt; &#xd;
 					&lt;contextAttribute&gt;&#xd;
@@ -607,7 +744,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Notify (JIRA IOT-783(Closed) to be verified wiht new version)</stringProp>
+          <stringProp name="TestPlan.comments">Notify (JIRA IOT-783(Closed) to be verified wiht new version)
+(FI.IOT.BK.API.30)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -628,7 +766,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XMLSchemaAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.31" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="standard.updateContext" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -638,7 +776,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
 	&lt;contextElementList&gt; &#xd;
 	&lt;contextElement&gt; &#xd;
 		&lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt; &#xd;
-			&lt;id&gt;${ENTITY_ID}&lt;/id&gt;&#xd;
+			&lt;id&gt;${S_ENTITY_ID}&lt;/id&gt;&#xd;
 		&lt;/entityId&gt;&#xd;
 		&lt;contextAttributeList&gt; &#xd;
 			&lt;contextAttribute&gt; &#xd;
@@ -676,7 +814,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Update context data</stringProp>
+          <stringProp name="TestPlan.comments">Update context data
+(FI.IOT.BK.API.31)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -706,7 +845,181 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.32" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ngsi9.registerContext" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;!-- &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; --&gt;&#xd;
+&lt;registerContextRequest&gt;&#xd;
+&lt;contextRegistrationList&gt;&#xd;
+        &lt;contextRegistration&gt;&#xd;
+                &lt;entityIdList&gt;&#xd;
+                        &lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt;&#xd;
+                        		&lt;id&gt;${C_ENTITY_ID}&lt;/id&gt;&#xd;
+                        &lt;/entityId&gt;&#xd;
+                &lt;/entityIdList&gt;&#xd;
+                &lt;contextRegistrationAttributeList&gt;&#xd;
+                        &lt;contextRegistrationAttribute&gt;&#xd;
+                                &lt;name&gt;temperature&lt;/name&gt;&#xd;
+                                &lt;type&gt;degree&lt;/type&gt;&#xd;
+                                &lt;isDomain&gt;true&lt;/isDomain&gt;&#xd;
+                                &lt;metadata&gt;&#xd;
+                                        &lt;contextMetadata&gt;&#xd;
+                                                &lt;name&gt;unit&lt;/name&gt;&#xd;
+                                                &lt;type&gt;string&lt;/type&gt;&#xd;
+                                                &lt;value&gt;celsius&lt;/value&gt;&#xd;
+                                        &lt;/contextMetadata&gt;&#xd;
+                                &lt;/metadata&gt;&#xd;
+                        &lt;/contextRegistrationAttribute&gt;                    &#xd;
+                &lt;/contextRegistrationAttributeList&gt;&#xd;
+                &lt;registrationMetaData&gt;&#xd;
+                        &lt;contextMetadata&gt;&#xd;
+                                &lt;name&gt;&lt;/name&gt; &lt;type&gt;&lt;/type&gt;&#xd;
+                                &lt;value&gt;&lt;/value&gt;&#xd;
+                        &lt;/contextMetadata&gt;&#xd;
+                &lt;/registrationMetaData&gt;&#xd;
+                &lt;providingApplication&gt;${AGENT_URL}&lt;/providingApplication&gt;&#xd;
+        &lt;/contextRegistration&gt;&#xd;
+&lt;/contextRegistrationList&gt;&#xd;
+&lt;duration&gt;PT1M&lt;/duration&gt;&#xd;
+&lt;registrationId&gt;&lt;/registrationId&gt;&#xd;
+&lt;/registerContextRequest&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${IOTDISCOVERY_HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${IOTDISCOVERY_PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/registerContext</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">FI.IOT.BK.API.26.PRO(XML): Propedeutic call to IoTDiscovery for being able to test a ContextQuery with IoTBroker</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/xml, application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
+            <stringProp name="xmlschema_assertion_filename">${NGSI9_SPECS_PATH}</stringProp>
+          </XMLSchemaAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.subscribeContext" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;subscribeContextRequest&gt;&#xd;
+	&lt;entityIdList&gt; &#xd;
+		&lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt; &#xd;
+			&lt;id&gt;${C_ENTITY_ID}&lt;/id&gt; &#xd;
+		&lt;/entityId&gt; &#xd;
+	&lt;/entityIdList&gt;&#xd;
+	&lt;attributeList&gt; &#xd;
+		&lt;attribute&gt;temperature&lt;/attribute&gt; &#xd;
+	&lt;/attributeList&gt;&#xd;
+	&lt;reference&gt;127.0.0.1&lt;/reference&gt; &#xd;
+	&lt;duration&gt;P5Y&lt;/duration&gt; &#xd;
+	&lt;restriction&gt;&#xd;
+		&lt;attributeExpression&gt;someXPATH&lt;/attributeExpression&gt; &#xd;
+		&lt;scope&gt; &#xd;
+			&lt;operationScope&gt; &#xd;
+				&lt;scopeType&gt;someScopeType&lt;/scopeType&gt; &#xd;
+				&lt;scopeValue&gt;someScopeValue&lt;/scopeValue&gt; &#xd;
+			&lt;/operationScope&gt; &#xd;
+		&lt;/scope&gt;&#xd;
+	&lt;/restriction&gt; &#xd;
+	&lt;notifyConditions&gt;&#xd;
+		&lt;notifyCondition&gt;&#xd;
+			&lt;type&gt;ONCHANGE&lt;/type&gt; &#xd;
+		&lt;/notifyCondition&gt; &#xd;
+	&lt;/notifyConditions&gt;&#xd;
+	&lt;throttling&gt;P5Y&lt;/throttling&gt; &#xd;
+&lt;/subscribeContextRequest&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextSubscriptions</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Create a new subscription
+(FI.IOT.BK.API.46)</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
+            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
+          </XMLSchemaAssertion>
+          <hashTree/>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">/subscribeContextResponse/subscribeError/errorCode/code=200</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default">NOT FOUND</stringProp>
+            <stringProp name="XPathExtractor.refname">c_subscriptionId</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">subscribeContextResponse/subscribeResponse/subscriptionId</stringProp>
+            <boolProp name="XPathExtractor.validate">true</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+            <boolProp name="XPathExtractor.report_errors">true</boolProp>
+            <boolProp name="XPathExtractor.whitespace">true</boolProp>
+            <boolProp name="XPathExtractor.show_warnings">true</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.retrieveEntityInfo" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -716,7 +1029,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -724,7 +1037,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Retrieve all entity information</stringProp>
+          <stringProp name="TestPlan.comments">Retrieve all entity information 
+(FI.IOT.BK.API.32)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -746,7 +1060,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <hashTree/>
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
             <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/contextElementResponse/statusCode/code=200</stringProp>
+            <stringProp name="XPath.xpath">/contextElementResponse/contextElement/entityId/id=&quot;${C_ENTITY_ID}&quot; and /contextElementResponse/statusCode/code=200</stringProp>
             <boolProp name="XPath.validate">false</boolProp>
             <boolProp name="XPath.whitespace">false</boolProp>
             <boolProp name="XPath.tolerant">false</boolProp>
@@ -754,7 +1068,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.33" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.updateContextElement" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -798,7 +1112,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -806,7 +1120,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Replace a number of attribute values</stringProp>
+          <stringProp name="TestPlan.comments">Replace a number of attribute values
+(FI.IOT.BK.API.33)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -836,7 +1151,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.34" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.appendContextElement" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -868,7 +1183,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -876,7 +1191,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Append context attribute values</stringProp>
+          <stringProp name="TestPlan.comments">Append context attribute values
+(FI.IOT.BK.API.34)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -906,117 +1222,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.35" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"></stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}</stringProp>
-          <stringProp name="HTTPSampler.method">DELETE</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Delete all entity information</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
-            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
-          </XMLSchemaAssertion>
-          <hashTree/>
-          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
-            <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/statusCode/code=200</stringProp>
-            <boolProp name="XPath.validate">false</boolProp>
-            <boolProp name="XPath.whitespace">false</boolProp>
-            <boolProp name="XPath.tolerant">false</boolProp>
-            <boolProp name="XPath.namespace">false</boolProp>
-          </XPathAssertion>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.36" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"></stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}/attributes/temperature</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Retrieve attribute values</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
-            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
-          </XMLSchemaAssertion>
-          <hashTree/>
-          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
-            <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/contextAttributeResponse/statusCode/code=200</stringProp>
-            <boolProp name="XPath.validate">false</boolProp>
-            <boolProp name="XPath.whitespace">false</boolProp>
-            <boolProp name="XPath.tolerant">false</boolProp>
-            <boolProp name="XPath.namespace">false</boolProp>
-          </XPathAssertion>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.37" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience,appendContextAttribute" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1043,7 +1249,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}/attributes/temperature</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/temperature</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1051,7 +1257,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Append context attribute value</stringProp>
+          <stringProp name="TestPlan.comments">Append context attribute value
+(FI.IOT.BK.API.37)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1081,7 +1288,56 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.38" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.retrieveEntityInfo" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Retrieve all entity information 
+(FI.IOT.BK.API.32)</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/xml, application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
+            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
+          </XMLSchemaAssertion>
+          <hashTree/>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">/contextElementResponse/contextElement/entityId/id=&quot;${C_ENTITY_ID}&quot; and /contextElementResponse/statusCode/code=200</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.retrieveEntityAttributeValues" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1098,37 +1354,25 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}/attributes/temperature</stringProp>
-          <stringProp name="HTTPSampler.method">DELETE</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/temperature</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Delete all values of attribute</stringProp>
+          <stringProp name="TestPlan.comments">Retrieve attribute values
+(FI.IOT.BK.API.36)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
             <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
           </XMLSchemaAssertion>
           <hashTree/>
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
             <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/statusCode/code=200</stringProp>
+            <stringProp name="XPath.xpath">/contextAttributeResponse/statusCode/code=200</stringProp>
             <boolProp name="XPath.validate">false</boolProp>
             <boolProp name="XPath.whitespace">false</boolProp>
             <boolProp name="XPath.tolerant">false</boolProp>
@@ -1136,7 +1380,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.39" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.retrieveEntityAttributeValueAndMetadata" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1153,7 +1397,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}/attributes/temperature/id1</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/temperature/id1</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1161,7 +1405,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Retrieve attribute value and associated metadata</stringProp>
+          <stringProp name="TestPlan.comments">Retrieve attribute value and associated metadata
+(FI.IOT.BK.API.39)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1191,7 +1436,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.40" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.updateContextAttribute" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1211,7 +1456,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}/attributes/temperature/id1</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/temperature/id1</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1219,7 +1464,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Replace context attribute value</stringProp>
+          <stringProp name="TestPlan.comments">Replace context attribute value
+(FI.IOT.BK.API.40)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1249,62 +1495,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.41" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"></stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}/attributes/temperature/id1</stringProp>
-          <stringProp name="HTTPSampler.method">DELETE</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Delete all value attribute</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
-            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
-          </XMLSchemaAssertion>
-          <hashTree/>
-          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
-            <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/statusCode/code=200</stringProp>
-            <boolProp name="XPath.validate">false</boolProp>
-            <boolProp name="XPath.whitespace">false</boolProp>
-            <boolProp name="XPath.tolerant">false</boolProp>
-            <boolProp name="XPath.namespace">false</boolProp>
-          </XPathAssertion>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.42" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.retrieveEntityAttributeDomainInfo" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1326,7 +1517,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${ENTITY_ID}/attributeDomains/temperature</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributeDomains/temperature</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1334,7 +1525,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Retrieve all attribute information belonging to attribute domain</stringProp>
+          <stringProp name="TestPlan.comments">Retrieve all attribute information belonging to attribute domain
+(FI.IOT.BK.API.42)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1364,7 +1556,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.43" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.retrieveContextEntityInfo" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1389,7 +1581,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Retrieve all context information about entities of specified type</stringProp>
+          <stringProp name="TestPlan.comments">Retrieve all context information about entities of specified type
+(FI.IOT.BK.API.43)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1419,7 +1612,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.44" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.retrieveContextEntityAttributeValues" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1444,7 +1637,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Retrieve all values of specified attribute of the context entities of the specific type</stringProp>
+          <stringProp name="TestPlan.comments">Retrieve all values of specified attribute of the context entities of the specific type
+(FI.IOT.BK.API.44)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1474,7 +1668,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.45" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.retrieveContextEntityAttributeDomainValues" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1499,7 +1693,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">For all context entities of the specific type, retrieve the values of all attributes belonging to the attribute domain</stringProp>
+          <stringProp name="TestPlan.comments">For all context entities of the specific type, retrieve the values of all attributes belonging to the attribute domain
+(FI.IOT.BK.API.45)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1529,107 +1724,14 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.46" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;subscribeContextRequest&gt;&#xd;
-	&lt;entityIdList&gt; &#xd;
-		&lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt; &#xd;
-			&lt;id&gt;${ENTITY_ID}&lt;/id&gt; &#xd;
-		&lt;/entityId&gt; &#xd;
-	&lt;/entityIdList&gt;&#xd;
-	&lt;attributeList&gt; &#xd;
-		&lt;attribute&gt;temperature&lt;/attribute&gt; &#xd;
-	&lt;/attributeList&gt;&#xd;
-	&lt;reference&gt;127.0.0.1&lt;/reference&gt; &#xd;
-	&lt;duration&gt;P5Y&lt;/duration&gt; &#xd;
-	&lt;restriction&gt;&#xd;
-		&lt;attributeExpression&gt;someXPATH&lt;/attributeExpression&gt; &#xd;
-		&lt;scope&gt; &#xd;
-			&lt;operationScope&gt; &#xd;
-				&lt;scopeType&gt;someScopeType&lt;/scopeType&gt; &#xd;
-				&lt;scopeValue&gt;someScopeValue&lt;/scopeValue&gt; &#xd;
-			&lt;/operationScope&gt; &#xd;
-		&lt;/scope&gt;&#xd;
-	&lt;/restriction&gt; &#xd;
-	&lt;notifyConditions&gt;&#xd;
-		&lt;notifyCondition&gt;&#xd;
-			&lt;type&gt;ONCHANGE&lt;/type&gt; &#xd;
-		&lt;/notifyCondition&gt; &#xd;
-	&lt;/notifyConditions&gt;&#xd;
-	&lt;throttling&gt;P5Y&lt;/throttling&gt; &#xd;
-&lt;/subscribeContextRequest&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextSubscriptions</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Create a new subscription</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
-            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
-          </XMLSchemaAssertion>
-          <hashTree/>
-          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
-            <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/subscribeContextResponse/subscribeError/errorCode/code=200</stringProp>
-            <boolProp name="XPath.validate">false</boolProp>
-            <boolProp name="XPath.whitespace">false</boolProp>
-            <boolProp name="XPath.tolerant">false</boolProp>
-            <boolProp name="XPath.namespace">false</boolProp>
-          </XPathAssertion>
-          <hashTree/>
-          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
-            <stringProp name="XPathExtractor.default">NOT FOUND</stringProp>
-            <stringProp name="XPathExtractor.refname">subscriptionId</stringProp>
-            <stringProp name="XPathExtractor.xpathQuery">subscribeContextResponse/subscribeResponse/subscriptionId</stringProp>
-            <boolProp name="XPathExtractor.validate">true</boolProp>
-            <boolProp name="XPathExtractor.tolerant">false</boolProp>
-            <boolProp name="XPathExtractor.namespace">false</boolProp>
-            <boolProp name="XPathExtractor.report_errors">true</boolProp>
-            <boolProp name="XPathExtractor.whitespace">true</boolProp>
-            <boolProp name="XPathExtractor.show_warnings">true</boolProp>
-          </XPathExtractor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.47" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.updateContextSubscription" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">&lt;updateContextSubscriptionRequest&gt; &#xd;
-	&lt;subscriptionId&gt;${subscriptionId}&lt;/subscriptionId&gt; &#xd;
+	&lt;subscriptionId&gt;${c_subscriptionId}&lt;/subscriptionId&gt; &#xd;
 	&lt;duration&gt;P5Y&lt;/duration&gt; &#xd;
 	&lt;restriction&gt; &#xd;
 		&lt;attributeExpression&gt;&lt;/attributeExpression&gt; &#xd;
@@ -1651,7 +1753,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextSubscriptions/${subscriptionId}</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextSubscriptions/${c_subscriptionId}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1659,7 +1761,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Update subscription</stringProp>
+          <stringProp name="TestPlan.comments">Update subscription
+(FI.IOT.BK.API.47)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1681,7 +1784,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <hashTree/>
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
             <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/updateContextSubscriptionResponse/subscribeResponse/subscriptionId=&quot;${subscriptionId}&quot;</stringProp>
+            <stringProp name="XPath.xpath">/updateContextSubscriptionResponse/subscribeResponse/subscriptionId=&quot;${c_subscriptionId}&quot;</stringProp>
             <boolProp name="XPath.validate">false</boolProp>
             <boolProp name="XPath.whitespace">false</boolProp>
             <boolProp name="XPath.tolerant">false</boolProp>
@@ -1689,7 +1792,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.48" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.cancelSubscription" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1706,7 +1809,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextSubscriptions/${subscriptionId}</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextSubscriptions/${c_subscriptionId}</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1714,7 +1817,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Cancel subscription</stringProp>
+          <stringProp name="TestPlan.comments">Cancel subscription
+(FI.IOT.BK.API.48)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1736,7 +1840,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <hashTree/>
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
             <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/unsubscribeContextResponse/statusCode/code=200 and /unsubscribeContextResponse/subscriptionId=&quot;${subscriptionId}&quot;</stringProp>
+            <stringProp name="XPath.xpath">/unsubscribeContextResponse/statusCode/code=200 and /unsubscribeContextResponse/subscriptionId=&quot;${c_subscriptionId}&quot;</stringProp>
             <boolProp name="XPath.validate">false</boolProp>
             <boolProp name="XPath.whitespace">false</boolProp>
             <boolProp name="XPath.tolerant">false</boolProp>
@@ -1744,22 +1848,13 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.26(XML)" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.deleteContextAttributeValues" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;queryContextRequest&gt;&#xd;
-	&lt;entityIdList&gt;&#xd;
-		&lt;entityId isPattern=&quot;false&quot; type=&quot;Room&quot;&gt; &#xd;
-			&lt;id&gt;${ENTITY_ID}&lt;/id&gt;&#xd;
-		&lt;/entityId&gt;&#xd;
-	&lt;/entityIdList&gt;&#xd;
-	&lt;attributeList&gt;&#xd;
-		&lt;attribute&gt;temperature&lt;/attribute&gt;&#xd;
-	&lt;/attributeList&gt; &#xd;
-&lt;/queryContextRequest&gt;</stringProp>
+                <stringProp name="Argument.value"></stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -1770,15 +1865,16 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/queryContext</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/temperature/id1</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Issue a context query</stringProp>
+          <stringProp name="TestPlan.comments">Delete all value attribute
+(FI.IOT.BK.API.41)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -1800,7 +1896,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <hashTree/>
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
             <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/queryContextResponse/contextResponseList/contextElementResponse/contextElement/entityId/id=&quot;${ENTITY_ID}&quot;</stringProp>
+            <stringProp name="XPath.xpath">/statusCode/code=200</stringProp>
             <boolProp name="XPath.validate">false</boolProp>
             <boolProp name="XPath.whitespace">false</boolProp>
             <boolProp name="XPath.tolerant">false</boolProp>
@@ -1808,13 +1904,13 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="FI.IOT.BK.API.26(JSON)" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.deleteEntityAttributeValues" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;entities&quot;: [{ &quot;type&quot;: &quot;Room&quot;, &quot;isPattern&quot;: &quot;false&quot;, &quot;id&quot;: &quot;${ENTITY_ID}&quot;}]}</stringProp>
+                <stringProp name="Argument.value"></stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -1825,39 +1921,99 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/queryContext</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/temperature</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Issue a context query</stringProp>
+          <stringProp name="TestPlan.comments">Delete all values of attribute
+(FI.IOT.BK.API.38)</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="2092731981">contextElement</stringProp>
-              <stringProp name="1668652157">${ENTITY_ID}</stringProp>
+          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
+            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
+          </XMLSchemaAssertion>
+          <hashTree/>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">/statusCode/code=200</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.deleteAllEntityInfo" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
             </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Delete all entity information
+(FI.IOT.BK.API.35)</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
+            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
+          </XMLSchemaAssertion>
+          <hashTree/>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">/statusCode/code=200</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
           <hashTree/>
         </hashTree>
       </hashTree>
@@ -1893,10 +2049,10 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <sampleCount>true</sampleCount>
           </value>
         </objProp>
-        <stringProp name="filename">${ABSOLUTE_PATH}${GE_NAME}-${GE_VERSION}.csv</stringProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}${GE_NAME}-${GE_VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
