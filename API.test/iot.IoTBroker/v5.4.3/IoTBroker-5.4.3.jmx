@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="3.1" jmeter="3.1 r1770033">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Aeron-IoTBroker" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="IoTBroker" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">true</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
@@ -56,23 +56,23 @@
           </elementProp>
           <elementProp name="S_ENTITY_ID" elementType="Argument">
             <stringProp name="Argument.name">S_ENTITY_ID</stringProp>
-            <stringProp name="Argument.value">ConferenceRoom5</stringProp>
+            <stringProp name="Argument.value">ConferenceRoom10</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Entity id used within std APIs tests</stringProp>
           </elementProp>
           <elementProp name="S1_ENTITY_ID" elementType="Argument">
             <stringProp name="Argument.name">S1_ENTITY_ID</stringProp>
-            <stringProp name="Argument.value">ConferenceRoom6</stringProp>
+            <stringProp name="Argument.value">ConferenceRoom11</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="S2_ENTITY_ID" elementType="Argument">
             <stringProp name="Argument.name">S2_ENTITY_ID</stringProp>
-            <stringProp name="Argument.value">ConferenceRoom7</stringProp>
+            <stringProp name="Argument.value">ConferenceRoom12</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="C_ENTITY_ID" elementType="Argument">
             <stringProp name="Argument.name">C_ENTITY_ID</stringProp>
-            <stringProp name="Argument.value">ConferenceRoom8</stringProp>
+            <stringProp name="Argument.value">ConferenceRoom13</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">Entity id used within convenience APIs tests</stringProp>
           </elementProp>
@@ -151,7 +151,8 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
         <stringProp name="scriptLanguage">groovy</stringProp>
       </JSR223PreProcessor>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Test group" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="IoTDiscovery(NGSI9)" enabled="true">
+        <stringProp name="TestPlan.comments">Propedeutic calls to IoTDiscovery component needed for testing IoTBroker</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -159,52 +160,13 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <longProp name="ThreadGroup.start_time">1487861542000</longProp>
-        <longProp name="ThreadGroup.end_time">1487861542000</longProp>
+        <longProp name="ThreadGroup.start_time">1489572477000</longProp>
+        <longProp name="ThreadGroup.end_time">1489572477000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-        <stringProp name="TestPlan.comments">Check GEri version</stringProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check version" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"></stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/sanityCheck/</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">FI.IOT.BK.API.25</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
-            <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/sanityCheck/version=&quot;Version: ${GE_VERSION}&quot;</stringProp>
-            <boolProp name="XPath.validate">false</boolProp>
-            <boolProp name="XPath.whitespace">false</boolProp>
-            <boolProp name="XPath.tolerant">false</boolProp>
-            <boolProp name="XPath.namespace">false</boolProp>
-          </XPathAssertion>
-          <hashTree/>
-        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ngsi9.registerContext(JSON)" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -356,6 +318,142 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
             <stringProp name="xmlschema_assertion_filename">${NGSI9_SPECS_PATH}</stringProp>
           </XMLSchemaAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ngsi9.registerContext" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;!-- &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; --&gt;&#xd;
+&lt;registerContextRequest&gt;&#xd;
+&lt;contextRegistrationList&gt;&#xd;
+        &lt;contextRegistration&gt;&#xd;
+                &lt;entityIdList&gt;&#xd;
+                        &lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt;&#xd;
+                        		&lt;id&gt;${C_ENTITY_ID}&lt;/id&gt;&#xd;
+                        &lt;/entityId&gt;&#xd;
+                &lt;/entityIdList&gt;&#xd;
+                &lt;contextRegistrationAttributeList&gt;&#xd;
+                        &lt;contextRegistrationAttribute&gt;&#xd;
+                                &lt;name&gt;temperature&lt;/name&gt;&#xd;
+                                &lt;type&gt;degree&lt;/type&gt;&#xd;
+                                &lt;isDomain&gt;true&lt;/isDomain&gt;&#xd;
+                                &lt;metadata&gt;&#xd;
+                                        &lt;contextMetadata&gt;&#xd;
+                                                &lt;name&gt;unit&lt;/name&gt;&#xd;
+                                                &lt;type&gt;string&lt;/type&gt;&#xd;
+                                                &lt;value&gt;celsius&lt;/value&gt;&#xd;
+                                        &lt;/contextMetadata&gt;&#xd;
+                                &lt;/metadata&gt;&#xd;
+                        &lt;/contextRegistrationAttribute&gt;                    &#xd;
+                &lt;/contextRegistrationAttributeList&gt;&#xd;
+                &lt;registrationMetaData&gt;&#xd;
+                        &lt;contextMetadata&gt;&#xd;
+                                &lt;name&gt;&lt;/name&gt; &lt;type&gt;&lt;/type&gt;&#xd;
+                                &lt;value&gt;&lt;/value&gt;&#xd;
+                        &lt;/contextMetadata&gt;&#xd;
+                &lt;/registrationMetaData&gt;&#xd;
+                &lt;providingApplication&gt;${AGENT_URL}&lt;/providingApplication&gt;&#xd;
+        &lt;/contextRegistration&gt;&#xd;
+&lt;/contextRegistrationList&gt;&#xd;
+&lt;duration&gt;PT1M&lt;/duration&gt;&#xd;
+&lt;registrationId&gt;&lt;/registrationId&gt;&#xd;
+&lt;/registerContextRequest&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${IOTDISCOVERY_HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${IOTDISCOVERY_PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/registerContext</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">FI.IOT.BK.API.26.PRO(XML): Propedeutic call to IoTDiscovery for being able to test a ContextQuery with IoTBroker</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/xml, application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/xml</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
+            <stringProp name="xmlschema_assertion_filename">${NGSI9_SPECS_PATH}</stringProp>
+          </XMLSchemaAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="IotBroker" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1487861542000</longProp>
+        <longProp name="ThreadGroup.end_time">1487861542000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">Group of Functional tests for GEri IoTBroker</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Check version" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/sanityCheck/</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Check GEri version 
+(FI.IOT.BK.API.25)</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">/sanityCheck/version=&quot;Version: ${GE_VERSION}&quot;</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="standard.queryContext(JSON)" enabled="true">
@@ -845,86 +943,6 @@ UDPDATE (FI.IOT.BK.API.28)</stringProp>
           </XPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ngsi9.registerContext" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;!-- &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; --&gt;&#xd;
-&lt;registerContextRequest&gt;&#xd;
-&lt;contextRegistrationList&gt;&#xd;
-        &lt;contextRegistration&gt;&#xd;
-                &lt;entityIdList&gt;&#xd;
-                        &lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt;&#xd;
-                        		&lt;id&gt;${C_ENTITY_ID}&lt;/id&gt;&#xd;
-                        &lt;/entityId&gt;&#xd;
-                &lt;/entityIdList&gt;&#xd;
-                &lt;contextRegistrationAttributeList&gt;&#xd;
-                        &lt;contextRegistrationAttribute&gt;&#xd;
-                                &lt;name&gt;temperature&lt;/name&gt;&#xd;
-                                &lt;type&gt;degree&lt;/type&gt;&#xd;
-                                &lt;isDomain&gt;true&lt;/isDomain&gt;&#xd;
-                                &lt;metadata&gt;&#xd;
-                                        &lt;contextMetadata&gt;&#xd;
-                                                &lt;name&gt;unit&lt;/name&gt;&#xd;
-                                                &lt;type&gt;string&lt;/type&gt;&#xd;
-                                                &lt;value&gt;celsius&lt;/value&gt;&#xd;
-                                        &lt;/contextMetadata&gt;&#xd;
-                                &lt;/metadata&gt;&#xd;
-                        &lt;/contextRegistrationAttribute&gt;                    &#xd;
-                &lt;/contextRegistrationAttributeList&gt;&#xd;
-                &lt;registrationMetaData&gt;&#xd;
-                        &lt;contextMetadata&gt;&#xd;
-                                &lt;name&gt;&lt;/name&gt; &lt;type&gt;&lt;/type&gt;&#xd;
-                                &lt;value&gt;&lt;/value&gt;&#xd;
-                        &lt;/contextMetadata&gt;&#xd;
-                &lt;/registrationMetaData&gt;&#xd;
-                &lt;providingApplication&gt;${AGENT_URL}&lt;/providingApplication&gt;&#xd;
-        &lt;/contextRegistration&gt;&#xd;
-&lt;/contextRegistrationList&gt;&#xd;
-&lt;duration&gt;PT1M&lt;/duration&gt;&#xd;
-&lt;registrationId&gt;&lt;/registrationId&gt;&#xd;
-&lt;/registerContextRequest&gt;</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${IOTDISCOVERY_HOST}</stringProp>
-          <stringProp name="HTTPSampler.port">${IOTDISCOVERY_PORT}</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi9/registerContext</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">FI.IOT.BK.API.26.PRO(XML): Propedeutic call to IoTDiscovery for being able to test a ContextQuery with IoTBroker</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/xml, application/json</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
-            <stringProp name="xmlschema_assertion_filename">${NGSI9_SPECS_PATH}</stringProp>
-          </XMLSchemaAssertion>
-          <hashTree/>
-        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.subscribeContext" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1017,55 +1035,6 @@ UDPDATE (FI.IOT.BK.API.28)</stringProp>
             <boolProp name="XPathExtractor.whitespace">true</boolProp>
             <boolProp name="XPathExtractor.show_warnings">true</boolProp>
           </XPathExtractor>
-          <hashTree/>
-        </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.retrieveEntityInfo" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain"></stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Retrieve all entity information 
-(FI.IOT.BK.API.32)</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/xml, application/json</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
-            <stringProp name="xmlschema_assertion_filename">${NGSI10_SPECS_PATH}</stringProp>
-          </XMLSchemaAssertion>
-          <hashTree/>
-          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
-            <boolProp name="XPath.negate">false</boolProp>
-            <stringProp name="XPath.xpath">/contextElementResponse/contextElement/entityId/id=&quot;${C_ENTITY_ID}&quot; and /contextElementResponse/statusCode/code=200</stringProp>
-            <boolProp name="XPath.validate">false</boolProp>
-            <boolProp name="XPath.whitespace">false</boolProp>
-            <boolProp name="XPath.tolerant">false</boolProp>
-            <boolProp name="XPath.namespace">false</boolProp>
-          </XPathAssertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="convenience.updateContextElement" enabled="true">
@@ -2016,43 +1985,40 @@ UDPDATE (FI.IOT.BK.API.28)</stringProp>
           </XPathAssertion>
           <hashTree/>
         </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="IoTBroker test results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>false</time>
+              <latency>false</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>false</threadName>
+              <dataType>false</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>false</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <sampleCount>true</sampleCount>
+            </value>
+          </objProp>
+          <stringProp name="filename">${ABSOLUTE_PATH}${GE_NAME}-${GE_VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="FUNCTIONAL TEST results" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <hostname>true</hostname>
-            <threadCounts>true</threadCounts>
-            <sampleCount>true</sampleCount>
-          </value>
-        </objProp>
-        <stringProp name="filename">${ABSOLUTE_PATH}${GE_NAME}-${GE_VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
-      </ResultCollector>
-      <hashTree/>
-      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="All tests results" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
