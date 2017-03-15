@@ -1,0 +1,232 @@
+###########  COMMON ###########
+
+
+
+########### TEST FI.DCX.CEP.API.03 ###########
+Request
+Change the configuration as indicate in the field "Note"
+Response
+Log:
+
+INFO: Server startup in 346780 ms
+json event: {"Name":"TrafficReport","volume":"1600"}
+Apr 29, 2016 1:42:51 PM com.ibm.hrl.proton.router.EventRouter routeTimedObject
+INFO: routeTimedObject: forwarding event TrafficReport; Cost=0.0; Certainty=0.0; Name=TrafficReport; EventSource=; OccurrenceTime=null; Duration=0.0; Annotation=; volume=1600; EventId=9d25c58f-a568-4323-b974-68f49d5ebdae; ExpirationTime=null; Chronon=null; DetectionTime=1461937371765;  to consumer...
+json event: {"Name":"TrafficReport","volume":"2500"}
+Apr 29, 2016 1:42:56 PM com.ibm.hrl.proton.router.EventRouter routeTimedObject
+INFO: routeTimedObject: forwarding event TrafficReport; Cost=0.0; Certainty=0.0; Name=TrafficReport; EventSource=; OccurrenceTime=null; Duration=0.0; Annotation=; volume=2500; EventId=5260798d-a6d7-4eea-93b6-d9d6d7fc3ecb; ExpirationTime=null; Chronon=null; DetectionTime=1461937376779;  to consumer...
+Apr 29, 2016 1:42:56 PM com.ibm.hrl.proton.router.EventRouter routeTimedObject
+INFO: routeTimedObject: forwarding event ExpectedCrash; Name=ExpectedCrash; Certainty=0.0; Cost=10.0; EventSource=; OccurrenceTime=1461937376891; Annotation=; Duration=0.0; EventId=6a335c62-6650-4bed-a006-deb5b9edb9b2; ExpirationTime=null; Chronon=null; DetectionTime=1461937376891;  to consumer...
+
+File was created:
+-rw-r--r-- 1 tomcat7 tomcat7  633 Apr 29 13:42 DoSAttack_TrafficReport.txt
+-rw-r--r-- 1 tomcat7 tomcat7  237 Apr 29 13:42 DoSAttack_PredictedCrash.txt
+
+
+
+########### TEST FI.DCX.CEP.API.11 ###########
+Request
+Change the configuration as indicate in the field "Note"
+Response
+Log:
+com.ibm.hrl.proton.adapters.interfaces.AdapterException: com.ibm.hrl.proton.adapters.rest.client.RESTException: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Cost":"0.0","Certainty":"0.0","Name":"TrafficReport","EventSource":"","Duration":"0.0","Annotation":"","volume":"1000","EventId":"363898c9-f99e-4be3-ba99-bd4a7c7d51f5","DetectionTime":"29\/04\/2016-07:53:23"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 210
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+        at com.ibm.hrl.proton.adapters.rest.client.RESTOutputAdapter.writeObject(RESTOutputAdapter.java:78)
+        at com.ibm.hrl.proton.adapters.interfaces.BaseOutputAdapter.processAndOutput(BaseOutputAdapter.java:110)
+        at com.ibm.hrl.proton.adapters.interfaces.BaseOutputAdapter.run(BaseOutputAdapter.java:83)
+        at com.ibm.hrl.proton.server.workManager.WorkManagerFacade$1.run(WorkManagerFacade.java:50)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: com.ibm.hrl.proton.adapters.rest.client.RESTException: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Cost":"0.0","Certainty":"0.0","Name":"TrafficReport","EventSource":"","Duration":"0.0","Annotation":"","volume":"1000","EventId":"363898c9-f99e-4be3-ba99-bd4a7c7d51f5","DetectionTime":"29\/04\/2016-07:53:23"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 210
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+        at com.ibm.hrl.proton.adapters.rest.client.RestClient.putEventToConsumer(RestClient.java:140)
+        at com.ibm.hrl.proton.adapters.rest.client.RESTOutputAdapter.writeObject(RESTOutputAdapter.java:75)
+        ... 6 more
+Caused by: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Cost":"0.0","Certainty":"0.0","Name":"TrafficReport","EventSource":"","Duration":"0.0","Annotation":"","volume":"1000","EventId":"363898c9-f99e-4be3-ba99-bd4a7c7d51f5","DetectionTime":"29\/04\/2016-07:53:23"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 210
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+        at com.ibm.hrl.proton.adapters.rest.client.RestClient.putEventToConsumer(RestClient.java:134)
+        ... 7 more
+Apr 29, 2016 7:53:26 AM com.ibm.hrl.proton.server.executorServices.SimpleThreadFactory$ProtonExceptionHandler uncaughtException
+SEVERE: Uncaught exception in thread: Thread[5,5,main],exception: com.ibm.hrl.proton.adapters.rest.client.RESTException: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Cost":"0.0","Certainty":"0.0","Name":"TrafficReport","EventSource":"","Duration":"0.0","Annotation":"","volume":"1000","EventId":"363898c9-f99e-4be3-ba99-bd4a7c7d51f5","DetectionTime":"29\/04\/2016-07:53:23"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 210
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+java.lang.RuntimeException: com.ibm.hrl.proton.adapters.rest.client.RESTException: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Cost":"0.0","Certainty":"0.0","Name":"TrafficReport","EventSource":"","Duration":"0.0","Annotation":"","volume":"1000","EventId":"363898c9-f99e-4be3-ba99-bd4a7c7d51f5","DetectionTime":"29\/04\/2016-07:53:23"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 210
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+        at com.ibm.hrl.proton.adapters.interfaces.BaseOutputAdapter.run(BaseOutputAdapter.java:86)
+        at com.ibm.hrl.proton.server.workManager.WorkManagerFacade$1.run(WorkManagerFacade.java:50)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+json event: {"Name":"TrafficReport","volume":"1600"}
+
+########### TEST FI.DCX.CEP.API.12 ###########
+Request
+Change the configuration as indicate in the field "Note"
+send a call REST as in TEST FI.DCX.CEP.API.02
+Response
+Log:
+
+Apr 29, 2016 2:04:14 PM com.ibm.hrl.proton.webapp.resources.EventResource submitNewEvent
+INFO: starting submitNewEvent
+Apr 29, 2016 2:04:14 PM com.ibm.hrl.proton.router.EventRouter routeTimedObject
+INFO: routeTimedObject: forwarding event TrafficReport; Name=TrafficReport; Certainty=0.0; Cost=0.0; EventSource=; OccurrenceTime=null; Annotation=; Duration=0.0; volume=10000; EventId=4f367e72-e8b1-4883-80d3-39dda5f74534; ExpirationTime=null; Chronon=null; DetectionTime=1461938654067;  to consumer...
+Apr 29, 2016 2:04:14 PM com.ibm.hrl.proton.webapp.resources.EventResource submitNewEvent
+INFO: events sent to proton runtime...
+
+
+-rw-r--r-- 1 tomcat7 tomcat7  845 Apr 29 14:04 DoSAttack_TrafficReport.txt
+
+########### TEST FI.DCX.CEP.API.13 ###########
+Request
+Change the configuration as indicate in the field "Note"
+send a call REST as in TEST FI.DCX.CEP.API.02
+Response
+Log:
+
+Apr 29, 2016 2:04:14 PM com.ibm.hrl.proton.webapp.resources.EventResource submitNewEvent
+INFO: starting submitNewEvent
+Apr 29, 2016 2:04:14 PM com.ibm.hrl.proton.router.EventRouter routeTimedObject
+INFO: routeTimedObject: forwarding event TrafficReport; Name=TrafficReport; Certainty=0.0; Cost=0.0; EventSource=; OccurrenceTime=null; Annotation=; Duration=0.0; volume=10000; EventId=4f367e72-e8b1-4883-80d3-39dda5f74534; ExpirationTime=null; Chronon=null; DetectionTime=1461938654067;  to consumer...
+Apr 29, 2016 2:04:14 PM com.ibm.hrl.proton.webapp.resources.EventResource submitNewEvent
+INFO: events sent to proton runtime...
+
+Apr 29, 2016 9:22:56 AM com.ibm.hrl.proton.webapp.providers.EventJSONMessageReader readFrom
+INFO: started event message body reader
+Apr 29, 2016 9:22:56 AM com.ibm.hrl.proton.webapp.providers.EventJSONMessageReader readFrom
+INFO: name value: TrafficReport looking for: Name
+Apr 29, 2016 9:22:56 AM com.ibm.hrl.proton.webapp.providers.EventJSONMessageReader readFrom
+INFO: finished event message body reader
+Apr 29, 2016 9:22:56 AM com.ibm.hrl.proton.webapp.resources.EventResource submitNewEvent
+INFO: starting submitNewEvent
+Apr 29, 2016 9:22:56 AM com.ibm.hrl.proton.router.EventRouter routeTimedObject
+INFO: routeTimedObject: forwarding event TrafficReport; Name=TrafficReport; Certainty=0.0; Cost=0.0; EventSource=; OccurrenceTime=null; Annotation=; Duration=0.0; volume=10000; EventId=8bac0b3e-5c7e-4b45-8621-15d95ce1780b; ExpirationTime=null; Chronon=null; DetectionTime=1461921776647;  to consumer...
+Apr 29, 2016 9:22:56 AM com.ibm.hrl.proton.webapp.resources.EventResource submitNewEvent
+INFO: events sent to proton runtime...
+com.ibm.hrl.proton.adapters.interfaces.AdapterException: com.ibm.hrl.proton.adapters.rest.client.RESTException: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Certainty":"0.0","Cost":"0.0","Name":"TrafficReport","EventSource":"","Annotation":"","Duration":"0.0","volume":"10000","EventId":"8bac0b3e-5c7e-4b45-8621-15d95ce1780b","DetectionTime":"29\/04\/2016-09:22:56"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 211
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+        at com.ibm.hrl.proton.adapters.rest.client.RESTOutputAdapter.writeObject(RESTOutputAdapter.java:78)
+        at com.ibm.hrl.proton.adapters.interfaces.BaseOutputAdapter.processAndOutput(BaseOutputAdapter.java:110)
+        at com.ibm.hrl.proton.adapters.interfaces.BaseOutputAdapter.run(BaseOutputAdapter.java:83)
+        at com.ibm.hrl.proton.server.workManager.WorkManagerFacade$1.run(WorkManagerFacade.java:50)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: com.ibm.hrl.proton.adapters.rest.client.RESTException: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Certainty":"0.0","Cost":"0.0","Name":"TrafficReport","EventSource":"","Annotation":"","Duration":"0.0","volume":"10000","EventId":"8bac0b3e-5c7e-4b45-8621-15d95ce1780b","DetectionTime":"29\/04\/2016-09:22:56"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 211
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+        at com.ibm.hrl.proton.adapters.rest.client.RestClient.putEventToConsumer(RestClient.java:140)
+        at com.ibm.hrl.proton.adapters.rest.client.RESTOutputAdapter.writeObject(RESTOutputAdapter.java:75)
+        ... 6 more
+Caused by: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Certainty":"0.0","Cost":"0.0","Name":"TrafficReport","EventSource":"","Annotation":"","Duration":"0.0","volume":"10000","EventId":"8bac0b3e-5c7e-4b45-8621-15d95ce1780b","DetectionTime":"29\/04\/2016-09:22:56"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 211
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+        at com.ibm.hrl.proton.adapters.rest.client.RestClient.putEventToConsumer(RestClient.java:134)
+        ... 7 more
+Apr 29, 2016 9:22:56 AM com.ibm.hrl.proton.server.executorServices.SimpleThreadFactory$ProtonExceptionHandler uncaughtException
+SEVERE: Uncaught exception in thread: Thread[5,5,main],exception: com.ibm.hrl.proton.adapters.rest.client.RESTException: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Certainty":"0.0","Cost":"0.0","Name":"TrafficReport","EventSource":"","Annotation":"","Duration":"0.0","volume":"10000","EventId":"8bac0b3e-5c7e-4b45-8621-15d95ce1780b","DetectionTime":"29\/04\/2016-09:22:56"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 211
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+java.lang.RuntimeException: com.ibm.hrl.proton.adapters.rest.client.RESTException: com.ibm.hrl.proton.adapters.rest.client.RESTException: Could not perform POST of event instance:
+{"Certainty":"0.0","Cost":"0.0","Name":"TrafficReport","EventSource":"","Annotation":"","Duration":"0.0","volume":"10000","EventId":"8bac0b3e-5c7e-4b45-8621-15d95ce1780b","DetectionTime":"29\/04\/2016-09:22:56"}
+with request headers:
+Content-Type:
+
+User-Agent: Jakarta Commons-HttpClient/3.0
+
+Host: 161.27.159.149:8080
+
+Content-Length: 211
+
+to consumer http://161.27.159.149:8080/DosAttack/consumer, responce result: 404
+        at com.ibm.hrl.proton.adapters.interfaces.BaseOutputAdapter.run(BaseOutputAdapter.java:86)
+        at com.ibm.hrl.proton.server.workManager.WorkManagerFacade$1.run(WorkManagerFacade.java:50)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+        at java.lang.Thread.run(Thread.java:745)
