@@ -1,0 +1,1654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.1" jmeter="3.1 r1770033">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="CEP-5.4.3" enabled="true">
+      <stringProp name="TestPlan.comments">Test for CEP GE</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="HOST" elementType="Argument">
+            <stringProp name="Argument.name">HOST</stringProp>
+            <stringProp name="Argument.value">cep</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">IP of CEP, name set in the hosts file</stringProp>
+          </elementProp>
+          <elementProp name="PORT" elementType="Argument">
+            <stringProp name="Argument.name">PORT</stringProp>
+            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Default port of CEP</stringProp>
+          </elementProp>
+          <elementProp name="VERSION" elementType="Argument">
+            <stringProp name="Argument.name">VERSION</stringProp>
+            <stringProp name="Argument.value">5.4.3</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Current version of CEP</stringProp>
+          </elementProp>
+          <elementProp name="ABSOLUTE_PATH" elementType="Argument">
+            <stringProp name="Argument.name">ABSOLUTE_PATH</stringProp>
+            <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}</stringProp>
+            <stringProp name="Argument.desc">Path for jmx and csv files</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="GE_NAME" elementType="Argument">
+            <stringProp name="Argument.name">GE_NAME</stringProp>
+            <stringProp name="Argument.value">cep</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="EPN_NAME" elementType="Argument">
+            <stringProp name="Argument.name">EPN_NAME</stringProp>
+            <stringProp name="Argument.value">test-cep</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="STATE_STARTED" elementType="Argument">
+            <stringProp name="Argument.name">STATE_STARTED</stringProp>
+            <stringProp name="Argument.value">started</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="STATE_STOPPED" elementType="Argument">
+            <stringProp name="Argument.name">STATE_STOPPED</stringProp>
+            <stringProp name="Argument.value">stopped</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="STOP" elementType="Argument">
+            <stringProp name="Argument.name">STOP</stringProp>
+            <stringProp name="Argument.value">stop</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="START" elementType="Argument">
+            <stringProp name="Argument.name">START</stringProp>
+            <stringProp name="Argument.value">start</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="PATH_FILE_OUTPUT" elementType="Argument">
+            <stringProp name="Argument.name">PATH_FILE_OUTPUT</stringProp>
+            <stringProp name="Argument.value">/tmp/output_event.json</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Output provided via file (JSON)</stringProp>
+          </elementProp>
+          <elementProp name="PATH_FILE_INPUT" elementType="Argument">
+            <stringProp name="Argument.name">PATH_FILE_INPUT</stringProp>
+            <stringProp name="Argument.value">/tmp/inputFileJSON.txt</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Please upload the file in &apos;tmp&apos; folder</stringProp>
+          </elementProp>
+          <elementProp name="ORION_ENDPOINT_REST_OUTPUT" elementType="Argument">
+            <stringProp name="Argument.name">ORION_ENDPOINT_REST_OUTPUT</stringProp>
+            <stringProp name="Argument.value">http://orion:1026/v2/entities</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+        <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Definitions and Instances" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1489052294000</longProp>
+        <longProp name="ThreadGroup.end_time">1489052294000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="createDefinition" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{  &#xd;
+   &quot;epn&quot;:{  &#xd;
+      &quot;events&quot;:[  &#xd;
+         {  &#xd;
+            &quot;name&quot;:&quot;CarContextUpdate&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;attributes&quot;:[  &#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;speed&quot;,&#xd;
+                  &quot;type&quot;:&quot;Integer&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;limit&quot;,&#xd;
+                  &quot;type&quot;:&quot;Integer&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;entityId&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;entityType&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               }&#xd;
+            ]&#xd;
+         },&#xd;
+         {  &#xd;
+            &quot;name&quot;:&quot;OutputEvent&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;attributes&quot;:[  &#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;result&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;entityId&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;entityType&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               }&#xd;
+            ]&#xd;
+         }&#xd;
+      ],&#xd;
+      &quot;epas&quot;:[  &#xd;
+         {  &#xd;
+            &quot;name&quot;:&quot;check&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;epaType&quot;:&quot;All&quot;,&#xd;
+            &quot;context&quot;:&quot;always&quot;,&#xd;
+            &quot;inputEvents&quot;:[  &#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;CarContextUpdate&quot;,&#xd;
+                  &quot;consumptionPolicy&quot;:&quot;Consume&quot;,&#xd;
+                  &quot;instanceSelectionPolicy&quot;:&quot;First&quot;&#xd;
+               }&#xd;
+            ],&#xd;
+            &quot;computedVariables&quot;:[  &#xd;
+&#xd;
+            ],&#xd;
+            &quot;assertion&quot;:&quot;CarContextUpdate.speed &gt; CarContextUpdate.limit&quot;,&#xd;
+            &quot;evaluationPolicy&quot;:&quot;Immediate&quot;,&#xd;
+            &quot;cardinalityPolicy&quot;:&quot;Unrestricted&quot;,&#xd;
+            &quot;internalSegmentation&quot;:[  &#xd;
+&#xd;
+            ],&#xd;
+            &quot;derivedEvents&quot;:[  &#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;OutputEvent&quot;,&#xd;
+                  &quot;reportParticipants&quot;:false,&#xd;
+                  &quot;expressions&quot;:{  &#xd;
+                     &quot;result&quot;:&quot;\&quot;Please, decrease your speed!\&quot;&quot;,&#xd;
+                     &quot;entityId&quot;:&quot;CarContextUpdate.entityId&quot;,&#xd;
+                     &quot;entityType&quot;:&quot;CarContextUpdate.entityType&quot;&#xd;
+                  }&#xd;
+               }&#xd;
+            ]&#xd;
+         }&#xd;
+      ],&#xd;
+      &quot;contexts&quot;:{  &#xd;
+         &quot;temporal&quot;:[  &#xd;
+            {  &#xd;
+               &quot;name&quot;:&quot;always&quot;,&#xd;
+               &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+               &quot;type&quot;:&quot;TemporalInterval&quot;,&#xd;
+               &quot;atStartup&quot;:true,&#xd;
+               &quot;neverEnding&quot;:true,&#xd;
+               &quot;initiators&quot;:[  &#xd;
+&#xd;
+               ],&#xd;
+               &quot;terminators&quot;:[  &#xd;
+&#xd;
+               ]&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;segmentation&quot;:[  &#xd;
+&#xd;
+         ],&#xd;
+         &quot;composite&quot;:[  &#xd;
+&#xd;
+         ]&#xd;
+      },&#xd;
+      &quot;consumers&quot;:[  &#xd;
+         {  &#xd;
+            &quot;name&quot;:&quot;OrionConsumer&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;type&quot;:&quot;Rest&quot;,&#xd;
+            &quot;properties&quot;:[  &#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;URL&quot;,&#xd;
+                  &quot;value&quot;:&quot;${ORION_ENDPOINT_REST_OUTPUT}&quot;&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;contentType&quot;,&#xd;
+                  &quot;value&quot;:&quot;application/json&quot;&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;formatter&quot;,&#xd;
+                  &quot;value&quot;:&quot;json_ngsi&quot;&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;delimiter&quot;,&#xd;
+                  &quot;value&quot;:&quot;,&quot;&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;tagDataSeparator&quot;,&#xd;
+                  &quot;value&quot;:&quot;:&quot;&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;pollingInterval&quot;,&#xd;
+                  &quot;value&quot;:&quot;0&quot;&#xd;
+               },&#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;sendingDelay&quot;,&#xd;
+                  &quot;value&quot;:&quot;0&quot;&#xd;
+               }&#xd;
+            ],&#xd;
+            &quot;events&quot;:[  &#xd;
+               {  &#xd;
+                  &quot;name&quot;:&quot;OutputEvent&quot;&#xd;
+               }&#xd;
+            ],&#xd;
+            &quot;actions&quot;:[  &#xd;
+&#xd;
+            ]&#xd;
+         }&#xd;
+      ],&#xd;
+      &quot;producers&quot;:[  &#xd;
+&#xd;
+      ],&#xd;
+      &quot;name&quot;:&quot;${EPN_NAME}&quot;&#xd;
+   }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/definitions</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Creating a new definition</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getAllDefinitions" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/definitions</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Retrieve all the existing definitions in the repository</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">url</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$[0].url</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="url" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-955742340">/ProtonOnWebServerAdmin/resources/definitions/</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">url</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getSpecificDefinition" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/definitions/${EPN_NAME}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Retrieve the complete definition in JSON format</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">name</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.epn.name</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="name" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-2131837409">${EPN_NAME}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">name</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="changeDefinition" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;action&quot;:&quot;ChangeDefinitions&quot;,&#xd;
+    &quot;definitions-url&quot;:&quot;/ProtonOnWebServerAdmin/resources/definitions/${EPN_NAME}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/instances/ProtonOnWebServer</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Configuring/Changing a definition for an instance</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getCurrentDefinition " enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/instances/ProtonOnWebServer</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get current definition </stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">url</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.definitions-url</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="definitions-url" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-316149469">/ProtonOnWebServerAdmin/resources/definitions/${EPN_NAME}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">url</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updateDefinition" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;epn&quot;: {&#xd;
+		&quot;events&quot;: [{&#xd;
+			&quot;name&quot;: &quot;CarContextUpdate&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;attributes&quot;: [{&#xd;
+				&quot;name&quot;: &quot;speed&quot;,&#xd;
+				&quot;type&quot;: &quot;Integer&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;limit&quot;,&#xd;
+				&quot;type&quot;: &quot;Integer&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;entityId&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;entityType&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}]&#xd;
+		}, {&#xd;
+			&quot;name&quot;: &quot;OutputEvent&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;attributes&quot;: [{&#xd;
+				&quot;name&quot;: &quot;result&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;entityId&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;entityType&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}]&#xd;
+		}],&#xd;
+		&quot;epas&quot;: [{&#xd;
+			&quot;name&quot;: &quot;check_greater&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;epaType&quot;: &quot;All&quot;,&#xd;
+			&quot;context&quot;: &quot;always&quot;,&#xd;
+			&quot;inputEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;CarContextUpdate&quot;,&#xd;
+				&quot;consumptionPolicy&quot;: &quot;Consume&quot;,&#xd;
+				&quot;instanceSelectionPolicy&quot;: &quot;First&quot;&#xd;
+			}],&#xd;
+			&quot;computedVariables&quot;: [],&#xd;
+			&quot;assertion&quot;: &quot;CarContextUpdate.speed &gt; CarContextUpdate.limit&quot;,&#xd;
+			&quot;evaluationPolicy&quot;: &quot;Immediate&quot;,&#xd;
+			&quot;cardinalityPolicy&quot;: &quot;Unrestricted&quot;,&#xd;
+			&quot;internalSegmentation&quot;: [],&#xd;
+			&quot;derivedEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;OutputEvent&quot;,&#xd;
+				&quot;reportParticipants&quot;: false,&#xd;
+				&quot;expressions&quot;: {&#xd;
+					&quot;result&quot;: &quot;\&quot;Please, decrease your speed!\&quot;&quot;,&#xd;
+					&quot;entityId&quot;: &quot;CarContextUpdate.entityId&quot;,&#xd;
+					&quot;entityType&quot;: &quot;CarContextUpdate.entityType&quot;&#xd;
+				}&#xd;
+			}]&#xd;
+		}, {&#xd;
+			&quot;name&quot;: &quot;check_equal&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;epaType&quot;: &quot;All&quot;,&#xd;
+			&quot;context&quot;: &quot;always&quot;,&#xd;
+			&quot;inputEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;CarContextUpdate&quot;,&#xd;
+				&quot;consumptionPolicy&quot;: &quot;Consume&quot;,&#xd;
+				&quot;instanceSelectionPolicy&quot;: &quot;First&quot;&#xd;
+			}],&#xd;
+			&quot;computedVariables&quot;: [],&#xd;
+			&quot;assertion&quot;: &quot;CarContextUpdate.speed = CarContextUpdate.limit&quot;,&#xd;
+			&quot;evaluationPolicy&quot;: &quot;Immediate&quot;,&#xd;
+			&quot;cardinalityPolicy&quot;: &quot;Unrestricted&quot;,&#xd;
+			&quot;internalSegmentation&quot;: [],&#xd;
+			&quot;derivedEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;OutputEvent&quot;,&#xd;
+				&quot;reportParticipants&quot;: false,&#xd;
+				&quot;expressions&quot;: {&#xd;
+					&quot;result&quot;: &quot;\&quot;Attention: you are reaching the speed limit!\&quot;&quot;,&#xd;
+					&quot;entityId&quot;: &quot;CarContextUpdate.entityId&quot;,&#xd;
+					&quot;entityType&quot;: &quot;CarContextUpdate.entityType&quot;&#xd;
+				}&#xd;
+			}]&#xd;
+		}, {&#xd;
+			&quot;name&quot;: &quot;check_lower&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;epaType&quot;: &quot;All&quot;,&#xd;
+			&quot;context&quot;: &quot;always&quot;,&#xd;
+			&quot;inputEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;CarContextUpdate&quot;,&#xd;
+				&quot;consumptionPolicy&quot;: &quot;Consume&quot;,&#xd;
+				&quot;instanceSelectionPolicy&quot;: &quot;First&quot;&#xd;
+			}],&#xd;
+			&quot;computedVariables&quot;: [],&#xd;
+			&quot;assertion&quot;: &quot;CarContextUpdate.speed &lt; CarContextUpdate.limit&quot;,&#xd;
+			&quot;evaluationPolicy&quot;: &quot;Immediate&quot;,&#xd;
+			&quot;cardinalityPolicy&quot;: &quot;Unrestricted&quot;,&#xd;
+			&quot;internalSegmentation&quot;: [],&#xd;
+			&quot;derivedEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;OutputEvent&quot;,&#xd;
+				&quot;reportParticipants&quot;: false,&#xd;
+				&quot;expressions&quot;: {&#xd;
+					&quot;result&quot;: &quot;\&quot;Great, your speed is good!\&quot;&quot;,&#xd;
+					&quot;entityId&quot;: &quot;CarContextUpdate.entityId&quot;,&#xd;
+					&quot;entityType&quot;: &quot;CarContextUpdate.entityType&quot;&#xd;
+				}&#xd;
+			}]&#xd;
+		}],&#xd;
+		&quot;contexts&quot;: {&#xd;
+			&quot;temporal&quot;: [{&#xd;
+				&quot;name&quot;: &quot;always&quot;,&#xd;
+				&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+				&quot;type&quot;: &quot;TemporalInterval&quot;,&#xd;
+				&quot;atStartup&quot;: true,&#xd;
+				&quot;neverEnding&quot;: true,&#xd;
+				&quot;initiators&quot;: [],&#xd;
+				&quot;terminators&quot;: []&#xd;
+			}],&#xd;
+			&quot;segmentation&quot;: [],&#xd;
+			&quot;composite&quot;: []&#xd;
+		},&#xd;
+		&quot;consumers&quot;: [&#xd;
+		      {&#xd;
+			&quot;name&quot;: &quot;OrionConsumer&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;type&quot;: &quot;Rest&quot;,&#xd;
+			&quot;properties&quot;: [&#xd;
+			  {&#xd;
+			    &quot;name&quot;: &quot;URL&quot;,&#xd;
+			    &quot;value&quot;: &quot;${ORION_ENDPOINT_REST_OUTPUT}&quot;&#xd;
+			  },&#xd;
+			  {&#xd;
+			    &quot;name&quot;: &quot;contentType&quot;,&#xd;
+			    &quot;value&quot;: &quot;application/json&quot;&#xd;
+			  },&#xd;
+			  {&#xd;
+			    &quot;name&quot;: &quot;formatter&quot;,&#xd;
+			    &quot;value&quot;: &quot;json_ngsi&quot;&#xd;
+			  },&#xd;
+			  {&#xd;
+			    &quot;name&quot;: &quot;delimiter&quot;,&#xd;
+			    &quot;value&quot;: &quot;,&quot;&#xd;
+			  },&#xd;
+			  {&#xd;
+			    &quot;name&quot;: &quot;tagDataSeparator&quot;,&#xd;
+			    &quot;value&quot;: &quot;:&quot;&#xd;
+			  },&#xd;
+			  {&#xd;
+			    &quot;name&quot;: &quot;pollingInterval&quot;,&#xd;
+			    &quot;value&quot;: &quot;0&quot;&#xd;
+			  },&#xd;
+			  {&#xd;
+			    &quot;name&quot;: &quot;sendingDelay&quot;,&#xd;
+			    &quot;value&quot;: &quot;0&quot;&#xd;
+			  }&#xd;
+			],&#xd;
+			&quot;events&quot;: [&#xd;
+			  {&#xd;
+			    &quot;name&quot;: &quot;OutputEvent&quot;&#xd;
+			  }&#xd;
+			],&#xd;
+			&quot;actions&quot;: []&#xd;
+		      }&#xd;
+		    ],&#xd;
+		&quot;producers&quot;: [],&#xd;
+		&quot;name&quot;: &quot;${EPN_NAME}&quot;&#xd;
+	}&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/definitions/${EPN_NAME}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Replace content of an existing definition</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="changeStatus" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;action&quot;:&quot;ChangeState&quot;,&quot;state&quot;:&quot;${STOP}&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/instances/ProtonOnWebServer</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Configuring/Changing a definition for an instance</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getStatus" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/instances/ProtonOnWebServer</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Get instance status</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">state</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.state</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="name" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1542148843">${STATE_STOPPED}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">state</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="deleteDefinition" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/definitions/${EPN_NAME}</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Remove the definition from the repository</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="check" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3569038">true</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Manage Input Events" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1489424920000</longProp>
+        <longProp name="ThreadGroup.end_time">1489424920000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="createDefinitionFileInFileOut" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;epn&quot;: {&#xd;
+		&quot;events&quot;: [{&#xd;
+			&quot;name&quot;: &quot;CarContextUpdate&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;attributes&quot;: [{&#xd;
+				&quot;name&quot;: &quot;speed&quot;,&#xd;
+				&quot;type&quot;: &quot;Integer&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;limit&quot;,&#xd;
+				&quot;type&quot;: &quot;Integer&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;entityId&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;entityType&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}]&#xd;
+		}, {&#xd;
+			&quot;name&quot;: &quot;OutputEvent&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;attributes&quot;: [{&#xd;
+				&quot;name&quot;: &quot;result&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;entityId&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;entityType&quot;,&#xd;
+				&quot;type&quot;: &quot;String&quot;,&#xd;
+				&quot;dimension&quot;: 0&#xd;
+			}]&#xd;
+		}],&#xd;
+		&quot;epas&quot;: [{&#xd;
+			&quot;name&quot;: &quot;check_greater&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;epaType&quot;: &quot;All&quot;,&#xd;
+			&quot;context&quot;: &quot;always&quot;,&#xd;
+			&quot;inputEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;CarContextUpdate&quot;,&#xd;
+				&quot;consumptionPolicy&quot;: &quot;Consume&quot;,&#xd;
+				&quot;instanceSelectionPolicy&quot;: &quot;First&quot;&#xd;
+			}],&#xd;
+			&quot;computedVariables&quot;: [],&#xd;
+			&quot;assertion&quot;: &quot;CarContextUpdate.speed &gt; CarContextUpdate.limit&quot;,&#xd;
+			&quot;evaluationPolicy&quot;: &quot;Immediate&quot;,&#xd;
+			&quot;cardinalityPolicy&quot;: &quot;Unrestricted&quot;,&#xd;
+			&quot;internalSegmentation&quot;: [],&#xd;
+			&quot;derivedEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;OutputEvent&quot;,&#xd;
+				&quot;reportParticipants&quot;: false,&#xd;
+				&quot;expressions&quot;: {&#xd;
+					&quot;result&quot;: &quot;\&quot;Please, decrease your speed!\&quot;&quot;,&#xd;
+					&quot;entityId&quot;: &quot;CarContextUpdate.entityId&quot;,&#xd;
+					&quot;entityType&quot;: &quot;CarContextUpdate.entityType&quot;&#xd;
+				}&#xd;
+			}]&#xd;
+		}, {&#xd;
+			&quot;name&quot;: &quot;check_equal&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;epaType&quot;: &quot;All&quot;,&#xd;
+			&quot;context&quot;: &quot;always&quot;,&#xd;
+			&quot;inputEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;CarContextUpdate&quot;,&#xd;
+				&quot;consumptionPolicy&quot;: &quot;Consume&quot;,&#xd;
+				&quot;instanceSelectionPolicy&quot;: &quot;First&quot;&#xd;
+			}],&#xd;
+			&quot;computedVariables&quot;: [],&#xd;
+			&quot;assertion&quot;: &quot;CarContextUpdate.speed = CarContextUpdate.limit&quot;,&#xd;
+			&quot;evaluationPolicy&quot;: &quot;Immediate&quot;,&#xd;
+			&quot;cardinalityPolicy&quot;: &quot;Unrestricted&quot;,&#xd;
+			&quot;internalSegmentation&quot;: [],&#xd;
+			&quot;derivedEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;OutputEvent&quot;,&#xd;
+				&quot;reportParticipants&quot;: false,&#xd;
+				&quot;expressions&quot;: {&#xd;
+					&quot;result&quot;: &quot;\&quot;Attention: you are reaching the speed limit!\&quot;&quot;,&#xd;
+					&quot;entityId&quot;: &quot;CarContextUpdate.entityId&quot;,&#xd;
+					&quot;entityType&quot;: &quot;CarContextUpdate.entityType&quot;&#xd;
+				}&#xd;
+			}]&#xd;
+		}, {&#xd;
+			&quot;name&quot;: &quot;check_lower&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;epaType&quot;: &quot;All&quot;,&#xd;
+			&quot;context&quot;: &quot;always&quot;,&#xd;
+			&quot;inputEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;CarContextUpdate&quot;,&#xd;
+				&quot;consumptionPolicy&quot;: &quot;Consume&quot;,&#xd;
+				&quot;instanceSelectionPolicy&quot;: &quot;First&quot;&#xd;
+			}],&#xd;
+			&quot;computedVariables&quot;: [],&#xd;
+			&quot;assertion&quot;: &quot;CarContextUpdate.speed &lt; CarContextUpdate.limit&quot;,&#xd;
+			&quot;evaluationPolicy&quot;: &quot;Immediate&quot;,&#xd;
+			&quot;cardinalityPolicy&quot;: &quot;Unrestricted&quot;,&#xd;
+			&quot;internalSegmentation&quot;: [],&#xd;
+			&quot;derivedEvents&quot;: [{&#xd;
+				&quot;name&quot;: &quot;OutputEvent&quot;,&#xd;
+				&quot;reportParticipants&quot;: false,&#xd;
+				&quot;expressions&quot;: {&#xd;
+					&quot;result&quot;: &quot;\&quot;Great, your speed is good!\&quot;&quot;,&#xd;
+					&quot;entityId&quot;: &quot;CarContextUpdate.entityId&quot;,&#xd;
+					&quot;entityType&quot;: &quot;CarContextUpdate.entityType&quot;&#xd;
+				}&#xd;
+			}]&#xd;
+		}],&#xd;
+		&quot;contexts&quot;: {&#xd;
+			&quot;temporal&quot;: [{&#xd;
+				&quot;name&quot;: &quot;always&quot;,&#xd;
+				&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+				&quot;type&quot;: &quot;TemporalInterval&quot;,&#xd;
+				&quot;atStartup&quot;: true,&#xd;
+				&quot;neverEnding&quot;: true,&#xd;
+				&quot;initiators&quot;: [],&#xd;
+				&quot;terminators&quot;: []&#xd;
+			}],&#xd;
+			&quot;segmentation&quot;: [],&#xd;
+			&quot;composite&quot;: []&#xd;
+		},&#xd;
+		&quot;consumers&quot;: [{&#xd;
+			&quot;name&quot;: &quot;Consumer&quot;,&#xd;
+			&quot;createdDate&quot;: &quot;Fri Mar 10 2017&quot;,&#xd;
+			&quot;type&quot;: &quot;File&quot;,&#xd;
+			&quot;properties&quot;: [{&#xd;
+				&quot;name&quot;: &quot;filename&quot;,&#xd;
+				&quot;value&quot;: &quot;${PATH_FILE_OUTPUT}&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;formatter&quot;,&#xd;
+				&quot;value&quot;: &quot;json&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;delimiter&quot;,&#xd;
+				&quot;value&quot;: &quot;;&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;tagDataSeparator&quot;,&#xd;
+				&quot;value&quot;: &quot;=&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;SendingDelay&quot;,&#xd;
+				&quot;value&quot;: &quot;1&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;dateFormat&quot;,&#xd;
+				&quot;value&quot;: &quot;dd/MM/yyyy-HH:mm:ss&quot;&#xd;
+			}],&#xd;
+			&quot;events&quot;: [{&#xd;
+				&quot;name&quot;: &quot;OutputEvent&quot;&#xd;
+			}]&#xd;
+		}],&#xd;
+		&quot;producers&quot;: [{&#xd;
+			&quot;name&quot;: &quot;Producer&quot;,&#xd;
+			&quot;type&quot;: &quot;File&quot;,&#xd;
+			&quot;properties&quot;: [{&#xd;
+				&quot;name&quot;: &quot;filename&quot;,&#xd;
+				&quot;value&quot;: &quot;${PATH_FILE_INPUT}&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;pollingInterval&quot;,&#xd;
+				&quot;value&quot;: &quot;0&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;sendingDelay&quot;,&#xd;
+				&quot;value&quot;: &quot;0&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;formatter&quot;,&#xd;
+				&quot;value&quot;: &quot;json&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;delimiter&quot;,&#xd;
+				&quot;value&quot;: &quot;;&quot;&#xd;
+			}, {&#xd;
+				&quot;name&quot;: &quot;tagDataSeparator&quot;,&#xd;
+				&quot;value&quot;: &quot;=&quot;&#xd;
+			}],&#xd;
+			&quot;events&quot;: []&#xd;
+		}],&#xd;
+		&quot;name&quot;: &quot;${EPN_NAME}&quot;&#xd;
+	}&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/definitions</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Read input event from file (producer) and store result in file (consumer)</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updateDefinitionRestIn" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+   &quot;epn&quot;:{&#xd;
+      &quot;events&quot;:[&#xd;
+         {&#xd;
+            &quot;name&quot;:&quot;CarContextUpdate&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;attributes&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;speed&quot;,&#xd;
+                  &quot;type&quot;:&quot;Integer&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;limit&quot;,&#xd;
+                  &quot;type&quot;:&quot;Integer&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;entityId&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;entityType&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               }&#xd;
+            ]&#xd;
+         },&#xd;
+         {&#xd;
+            &quot;name&quot;:&quot;OutputEvent&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;attributes&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;result&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;entityId&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;entityType&quot;,&#xd;
+                  &quot;type&quot;:&quot;String&quot;,&#xd;
+                  &quot;dimension&quot;:0&#xd;
+               }&#xd;
+            ]&#xd;
+         }&#xd;
+      ],&#xd;
+      &quot;epas&quot;:[&#xd;
+         {&#xd;
+            &quot;name&quot;:&quot;check_greater&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;epaType&quot;:&quot;All&quot;,&#xd;
+            &quot;context&quot;:&quot;always&quot;,&#xd;
+            &quot;inputEvents&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;CarContextUpdate&quot;,&#xd;
+                  &quot;consumptionPolicy&quot;:&quot;Consume&quot;,&#xd;
+                  &quot;instanceSelectionPolicy&quot;:&quot;First&quot;&#xd;
+               }&#xd;
+            ],&#xd;
+            &quot;computedVariables&quot;:[&#xd;
+&#xd;
+            ],&#xd;
+            &quot;assertion&quot;:&quot;CarContextUpdate.speed &gt; CarContextUpdate.limit&quot;,&#xd;
+            &quot;evaluationPolicy&quot;:&quot;Immediate&quot;,&#xd;
+            &quot;cardinalityPolicy&quot;:&quot;Unrestricted&quot;,&#xd;
+            &quot;internalSegmentation&quot;:[&#xd;
+&#xd;
+            ],&#xd;
+            &quot;derivedEvents&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;OutputEvent&quot;,&#xd;
+                  &quot;reportParticipants&quot;:false,&#xd;
+                  &quot;expressions&quot;:{&#xd;
+                     &quot;result&quot;:&quot;\&quot;Please, decrease your speed!\&quot;&quot;,&#xd;
+                     &quot;entityId&quot;:&quot;CarContextUpdate.entityId&quot;,&#xd;
+                     &quot;entityType&quot;:&quot;CarContextUpdate.entityType&quot;&#xd;
+                  }&#xd;
+               }&#xd;
+            ]&#xd;
+         },&#xd;
+         {&#xd;
+            &quot;name&quot;:&quot;check_equal&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;epaType&quot;:&quot;All&quot;,&#xd;
+            &quot;context&quot;:&quot;always&quot;,&#xd;
+            &quot;inputEvents&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;CarContextUpdate&quot;,&#xd;
+                  &quot;consumptionPolicy&quot;:&quot;Consume&quot;,&#xd;
+                  &quot;instanceSelectionPolicy&quot;:&quot;First&quot;&#xd;
+               }&#xd;
+            ],&#xd;
+            &quot;computedVariables&quot;:[&#xd;
+&#xd;
+            ],&#xd;
+            &quot;assertion&quot;:&quot;CarContextUpdate.speed = CarContextUpdate.limit&quot;,&#xd;
+            &quot;evaluationPolicy&quot;:&quot;Immediate&quot;,&#xd;
+            &quot;cardinalityPolicy&quot;:&quot;Unrestricted&quot;,&#xd;
+            &quot;internalSegmentation&quot;:[&#xd;
+&#xd;
+            ],&#xd;
+            &quot;derivedEvents&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;OutputEvent&quot;,&#xd;
+                  &quot;reportParticipants&quot;:false,&#xd;
+                  &quot;expressions&quot;:{&#xd;
+                     &quot;result&quot;:&quot;\&quot;Attention: you are reaching the speed limit!\&quot;&quot;,&#xd;
+                     &quot;entityId&quot;:&quot;CarContextUpdate.entityId&quot;,&#xd;
+                     &quot;entityType&quot;:&quot;CarContextUpdate.entityType&quot;&#xd;
+                  }&#xd;
+               }&#xd;
+            ]&#xd;
+         },&#xd;
+         {&#xd;
+            &quot;name&quot;:&quot;check_lower&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;epaType&quot;:&quot;All&quot;,&#xd;
+            &quot;context&quot;:&quot;always&quot;,&#xd;
+            &quot;inputEvents&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;CarContextUpdate&quot;,&#xd;
+                  &quot;consumptionPolicy&quot;:&quot;Consume&quot;,&#xd;
+                  &quot;instanceSelectionPolicy&quot;:&quot;First&quot;&#xd;
+               }&#xd;
+            ],&#xd;
+            &quot;computedVariables&quot;:[&#xd;
+&#xd;
+            ],&#xd;
+            &quot;assertion&quot;:&quot;CarContextUpdate.speed &lt; CarContextUpdate.limit&quot;,&#xd;
+            &quot;evaluationPolicy&quot;:&quot;Immediate&quot;,&#xd;
+            &quot;cardinalityPolicy&quot;:&quot;Unrestricted&quot;,&#xd;
+            &quot;internalSegmentation&quot;:[&#xd;
+&#xd;
+            ],&#xd;
+            &quot;derivedEvents&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;OutputEvent&quot;,&#xd;
+                  &quot;reportParticipants&quot;:false,&#xd;
+                  &quot;expressions&quot;:{&#xd;
+                     &quot;result&quot;:&quot;\&quot;Great, your speed is good!\&quot;&quot;,&#xd;
+                     &quot;entityId&quot;:&quot;CarContextUpdate.entityId&quot;,&#xd;
+                     &quot;entityType&quot;:&quot;CarContextUpdate.entityType&quot;&#xd;
+                  }&#xd;
+               }&#xd;
+            ]&#xd;
+         }&#xd;
+      ],&#xd;
+      &quot;contexts&quot;:{&#xd;
+         &quot;temporal&quot;:[&#xd;
+            {&#xd;
+               &quot;name&quot;:&quot;always&quot;,&#xd;
+               &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+               &quot;type&quot;:&quot;TemporalInterval&quot;,&#xd;
+               &quot;atStartup&quot;:true,&#xd;
+               &quot;neverEnding&quot;:true,&#xd;
+               &quot;initiators&quot;:[&#xd;
+&#xd;
+               ],&#xd;
+               &quot;terminators&quot;:[&#xd;
+&#xd;
+               ]&#xd;
+            }&#xd;
+         ],&#xd;
+         &quot;segmentation&quot;:[&#xd;
+&#xd;
+         ],&#xd;
+         &quot;composite&quot;:[&#xd;
+&#xd;
+         ]&#xd;
+      },&#xd;
+      &quot;consumers&quot;:[&#xd;
+         {&#xd;
+            &quot;name&quot;:&quot;Consumer&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;type&quot;:&quot;File&quot;,&#xd;
+            &quot;properties&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;filename&quot;,&#xd;
+                  &quot;value&quot;:&quot;${PATH_FILE_OUTPUT}&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;formatter&quot;,&#xd;
+                  &quot;value&quot;:&quot;json&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;delimiter&quot;,&#xd;
+                  &quot;value&quot;:&quot;;&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;tagDataSeparator&quot;,&#xd;
+                  &quot;value&quot;:&quot;=&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;SendingDelay&quot;,&#xd;
+                  &quot;value&quot;:&quot;1&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;dateFormat&quot;,&#xd;
+                  &quot;value&quot;:&quot;dd/MM/yyyy-HH:mm:ss&quot;&#xd;
+               }&#xd;
+            ],&#xd;
+            &quot;events&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;OutputEvent&quot;&#xd;
+               }&#xd;
+            ]&#xd;
+         },&#xd;
+         {&#xd;
+            &quot;name&quot;:&quot;OrionConsumer&quot;,&#xd;
+            &quot;createdDate&quot;:&quot;Fri Mar 10 2017&quot;,&#xd;
+            &quot;type&quot;:&quot;Rest&quot;,&#xd;
+            &quot;properties&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;URL&quot;,&#xd;
+                  &quot;value&quot;:&quot;${ORION_ENDPOINT_REST_OUTPUT}&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;contentType&quot;,&#xd;
+                  &quot;value&quot;:&quot;application/json&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;formatter&quot;,&#xd;
+                  &quot;value&quot;:&quot;json_ngsi&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;delimiter&quot;,&#xd;
+                  &quot;value&quot;:&quot;,&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;tagDataSeparator&quot;,&#xd;
+                  &quot;value&quot;:&quot;:&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;pollingInterval&quot;,&#xd;
+                  &quot;value&quot;:&quot;1&quot;&#xd;
+               },&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;sendingDelay&quot;,&#xd;
+                  &quot;value&quot;:&quot;1&quot;&#xd;
+               }&#xd;
+            ],&#xd;
+            &quot;events&quot;:[&#xd;
+               {&#xd;
+                  &quot;name&quot;:&quot;OutputEvent&quot;&#xd;
+               }&#xd;
+            ],&#xd;
+            &quot;actions&quot;:[&#xd;
+&#xd;
+            ]&#xd;
+         }&#xd;
+      ],&#xd;
+      &quot;producers&quot;:[ ],&#xd;
+      &quot;name&quot;:&quot;${EPN_NAME}&quot;&#xd;
+   }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/definitions/${EPN_NAME}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Read input event via Rest (producer) and store result in file and send via Rest (in Orion) (consumers)</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="changeStatusInStop" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;action&quot;:&quot;ChangeState&quot;,&quot;state&quot;:&quot;${STOP}&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/instances/ProtonOnWebServer</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Configuring/Changing a definition for an instance</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="changeStatusInStart" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;action&quot;:&quot;ChangeState&quot;,&quot;state&quot;:&quot;${START}&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/instances/ProtonOnWebServer</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Configuring/Changing a definition for an instance</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="sendEvent" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;data&quot;: [&#xd;
+    {&#xd;
+      &quot;id&quot;: &quot;Car1&quot;,&#xd;
+      &quot;type&quot;: &quot;Car&quot;,&#xd;
+      &quot;speed&quot;: {&#xd;
+        &quot;value&quot;: ${__Random(99,101)},&#xd;
+        &quot;type&quot;: &quot;float&quot;&#xd;
+      },&#xd;
+      &quot;limit&quot;: {&#xd;
+        &quot;value&quot;: 100,&#xd;
+        &quot;type&quot;: &quot;float&quot;&#xd;
+      }&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServer/rest/events</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Sending input events (Rest In, File Out / Rest Out)</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="deleteDefinition" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ProtonOnWebServerAdmin/resources/definitions/${EPN_NAME}</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Remove the definition from the repository</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="check" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="3569038">true</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>false</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}${GE_NAME}-v${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
+        <boolProp name="ResultCollector.success_only_logging">true</boolProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

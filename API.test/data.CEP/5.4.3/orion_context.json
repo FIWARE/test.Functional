@@ -1,0 +1,28 @@
+{  
+   "id":"Car1",
+   "type":"Car",
+   "result":{  
+      "value":"Empty"
+   },
+   "EventId":{  
+      "value":"Empty"
+   },
+   "DetectionTime":{  
+      "value":"Empty"
+   },
+   "Cost":{  
+      "value":"0.0"
+   },
+   "Certainty":{  
+      "value":"0.0"
+   },
+   "Name":{  
+      "value":"Empty"
+   },
+   "OccurrenceTime":{  
+      "value":"Empty"
+   },
+   "Duration":{  
+      "value":"0.0"
+   }
+}
