@@ -22,8 +22,6 @@ Once the HW necessary for the test described previously at **Testing Environment
 
 ### 2. Complex Event Processing ###
 
-Copy in the **/tmp/** folder the **inputFileJSON.txt** file. **CEP** reads it as file input event.
-
 Open the **/etc/hosts** file by using this command:
 
 > `sudo nano /etc/hosts` 
@@ -32,6 +30,7 @@ and add Orion IP of previous VM with **orion** alias according to your instance:
 
 > `192.168.111.72 orion`
 
+Copy in the **/tmp/** folder the **inputFileJSON.txt** file. **CEP** reads it as file input event.
 
 ### 3. JMeter ###
 
@@ -48,7 +47,7 @@ so in the **/tmp/** folder, type this command:
 
 `curl -vX POST http://orion:1026/v2/entities -s -S --header "Content-Type: application/json" -d @orion_context.json`
 
-To check the context information provided by Orion Context Broker, use:
+To check the context information provided by Orion Context Broker (after the execution of the test), use:
 
 `curl -v http://orion:1026/v2/entities`
 
@@ -57,14 +56,15 @@ or to delete:
 `curl -vX DELETE http://orion:1026/v2/entities/Car1`
  
 
-#### Install JMeter (on Ubuntu 14.04) ####
+#### Install JMeter 3 (on Ubuntu 14.04) ####
 
 1. `sudo apt-get update` - to refresh packages metadata
 2. `sudo apt-get install openjdk-7-jre-headless` - Java 7 is pre-requisite for JMeter 3.0
 3. `wget -c http://ftp.ps.pl/pub/apache//jmeter/binaries/apache-jmeter-3.1.tgz` - download JMeter 3.1
 4. `tar -xf apache-jmeter-3.1.tgz` - unpack JMeter
 
-##Testing step by step##
+
+## Testing step by step ##
 
 **Run the test** with the follow command: 
 
