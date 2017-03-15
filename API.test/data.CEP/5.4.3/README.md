@@ -1,4 +1,4 @@
-#  Complex Event Processing (CEP) - Proactive Technology Online #
+# Complex Event Processing (CEP) - Proactive Technology Online #
 
 IBM Proactive Technology Online is an open source complex event processing engine developed at IBM Research - Haifa, available at its [GitHub repository](https://github.com/ishkin/Proton/). 
 
