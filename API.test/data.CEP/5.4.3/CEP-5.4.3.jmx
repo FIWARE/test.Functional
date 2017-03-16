@@ -1609,7 +1609,7 @@
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">${ABSOLUTE_PATH}${GE_NAME}-v${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}${GE_NAME}-${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
         <boolProp name="ResultCollector.success_only_logging">true</boolProp>
       </ResultCollector>
       <hashTree/>

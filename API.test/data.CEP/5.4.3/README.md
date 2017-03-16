@@ -72,4 +72,4 @@ or to delete:
 
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
-`CEP-5.4.3_yyyy-MM-dd HHmmss.csv`
+`cep-5.4.3_yyyy-MM-dd HHmmss.csv`
