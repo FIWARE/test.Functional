@@ -2,9 +2,9 @@
 
 Orion is the FIWARE GE reference implementation of the Context Broker Generic Enabler by Telefonica available at its [GitHub repository](https://github.com/telefonicaid/fiware-orion). 
 
-* [Testing environment] (#testing-environment)
-* [Overall preliminary setup] (#overall-preliminary-setup)
-* [Testing step by step] (#testing-step-by-step)
+* [Testing environment](#testing-environment)
+* [Overall preliminary setup](#overall-preliminary-setup)
+* [Testing step by step](#testing-step-by-step)
 
 ## Testing environment ##
 
