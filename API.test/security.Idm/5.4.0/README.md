@@ -10,7 +10,7 @@
 
 Keyrock is an implementation of the FIWARE Identity Management Generic Enabler by UPM available at its [GitHub repository](https://github.com/ging/fiware-idm). 
 
-[Top](#identity-management-keyrock)
+[Top](#identity-management---keyrock)
 
 ## Testing environment ##
 
@@ -20,7 +20,7 @@ In order to test this GE, two Virtual Machines you needed, which are:
 1. **Identity Management - KeyRock GE** - follow the instruction to [deploy a dedicated KeyRock instance] (https://catalogue.fiware.org/enablers/identity-management-keyrock/creating-instances). 
 2. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
-[Top](#identity-management-keyrock)
+[Top](#identity-management---keyrock)
 
 ## Overall preliminary setup ##
 
@@ -52,7 +52,7 @@ Copy in the **/tmp/** folder the **KeyRock-5.4.0.jmx** file.
 3. `wget -c http://ftp.ps.pl/pub/apache//jmeter/binaries/apache-jmeter-3.1.tgz` - download JMeter 3.1
 4. `tar -xf apache-jmeter-3.1.tgz` - unpack JMeter
 
-[Top](#identity-management-keyrock)
+[Top](#identity-management---keyrock)
 
 ## Testing step by step ##
 
@@ -64,4 +64,4 @@ Copy in the **/tmp/** folder the **KeyRock-5.4.0.jmx** file.
 
 `keyrock-5.4.0_yyyy-MM-dd HHmmss.csv`
 
-[Top](#identity-management-keyrock)
+[Top](#identity-management---keyrock)
