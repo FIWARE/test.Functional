@@ -37,7 +37,7 @@ Open the **/etc/hosts** file by using this command:
 
 > `sudo nano /etc/hosts` 
 
-and add Orion IP of previous VM with **keyrock** alias according to your instance: 
+and add KeyRock IP of previous VM with **keyrock** alias according to your instance: 
 
 > `192.168.111.87 keyrock`
 
