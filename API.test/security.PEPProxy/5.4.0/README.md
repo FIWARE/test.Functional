@@ -17,8 +17,8 @@ The PEP Proxy GE is a backend component, without frontend interface and availabl
 The testing environment can be easily set up through a FIWARE Lab, which is based on the cloud operating system OpenStack. 
 In order to test this GE, two Virtual Machines you needed, which are: 
 
-1. **Identity Management - KeyRock GE** - follow the instruction to [deploy a dedicated KeyRock instance] (https://catalogue.fiware.org/enablers/identity-management-keyrock/creating-instances). 
-2. **PEP Proxy - Wilma** - download PEP Proxy source code via github at this link (https://github.com/ging/fiware-pep-proxy.git) and run it (follow the next preliminary steps section).
+1. **Identity Management - KeyRock GE** - follow the instruction to [deploy a dedicated KeyRock instance](https://catalogue.fiware.org/enablers/identity-management-keyrock/creating-instances). 
+2. **PEP Proxy - Wilma** - download PEP Proxy source code via github at this [link](https://github.com/ging/fiware-pep-proxy.git) and run it (follow the next preliminary steps section).
 3. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 [Top](#pep-proxy---wilma)
@@ -66,7 +66,7 @@ Copy in the **/tmp/** folder the **PepProxy-5.4.0.jmx**, **auth-token.sh** and *
 * login in KeyRock web interface (Horizon) at `keyrock_ip:8000` and use default credentials (`idm/idm`) 
 * create an application (just follow the wizard) to get `client id` and `client secret`
 * create PEP Proxy credentials from previous application to get `username` and `password` for PEP Proxy registration
-2. Download PEP Proxy source code via github (https://github.com/ging/fiware-pep-proxy.git) using `git clone https://github.com/ging/fiware-pep-proxy.git` command
+2. Download PEP Proxy source code via [github](https://github.com/ging/fiware-pep-proxy.git) using `git clone https://github.com/ging/fiware-pep-proxy.git` command
 * create the `config.js` file from template (config.js.template) and edit it; just to use the right IP address of KeyRock and credentials of PEP Proxy
 * run the server with nodejs
 > `$ npm install`
