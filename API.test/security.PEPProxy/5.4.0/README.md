@@ -74,6 +74,7 @@ Copy in the **/tmp/** folder the **PepProxy-5.4.0.jmx**, **auth-token.sh** and *
 > `$ sudo node server.js`
 
 3. get the token from script
+* edit the `auth-token.sh` file; update CLIENT_ID and CLIENT_SECRET, and change the KeyRock IP for oauth2/token link  (http://localhost:8000/oauth2/token) with your right KeyRock IP   
 * run the `auth-token.sh` file in the shell to get the token. Don't forget to change the permission to file (`chmod +x auth-token.sh`). Please use username and password as input parameters in the shell: 
 > `./auth-token.sh idm idm`
 * copy it and put in the `file.properties` file 
