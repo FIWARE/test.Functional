@@ -92,7 +92,8 @@ go in the folder and install with this command:
 > `npm install`
 
 copy `client_lwm2m_service.js` and `client_lwm2m_device.js` in the **bin** folder.
-Run the clients only after you have started the JMeter of IoT Agent, because in the JMeter script is included the provisioning (device and service) of IoT Agent:
+
+Run the clients **only after you have started the JMeter of IoT Agent**, because in the JMeter script is included the provisioning (device and service) of IoT Agent:
 
 > `node bin/client_lwm2m_service.js`
 
@@ -139,7 +140,6 @@ Copy in the **/tmp/** folder the **IDAS-5-LWM2M.jmx** file according to your IoT
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
 `idas-5-lwm2m_yyyy-MM-dd HHmmss.csv`
-
 
 *Southbound*: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
 
