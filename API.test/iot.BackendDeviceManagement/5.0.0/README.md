@@ -112,8 +112,7 @@ copy `config-sigfox.js` (from **SIGFOX** folder) in the same folder and run the 
 
 2. copy the client (client_sigfox_device.js file) under **bin** folder of github project  
 
-> path `lwm2m-node-lib.git/bin/client_sigfox_device.js`
-
+> `sigfox-iotagent/bin/client_sigfox_device.js`
 
 
 ### 2. Orion Context Broker ###
@@ -177,13 +176,11 @@ Now you can start the clients in the **idas** VM to send data from client to **o
 
 `idas-5-sigfox_yyyy-MM-dd HHmmss.csv`
 
-*Southbound*: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
+**Southbound**: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
 
 Now you can start the clients in the **idas** VM to send data from client to **orion**:
 
 > `node bin/client_sigfox_device.js`
-
-
 
 
 [Top](#backend-device-management---idas)
