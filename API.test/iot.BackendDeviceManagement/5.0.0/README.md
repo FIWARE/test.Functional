@@ -67,6 +67,23 @@ Please note that IoT Agents was been run singularly, so you cannot run all IoT A
 
 ##### JSON #####
 
+1. download and start **iotagent-json** IoT Agent 
+
+> `git clone https://github.com/telefonicaid/iotagent-json`
+
+go in the folder and install with this command: 
+
+> `npm install`
+
+copy `config-json.js` (from **JSON** folder) in the same folder and run the IoT Agent (server):
+
+> `node bin/iotagent-json config-json.js`
+
+
+2. copy the client (client_json.js file) under **bin** folder of github project  
+
+> `iotagent-json/bin/client_json.js`
+
 ##### UL2.0 #####
 
 1. download and start **iotagent-ul** IoT Agent 
@@ -162,6 +179,24 @@ Copy in the **/tmp/** folder the **IDAS-5-LWM2M.jmx** file according to your IoT
 ## Testing step by step ##
 
 **Run the test**:
+
+##### JSON #####
+
+**Northbound**: run the JMeter script with the follow command: 
+
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/IDAS-5-JSON.jmx`
+
+
+**Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
+
+`idas-5-json_yyyy-MM-dd HHmmss.csv`
+
+**Southbound**: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
+
+Now you can start the clients in the **idas** VM to send data from client to **orion**:
+
+> `node bin/client_json.js`
+
 
 ##### UL2.0 #####
 
