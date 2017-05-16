@@ -69,6 +69,24 @@ Please note that IoT Agents was been run singularly, so you cannot run all IoT A
 
 ##### UL2.0 #####
 
+1. download and start **iotagent-ul** IoT Agent 
+
+> `git clone https://github.com/telefonicaid/iotagent-ul`
+
+go in the folder and install with this command: 
+
+> `npm install`
+
+copy `config-ul.js` (from **UL2.0** folder) in the same folder and run the IoT Agent (server):
+
+> `node bin/iotagent-ul config-ul.js`
+
+
+2. copy the client (client_ul.js file) under **bin** folder of github project  
+
+> `iotagent-ul/bin/client_ul.js`
+
+
 ##### LWM2M #####
 
 1. download and start **lightweightm2m** IoT Agent 
@@ -145,6 +163,24 @@ Copy in the **/tmp/** folder the **IDAS-5-LWM2M.jmx** file according to your IoT
 
 **Run the test**:
 
+##### UL2.0 #####
+
+**Northbound**: run the JMeter script with the follow command: 
+
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/IDAS-5-UL2.0.jmx`
+
+
+**Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
+
+`idas-5-ul2.0_yyyy-MM-dd HHmmss.csv`
+
+**Southbound**: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
+
+Now you can start the clients in the **idas** VM to send data from client to **orion**:
+
+> `node node bin/client_ul.js`
+
+
 ##### LWM2M #####
 
 **Northbound**: run the JMeter script with the follow command: 
@@ -156,7 +192,7 @@ Copy in the **/tmp/** folder the **IDAS-5-LWM2M.jmx** file according to your IoT
 
 `idas-5-lwm2m_yyyy-MM-dd HHmmss.csv`
 
-*Southbound*: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
+**Southbound**: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
 
 Now you can start the clients in the **idas** VM to send data from client to **orion**:
 
