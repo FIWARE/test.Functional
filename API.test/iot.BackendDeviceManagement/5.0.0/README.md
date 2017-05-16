@@ -57,13 +57,14 @@ Set node in your PATH:
 
 > `sudo nano /etc/hosts` 
 
-and add Orion IP with **orion** alias according to your instance (because we are using Orion Context Broker to store attributes): 
+and add Orion IP with **orion** alias according to your instance (because we are going to the use Orion Context Broker to store attributes): 
 
 > `192.168.111.112 orion`
 
 #### Start the IoT Agents ####
 
-Please note that IoT Agents was been run singularly, so you cannot run all IoT Agents at the same time.
+Please note that IoT Agents were been run singularly, so you cannot run all IoT Agents at the same time.
+Here the steps on how to start the IoT Agents for four types (JSON, UL2.0, LWM2M and SIGFOX) and to prepare (copy) the client.
 
 ##### JSON #####
 
@@ -164,7 +165,7 @@ and add IDAS IP with **idas** alias according to your instance:
 
 > `192.168.111.87 idas`
 
-Copy in the **/tmp/** folder the **IDAS-5-LWM2M.jmx** file according to your IoT Agent you want to test.
+Copy in the **/tmp/** folder all JMeter script (**IDAS-5-JSON.jmx**, **IDAS-5-UL2.0.jmx**, **IDAS-5-LWM2M.jmx**, **IDAS-5-SIGFOX.jmx**) files according to your IoT Agent you want to test (under JSON, UL2.0, LWM2M and SIGFOX folders).
 
 
 #### Install JMeter 3 (on Ubuntu 14.04) ####
@@ -191,7 +192,7 @@ Copy in the **/tmp/** folder the **IDAS-5-LWM2M.jmx** file according to your IoT
 
 `idas-5-json_yyyy-MM-dd HHmmss.csv`
 
-**Southbound**: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
+**Southbound**: before to test the client (southbound) you need to run the IoT Agent and to make the provisioning both service and device. When you use the command above, JMeter script prepare for you the provisioning. 
 
 Now you can start the clients in the **idas** VM to send data from client to **orion**:
 
@@ -209,7 +210,7 @@ Now you can start the clients in the **idas** VM to send data from client to **o
 
 `idas-5-ul2.0_yyyy-MM-dd HHmmss.csv`
 
-**Southbound**: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
+**Southbound**: before to test the client (southbound) you need to run the IoT Agent and to make the provisioning both service and device. When you use the command above, JMeter script prepare for you the provisioning. 
 
 Now you can start the clients in the **idas** VM to send data from client to **orion**:
 
@@ -227,7 +228,7 @@ Now you can start the clients in the **idas** VM to send data from client to **o
 
 `idas-5-lwm2m_yyyy-MM-dd HHmmss.csv`
 
-**Southbound**: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
+**Southbound**: before to test the client (southbound) you need to run the IoT Agent and to make the provisioning both service and device. When you use the command above, JMeter script prepare for you the provisioning. 
 
 Now you can start the clients in the **idas** VM to send data from client to **orion**:
 
@@ -247,7 +248,7 @@ Now you can start the clients in the **idas** VM to send data from client to **o
 
 `idas-5-sigfox_yyyy-MM-dd HHmmss.csv`
 
-**Southbound**: before to test clients (southbound) you need to run the IoT Agent and to make a provisioning both service and device. So in the JMeter script with the follow command: 
+**Southbound**: before to test the client (southbound) you need to run the IoT Agent and to make the provisioning both service and device. When you use the command above, JMeter script prepare for you the provisioning. 
 
 Now you can start the clients in the **idas** VM to send data from client to **orion**:
 
