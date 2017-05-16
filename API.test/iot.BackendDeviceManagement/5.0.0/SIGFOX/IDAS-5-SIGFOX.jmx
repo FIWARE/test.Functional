@@ -836,7 +836,7 @@
             <assertionsResultsToSave>0</assertionsResultsToSave>
           </value>
         </objProp>
-        <stringProp name="filename">${ABSOLUTE_PATH}idas-5-sigfox-${VERSION}_${TIME}.csv</stringProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}idas-${VERSION}-sigfox_${TIME}.csv</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
