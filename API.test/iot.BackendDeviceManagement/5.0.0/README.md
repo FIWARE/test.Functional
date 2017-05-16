@@ -214,7 +214,7 @@ Now you can start the clients in the **idas** VM to send data from client to **o
 
 Now you can start the clients in the **idas** VM to send data from client to **orion**:
 
-> `node node bin/client_ul.js`
+> `node bin/client_ul.js`
 
 
 ##### LWM2M #####
