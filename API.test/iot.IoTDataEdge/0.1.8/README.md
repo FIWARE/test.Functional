@@ -39,10 +39,10 @@ Open the **/etc/hosts** file by using this command:
 
 and add Cepheus IP of previous VM with **cepheus** alias according to your instance: 
 
-> `192.168.111.87 cepheus`
+> `192.168.111.196 cepheus`
 
 
-Copy in the **/tmp/** folder the **Cephus-0.1.9.jmx** file.
+Copy in the **/tmp/** folder the **Cephus-0.1.8.jmx** file.
 
 
 #### Install JMeter 3 (on Ubuntu 14.04) ####
@@ -58,10 +58,10 @@ Copy in the **/tmp/** folder the **Cephus-0.1.9.jmx** file.
 
 **Run the test** with the follow command: 
 
-`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cephus-0.1.9.jmx`
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cephus-0.1.8.jmx`
 
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
-`cephus-0.1.9_yyyy-MM-dd HHmmss.csv`
+`cephus-0.1.8_yyyy-MM-dd HHmmss.csv`
 
 [Top](#iot-data-edge-consolidation-ge---cepheus)
