@@ -58,10 +58,10 @@ Copy in the **/tmp/** folder the **Cephus-0.1.8.jmx** file.
 
 **Run the test** with the follow command: 
 
-`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cephus-0.1.8.jmx`
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cepheus-0.1.8.jmx`
 
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
-`cephus-0.1.8_yyyy-MM-dd HHmmss.csv`
+`cepheus-0.1.8_yyyy-MM-dd HHmmss.csv`
 
 [Top](#iot-data-edge-consolidation-ge---cepheus)
