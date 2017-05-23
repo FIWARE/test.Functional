@@ -105,12 +105,12 @@
         { &quot;name&quot;:&quot;temperature&quot;, &quot;type&quot;:&quot;double&quot; }&#xd;
       ],&#xd;
       &quot;brokers&quot;: [&#xd;
-        { &quot;url&quot;:&quot;http://localhost:8082&quot; }&#xd;
+        { &quot;url&quot;:&quot;http://orion:1026&quot; }&#xd;
       ]&#xd;
     }&#xd;
   ],&#xd;
   &quot;statements&quot;:[&#xd;
-    &quot;INSERT INTO Floor SELECT floor as id, avg(temperature) as temperature FROM Room.win:time(10 min) GROUP BY floor OUTPUT LAST EVERY 10 sec&quot;&#xd;
+    &quot;INSERT INTO Floor SELECT floor as id, avg(temperature) as temperature FROM Room.win:time(1 min) GROUP BY floor OUTPUT LAST EVERY 3 sec&quot;&#xd;
   ]&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -204,7 +204,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">2</stringProp>
+          <stringProp name="LoopController.loops">5</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -224,12 +224,12 @@
         <hashTree/>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Room" enabled="true">
           <boolProp name="LoopController.continue_forever">true</boolProp>
-          <stringProp name="LoopController.loops">2</stringProp>
+          <stringProp name="LoopController.loops">3</stringProp>
         </LoopController>
         <hashTree>
           <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Room" enabled="true">
             <stringProp name="CounterConfig.start">1</stringProp>
-            <stringProp name="CounterConfig.end">2</stringProp>
+            <stringProp name="CounterConfig.end">3</stringProp>
             <stringProp name="CounterConfig.incr">1</stringProp>
             <stringProp name="CounterConfig.name">room</stringProp>
             <stringProp name="CounterConfig.format"></stringProp>
@@ -251,8 +251,8 @@
             </CounterConfig>
             <hashTree/>
             <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Temperature" enabled="true">
-              <stringProp name="maximumValue">30</stringProp>
-              <stringProp name="minimumValue">10</stringProp>
+              <stringProp name="maximumValue">35</stringProp>
+              <stringProp name="minimumValue">5</stringProp>
               <stringProp name="outputFormat"></stringProp>
               <boolProp name="perThread">false</boolProp>
               <stringProp name="randomSeed">15</stringProp>
@@ -280,7 +280,7 @@
             {  &#xd;
                &quot;name&quot;:&quot;floor&quot;,&#xd;
                &quot;type&quot;:&quot;string&quot;,&#xd;
-               &quot;value&quot;:&quot;${floor}&quot;&#xd;
+               &quot;value&quot;:&quot;Floor${floor}&quot;&#xd;
             }&#xd;
          ]&#xd;
       }&#xd;

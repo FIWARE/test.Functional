@@ -18,7 +18,8 @@ The testing environment can be easily set up through a FIWARE Lab, which is base
 In order to test this GE, two Virtual Machines you needed, which are: 
 
 1. **IoT Data Edge Consolidation GE - Cepheus** - follow the instruction to [deploy a dedicated GE instance based on an image](https://catalogue.fiware.org/enablers/iot-data-edge-consolidation-ge-cepheus/creating-instances ).
-2. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
+2. **Orion Context Broker GE** - follow the instruction to [deploy a dedicated Orion instance] (https://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker/creating-instances).
+3. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 
 [Top](#iot-data-edge-consolidation-ge---cepheus)
@@ -31,7 +32,21 @@ Once the HW necessary for the test described previously at **Testing Environment
 
 > No actions
 
-### 2. JMeter ###
+Open the **/etc/hosts** file by using this command:
+
+> `sudo nano /etc/hosts` 
+
+and add Orion IP of previous VM with **orion** alias according to your instance: 
+
+> `192.168.111.201 orion`
+
+### 2. Orion Context Broker ###
+
+> No actions
+
+Current Orion version 1.7.0.
+
+### 3. JMeter ###
 
 Open the **/etc/hosts** file by using this command:
 
@@ -39,7 +54,7 @@ Open the **/etc/hosts** file by using this command:
 
 and add Cepheus IP of previous VM with **cepheus** alias according to your instance: 
 
-> `192.168.111.87 cepheus`
+> `192.168.111.196 cepheus`
 
 
 Copy in the **/tmp/** folder the **Cephus-0.1.9.jmx** file.
@@ -58,10 +73,19 @@ Copy in the **/tmp/** folder the **Cephus-0.1.9.jmx** file.
 
 **Run the test** with the follow command: 
 
-`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cephus-0.1.9.jmx`
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cepheus-0.1.9.jmx`
 
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
-`cephus-0.1.9_yyyy-MM-dd HHmmss.csv`
+`cepheus-0.1.9_yyyy-MM-dd HHmmss.csv`
+
+To test that data are in the Orion, please use this command:
+
+> `curl -v http://orion:1026/v2/entities`
+
+An example of result, in json formant, is:
+
+`{"id":"Floor1","type":"Floor","temperature":{"type":"double","value":"19.444444444444443","metadata":{}}},
+{"id":"Floor2","type":"Floor","temperature":{"type":"double","value":"20.11111111111111","metadata":{}}},{"id":"Floor3","type":"Floor","temperature":{"type":"double","value":"21.666666666666668","metadata":{}}}`
 
 [Top](#iot-data-edge-consolidation-ge---cepheus)
