@@ -10,7 +10,7 @@
 
 Orion is the FIWARE GE reference implementation of the Context Broker Generic Enabler by Telefonica available at its [GitHub repository](https://github.com/telefonicaid/fiware-orion). 
 
-[Top](#publish-subscribe-context-broker-orion-context-broker)
+[Top](#publishsubscribe-context-broker---orion-context-broker)
 
 ## Testing environment ##
 
@@ -20,7 +20,7 @@ In order to test this GE, two Virtual Machines you needed, which are:
 1. **Orion Context Broker GE** - follow the instruction to [deploy a dedicated Orion instance] (https://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker/creating-instances). 
 2. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
-[Top](#publish-subscribe-context-broker-orion-context-broker)
+[Top](#publishsubscribe-context-broker---orion-context-broker)
 
 ## Overall preliminary setup ##
 
@@ -60,7 +60,7 @@ or to delete:
 3. `wget -c http://ftp.ps.pl/pub/apache//jmeter/binaries/apache-jmeter-3.1.tgz` - download JMeter 3.1
 4. `tar -xf apache-jmeter-3.1.tgz` - unpack JMeter
 
-[Top](#publish-subscribe-context-broker-orion-context-broker)
+[Top](#publishsubscribe-context-broker---orion-context-broker)
 
 ## Testing step by step ##
 
@@ -72,4 +72,4 @@ or to delete:
 
 `orion_context_broker-1.7.0_yyyy-MM-dd HHmmss.csv`
 
-[Top](#publish-subscribe-context-broker-orion-context-broker)
+[Top](#publishsubscribe-context-broker---orion-context-broker)
