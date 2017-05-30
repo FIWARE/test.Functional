@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.1" jmeter="3.1 r1770033">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="StreamOrientedKurento-6.6.0" enabled="true">
+      <stringProp name="TestPlan.comments">Test for KMurento Media Server</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="HOST" elementType="Argument">
+            <stringProp name="Argument.name">HOST</stringProp>
+            <stringProp name="Argument.value">kurento</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">IP of Stream-oriented - Kurento, name set in the hosts file</stringProp>
+          </elementProp>
+          <elementProp name="PORT" elementType="Argument">
+            <stringProp name="Argument.name">PORT</stringProp>
+            <stringProp name="Argument.value">8888</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Default port of Stream-oriented - Kurento</stringProp>
+          </elementProp>
+          <elementProp name="VERSION" elementType="Argument">
+            <stringProp name="Argument.name">VERSION</stringProp>
+            <stringProp name="Argument.value">6.6.0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Current version of Stream-oriented - Kurento</stringProp>
+          </elementProp>
+          <elementProp name="ABSOLUTE_PATH" elementType="Argument">
+            <stringProp name="Argument.name">ABSOLUTE_PATH</stringProp>
+            <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}</stringProp>
+            <stringProp name="Argument.desc">Path for jmx and csv files</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="VIDEO" elementType="Argument">
+            <stringProp name="Argument.name">VIDEO</stringProp>
+            <stringProp name="Argument.value">http://files.kurento.org/video/format/small.webm</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="API" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1496132521000</longProp>
+        <longProp name="ThreadGroup.end_time">1496132521000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="Open Connection" enabled="true">
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server">${HOST}</stringProp>
+          <stringProp name="port">${PORT}</stringProp>
+          <stringProp name="path">kurento</stringProp>
+          <stringProp name="TestPlan.comments">Open Connection</stringProp>
+        </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48626">101</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Ping - Pong" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;id&quot;: 1, &quot;method&quot;: &quot;ping&quot;, &quot;params&quot;: { &quot;interval&quot;: 240000}, &quot;jsonrpc&quot;: &quot;2.0&quot;}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree/>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Create MediaPipeline" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <stringProp name="TestPlan.comments">Create MediaPipeline</stringProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;create&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;MediaPipeline&quot;,&quot;properties&quot;:{}},&quot;id&quot;:1}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor SessionId" enabled="true">
+            <stringProp name="TestPlan.comments">SessionId extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">SESSIONID</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.result.sessionId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor MediaPipeline" enabled="true">
+            <stringProp name="TestPlan.comments">MediaPipeline extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">MEDIAPIPELINE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.result.value</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Invoke " enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;invoke&quot;,&quot;params&quot;:{&quot;object&quot;:&quot;manager_ServerManager&quot;,&quot;operation&quot;:&quot;getInfo&quot;,&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:2}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Create PlayerEndpoint " enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <stringProp name="TestPlan.comments">create PlayerEndpoint </stringProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;create&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;PlayerEndpoint&quot;,&quot;constructorParams&quot;:{&quot;mediaPipeline&quot;:&quot;${MEDIAPIPELINE}&quot;,&quot;uri&quot;:&quot;${VIDEO}&quot;},&quot;properties&quot;:{},&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:3}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor PlayerEndpoint" enabled="true">
+            <stringProp name="TestPlan.comments">PlayerEndpoint extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">PLAYERENDPOINT</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.result.value</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Create GStreamerFilter" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <stringProp name="TestPlan.comments">Create GStreamerFilter </stringProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;create&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;GStreamerFilter&quot;,&quot;constructorParams&quot;:{&quot;command&quot;:&quot;videoflip method=horizontal-flip&quot;,&quot;mediaPipeline&quot;:&quot;${MEDIAPIPELINE}&quot;},&quot;properties&quot;:{},&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:4}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor GStreamerFilter" enabled="true">
+            <stringProp name="TestPlan.comments">GStreamerFilter extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">GSTREAMERFILTER</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.result.value</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Invoke " enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;invoke&quot;,&quot;params&quot;:{&quot;object&quot;:&quot;${PLAYERENDPOINT}&quot;,&quot;operation&quot;:&quot;connect&quot;,&quot;operationParams&quot;:{&quot;sink&quot;:&quot;${GSTREAMERFILTER}&quot;},&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:5}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Create WebRtcEndpoint" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <stringProp name="TestPlan.comments">Create WebRtcEndpoint </stringProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;create&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;WebRtcEndpoint&quot;,&quot;constructorParams&quot;:{&quot;mediaPipeline&quot;:&quot;${MEDIAPIPELINE}&quot;},&quot;properties&quot;:{},&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:6}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor WebRtcEndpoint" enabled="true">
+            <stringProp name="TestPlan.comments">WebRtcEndpoint extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">WEBRTCENDPOINT</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.result.value</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Subscribe" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;subscribe&quot;,&quot;params&quot;:{&quot;object&quot;:&quot;${PLAYERENDPOINT}&quot;,&quot;type&quot;:&quot;EndOfStream&quot;,&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:7}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Subscription" enabled="true">
+            <stringProp name="TestPlan.comments">Subscription extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">SUBSCRIPTIONID</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.result.value</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Invoke" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;invoke&quot;,&quot;params&quot;:{&quot;object&quot;:&quot;${PLAYERENDPOINT}&quot;,&quot;operation&quot;:&quot;play&quot;,&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:8}
+</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="Read OnEvent" enabled="true">
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <boolProp name="createNewConnection">false</boolProp>
+          <stringProp name="readTimeout">9000</stringProp>
+        </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Unsubscribe" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;unsubscribe&quot;,&quot;params&quot;:{&quot;subscription&quot;: &quot;${SUBSCRIPTIONID}&quot;, &quot;object&quot;:&quot;${PLAYERENDPOINT}&quot;,&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:9}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Subscription" enabled="true">
+            <stringProp name="TestPlan.comments">Subscription extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">SUBSCRIPTIONID</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.result.value</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Release MediaPipeline" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;release&quot;,&quot;params&quot;:{&quot;object&quot;:&quot;${MEDIAPIPELINE}&quot;,&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:10}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Release PlayerEndpoint" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;release&quot;,&quot;params&quot;:{&quot;object&quot;:&quot;${PLAYERENDPOINT}&quot;,&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:11}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Release GStreamerFilter" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;release&quot;,&quot;params&quot;:{&quot;object&quot;:&quot;${GSTREAMERFILTER}&quot;,&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:12}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="Release WebRtcEndpoint" enabled="true">
+          <boolProp name="createNewConnection">false</boolProp>
+          <boolProp name="TLS">false</boolProp>
+          <stringProp name="server"></stringProp>
+          <stringProp name="port">80</stringProp>
+          <stringProp name="path"></stringProp>
+          <boolProp name="binaryPayload">false</boolProp>
+          <stringProp name="requestData">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;release&quot;,&quot;params&quot;:{&quot;object&quot;:&quot;${WEBRTCENDPOINT}&quot;,&quot;sessionId&quot;:&quot;${SESSIONID}&quot;},&quot;id&quot;:13}</stringProp>
+        </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor Error" enabled="true">
+            <stringProp name="TestPlan.comments">Error extractor</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.error.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Test Error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="48">0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">Test Error in the json </stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="Close Connection" enabled="true">
+          <stringProp name="TestPlan.comments">Close connection</stringProp>
+          <stringProp name="statusCode">1000</stringProp>
+        </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1507423">1000</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>false</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}StreamOrientedKurento-${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
+            <success>true</success>
+            <label>false</label>
+            <code>false</code>
+            <message>false</message>
+            <threadName>false</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <Summariser guiclass="SummariserGui" testclass="Summariser" testname="Result" enabled="true"/>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
