@@ -64,6 +64,6 @@ Before to start the test, you need to add JARs (plugins) in the **apache-jmeter-
 
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
-`stream-oriented-kurento-6.6.0_yyyy-MM-dd HHmmss.csv`
+`stream_oriented_kurento-6.6.0_yyyy-MM-dd HHmmss.csv`
 
 [Top](#stream-oriented---kurento)
