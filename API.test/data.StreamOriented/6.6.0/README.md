@@ -17,7 +17,7 @@ Stream-oriented is the FIWARE GE by Univeridad Rey Juan Carlos available at its 
 The testing environment can be easily set up through a FIWARE Lab, which is based on the cloud operating system OpenStack. 
 In order to test this GE, two Virtual Machines you needed, which are: 
 
-1. **Stream-oriented - Kurento** - follow the instruction to [deploy a dedicated GE instance based on an image] (https://catalogue.fiware.org/enablers/stream-oriented-kurento/creating-instances). 
+1. **Stream-oriented - Kurento** - follow the instruction to [deploy a dedicated GE instance based on an image](https://catalogue.fiware.org/enablers/stream-oriented-kurento/creating-instances). 
 2. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 
@@ -56,7 +56,7 @@ Copy in the **/tmp/** folder the **StreamOriented-6.6.0.jmx** file.
 
 ## Testing step by step ##
 
-Before to start the test, you need to add JARs (plugins) in the **apache-jmeter-3.1\lib\ext**. Please copy jmeter-plugins-manager-0.12.jar and JMeterWebSocketSamplers-0.7.3.jar in the **ext** folder.
+Before to start the test, you need to add JARs (plugins) in the **apache-jmeter-3.1\lib\ext**. Please copy **jmeter-plugins-manager-0.12.jar** and **JMeterWebSocketSamplers-0.7.3.jar** files in the **ext** folder.
 
 **Run the test** with the follow command: 
 
