@@ -725,7 +725,7 @@
             <assertionsResultsToSave>0</assertionsResultsToSave>
           </value>
         </objProp>
-        <stringProp name="filename">${ABSOLUTE_PATH}StreamOrientedKurento-${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}stream_oriented_kurento-${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">

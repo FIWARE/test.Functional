@@ -39,7 +39,7 @@ Open the **/etc/hosts** file by using this command:
 
 and add Kurento IP of previous VM with **kurento** alias according to your instance: 
 
-> `192.168.111.196 kurento`
+> `192.168.111.228 kurento`
 
 
 Copy in the **/tmp/** folder the **StreamOriented-6.6.0.jmx** file.
@@ -48,7 +48,7 @@ Copy in the **/tmp/** folder the **StreamOriented-6.6.0.jmx** file.
 #### Install JMeter 3 (on Ubuntu 14.04) ####
 
 1. `sudo apt-get update` - to refresh packages metadata
-2. `sudo apt-get install openjdk-7-jre-headless` - Java 7 is pre-requisite for JMeter 3.0
+2. `sudo apt-get install oracle-java8-installer` - Java 8 is required for WebSocket
 3. `wget -c http://ftp.ps.pl/pub/apache/jmeter/binaries/apache-jmeter-3.1.tgz` - download JMeter 3.1
 4. `tar -xf apache-jmeter-3.1.tgz` - unpack JMeter
 
@@ -56,7 +56,7 @@ Copy in the **/tmp/** folder the **StreamOriented-6.6.0.jmx** file.
 
 ## Testing step by step ##
 
-Before to start the test, you need to add JARs (plugins) in the **apache-jmeter-3.1\lib\ext**. Please copy **jmeter-plugins-manager-0.12.jar** and **JMeterWebSocketSamplers-0.7.3.jar** files in the **ext** folder.
+Before to start the test, you need to add JARs (plugins) in the **apache-jmeter-3.1/lib/ext** folder. Please copy **jmeter-plugins-manager-0.12.jar** and **JMeterWebSocketSamplers-0.7.3.jar** files in the **ext** folder.
 
 **Run the test** with the follow command: 
 
