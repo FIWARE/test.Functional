@@ -23,7 +23,7 @@ In order to test this GE, three Virtual Machines you needed, which are:
 
 Please note that you need of two Domibus instances, in order to test an use case (Business Scenario).
 The first Virtual Machine is used to send the message (Access Point Sending) and the second to download the message (Access Point Receiving).  
-![Four corner model](four_corner.png?style=centerme "The four-corner model")
+![Four corner model](four_corner.png?raw=true "The four-corner model")
 
 [Top](#electronic-data-exchange---domibus)
 
@@ -42,7 +42,9 @@ Here the changes:
  
 Just to use the right configuration, you can check it using `domibus-security-blue_gw.xml` file. Restart the server:
 > `ps -e|grep java`
-> `kill -9` xxx
+
+> `kill -9 id_process`
+
 > `sudo service domibus start`   
 
 ### 2. Domibus (receiver) ###
@@ -56,7 +58,9 @@ Here the changes:
  
 Just to use the right configuration, you can check it using `domibus-security-red_gw.xml` file. Restart the server:
 > `ps -e|grep java`
-> `kill -9` xxx
+
+> `kill -9 id_process`
+
 > `sudo service domibus start` 
 
 ### 3. JMeter ###
@@ -68,6 +72,7 @@ Open the **/etc/hosts** file by using this command:
 and add Domibus_Blue IP of previous VM with **domibus_blue** alias and Domibus_Red IP of previous VM with **domibus_red** alias according to your instance: 
 
 > `192.168.111.201 domibus_blue`
+
 > `192.168.111.202 domibus_red`
 
 
