@@ -23,7 +23,7 @@ In order to test this GE, three Virtual Machines you needed, which are:
 
 Please note that you need of two Domibus instances, in order to test an use case (Business Scenario).
 The first Virtual Machine is used to send the message (Access Point Sending) and the second to download the message (Access Point Receiving).  
-![Four corner model](four_corner.png "Title")
+![Four corner model](four_corner.png?style=centerme "The four-corner model")
 
 [Top](#electronic-data-exchange---domibus)
 
