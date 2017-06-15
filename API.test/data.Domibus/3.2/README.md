@@ -15,10 +15,10 @@ Domibus is a sample implementation of a CEF (Connecting Europe Facility) eDelive
 ## Testing environment ##
 
 The testing environment can be easily set up through a FIWARE Lab, which is based on the cloud operating system OpenStack. 
-In order to test this GE, three Virtual Machines you needed, which are: 
+In order to test this GE, three Virtual Machines you needed (2 Domibus, sender and receiver), which are: 
 
-1. **Electronic Data Exchange - Domibus GE** - follow the instruction to [deploy a dedicated Domibus instance] (https://catalogue.fiware.org/enablers/electronic-data-exchange-domibus/creating-instances).
-2. **Electronic Data Exchange - Domibus GE** - follow the instruction to [deploy a dedicated Domibus instance] (https://catalogue.fiware.org/enablers/electronic-data-exchange-domibus/creating-instances). 
+1. **Electronic Data Exchange - Domibus GE** - follow the instruction to [deploy a dedicated Domibus instance](https://catalogue.fiware.org/enablers/electronic-data-exchange-domibus/creating-instances).
+2. **Electronic Data Exchange - Domibus GE** - follow the instruction to [deploy a dedicated Domibus instance](https://catalogue.fiware.org/enablers/electronic-data-exchange-domibus/creating-instances). 
 2. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 Please note that you need of two Domibus instances, in order to test an use case (Business Scenario).
