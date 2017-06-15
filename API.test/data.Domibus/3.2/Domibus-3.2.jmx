@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.1" jmeter="3.1 r1770033">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Domibus-3.2" enabled="true">
+      <stringProp name="TestPlan.comments">Test for Domibus GE</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="DOMIBUS_BLUE_HOST" elementType="Argument">
+            <stringProp name="Argument.name">DOMIBUS_BLUE_HOST</stringProp>
+            <stringProp name="Argument.value">domibus_blue</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">IP of Domibus sender, name set in the hosts file</stringProp>
+          </elementProp>
+          <elementProp name="DOMIBUS_BLUE_PORT" elementType="Argument">
+            <stringProp name="Argument.name">DOMIBUS_BLUE_PORT</stringProp>
+            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Default port of Domibus sender</stringProp>
+          </elementProp>
+          <elementProp name="DOMIBUS_RED_HOST" elementType="Argument">
+            <stringProp name="Argument.name">DOMIBUS_RED_HOST</stringProp>
+            <stringProp name="Argument.value">domibus_red</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">IP of Domibus receiver, name set in the hosts file</stringProp>
+          </elementProp>
+          <elementProp name="DOMIBUS_RED_PORT" elementType="Argument">
+            <stringProp name="Argument.name">DOMIBUS_RED_PORT</stringProp>
+            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Default port of Domibus receiver</stringProp>
+          </elementProp>
+          <elementProp name="VERSION" elementType="Argument">
+            <stringProp name="Argument.name">VERSION</stringProp>
+            <stringProp name="Argument.value">3.2</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Current version of Domibus</stringProp>
+          </elementProp>
+          <elementProp name="ABSOLUTE_PATH" elementType="Argument">
+            <stringProp name="Argument.name">ABSOLUTE_PATH</stringProp>
+            <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}</stringProp>
+            <stringProp name="Argument.desc">Path for jmx and csv files</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ACKNOWLEDGED" elementType="Argument">
+            <stringProp name="Argument.name">ACKNOWLEDGED</stringProp>
+            <stringProp name="Argument.value">ACKNOWLEDGED</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SEND_ENQUEUED" elementType="Argument">
+            <stringProp name="Argument.name">SEND_ENQUEUED</stringProp>
+            <stringProp name="Argument.value">SEND_ENQUEUED</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Business Scenario" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1496914589000</longProp>
+        <longProp name="ThreadGroup.end_time">1496914589000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">Business Scenario</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="sendMessage" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:ns=&quot;http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/&quot; xmlns:_1=&quot;http://org.ecodex.backend/1_1/&quot; xmlns:xm=&quot;http://www.w3.org/2005/05/xmlmime&quot;&gt;&#xd;
+   &lt;soap:Header&gt;&#xd;
+      &lt;ns:Messaging&gt;&#xd;
+         &lt;ns:UserMessage&gt;&#xd;
+            &lt;ns:PartyInfo&gt;&#xd;
+               &lt;ns:From&gt;&#xd;
+                  &lt;ns:PartyId type=&quot;urn:oasis:names:tc:ebcore:partyid-type:unregistered&quot;&gt;domibus-blue&lt;/ns:PartyId&gt;&#xd;
+                  &lt;ns:Role&gt;http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/initiator&lt;/ns:Role&gt;&#xd;
+               &lt;/ns:From&gt;&#xd;
+               &lt;ns:To&gt;&#xd;
+                  &lt;ns:PartyId type=&quot;urn:oasis:names:tc:ebcore:partyid-type:unregistered&quot;&gt;domibus-red&lt;/ns:PartyId&gt;&#xd;
+                  &lt;ns:Role&gt;http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/responder&lt;/ns:Role&gt;&#xd;
+               &lt;/ns:To&gt;&#xd;
+            &lt;/ns:PartyInfo&gt;&#xd;
+            &lt;ns:CollaborationInfo&gt;&#xd;
+               &lt;ns:Service type=&quot;tc1&quot;&gt;bdx:noprocess&lt;/ns:Service&gt;&#xd;
+               &lt;ns:Action&gt;TC1Leg1&lt;/ns:Action&gt;&#xd;
+            &lt;/ns:CollaborationInfo&gt;&#xd;
+            &lt;ns:MessageProperties&gt;&#xd;
+               &lt;ns:Property name=&quot;originalSender&quot;&gt;urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1&lt;/ns:Property&gt;&#xd;
+               &lt;ns:Property name=&quot;finalRecipient&quot;&gt;urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4&lt;/ns:Property&gt;&#xd;
+            &lt;/ns:MessageProperties&gt;&#xd;
+            &lt;ns:PayloadInfo&gt;&#xd;
+               &lt;ns:PartInfo href=&quot;cid:message&quot;&gt;&#xd;
+                  &lt;ns:PartProperties&gt;&#xd;
+                     &lt;ns:Property name=&quot;MimeType&quot;&gt;text/xml&lt;/ns:Property&gt;&#xd;
+                  &lt;/ns:PartProperties&gt;&#xd;
+               &lt;/ns:PartInfo&gt;&#xd;
+            &lt;/ns:PayloadInfo&gt;&#xd;
+         &lt;/ns:UserMessage&gt;&#xd;
+      &lt;/ns:Messaging&gt;&#xd;
+   &lt;/soap:Header&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;_1:sendRequest&gt;&#xd;
+         &lt;payload payloadId=&quot;cid:message&quot;&gt;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGhlbGxvPndvcmxkPC9oZWxsbz4=&lt;/payload&gt;&#xd;
+      &lt;/_1:sendRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${DOMIBUS_BLUE_HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${DOMIBUS_BLUE_PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/domibus/services/backend</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">messageID</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;messageID&apos;]</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getMessageStatus" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:_1=&quot;http://org.ecodex.backend/1_1/&quot;&gt;&#xd;
+   &lt;soap:Header/&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;_1:getStatusRequest&gt;&#xd;
+         &lt;messageID&gt;${messageID}&lt;/messageID&gt;&#xd;
+      &lt;/_1:getStatusRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${DOMIBUS_BLUE_HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${DOMIBUS_BLUE_PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/domibus/services/backend</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">status</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;getMessageStatusResponse&apos;]</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="status" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1138344769">${ACKNOWLEDGED}|${SEND_ENQUEUED}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Scope.variable">status</stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="wait 5 secs" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">5000</stringProp>
+        </TestAction>
+        <hashTree/>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${id}&quot; != &quot;${messageID}&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="checkIfMessageIsAvailable" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:_1=&quot;http://org.ecodex.backend/1_1/&quot;&gt;&#xd;
+   &lt;soap:Header/&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;_1:listPendingMessagesRequest&gt;&lt;/_1:listPendingMessagesRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${DOMIBUS_RED_HOST}</stringProp>
+            <stringProp name="HTTPSampler.port">${DOMIBUS_RED_PORT}</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/domibus/services/backend</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+              <stringProp name="XPathExtractor.default"></stringProp>
+              <stringProp name="XPathExtractor.refname">id</stringProp>
+              <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;listPendingMessagesResponse&apos;][1]/messageID[1]</stringProp>
+              <boolProp name="XPathExtractor.validate">false</boolProp>
+              <boolProp name="XPathExtractor.tolerant">false</boolProp>
+              <boolProp name="XPathExtractor.namespace">false</boolProp>
+            </XPathExtractor>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="wait 5 secs" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">5000</stringProp>
+          </TestAction>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getMessageStatus" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:_1=&quot;http://org.ecodex.backend/1_1/&quot;&gt;&#xd;
+   &lt;soap:Header/&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;_1:getStatusRequest&gt;&#xd;
+         &lt;messageID&gt;${messageID}&lt;/messageID&gt;&#xd;
+      &lt;/_1:getStatusRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${DOMIBUS_BLUE_HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${DOMIBUS_RED_PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/domibus/services/backend</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">status</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;getMessageStatusResponse&apos;]</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="status" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1138344769">${ACKNOWLEDGED}|${SEND_ENQUEUED}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Scope.variable">status</stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getMessageError" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:_1=&quot;http://org.ecodex.backend/1_1/&quot;&gt;&#xd;
+   &lt;soap:Header/&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;_1:getErrorsRequest&gt;&#xd;
+         &lt;messageID&gt;${messageID}&lt;/messageID&gt;&#xd;
+      &lt;/_1:getErrorsRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">217.172.12.184</stringProp>
+          <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/domibus/services/backend</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default">empty</stringProp>
+            <stringProp name="XPathExtractor.refname">error</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;getMessageErrorsResponse&apos;]</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="error" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="96634189">empty</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Scope.variable">error</stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="listPendingMessage" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:_1=&quot;http://org.ecodex.backend/1_1/&quot;&gt;&#xd;
+   &lt;soap:Header/&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;_1:listPendingMessagesRequest&gt;&lt;/_1:listPendingMessagesRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${DOMIBUS_RED_HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${DOMIBUS_RED_PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/domibus/services/backend</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">id</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;listPendingMessagesResponse&apos;][1]/messageID[1]</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="id" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="974548338">${messageID}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Scope.variable">id</stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="downloadMessage" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:_1=&quot;http://org.ecodex.backend/1_1/&quot;&gt;&#xd;
+   &lt;soap:Header/&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;_1:downloadMessageRequest&gt;&#xd;
+         &lt;messageID&gt;${messageID}&lt;/messageID&gt;&#xd;
+      &lt;/_1:downloadMessageRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${DOMIBUS_RED_HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${DOMIBUS_RED_PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/domibus/services/backend</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">payload</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;payload&apos;]</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="payload" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1164216252">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGhlbGxvPndvcmxkPC9oZWxsbz4=</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="Scope.variable">payload</stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="sendResponse" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;soap:Envelope xmlns:soap=&quot;http://www.w3.org/2003/05/soap-envelope&quot; xmlns:ns=&quot;http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/&quot; xmlns:_1=&quot;http://org.ecodex.backend/1_1/&quot; xmlns:xm=&quot;http://www.w3.org/2005/05/xmlmime&quot;&gt;&#xd;
+   &lt;soap:Header&gt;&#xd;
+      &lt;ns:Messaging&gt;&#xd;
+         &lt;ns:UserMessage&gt;&#xd;
+            &lt;ns:PartyInfo&gt;&#xd;
+               &lt;ns:From&gt;&#xd;
+                  &lt;ns:PartyId type=&quot;urn:oasis:names:tc:ebcore:partyid-type:unregistered&quot;&gt;domibus-red&lt;/ns:PartyId&gt;&#xd;
+                  &lt;ns:Role&gt;http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/initiator&lt;/ns:Role&gt;&#xd;
+               &lt;/ns:From&gt;&#xd;
+               &lt;ns:To&gt;&#xd;
+                  &lt;ns:PartyId type=&quot;urn:oasis:names:tc:ebcore:partyid-type:unregistered&quot;&gt;domibus-blue&lt;/ns:PartyId&gt;&#xd;
+                  &lt;ns:Role&gt;http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/responder&lt;/ns:Role&gt;&#xd;
+               &lt;/ns:To&gt;&#xd;
+            &lt;/ns:PartyInfo&gt;&#xd;
+            &lt;ns:CollaborationInfo&gt;&#xd;
+               &lt;ns:Service type=&quot;tc1&quot;&gt;bdx:noprocess&lt;/ns:Service&gt;&#xd;
+               &lt;ns:Action&gt;TC1Leg1&lt;/ns:Action&gt;&#xd;
+            &lt;/ns:CollaborationInfo&gt;&#xd;
+            &lt;ns:MessageProperties&gt;&#xd;
+               &lt;ns:Property name=&quot;originalSender&quot;&gt;urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1&lt;/ns:Property&gt;&#xd;
+               &lt;ns:Property name=&quot;finalRecipient&quot;&gt;urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4&lt;/ns:Property&gt;&#xd;
+            &lt;/ns:MessageProperties&gt;&#xd;
+            &lt;ns:PayloadInfo&gt;&#xd;
+               &lt;ns:PartInfo href=&quot;cid:message&quot;&gt;&#xd;
+                  &lt;ns:PartProperties&gt;&#xd;
+                     &lt;ns:Property name=&quot;MimeType&quot;&gt;text/xml&lt;/ns:Property&gt;&#xd;
+                  &lt;/ns:PartProperties&gt;&#xd;
+               &lt;/ns:PartInfo&gt;&#xd;
+            &lt;/ns:PayloadInfo&gt;&#xd;
+         &lt;/ns:UserMessage&gt;&#xd;
+      &lt;/ns:Messaging&gt;&#xd;
+   &lt;/soap:Header&gt;&#xd;
+   &lt;soap:Body&gt;&#xd;
+      &lt;_1:sendRequest&gt;&#xd;
+         &lt;payload payloadId=&quot;cid:message&quot;&gt;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGhlbGxvPndvcmxkPC9oZWxsbz4=&lt;/payload&gt;&#xd;
+      &lt;/_1:sendRequest&gt;&#xd;
+   &lt;/soap:Body&gt;&#xd;
+&lt;/soap:Envelope&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${DOMIBUS_RED_HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${DOMIBUS_RED_PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/domibus/services/backend</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">messageID</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;messageID&apos;]</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>false</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}domibus-${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
+            <success>true</success>
+            <label>false</label>
+            <code>false</code>
+            <message>false</message>
+            <threadName>false</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <Summariser guiclass="SummariserGui" testclass="Summariser" testname="Result" enabled="true"/>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
