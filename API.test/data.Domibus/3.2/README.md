@@ -21,7 +21,7 @@ In order to test this GE, three Virtual Machines you needed, which are:
 2. **Electronic Data Exchange - Domibus (receiver) GE** - follow the instruction to [deploy a dedicated Domibus instance](https://catalogue.fiware.org/enablers/electronic-data-exchange-domibus/creating-instances). 
 2. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
-Please note that you need of two Domibus instances, in order to test an use case (Business Scenario).
+Please note that you need of two Domibus instances, in order to test a use case (Business Scenario).
 The first Virtual Machine is used to send the message (Access Point Sending) and the second to download the message (Access Point Receiving).  
 ![Four corner model](four_corner.png?raw=true "The four-corner model")
 
@@ -40,12 +40,11 @@ Here the changes:
 - in the location of the keystore, use `gateway_keystore.jks`
 - in the location and name of the trustStore, use `gateway_truststore.jks`
  
-Just to use the right configuration, you can check it using `domibus-security-blue_gw.xml` file. Restart the server:
-> `ps -e|grep java`
+Just to use the right configuration, you can check it using `domibus-security-blue_gw.xml` file. Restart the server: 
 
-> `kill -9 id_process`
+> `sudo service domibus restart`   
 
-> `sudo service domibus start`   
+(if you are using a VM with `medium flavor`, you cannot use `restart` command because the memory is insufficient - in the log file you can see: `"There is insufficient memory for the Java Runtime Environment to continue"`; so you can continue using the `kill -9 id_process` and `sudo service domibus start` commands.
 
 ### 2. Domibus (receiver) ###
 
@@ -57,11 +56,8 @@ Here the changes:
 - in the location and name of the trustStore, use `gateway_truststore.jks`
  
 Just to use the right configuration, you can check it using `domibus-security-red_gw.xml` file. Restart the server:
-> `ps -e|grep java`
 
-> `kill -9 id_process`
-
-> `sudo service domibus start` 
+> `sudo service domibus restart` 
 
 ### 3. JMeter ###
 
@@ -69,11 +65,11 @@ Open the **/etc/hosts** file by using this command:
 
 > `sudo nano /etc/hosts` 
 
-and add Domibus_Blue IP of previous VM with **domibus_blue** alias and Domibus_Red IP of previous VM with **domibus_red** alias according to your instance: 
+and add Domibus_Blue IP public for **domibus_blue** alias and Domibus_Red IP public for **domibus_red** alias according to your instance: 
 
-> `192.168.111.201 domibus_blue`
+> `217.172.12.163 domibus_blue`
 
-> `192.168.111.202 domibus_red`
+> `217.172.12.163 domibus_red`
 
 
 Copy in the **/tmp/** folder the **Domibus-3.2.jmx** file.
