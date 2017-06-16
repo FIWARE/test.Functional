@@ -46,6 +46,9 @@ Just to use the right configuration, you can check it using `domibus-security-bl
 
 (if you are using a VM with `medium flavor`, you cannot use `restart` command because the memory is insufficient - in the log file you can see: `"There is insufficient memory for the Java Runtime Environment to continue"`; so you can continue using the `kill -9 id_process` and `sudo service domibus start` commands.
 
+Before to upload the PMode configuration via web interface, you must change the IPs (parties tag) in the `domibus-gw-sample-pmode-blue.xml` with your public IPs of blue_gw and red_gw (in the example, 217.172.12.163 for blue_gw and 217.172.12.164 for red_gw).
+To upload the PMode configuration, go via web site at this link `http://[public_ip_blue_gw]:8080/domibus/home` and make the login with `admin/123456` credentials. From the Configuration upload menu use the `browser button` (PMode xml file to upload) to choose the `domibus-gw-sample-pmode-blue.xml` file.  
+
 ### 2. Domibus (receiver) ###
 
 Domibus sender is the `red_gw` example. Edit the `/usr/local/tomcat/domibus/conf/domibus/domibus-security.xml` file. 
@@ -58,6 +61,9 @@ Here the changes:
 Just to use the right configuration, you can check it using `domibus-security-red_gw.xml` file. Restart the server:
 
 > `sudo service domibus restart` 
+
+Before to upload the PMode configuration via web interface, you must change the IPs (parties tag) in the `domibus-gw-sample-pmode-red.xml` with your public IPs of blue_gw and red_gw (in the example, 217.172.12.163 for blue_gw and 217.172.12.164 for red_gw).
+To upload the PMode configuration, go via web site at this link `http://[public_ip_red_gw]:8080/domibus/home` and make the login with `admin/123456` credentials. From the Configuration upload menu use the `browser button` (PMode xml file to upload) to choose the `domibus-gw-sample-pmode-red.xml` file.
 
 ### 3. JMeter ###
 
