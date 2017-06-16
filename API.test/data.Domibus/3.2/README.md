@@ -25,6 +25,9 @@ Please note that you need of two Domibus instances, in order to test a use case 
 The first Virtual Machine is used to send the message (Access Point Sending) and the second to download the message (Access Point Receiving).  
 ![Four corner model](four_corner.png?raw=true "The four-corner model")
 
+The workflow of Business Scenario is shown in the next picture. 
+![Workflow](workflow.png?raw=true "Workflow")
+
 [Top](#electronic-data-exchange---domibus)
 
 ## Overall preliminary setup ##
