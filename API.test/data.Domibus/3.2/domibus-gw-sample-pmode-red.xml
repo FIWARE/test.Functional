@@ -15,7 +15,7 @@
          <party name="red_gw" endpoint="http://217.172.12.164:8080/domibus/services/msh" allowChunking="false">
             <identifier partyId="domibus-red" partyIdType="partyTypeUrn" />
          </party>
-         <party name="blue_gw" endpoint="http://217.172.12.184:8080/domibus/services/msh" allowChunking="false">
+         <party name="blue_gw" endpoint="http://217.172.12.163:8080/domibus/services/msh" allowChunking="false">
             <identifier partyId="domibus-blue" partyIdType="partyTypeUrn" />
          </party>
       </parties>

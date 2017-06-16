@@ -75,7 +75,7 @@ and add Domibus_Blue IP public for **domibus_blue** alias and Domibus_Red IP pub
 
 > `217.172.12.163 domibus_blue`
 
-> `217.172.12.163 domibus_red`
+> `217.172.12.164 domibus_red`
 
 
 Copy in the **/tmp/** folder the **Domibus-3.2.jmx** file.
