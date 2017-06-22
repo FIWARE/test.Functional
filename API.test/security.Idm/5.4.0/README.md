@@ -17,7 +17,7 @@ Keyrock is an implementation of the FIWARE Identity Management Generic Enabler b
 The testing environment can be easily set up through a FIWARE Lab, which is based on the cloud operating system OpenStack. 
 In order to test this GE, two Virtual Machines you needed, which are: 
 
-1. **Identity Management - KeyRock GE** - follow the instruction to [deploy a dedicated KeyRock instance] (https://catalogue.fiware.org/enablers/identity-management-keyrock/creating-instances). 
+1. **Identity Management - KeyRock GE** - follow the instruction to [deploy a dedicated KeyRock instance](https://catalogue.fiware.org/enablers/identity-management-keyrock/creating-instances). 
 2. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 [Top](#identity-management---keyrock)
