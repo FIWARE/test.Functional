@@ -144,6 +144,6 @@ In order to do this you have to edit the `auth-token.sh` script with your creden
 `business_api_ecosystem-5.4.0_yyyy-MM-dd HHmmss.csv`
 
 
-Please note that if this script fails probably the tokens are expired.
+**Please note** that if this script fails probably the tokens are expired.
 
 [Top](#business-api-ecosystem---biz-ecosystem-ri)
