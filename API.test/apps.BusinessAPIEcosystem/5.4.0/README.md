@@ -54,7 +54,7 @@ For more details see the step 3 (JMeter); so run this command:
 
 `./apache-jmeter-3.1/bin/jmeter -n -t /tmp/KeyRock-5.4.0_for_BusinessAPIEcosystem.jmx`
 
-**Please note** that the script generates a `credentials.txt` file (located in the root) to get the credentials clientSecret and clientId for your `Business` application. If you use the command above then the credentials.txt file is located in `/tmp folder`. 
+**Please note** that the script generates a `credentials.txt` file (located in the root) to get the credentials clientSecret and clientId for your `Business` application. If you use the command above then the credentials.txt file is located in `/tmp` folder. 
 You can also find these values via Web Interface accessing to http://keyrock:8000 (with `seller/seller` credentials). 
 
 
@@ -73,6 +73,12 @@ and add Keyrock and Business API Ecosystem IPs with **keyrock** and **business**
 
 Configure the files in the Business VM:
 1) Include the **Keyrock** credentials (client id, client secret), the server and the callback URL in the config.js file located at `/opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy`.
+
+Example of config.js file:
+`'server': 'http://keyrock:8000'``,
+`'clientID': '27f6cea32a404c5898f37ff4a9a76d75'`,
+`'clientSecret': '17c240eb66e14824aa8ee627aeaf6183'`,
+`'callbackURL': 'http://business:8000/auth/fiware/callback'`,
 
 Please **modify the charging endpoint port from 8004 to 8006**
 
