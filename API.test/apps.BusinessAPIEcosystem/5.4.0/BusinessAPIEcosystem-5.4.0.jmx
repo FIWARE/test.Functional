@@ -15,7 +15,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="HOST" elementType="Argument">
             <stringProp name="Argument.name">HOST</stringProp>
-            <stringProp name="Argument.value">ecosystem.ddns.net</stringProp>
+            <stringProp name="Argument.value">business</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">IP of Business API Ecosystem, name set in the hosts file</stringProp>
           </elementProp>
@@ -39,12 +39,12 @@
           </elementProp>
           <elementProp name="SELLER" elementType="Argument">
             <stringProp name="Argument.name">SELLER</stringProp>
-            <stringProp name="Argument.value">mauropecetti</stringProp>
+            <stringProp name="Argument.value">seller</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="CUSTOMER" elementType="Argument">
             <stringProp name="Argument.name">CUSTOMER</stringProp>
-            <stringProp name="Argument.value">stefano2</stringProp>
+            <stringProp name="Argument.value">customer</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -256,19 +256,19 @@ try {
         </HTTPSamplerProxy>
         <hashTree>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">CUSTOMER_ID</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">SELLER_ID</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.id</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
           <hashTree/>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">CUSTOMER_HREF</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">SELLER_HREF</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.href</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
           <hashTree/>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">CUSTOMER_NAME</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">SELLER_NAME</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.name</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
@@ -284,20 +284,20 @@ try {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="createCustomerAccount" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="createSellerAccount" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;name&quot;: &quot;${CUSTOMER_NAME}&quot;,&#xd;
+  &quot;name&quot;: &quot;${SELLER_NAME}&quot;,&#xd;
   &quot;accountType&quot;: &quot;shipping address&quot;,&#xd;
-  &quot;lastModified&quot;: &quot;2016-08-29T10:44:30+02:00&quot;,&#xd;
+  &quot;lastModified&quot;: &quot;${__time(yyyy-MM-dd)}T${__time(HH:mm:ss)}.075Z&quot;,&#xd;
   &quot;customer&quot;: {&#xd;
-    &quot;id&quot;: &quot;${CUSTOMER_ID}&quot;,&#xd;
-    &quot;href&quot;: &quot;${CUSTOMER_HREF}&quot;,&#xd;
-    &quot;name&quot;: &quot;${CUSTOMER_NAME}&quot;&#xd;
+    &quot;id&quot;: &quot;${SELLER_ID}&quot;,&#xd;
+    &quot;href&quot;: &quot;${SELLER_HREF}&quot;,&#xd;
+    &quot;name&quot;: &quot;${SELLER_NAME}&quot;&#xd;
   }&#xd;
 }&#xd;
 </stringProp>
@@ -319,23 +319,23 @@ try {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Create CustomerAccount</stringProp>
+          <stringProp name="TestPlan.comments">Create SellerAccount</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">CUSTOMERACCOUNT_ID</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">SELLERACCOUNT_ID</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.id</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
           <hashTree/>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">CUSTOMERACCOUNT_HREF</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">SELLERACCOUNT_HREF</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.href</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
           <hashTree/>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">CUSTOMERACCOUNT_NAME</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">SELLERACCOUNT_NAME</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.name</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
@@ -361,9 +361,9 @@ try {
   &quot;name&quot;:&quot;${SELLER}&quot;,&#xd;
   &quot;state&quot;:&quot;Defined&quot;,&#xd;
   &quot;customerAccount&quot;:{&#xd;
-    &quot;id&quot;:${CUSTOMERACCOUNT_ID},&#xd;
-    &quot;href&quot;:&quot;${CUSTOMERACCOUNT_HREF}&quot;,&#xd;
-    &quot;name&quot;:&quot;${CUSTOMERACCOUNT_NAME}&quot;&#xd;
+    &quot;id&quot;:${SELLERACCOUNT_ID},&#xd;
+    &quot;href&quot;:&quot;${SELLERACCOUNT_HREF}&quot;,&#xd;
+    &quot;name&quot;:&quot;${SELLERACCOUNT_NAME}&quot;&#xd;
   },&#xd;
   &quot;relatedParty&quot;:[&#xd;
     {&#xd;
@@ -593,7 +593,7 @@ try {
                 <stringProp name="Argument.value">{&#xd;
   &quot;name&quot;: &quot;${CUSTOMER_NAME}&quot;,&#xd;
   &quot;accountType&quot;: &quot;shipping address&quot;,&#xd;
-  &quot;lastModified&quot;: &quot;2016-08-29T10:44:30+02:00&quot;,&#xd;
+  &quot;lastModified&quot;: &quot;${__time(yyyy-MM-dd)}T${__time(HH:mm:ss)}.075Z&quot;,&#xd;
   &quot;customer&quot;: {&#xd;
     &quot;id&quot;: &quot;${CUSTOMER_ID}&quot;,&#xd;
     &quot;href&quot;: &quot;${CUSTOMER_HREF}&quot;,&#xd;
@@ -2359,6 +2359,115 @@ try {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
+    &quot;externalId&quot;: &quot;${CUSTOMER_ID}&quot;,&#xd;
+    &quot;priority&quot;:&quot;1&quot;,&#xd;
+    &quot;description&quot;:&quot;A wonderful 42 order for brand new products&quot;,&#xd;
+    &quot;state&quot;:&quot;InProgress&quot;,&#xd;
+    &quot;requestedStartDate&quot;:&quot;${__time(yyyy-MM-dd)}T${__time(HH:mm:ss)}.075Z&quot;,&#xd;
+    &quot;requestedCompletionDate&quot;:&quot;${__time(yyyy-MM-dd)}T${__time(HH:mm:ss)}.075Z&quot;,&#xd;
+    &quot;notificationContact&quot;:&quot;${EMAIL}&quot;,&#xd;
+    &quot;note&quot;:[&#xd;
+        {&#xd;
+            &quot;text&quot;: &quot;A free text detailing the note&quot;,&#xd;
+            &quot;date&quot;: &quot;${__time(yyyy-MM-dd)}T${__time(HH:mm:ss)}.075Z&quot;,&#xd;
+            &quot;author&quot;: &quot;${RELPARTY_ID}&quot;&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;relatedParty&quot;:[&#xd;
+        {&#xd;
+            &quot;role&quot;: &quot;Customer&quot;,&#xd;
+            &quot;id&quot;: &quot;${RELPARTY_ID}&quot;,&#xd;
+            &quot;href&quot;: &quot;http://${HOST}:${PORT}/DSPartyManagement/api/partyManagement/v2/individual/${CUSTOMER}&quot;&#xd;
+        }, {&#xd;
+            &quot;role&quot;: &quot;Seller&quot;,&#xd;
+            &quot;id&quot;: &quot;${SELLER}&quot;,&#xd;
+            &quot;href&quot;: &quot;http://${HOST}:${PORT}/DSPartyManagement/api/partyManagement/v2/individual/${SELLER}&quot;&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;orderItem&quot;: {&#xd;
+        &quot;id&quot;:&quot;1&quot;,&#xd;
+        &quot;action&quot;:&quot;add&quot;,&#xd;
+        &quot;state&quot;:&quot;Acknowledged&quot;,&#xd;
+        &quot;billingAccount&quot;:[{&#xd;
+            &quot;id&quot;: &quot;${BILL_ID}&quot;,&#xd;
+            &quot;href&quot;: &quot;${BILL_HREF}&quot;&#xd;
+        }],&#xd;
+        &quot;productOffering&quot;:{&#xd;
+            &quot;id&quot;:&quot;${PRODUCTOFFERING_ID}&quot;,&#xd;
+            &quot;href&quot;:&quot;${PRODUCT_HREF}&quot;&#xd;
+        },&#xd;
+        &quot;product&quot;:{&#xd;
+            &quot;productCharacteristic&quot;:[&#xd;
+                {&#xd;
+                    &quot;name&quot;:&quot;${PROD_CHAR_NAME}&quot;,&#xd;
+                    &quot;value&quot;:&quot;${PROD_CHAR_VALUE}&quot;&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;name&quot;:&quot;Memory&quot;,&#xd;
+                    &quot;value&quot;:&quot;16&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;productPrice&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot; : &quot;Monthly payment&quot;,&#xd;
+                    &quot;description&quot; : &quot;A monthly payment price model&quot;,&#xd;
+                    &quot;priceType&quot;:&quot;recurring&quot;,&#xd;
+                    &quot;recurringChargePeriod&quot;:&quot;monthly&quot;,&#xd;
+                    &quot;unitOfMeasure&quot;:&quot;&quot;,&#xd;
+                    &quot;price&quot;:{&#xd;
+                        &quot;amount&quot;:&quot;12&quot;,&#xd;
+                        &quot;currency&quot;:&quot;EUR&quot;&#xd;
+                    }&#xd;
+                }&#xd;
+            ]&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/DSProductOrdering/api/productOrdering/v2/productOrder</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Create Product Order</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">ORDER_ID</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 201</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="createProductOrder" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
   &quot;state&quot;:&quot;Acknowledged&quot;,&#xd;
   &quot;orderItem&quot;:[&#xd;
     {&#xd;
@@ -2586,64 +2695,7 @@ try {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;orderItem&quot;:[&#xd;
-    {&#xd;
-      &quot;id&quot;:&quot;0&quot;,&#xd;
-      &quot;action&quot;:&quot;add&quot;,&#xd;
-      &quot;state&quot;:&quot;Completed&quot;,&#xd;
-      &quot;billingAccount&quot;:[&#xd;
-        {&#xd;
-          &quot;id&quot;:&quot;${BILLINGACCOUNT_ID}&quot;,&#xd;
-          &quot;href&quot;:&quot;${BILLINGACCOUNT_HREF}&quot;&#xd;
-        }&#xd;
-      ],&#xd;
-      &quot;productOffering&quot;:{&#xd;
-        &quot;id&quot;:&quot;${PRODUCTOFFERING_ID}&quot;,&#xd;
-        &quot;href&quot;:&quot;${PRODUCTOFFERING_HREF}&quot;&#xd;
-      },&#xd;
-      &quot;product&quot;:{&#xd;
-        &quot;startDate&quot;:null,&#xd;
-        &quot;orderDate&quot;:null,&#xd;
-        &quot;terminationDate&quot;:null,&#xd;
-        &quot;productCharacteristic&quot;:[&#xd;
-          {&#xd;
-            &quot;name&quot;:&quot;${PRODUCTCHARACTERISTIC_NAME}&quot;,&#xd;
-            &quot;value&quot;:&quot;${PRODUCTCHARACTERISTIC_VALUE}&quot;&#xd;
-          }&#xd;
-        ],&#xd;
-        &quot;productRelationship&quot;:[&#xd;
-&#xd;
-        ],&#xd;
-        &quot;billingAccount&quot;:[&#xd;
-&#xd;
-        ],&#xd;
-        &quot;relatedParty&quot;:[&#xd;
-          {&#xd;
-            &quot;id&quot;:&quot;${REALTEDPARTY0_ID}&quot;,&#xd;
-            &quot;role&quot;:&quot;${REALTEDPARTY0_ROLE}&quot;,&#xd;
-            &quot;href&quot;:&quot;${REALTEDPARTY0_HREF}&quot;&#xd;
-          },&#xd;
-          {&#xd;
-            &quot;id&quot;:&quot;${REALTEDPARTY1_ID}&quot;,&#xd;
-            &quot;role&quot;:&quot;${REALTEDPARTY1_ROLE}&quot;,&#xd;
-            &quot;href&quot;:&quot;${REALTEDPARTY1_HREF}&quot;&#xd;
-          }&#xd;
-        ],&#xd;
-        &quot;realizingResource&quot;:[&#xd;
-&#xd;
-        ],&#xd;
-        &quot;realizingService&quot;:[&#xd;
-&#xd;
-        ],&#xd;
-        &quot;productPrice&quot;:[&#xd;
-&#xd;
-        ],&#xd;
-        &quot;agreement&quot;:[&#xd;
-&#xd;
-        ]&#xd;
-      }&#xd;
-    }&#xd;
-  ]&#xd;
+  &quot;state&quot;: &quot;Completed&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -3346,7 +3398,7 @@ try {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">DSCustomerManagement/api/customerManagement/v2/customerAccount</stringProp>
+          <stringProp name="HTTPSampler.path">/DSCustomerManagement/api/customerManagement/v2/customerAccount</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -3357,7 +3409,7 @@ try {
           <stringProp name="TestPlan.comments">List Customer Accounts</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Authorization: setBearerToken" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Authorization: setBearerToken" enabled="false">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Authorization</stringProp>
@@ -3440,7 +3492,7 @@ try {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">DSCustomerManagement/api/customerManagement/v2/customerAccount/${CUSTOMERACCOUNT_ID}</stringProp>
+          <stringProp name="HTTPSampler.path">/DSCustomerManagement/api/customerManagement/v2/customerAccount/${CUSTOMERACCOUNT_ID}</stringProp>
           <stringProp name="HTTPSampler.method">PATCH</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -3700,7 +3752,7 @@ try {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updateCustomerAccount" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updateBillingAccount" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -3727,7 +3779,7 @@ try {
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Update Customer Account</stringProp>
+          <stringProp name="TestPlan.comments">Update Billing Account</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
@@ -4394,18 +4446,18 @@ try {
         <objProp>
           <name>saveConfig</name>
           <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
             <success>true</success>
             <label>true</label>
             <code>true</code>
             <message>true</message>
             <threadName>false</threadName>
-            <dataType>true</dataType>
+            <dataType>false</dataType>
             <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
             <responseData>false</responseData>
             <samplerData>false</samplerData>
             <xml>false</xml>
@@ -4415,13 +4467,6 @@ try {
             <responseDataOnError>false</responseDataOnError>
             <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <url>true</url>
-            <hostname>true</hostname>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
           </value>
         </objProp>
         <stringProp name="filename">${ABSOLUTE_PATH}business_api_ecosystem-${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>

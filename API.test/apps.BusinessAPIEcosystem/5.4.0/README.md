@@ -50,8 +50,12 @@ If you have just launch it for the first time, you will need to create in Keyroc
 3) create two roles (`Seller` and `Customer`) and enable the users: the seller with **Seller** and **Provider** roles and customer with **Customer** role.
 
 You can do this configuration via Web Interface at this link http://keyrock:8000 (use idm/idm credentials), or you can execute the `KeyRock-5.4.0_for_BusinessAPIEcosystem.jmx` JMeter script (please run this script in the JMeter VM).
+For more details see the step 3 (JMeter); so run this command:
 
-**Please note** that the script generates a `credentials.txt` file to get the credentials clientSecret and clientId for your `Business` application. You can also find these values via Web Interface accessing to http://keyrock:8000 (with seller/seller credentials). 
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/5.4.0_for_BusinessAPIEcosystem-5.4.0.jmx`
+
+**Please note** that the script generates a `credentials.txt` file (located in the root) to get the credentials clientSecret and clientId for your `Business` application. If you use the command above then the credentials.txt file is located in `/tmp folder`. 
+You can also find these values via Web Interface accessing to http://keyrock:8000 (with seller/seller credentials). 
 
 
 ### 2. Business API Ecosystem ###
@@ -68,7 +72,7 @@ and add Keyrock and Business API Ecosystem IPs with **keyrock** and **business**
 
 
 Configure the files in the Business VM:
-1) Include the **Keyrock** credentials (client id, client secret), and the callback URL in the config.js file located at `/opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy`.
+1) Include the **Keyrock** credentials (client id, client secret), the server and the callback URL in the config.js file located at `/opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy`.
 
 Please **modify the charging endpoint port from 8004 to 8006**
 
@@ -83,10 +87,12 @@ Please **modify the charging endpoint port from 8004 to 8006**
 	- [4] `site.save()`
 	
 	type `ctrl-D` to exit
+	
 	3. from src execute `./manage.py loadplugin /opt/biz/Business-API-Ecosystem/business-ecosystem-charging-backend/src/wstore/test/test_plugin_files/test_plugin.zip`
+	
 	4. from src execute `mkdir -p media/assets/[seller]`
 
-4) **patch**: edit `oauth2.js` file in /opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy/node_modules/passport-fiware-oauth/lib/passport-fiware-oauth   
+4) **patch**: edit `oauth2.js` file in `/opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy/node_modules/passport-fiware-oauth/lib/passport-fiware-oauth`   
 to change the address (https://account.lab.fiware.org) with your keyrock (http://keyrock:8000) in three lines (44,45 and 79)
 
 5) Restart the charging backend
@@ -137,5 +143,8 @@ In order to do this you have to edit the `auth-token.sh` script with your creden
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
 `business_api_ecosystem-5.4.0_yyyy-MM-dd HHmmss.csv`
+
+
+Please note that if this script fails probably the tokens are expired.
 
 [Top](#business-api-ecosystem---biz-ecosystem-ri)

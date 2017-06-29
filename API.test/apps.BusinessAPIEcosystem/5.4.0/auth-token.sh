@@ -39,7 +39,7 @@ function get_token () {
 
     # Create the request
 
-    REQUEST="curl -s --insecure -i --header ${AUTH_BASIC} --header ${CONTENT_TYPE} -X POST https://account.lab.fiware.org/oauth2/token -d ${DATA}"
+    REQUEST="curl -s --insecure -i --header ${AUTH_BASIC} --header ${CONTENT_TYPE} -X POST http://keyrock:8000/oauth2/token -d ${DATA}"
 
     XAUTH_TOKEN="$(eval ${REQUEST} | grep -Po '(?<="access_token": ")[^"]*')"
 
