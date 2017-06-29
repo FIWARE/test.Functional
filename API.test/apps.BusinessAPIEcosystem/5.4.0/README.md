@@ -75,9 +75,13 @@ Configure the files in the Business VM:
 1) Include the **Keyrock** credentials (client id, client secret), the server and the callback URL in the config.js file located at `/opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy`.
 
 Example of config.js file:
-`'server': 'http://keyrock:8000'``,
+
+`'server': 'http://keyrock:8000'`,
+
 `'clientID': '27f6cea32a404c5898f37ff4a9a76d75'`,
+
 `'clientSecret': '17c240eb66e14824aa8ee627aeaf6183'`,
+
 `'callbackURL': 'http://business:8000/auth/fiware/callback'`,
 
 Please **modify the charging endpoint port from 8004 to 8006**
