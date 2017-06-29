@@ -15,11 +15,13 @@ Business API Ecosystem is the FIWARE GE by UPM available at its [GitHub reposito
 ## Testing environment ##
 
 The testing environment can be easily set up through a FIWARE Lab, which is based on the cloud operating system OpenStack. 
-In order to test this GE, two Virtual Machines you needed, which are: 
+In order to test this GE, three Virtual Machines you needed, which are: 
 
-1. **Business API Ecosystem GE** - follow the instruction to [deploy a dedicated GE instance based on an image] (https://catalogue.fiware.org/enablers/business-api-ecosystem/creating-instances). 
-2. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
+1. **Identity Management - KeyRock GE** - follow the instruction to [deploy a dedicated KeyRock instance](https://catalogue.fiware.org/enablers/identity-management-keyrock/creating-instances).
 
+2. **Business API Ecosystem GE** - follow the instruction to [deploy a dedicated GE instance based on an image](https://catalogue.fiware.org/enablers/business-api-ecosystem/creating-instances). 
+
+3. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 [Top](#business-api-ecosystem---biz-ecosystem-ri)
 
@@ -27,54 +29,87 @@ In order to test this GE, two Virtual Machines you needed, which are:
 
 Once the HW necessary for the test described previously at **Testing Environment** chapter has been setup, the following preliminary steps need to be accomplished before to start the test process:
 
-### 1. Business API Ecosystem ###
-
-If you have just launch it for the first time, you will need to configure several things, since the system is using a default configuration which is not valid for a real usage:
-1) Register an application in the **FIWARE IdM - Keyrock**
-	1. URL `http://<yourcloudip>:8000/`
-	2. Callback URL `http://<yourcloudip>:8000/auth/fiware/callback`
-	3. Create roles Seller and Customer
-	4. Enable two users: one with Seller and Provider roles and one with Customer role
-
-2) Include the IdM credentials (client id, client secret), and the callback URL in the config.js file located at `/opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy`. Please **MODIFY CHARGING ENDPOINT PORT! 8004 -> 8006**
-
-3) Provide a valid email in the settings.py file (WSTOREMAIL) located in `/opt/biz/Business-API-Ecosystem/business-ecosystem-charging-backend/src`
-
-4) Update the external site of the charging backend
-	1. from `/opt/biz/Business-API-Ecosystem/business-ecosystem-charging-backend/` execute source `virtenv/bin/activate`
-	2. from src execute `./manage.py shell`
-	- [1] from `django.contrib.sites.models` import Site 
-	- [2] `site = Site.objects.get(name='ext')` 
-	- [3] `site.domain = 'http://<yourcloudip>:8000/'`
-	- [4] `site.save()`
-	3. from src execute `./manage.py loadplugin /opt/biz/Business-API-Ecosystem/business-ecosystem-charging-backend/src/wstore/test/test_plugin_files/test_plugin.zip`
-	4. from src execute `mkdir -p media/assets/[seller_account_name]`
-
-5) Restart the charging backend
-	1. `sudo service business-charging restart`
-	
-6) Restart the proxy
-	1. `sudo service business-proxy restart`
-	
-7) Login 
-	1. Login into the portal with seller user and customer user 
-
-
-### 2. JMeter ###
+### 1. Identity Management - KeyRock ###
 
 Open the **/etc/hosts** file by using this command:
 
 > `sudo nano /etc/hosts` 
 
-and add Business API Ecosystem IP of previous VM with **business** alias according to your instance: 
+and add Keyrock and Business API Ecosystem IPs with **keyrock** and **business** aliases according to your instance: 
 
-> `192.168.111.226 business`
+> `127.0.0.1 217.172.12.241 localhost keyrock`
+> `217.172.12.184 business`
 
 
-Copy in the **/tmp/** folder the **BusinessAPIEcosystem-5.4.0.jmx** file.
+If you have just launch it for the first time, you will need to create in Keyrock:
 
-Modify file.properties file with two AUTH2 tokens (for seller and customer). 
- 
+1) a consumer (application) named Business, with URL `http://business:8000/` and callback URL `http://business:8000/auth/fiware/callback` 
+2) a seller and a customer users (named seller and customer), 
+3) create two roles (Seller and Customer) and enable the users: the seller with Seller and Provider roles and customer with Customer role.
+
+You can do this configuration via Web Interface at this link http://keyrock:8000 (use idm/idm credentials), or you can execute the `KeyRock-5.4.0_for_BusinessAPIEcosystem.jmx` JMeter script (please run this script in the JMeter VM).
+
+**Please note** that the script generates a `credentials.txt` file to get the credentials clientSecret and clientId for your `Business` application. You can also find these values via Web Interface accessing to `http://keyrock:8000` (with seller/seller credentials). 
+
+
+### 2. Business API Ecosystem ###
+
+Open the **/etc/hosts** file by using this command:
+
+> `sudo nano /etc/hosts` 
+
+and add Keyrock and Business API Ecosystem IPs with **keyrock** and **business** aliases according to your instance: 
+
+> `127.0.0.1 217.172.12.184 localhost business`
+> `217.172.12.241 keyrock`
+
+
+Configure the files in the Business VM:
+1) Include the **Keyrock** credentials (client id, client secret), and the callback URL in the config.js file located at `/opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy`. 
+Please **modify the charging endpoint port from 8004 to 8006**
+
+2) Provide a valid email in the settings.py file (WSTOREMAIL) located in `/opt/biz/Business-API-Ecosystem/business-ecosystem-charging-backend/src`
+
+3) Update the external site of the charging backend
+	1. from `/opt/biz/Business-API-Ecosystem/business-ecosystem-charging-backend/` execute `source virtenv/bin/activate`
+	2. from src execute `./manage.py shell`
+	- [1] `from django.contrib.sites.models import Site` 
+	- [2] `site = Site.objects.get(name='ext')` 
+	- [3] `site.domain = 'http://keyrock:8000/'`
+	- [4] `site.save()`
+	type `ctrl-D` to exit
+	3. from src execute `./manage.py loadplugin /opt/biz/Business-API-Ecosystem/business-ecosystem-charging-backend/src/wstore/test/test_plugin_files/test_plugin.zip`
+	4. from src execute `mkdir -p media/assets/[seller]`
+
+4) **patch**: edit `oauth2.js` file in /opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy/node_modules/passport-fiware-oauth/lib/passport-fiware-oauth   
+to change the address (https://account.lab.fiware.org) with yours (http://keyrock:8000) in three lines (44,45 and 79)
+
+5) Restart the charging backend
+	`sudo service business-charging restart`
+	
+6) Restart the proxy
+	`sudo service business-proxy restart`
+	
+7) Login into the `business` portal (http://business:8000) with seller user and customer user to authorize them. Please use two different browsers for both users.
+
+### 3. JMeter ###
+
+Open the **/etc/hosts** file by using this command:
+
+> `sudo nano /etc/hosts` 
+
+and add Keyrock and Business API Ecosystem IPs with **keyrock** and **business** aliases according to your instance: 
+
+> `217.172.12.184 business`
+> `217.172.12.241 keyrock`
+
+Copy in the **/tmp/** folder the **BusinessAPIEcosystem-5.4.0.jmx**, **KeyRock-5.4.0_for_BusinessAPIEcosystem.jmx**, **auth-token.sh** and **file.properties** files.
+
+Before to start the script, you must to update the `file.properties` file with seller and customer tokens. 
+In order to do this you have to edit the `auth-token.sh` script with your credentials (CLIENT_ID, CLIENT_SECRET - lines 24 and 25) and type these commands in the shell:
+- `chmod 777 auth-token.sh`
+- `./auth-token.sh seller seller` to get the token in the shell (copy and paste token_seller in the file.properties)
+- `./auth-token.sh customer customer`  to get the token in the shell (copy and paste token_customer in the file.properties)
 
 #### Install JMeter 3 (on Ubuntu 14.04) ####
 
