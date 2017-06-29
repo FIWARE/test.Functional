@@ -1,0 +1,9 @@
+label,responseCode,responseMessage,success,failureMessage
+sendMessage,200,OK,true,
+getMessageStatus,200,OK,true,
+checkIfMessageIsAvailable,200,OK,true,
+getMessageStatus,200,OK,true,
+getMessageError,200,OK,true,
+listPendingMessage,200,OK,true,
+downloadMessage,200,OK,true,
+sendResponse,200,OK,true,

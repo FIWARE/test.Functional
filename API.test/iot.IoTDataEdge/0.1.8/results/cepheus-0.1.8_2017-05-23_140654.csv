@@ -1,0 +1,24 @@
+label,responseCode,responseMessage,success,failureMessage
+createConfiguration,201,Created,false,"Test failed: code expected to equal /
+
+****** received  : 20[[[1]]]
+
+****** comparison: 20[[[0]]]
+
+/"
+getConfiguration,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+updateContextFloorRoom,200,OK,true,
+getStatements,200,OK,true,
+deleteConfig,200,OK,true,
+checkEmptyConfiguration,404,Not Found,true,

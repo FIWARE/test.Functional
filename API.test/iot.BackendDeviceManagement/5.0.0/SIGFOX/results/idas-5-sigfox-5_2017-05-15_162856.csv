@@ -1,0 +1,12 @@
+label,responseCode,responseMessage,success,failureMessage
+getInfo,200,OK,true,
+createService,201,Created,true,
+updateService,200,OK,true,
+getService,200,OK,true,
+removeService,200,OK,true,
+createDevice,201,Created,true,
+updateDevice,400,Bad Request,false,Test failed: code expected to match /204/
+getDevices,200,OK,true,
+getDevice,200,OK,true,
+removeDevice,204,No Content,true,
+provisioningDevice,201,Created,true,
