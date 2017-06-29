@@ -52,10 +52,10 @@ If you have just launch it for the first time, you will need to create in Keyroc
 You can do this configuration via Web Interface at this link http://keyrock:8000 (use idm/idm credentials), or you can execute the `KeyRock-5.4.0_for_BusinessAPIEcosystem.jmx` JMeter script (please run this script in the JMeter VM).
 For more details see the step 3 (JMeter); so run this command:
 
-`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/5.4.0_for_BusinessAPIEcosystem-5.4.0.jmx`
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/KeyRock-5.4.0_for_BusinessAPIEcosystem.jmx`
 
 **Please note** that the script generates a `credentials.txt` file (located in the root) to get the credentials clientSecret and clientId for your `Business` application. If you use the command above then the credentials.txt file is located in `/tmp folder`. 
-You can also find these values via Web Interface accessing to http://keyrock:8000 (with seller/seller credentials). 
+You can also find these values via Web Interface accessing to http://keyrock:8000 (with `seller/seller` credentials). 
 
 
 ### 2. Business API Ecosystem ###
@@ -92,8 +92,7 @@ Please **modify the charging endpoint port from 8004 to 8006**
 	
 	4. from src execute `mkdir -p media/assets/[seller]`
 
-4) **patch**: edit `oauth2.js` file in `/opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy/node_modules/passport-fiware-oauth/lib/passport-fiware-oauth`   
-to change the address (https://account.lab.fiware.org) with your keyrock (http://keyrock:8000) in three lines (44,45 and 79)
+4) **patch**: edit `oauth2.js` file in `/opt/biz/Business-API-Ecosystem/business-ecosystem-logic-proxy/node_modules/passport-fiware-oauth/lib/passport-fiware-oauth` to change the address (https://account.lab.fiware.org) with your keyrock (http://keyrock:8000) in three lines (44,45 and 79)
 
 5) Restart the charging backend
 
@@ -103,7 +102,7 @@ to change the address (https://account.lab.fiware.org) with your keyrock (http:/
 
 	`sudo service business-proxy restart`
 	
-7) Login into the `business` portal (http://business:8000) with seller user and customer user to authorize them. Please use two different browsers for both users.
+7) Login into the `business` portal (http://business:8000) with seller user and customer users to authorize them. Please use two different browsers for both users.
 
 ### 3. JMeter ###
 
