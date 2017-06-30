@@ -146,7 +146,13 @@
             <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="getAllGEs_TXT" enabled="true">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">rank</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..rank</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="getAllGEs_TXT" enabled="false">
             <stringProp name="cacheKey"></stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -199,7 +205,7 @@ private String cleanHtmlTags(String msg){
             <stringProp name="TestPlan.comments">Get list of GEs in TXT</stringProp>
           </JSR223PostProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="getAllGEs_CSV" enabled="true">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="getAllGEs_CSV" enabled="false">
             <stringProp name="cacheKey"></stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -209,7 +215,7 @@ import org.apache.jmeter.services.FileServer;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-String header = &quot;title, chapter, version\n&quot;;
+String header = &quot;chapter, title, rank, version\n&quot;;
 String content = &quot;&quot;;
 
 String key = &quot;&quot;;
@@ -219,15 +225,15 @@ for (Map.Entry entry : vars.entrySet()) {
 		postfix = entry.getKey().replaceAll(&quot;title&quot;, &quot;&quot;);	
 		chapter = cleanHtmlTags(vars.get(&quot;chapter&quot; + postfix));	
 		if (chapter != &quot;&quot; &amp;&amp; !chapter.contains(&quot;Tools&quot;)){	//check if chapter is empty and not &apos;Tools&apos;		
-			content += cleanHtmlTags(vars.get(&quot;title&quot; + postfix)) + &quot;, &quot; + cleanHtmlTags(vars.get(&quot;chapter&quot; + postfix)) + &quot;, &quot; + vars.get(&quot;version&quot; + postfix) + &quot;\n&quot;;
+			content += cleanHtmlTags(vars.get(&quot;chapter&quot; + postfix)) + &quot;, &quot; + cleanHtmlTags(vars.get(&quot;title&quot; + postfix)) + &quot;, &quot; + cleanHtmlTags(vars.get(&quot;rank&quot; + postfix)) + &quot;, &quot; + removeComma(vars.get(&quot;version&quot; + postfix)) + &quot;\n&quot;;
 		}		
 	}
 }
 
 //path txt file
-SimpleDateFormat formatter = new SimpleDateFormat( &quot;yyyy-MM-dd_HH-mm-ss&quot; ); 
+SimpleDateFormat formatter = new SimpleDateFormat( &quot;yyyy-MM-dd HHmmss&quot; ); 
 String datetime = formatter.format( new java.util.Date() );
-String file = FileServer.getFileServer().getBaseDir() + &quot;/All_GEs_Catalogue_&quot;+ datetime +&quot;.csv&quot;;
+String file = FileServer.getFileServer().getBaseDir() + &quot;/all_ges_&quot;+ datetime +&quot;.csv&quot;;
 
 try {
 	FileWriter fw = new FileWriter(file,true);
@@ -238,7 +244,95 @@ try {
 }
 
 private String cleanHtmlTags(String msg){
+	msg = msg.replaceAll(&quot;&amp;amp;&quot;,&quot;&amp;&quot;);
 	return msg.replaceAll(&quot;\\&lt;[^&gt;]*&gt;&quot;,&quot;&quot;);
+}
+
+private String removeComma(String msg){
+	return msg.replaceAll(&quot;,&quot;,&quot;&quot;);
+}
+
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="TestPlan.comments">Get list of GEs in CVS</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="getAllGEs_CSV" enabled="true">
+            <stringProp name="cacheKey"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import java.util.Map;
+import java.io.IOException;
+import org.apache.jmeter.services.FileServer;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+HashMap&lt;Integer,String&gt; map = new HashMap&lt;Integer,String&gt;();
+
+for (Map.Entry entry : vars.entrySet() ) {
+	if (entry.getKey().contains(&quot;title&quot;) &amp;&amp; !(entry.getKey().contains(&quot;matchNr&quot;))){
+		postfix = entry.getKey().replaceAll(&quot;title_&quot;, &quot;&quot;);	
+		chapter = cleanHtmlTags(vars.get(&quot;chapter_&quot; + postfix));		
+		if (chapter != &quot;&quot; &amp;&amp; !chapter.contains(&quot;Tools&quot;)){	//check if chapter is empty and not &apos;Tools&apos;	
+			map.put(Integer.parseInt(postfix), chapter);
+		}
+	}  
+}
+HashMap ordered = sortHashMapByValues(map);
+StringBuffer output = new StringBuffer(&quot;chapter, title, rank, version\n&quot;);
+
+for (Map.Entry entry : ordered.entrySet()) {
+	output.append(cleanHtmlTags(vars.get(&quot;chapter_&quot; + entry.getKey())) + &quot;, &quot; + cleanHtmlTags(vars.get(&quot;title_&quot; + entry.getKey())) + &quot;, &quot; + cleanHtmlTags(vars.get(&quot;rank_&quot; + entry.getKey())) + &quot;, &quot; + removeComma(vars.get(&quot;version_&quot; + entry.getKey())) + &quot;\n&quot;);
+}
+
+//path txt file
+SimpleDateFormat formatter = new SimpleDateFormat( &quot;yyyy-MM-dd HHmmss&quot; ); 
+String datetime = formatter.format( new java.util.Date() );
+String file = FileServer.getFileServer().getBaseDir() + &quot;/all_ges_&quot;+ datetime +&quot;.csv&quot;;
+
+try {
+	FileWriter fw = new FileWriter(file,true);
+     fw.write(output.toString());
+     fw.close();
+} catch(IOException ioe) {
+     System.err.println(&quot;IOException: &quot; + ioe.getMessage());
+}
+
+private String cleanHtmlTags(String msg){
+	msg = msg.replaceAll(&quot;&amp;amp;&quot;,&quot;&amp;&quot;);
+	return msg.replaceAll(&quot;\\&lt;[^&gt;]*&gt;&quot;,&quot;&quot;);
+}
+
+private String removeComma(String msg){
+	return msg.replaceAll(&quot;,&quot;,&quot;&quot;);
+}
+
+public LinkedHashMap&lt;Integer, String&gt; sortHashMapByValues(HashMap&lt;Integer, String&gt; passedMap) {
+    List&lt;Integer&gt; mapKeys = new ArrayList&lt;&gt;(passedMap.keySet());
+    List&lt;String&gt; mapValues = new ArrayList&lt;&gt;(passedMap.values());
+    Collections.sort(mapValues);
+    Collections.sort(mapKeys);
+
+    LinkedHashMap&lt;Integer, String&gt; sortedMap = new LinkedHashMap&lt;&gt;();
+
+    Iterator&lt;String&gt; valueIt = mapValues.iterator();
+    while (valueIt.hasNext()) {
+        String val = valueIt.next();
+        Iterator&lt;Integer&gt; keyIt = mapKeys.iterator();
+
+        while (keyIt.hasNext()) {
+            Integer key = keyIt.next();
+            String comp1 = passedMap.get(key);
+            String comp2 = val;
+
+            if (comp1.equals(comp2)) {
+                keyIt.remove();
+                sortedMap.put(key, val);
+                break;
+            }
+        }
+    }
+    return sortedMap;
 }
 </stringProp>
             <stringProp name="scriptLanguage">groovy</stringProp>
