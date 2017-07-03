@@ -17,47 +17,7 @@
             <stringProp name="Argument.name">HOST</stringProp>
             <stringProp name="Argument.value">catalogue.fiware.org</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">IP of KeyRock, name set in the hosts file</stringProp>
-          </elementProp>
-          <elementProp name="PORT" elementType="Argument">
-            <stringProp name="Argument.name">PORT</stringProp>
-            <stringProp name="Argument.value">443</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">Default port of KeyRock</stringProp>
-          </elementProp>
-          <elementProp name="VERSION" elementType="Argument">
-            <stringProp name="Argument.name">VERSION</stringProp>
-            <stringProp name="Argument.value">5.4.0</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">Current version of KeyRock</stringProp>
-          </elementProp>
-          <elementProp name="ABSOLUTE_PATH" elementType="Argument">
-            <stringProp name="Argument.name">ABSOLUTE_PATH</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}</stringProp>
-            <stringProp name="Argument.desc">Path for jmx and csv files</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="GE_NAME" elementType="Argument">
-            <stringProp name="Argument.name">GE_NAME</stringProp>
-            <stringProp name="Argument.value">keyrock</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TIME" elementType="Argument">
-            <stringProp name="Argument.name">TIME</stringProp>
-            <stringProp name="Argument.value">${__time(yyyy-MM-dd_HHmmss)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="DEFAULT_USERNAME" elementType="Argument">
-            <stringProp name="Argument.name">DEFAULT_USERNAME</stringProp>
-            <stringProp name="Argument.value">idm</stringProp>
-            <stringProp name="Argument.desc">Default username, check if exist and doesn&apos;t change it</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="DEFAULT_DOMAIN_ID" elementType="Argument">
-            <stringProp name="Argument.name">DEFAULT_DOMAIN_ID</stringProp>
-            <stringProp name="Argument.value">default</stringProp>
-            <stringProp name="Argument.desc">Default domain id, check if exist and doesn&apos;t change it</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">IP of Catalogue, name set in the hosts file</stringProp>
           </elementProp>
         </collectionProp>
       </Arguments>
@@ -268,6 +228,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 HashMap&lt;Integer,String&gt; map = new HashMap&lt;Integer,String&gt;();
+String postfix, chapter;
 
 for (Map.Entry entry : vars.entrySet() ) {
 	if (entry.getKey().contains(&quot;title&quot;) &amp;&amp; !(entry.getKey().contains(&quot;matchNr&quot;))){
@@ -279,13 +240,13 @@ for (Map.Entry entry : vars.entrySet() ) {
 	}  
 }
 HashMap ordered = sortHashMapByValues(map);
-StringBuffer output = new StringBuffer(&quot;chapter, title, rank, version\n&quot;);
+StringBuffer output = new StringBuffer(&quot;Chapter, Title, Rank, Version\n&quot;);
 
 for (Map.Entry entry : ordered.entrySet()) {
 	output.append(cleanHtmlTags(vars.get(&quot;chapter_&quot; + entry.getKey())) + &quot;, &quot; + cleanHtmlTags(vars.get(&quot;title_&quot; + entry.getKey())) + &quot;, &quot; + cleanHtmlTags(vars.get(&quot;rank_&quot; + entry.getKey())) + &quot;, &quot; + removeComma(vars.get(&quot;version_&quot; + entry.getKey())) + &quot;\n&quot;);
 }
 
-//path txt file
+//path csv file
 SimpleDateFormat formatter = new SimpleDateFormat( &quot;yyyy-MM-dd HHmmss&quot; ); 
 String datetime = formatter.format( new java.util.Date() );
 String file = FileServer.getFileServer().getBaseDir() + &quot;/all_ges_&quot;+ datetime +&quot;.csv&quot;;
@@ -307,7 +268,7 @@ private String removeComma(String msg){
 	return msg.replaceAll(&quot;,&quot;,&quot;&quot;);
 }
 
-public LinkedHashMap&lt;Integer, String&gt; sortHashMapByValues(HashMap&lt;Integer, String&gt; passedMap) {
+private LinkedHashMap&lt;Integer, String&gt; sortHashMapByValues(HashMap&lt;Integer, String&gt; passedMap) {
     List&lt;Integer&gt; mapKeys = new ArrayList&lt;&gt;(passedMap.keySet());
     List&lt;String&gt; mapValues = new ArrayList&lt;&gt;(passedMap.values());
     Collections.sort(mapValues);
