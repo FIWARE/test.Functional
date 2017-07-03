@@ -18,7 +18,7 @@ The testing environment can be easily set up through a FIWARE Lab, which is base
 In order to test this GE, two Virtual Machines you needed, which are: 
 
 1. **IoT Data Edge Consolidation GE - Cepheus** - follow the instruction to [deploy a dedicated GE instance based on an image](https://catalogue.fiware.org/enablers/iot-data-edge-consolidation-ge-cepheus/creating-instances ).
-2. **Orion Context Broker GE** - follow the instruction to [deploy a dedicated Orion instance] (https://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker/creating-instances).
+2. **Orion Context Broker GE** - follow the instruction to [deploy a dedicated Orion instance](https://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker/creating-instances).
 3. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 
