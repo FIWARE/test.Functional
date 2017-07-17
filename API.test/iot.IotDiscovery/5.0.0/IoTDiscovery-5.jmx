@@ -1,0 +1,1580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.1" jmeter="3.1 r1770033">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="IoT_Discovery" enabled="true">
+      <stringProp name="TestPlan.comments">Test for IoT Discovery GE</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="HOST" elementType="Argument">
+            <stringProp name="Argument.name">HOST</stringProp>
+            <stringProp name="Argument.value">iotdiscovery</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">IP of IoT Discovery</stringProp>
+          </elementProp>
+          <elementProp name="PORT" elementType="Argument">
+            <stringProp name="Argument.name">PORT</stringProp>
+            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Default port of IoT Discovery</stringProp>
+          </elementProp>
+          <elementProp name="VERSION" elementType="Argument">
+            <stringProp name="Argument.name">VERSION</stringProp>
+            <stringProp name="Argument.value">5</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Current version of IoT Discovery</stringProp>
+          </elementProp>
+          <elementProp name="ABSOLUTE_PATH" elementType="Argument">
+            <stringProp name="Argument.name">ABSOLUTE_PATH</stringProp>
+            <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}</stringProp>
+            <stringProp name="Argument.desc">Path for jmx and csv files</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ENTITY_TYPE" elementType="Argument">
+            <stringProp name="Argument.name">ENTITY_TYPE</stringProp>
+            <stringProp name="Argument.value">Room</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ENTITY_ID1" elementType="Argument">
+            <stringProp name="Argument.name">ENTITY_ID1</stringProp>
+            <stringProp name="Argument.value">Room1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ENTITY_ID2" elementType="Argument">
+            <stringProp name="Argument.name">ENTITY_ID2</stringProp>
+            <stringProp name="Argument.value">Room2</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ATTRIBUTE_NAME1" elementType="Argument">
+            <stringProp name="Argument.name">ATTRIBUTE_NAME1</stringProp>
+            <stringProp name="Argument.value">temperature</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ATTRIBUTE_NAME2" elementType="Argument">
+            <stringProp name="Argument.name">ATTRIBUTE_NAME2</stringProp>
+            <stringProp name="Argument.value">pressure</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SENSE2WEB_VERSION" elementType="Argument">
+            <stringProp name="Argument.name">SENSE2WEB_VERSION</stringProp>
+            <stringProp name="Argument.value">3.2.3</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+        <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="NGSI-9 API - Standard Operations" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1500021340000</longProp>
+        <longProp name="ThreadGroup.end_time">1500021340000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Context Registration Resource" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;contextRegistrations&quot;: [&#xd;
+    {&#xd;
+      &quot;entities&quot;: [&#xd;
+        {&#xd;
+          &quot;type&quot;: &quot;${ENTITY_TYPE}&quot;,&#xd;
+          &quot;isPattern&quot;: &quot;false&quot;,&#xd;
+          &quot;id&quot;: &quot;${ENTITY_ID1}&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;type&quot;: &quot;${ENTITY_TYPE}&quot;,&#xd;
+          &quot;isPattern&quot;: &quot;false&quot;,&#xd;
+          &quot;id&quot;: &quot;${ENTITY_ID2}&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;attributes&quot;: [&#xd;
+        {&#xd;
+          &quot;name&quot;: &quot;${ATTRIBUTE_NAME1}&quot;,&#xd;
+          &quot;type&quot;: &quot;float&quot;,&#xd;
+          &quot;isDomain&quot;: &quot;false&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;name&quot;: &quot;${ATTRIBUTE_NAME2}&quot;,&#xd;
+          &quot;type&quot;: &quot;integer&quot;,&#xd;
+          &quot;isDomain&quot;: &quot;false&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;providingApplication&quot;: &quot;http://mysensors.com/Rooms&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;duration&quot;: &quot;P1M&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/registerContext</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Context Registration Resource</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">REGISTRATION_ID</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.registrationId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 201</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR_CODE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.errorCode.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="ERROR_CODE" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR_CODE</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Discover Context availability operation" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;entities&quot;: [&#xd;
+        {&#xd;
+            &quot;type&quot;: &quot;${ENTITY_TYPE}&quot;,&#xd;
+            &quot;isPattern&quot;: &quot;false&quot;,&#xd;
+            &quot;id&quot;: &quot;${ENTITY_ID1}&quot;&#xd;
+        }&#xd;
+    ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/discoverContextAvailability</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Discover Context availability operation</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR_CODE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.errorCode.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="ERROR_CODE" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR_CODE</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Subscribe to Context availability operation" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;entities&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;${ENTITY_TYPE}&quot;,&#xd;
+      &quot;isPattern&quot;: &quot;true&quot;,&#xd;
+      &quot;id&quot;: &quot;.*&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;attributes&quot;: [&#xd;
+    &quot;temperature&quot;&#xd;
+  ],&#xd;
+  &quot;reference&quot;: &quot;http://localhost:8080/accumulate&quot;,&#xd;
+  &quot;duration&quot;: &quot;P1M&quot;&#xd;
+}&#xd;
+&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/subscribeContextAvailability</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Subscribe to Context availability operation</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">SUBSCRIPTION_ID</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.subscriptionId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 201</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR_CODE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.errorCode.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="ERROR_CODE" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR_CODE</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update Subscription to Context availability operation" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{  &#xd;
+   &quot;entities&quot;:[  &#xd;
+      {  &#xd;
+         &quot;type&quot;:&quot;${ENTITY_TYPE}&quot;,&#xd;
+         &quot;isPattern&quot;:&quot;true&quot;,&#xd;
+         &quot;id&quot;:&quot;.*&quot;&#xd;
+      }&#xd;
+   ],&#xd;
+   &quot;attributes&quot;:[  &#xd;
+      &quot;${ATTRIBUTE_NAME1}&quot;&#xd;
+   ],&#xd;
+   &quot;reference&quot;: &quot;http://localhost:8080/accumulate&quot;,&#xd;
+   &quot;duration&quot;: &quot;P1M&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/updateContextAvailabilitySubscription</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Update Subscription to Context availability operation</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR_CODE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.errorCode.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 201</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="ERROR_CODE" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR_CODE</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Unsubscribe to Context availability operation" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{    &#xd;
+   &quot;subscriptionId&quot;:&quot;${SUBSCRIPTION_ID}&quot;  &#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/unsubscribeContextAvailability</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Unsubscribe to Context availability operation</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">STATUS_CODE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.statusCode.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">null</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 201</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="STATUS_CODE" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">STATUS_CODE</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="NGSI-9 API - Convenience Operation" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1500036062000</longProp>
+        <longProp name="ThreadGroup.end_time">1500036062000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Context Registration Resource" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;contextRegistrations&quot;: [&#xd;
+    {&#xd;
+      &quot;entities&quot;: [&#xd;
+        {&#xd;
+          &quot;type&quot;: &quot;${ENTITY_TYPE}&quot;,&#xd;
+          &quot;isPattern&quot;: &quot;false&quot;,&#xd;
+          &quot;id&quot;: &quot;${ENTITY_ID1}&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;type&quot;: &quot;${ENTITY_TYPE}&quot;,&#xd;
+          &quot;isPattern&quot;: &quot;false&quot;,&#xd;
+          &quot;id&quot;: &quot;${ENTITY_ID2}&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;attributes&quot;: [&#xd;
+        {&#xd;
+          &quot;name&quot;: &quot;${ATTRIBUTE_NAME1}&quot;,&#xd;
+          &quot;type&quot;: &quot;float&quot;,&#xd;
+          &quot;isDomain&quot;: &quot;false&quot;&#xd;
+        },&#xd;
+        {&#xd;
+          &quot;name&quot;: &quot;${ATTRIBUTE_NAME2}&quot;,&#xd;
+          &quot;type&quot;: &quot;integer&quot;,&#xd;
+          &quot;isDomain&quot;: &quot;false&quot;&#xd;
+        }&#xd;
+      ],&#xd;
+      &quot;providingApplication&quot;: &quot;http://mysensors.com/Rooms&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;duration&quot;: &quot;P1M&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/contextEntities/${ENTITY_ID1}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Context Registration Resource</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">REGISTRATION_ID</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.registrationId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 201</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Discover Context availability operation" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/contextEntities/${ENTITY_ID1}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Discover Context availability operation</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR_CODE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.errorCode.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="ERROR_CODE" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR_CODE</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Attribute of Individual Context Entity" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/contextEntities/${ENTITY_ID1}/attributes/${ATTRIBUTE_NAME1}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Attribute of Individual Context Entity</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">SUBSCRIPTION_ID</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.subscriptionId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR_CODE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.errorCode.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="ERROR_CODE" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR_CODE</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Context Entity Type" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/contextEntities/ContextEntityType/${ENTITY_TYPE}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Context Entity Type</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR_CODE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.errorCode.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="ERROR_CODE" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR_CODE</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Attribute of Context Entity Type" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/contextEntityTypes/${ENTITY_TYPE}/attributes/${ATTRIBUTE_NAME1}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Attribute of Context Entity Type</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">ERROR_CODE</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.errorCode.code</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="ERROR_CODE" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">ERROR_CODE</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create a new availability subscription" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;entities&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;${ENTITY_TYPE}&quot;,&#xd;
+      &quot;isPattern&quot;: &quot;true&quot;,&#xd;
+      &quot;id&quot;: &quot;.*&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;attributes&quot;: [&#xd;
+    &quot;${ATTRIBUTE_NAME1}&quot;&#xd;
+  ],&#xd;
+  &quot;reference&quot;: &quot;http://localhost:8080/accumulate&quot;,&#xd;
+  &quot;duration&quot;: &quot;P1M&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/contextAvailabilitySubscriptions</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Create a new availability subscription</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">SUBSCRIPTION_ID</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.subscriptionId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update subscription" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;entities&quot;: [&#xd;
+    {&#xd;
+      &quot;type&quot;: &quot;${ENTITY_TYPE}&quot;,&#xd;
+      &quot;isPattern&quot;: &quot;true&quot;,&#xd;
+      &quot;id&quot;: &quot;.*&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;attributes&quot;: [&#xd;
+    &quot;${ATTRIBUTE_NAME1}&quot;&#xd;
+  ],&#xd;
+  &quot;reference&quot;: &quot;http://localhost:8080/accumulate&quot;,&#xd;
+  &quot;duration&quot;: &quot;P2M&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/contextAvailabilitySubscriptions/${SUBSCRIPTION_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Update subscription</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 201</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Cancel subscription" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi9/contextAvailabilitySubscriptions/${SUBSCRIPTION_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Cancel subscription</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="201" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49587">201</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 201</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Sense2Web API" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1487845460000</longProp>
+        <longProp name="ThreadGroup.end_time">1487845460000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">see at link https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Configuration_Manager_-_IoT_Discovery_-_Unit_Testing_Plan</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getVersion" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/s2w/repository/getVersion</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">version</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">//*[local-name()=&apos;version&apos;]</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="version" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1487660821">${SENSE2WEB_VERSION}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: version</stringProp>
+            <stringProp name="Assertion.scope">variable</stringProp>
+            <stringProp name="Scope.variable">version</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register a Semantic Description" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;rdf:RDF&#xd;
+    xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;&#xd;
+    xmlns=&quot;http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#&quot;&#xd;
+    xmlns:protege=&quot;http://protege.stanford.edu/plugins/owl/protege#&quot;&#xd;
+    xmlns:xsp=&quot;http://www.owl-ontologies.com/2005/08/07/xsp.owl#&quot;&#xd;
+    xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot;&#xd;
+    xmlns:dm=&quot;http://www.surrey.ac.uk/ccsr/ontologies/DeviceModel.owl#&quot;&#xd;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema#&quot;&#xd;
+    xmlns:swrl=&quot;http://www.w3.org/2003/11/swrl#&quot;&#xd;
+    xmlns:swrlb=&quot;http://www.w3.org/2003/11/swrlb#&quot;&#xd;
+    xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&#xd;
+    xmlns:j.0=&quot;http://purl.oclc.org/NET/ssnx/ssn#&quot;&#xd;
+  xml:base=&quot;http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl&quot;&gt;&#xd;
+&lt;OnDeviceResource rdf:ID=&quot;Resource_16_BA_02_temperature_sensor&quot;&gt;&#xd;
+    &lt;hasResourceLocation&gt;&#xd;
+      &lt;Location rdf:ID=&quot;Location_16_BA_02_temperature_sensor&quot;&gt;&#xd;
+        &lt;hasLongitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#float&quot;&#xd;
+        &gt;-0.57&lt;/hasLongitude&gt;&#xd;
+        &lt;hasLocalLocation rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+        &gt;http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E16&lt;/hasLocalLocation&gt;&#xd;
+        &lt;hasGlobalLocation rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+        &gt;http://www.geonames.org/2647793/&lt;/hasGlobalLocation&gt;&#xd;
+        &lt;hasAltitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#int&quot;&#xd;
+        &gt;45&lt;/hasAltitude&gt;&#xd;
+        &lt;hasLatitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#float&quot;&#xd;
+        &gt;51.23&lt;/hasLatitude&gt;&#xd;
+      &lt;/Location&gt;&#xd;
+    &lt;/hasResourceLocation&gt;&#xd;
+    &lt;isHostedOn&gt;&#xd;
+      &lt;j.0:SensingDevice rdf:ID=&quot;PloggBoard_16_BA_02_temperature&quot;/&gt;&#xd;
+    &lt;/isHostedOn&gt;&#xd;
+    &lt;hasResourceID rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+    &gt;16_BA_02_temperature_sensor&lt;/hasResourceID&gt;&#xd;
+    &lt;hasType rdf:resource=&quot;#Sensor&quot;/&gt;&#xd;
+    &lt;isExposedThroughService rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+    &gt;http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#16_BA_02_temperature_sensingService&lt;/isExposedThroughService&gt;&#xd;
+    &lt;hasTag rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&#xd;
+    &gt;temperature sensor 16,2nd,BA,office&lt;/hasTag&gt;&#xd;
+    &lt;hasName rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&#xd;
+    &gt;temperaturesensor16_BA_02&lt;/hasName&gt;&#xd;
+    &lt;hasTimeOffset rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#int&quot;&#xd;
+    &gt;0&lt;/hasTimeOffset&gt;&#xd;
+  &lt;/OnDeviceResource&gt;&#xd;
+&lt;/rdf:RDF&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/s2w/repository/register/iot-a/resource/Resource_16_BA_02_temperature_sensor</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="TestPlan.comments">Register a Semantic Description</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Lookup a Semantic Description" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/s2w/repository/lookup/iot-a/resource/Resource_16_BA_02_temperature_sensor</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register and Fold-in Semantic Description" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;rdf:RDF&#xd;
+    xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;&#xd;
+    xmlns=&quot;http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#&quot;&#xd;
+    xmlns:protege=&quot;http://protege.stanford.edu/plugins/owl/protege#&quot;&#xd;
+    xmlns:xsp=&quot;http://www.owl-ontologies.com/2005/08/07/xsp.owl#&quot;&#xd;
+    xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot;&#xd;
+    xmlns:dm=&quot;http://www.surrey.ac.uk/ccsr/ontologies/DeviceModel.owl#&quot;&#xd;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema#&quot;&#xd;
+    xmlns:swrl=&quot;http://www.w3.org/2003/11/swrl#&quot;&#xd;
+    xmlns:swrlb=&quot;http://www.w3.org/2003/11/swrlb#&quot;&#xd;
+    xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&#xd;
+    xmlns:j.0=&quot;http://purl.oclc.org/NET/ssnx/ssn#&quot;&#xd;
+  xml:base=&quot;http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl&quot;&gt;&#xd;
+&lt;OnDeviceResource rdf:ID=&quot;Resource_32_BA_02_temperature_sensor&quot;&gt;&#xd;
+    &lt;hasResourceLocation&gt;&#xd;
+      &lt;Location rdf:ID=&quot;Location_32_BA_02_temperature_sensor&quot;&gt;&#xd;
+        &lt;hasLongitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#float&quot;&#xd;
+        &gt;-0.57&lt;/hasLongitude&gt;&#xd;
+        &lt;hasLocalLocation rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+        &gt;http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E32&lt;/hasLocalLocation&gt;&#xd;
+        &lt;hasGlobalLocation rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+        &gt;http://www.geonames.org/2647793/&lt;/hasGlobalLocation&gt;&#xd;
+        &lt;hasAltitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#int&quot;&#xd;
+        &gt;45&lt;/hasAltitude&gt;&#xd;
+        &lt;hasLatitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#float&quot;&#xd;
+        &gt;51.23&lt;/hasLatitude&gt;&#xd;
+      &lt;/Location&gt;&#xd;
+    &lt;/hasResourceLocation&gt;&#xd;
+    &lt;isHostedOn&gt;&#xd;
+      &lt;j.0:SensingDevice rdf:ID=&quot;PloggBoard_32_BA_02_temperature&quot;/&gt;&#xd;
+    &lt;/isHostedOn&gt;&#xd;
+    &lt;hasResourceID rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+    &gt;32_BA_02_temperature_sensor&lt;/hasResourceID&gt;&#xd;
+    &lt;hasType rdf:resource=&quot;#Sensor&quot;/&gt;&#xd;
+    &lt;isExposedThroughService rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+    &gt;http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#32_BA_02_temperature_sensingService&lt;/isExposedThroughService&gt;&#xd;
+    &lt;hasTag rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&#xd;
+    &gt;temperature sensor 32,2nd,BA,office&lt;/hasTag&gt;&#xd;
+    &lt;hasName rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&#xd;
+    &gt;temperaturesensor32_BA_02&lt;/hasName&gt;&#xd;
+    &lt;hasTimeOffset rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#int&quot;&#xd;
+    &gt;0&lt;/hasTimeOffset&gt;&#xd;
+  &lt;/OnDeviceResource&gt;&#xd;
+&lt;/rdf:RDF&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/s2w/repository/register/iot-a/resource/Resource_32_BA_02_temperature_sensor</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Probabilistic Discovery of Semantic Descriptions" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot;?&gt;&#xd;
+&lt;rdf:RDF&#xd;
+    xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;&#xd;
+    xmlns=&quot;http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#&quot;&#xd;
+    xmlns:protege=&quot;http://protege.stanford.edu/plugins/owl/protege#&quot;&#xd;
+    xmlns:xsp=&quot;http://www.owl-ontologies.com/2005/08/07/xsp.owl#&quot;&#xd;
+    xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot;&#xd;
+    xmlns:dm=&quot;http://www.surrey.ac.uk/ccsr/ontologies/DeviceModel.owl#&quot;&#xd;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema#&quot;&#xd;
+    xmlns:swrl=&quot;http://www.w3.org/2003/11/swrl#&quot;&#xd;
+    xmlns:swrlb=&quot;http://www.w3.org/2003/11/swrlb#&quot;&#xd;
+    xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&#xd;
+    xmlns:j.0=&quot;http://purl.oclc.org/NET/ssnx/ssn#&quot;&#xd;
+  xml:base=&quot;http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl&quot;&gt;&#xd;
+&lt;OnDeviceResource rdf:ID=&quot;Resource_36_BA_01_power_sensor&quot;&gt;&#xd;
+  &lt;hasTimeOffset rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#int&quot;&gt;0&lt;/hasTimeOffset&gt;&#xd;
+    &lt;isHostedOn&gt;&lt;j.0:SensingDevice rdf:ID=&quot;power_sensor&quot;/&gt;&lt;/isHostedOn&gt;&#xd;
+    &lt;hasType rdf:resource=&quot;#Sensor&quot;/&gt;&#xd;
+    &lt;hasTag rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;power sensor 36,1st,BA,office&lt;/hasTag&gt;&#xd;
+    &lt;hasResourceLocation&gt;&#xd;
+      &lt;Location rdf:ID=&quot;Location_36_BA_01_power_sensor&quot;&gt;&#xd;
+        &lt;hasLongitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#float&quot;&gt;-0.57&lt;/hasLongitude&gt;&#xd;
+        &lt;hasLocalLocation rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&gt;&lt;/hasLocalLocation&gt;&#xd;
+        &lt;hasAltitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#int&quot;&gt;45&lt;/hasAltitude&gt;&#xd;
+        &lt;hasGlobalLocation rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&gt;http://www.geonames.org/2647793/&lt;/hasGlobalLocation&gt;&#xd;
+        &lt;hasLatitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#float&quot;&gt;51.23&lt;/hasLatitude&gt;&#xd;
+      &lt;/Location&gt;&#xd;
+    &lt;/hasResourceLocation&gt;&#xd;
+    &lt;hasName rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&#xd;
+    &gt;36_BA_01_power_sensor&lt;/hasName&gt;&#xd;
+    &lt;hasResourceID rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&gt;36_BA_01_power_sensor&lt;/hasResourceID&gt;&#xd;
+    &lt;isExposedThroughService rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+    &gt;http://www.surrey.ac.uk/ccsr/ontologies/ServiceModel.owl#Service1&lt;/isExposedThroughService&gt; &#xd;
+  &lt;/OnDeviceResource&gt;&#xd;
+&lt;/rdf:RDF&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/s2w/repository/discover/iot-a/resource</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Query Semantic Description using SPARQL" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">PREFIX rm: &lt;http://www.surrey.ac.uk/ccsr/ontologies/ResourceModel.owl#&gt;&#xd;
+Select *&#xd;
+WHERE {&#xd;
+?uri rm:hasName  ?hasName.&#xd;
+OPTIONAL{?uri rm:hasTag  ?hasTag.}&#xd;
+OPTIONAL{?uri rm:hasType ?hasType.}&#xd;
+OPTIONAL{?uri rm:isExposedThroughService  ?isExposedThroughService.}&#xd;
+OPTIONAL{?uri rm:hasTimeOffset  ?hasTimeOffset.}&#xd;
+OPTIONAL{?uri rm:isHostedOn  ?isHostedOn.}&#xd;
+?uri rm:hasLatitude  ?hasLatitude.&#xd;
+?uri rm:hasLongitude  ?hasLongitude.&#xd;
+OPTIONAL{?uri rm:hasAltitude  ?hasAltitude.}&#xd;
+OPTIONAL{?uri rm:hasGlobalLocation  ?hasGlobalLocation.}&#xd;
+OPTIONAL{?uri rm:hasLocalLocation  ?hasLocalLocation.}&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/s2w/repository/query/sparql/iot-a/resource</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Register a Semantic Description" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot;?&gt;&#xd;
+&lt;rdf:RDF&#xd;
+    xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;&#xd;
+    xmlns:protege=&quot;http://protege.stanford.edu/plugins/owl/protege#&quot;&#xd;
+    xmlns:xsp=&quot;http://www.owl-ontologies.com/2005/08/07/xsp.owl#&quot;&#xd;
+    xmlns=&quot;http://www.surrey.ac.uk/ccsr/ontologies/VirtualEntityInstance.owl#&quot;&#xd;
+    xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot;&#xd;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema#&quot;&#xd;
+    xmlns:swrl=&quot;http://www.w3.org/2003/11/swrl#&quot;&#xd;
+    xmlns:swrlb=&quot;http://www.w3.org/2003/11/swrlb#&quot;&#xd;
+    xmlns:vm=&quot;http://www.surrey.ac.uk/ccsr/ontologies/VirtualEntityModel.owl#&quot;&#xd;
+    xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&#xd;
+  xml:base=&quot;http://www.surrey.ac.uk/ccsr/ontologies/VirtualEntityModel.owl&quot;&gt;&#xd;
+ &lt;vm:VirtualEntity rdf:ID=&quot;Room_01BA02&quot;&gt;&#xd;
+    &lt;vm:hasLocalIdentifier rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+    &gt;http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E1&lt;/vm:hasLocalIdentifier&gt;&#xd;
+    &lt;vm:hasDomainAttribute&gt;&#xd;
+      &lt;vm:DomainAttribute rdf:ID=&quot;TempAttributeE1&quot;&gt;&#xd;
+        &lt;vm:hasAttributeType rdf:resource=&quot;http://purl.oclc.org/NET/ssnx/qu/quantity#temperature&quot;/&gt;&#xd;
+        &lt;vm:hasAttributeName rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&#xd;
+        &gt;temperature&lt;/vm:hasAttributeName&gt;&#xd;
+      &lt;/vm:DomainAttribute&gt;&#xd;
+    &lt;/vm:hasDomainAttribute&gt;&#xd;
+    &lt;vm:hasLocation&gt;&#xd;
+      &lt;vm:Location rdf:ID=&quot;Location_01BA02&quot;&gt;&#xd;
+        &lt;vm:hasLatitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#float&quot;&#xd;
+        &gt;51.243774&lt;/vm:hasLatitude&gt;&#xd;
+        &lt;vm:hasLocalLocation rdf:resource=&quot;http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#E1&quot;/&gt;&#xd;
+        &lt;vm:hasLongitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#float&quot;&#xd;
+        &gt;-0.588208&lt;/vm:hasLongitude&gt;&#xd;
+        &lt;vm:hasGlobalLocation rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+        &gt;http://www.geonames.org/2647793/&lt;/vm:hasGlobalLocation&gt;&#xd;
+        &lt;vm:hasAltitude rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#float&quot;&#xd;
+        &gt;45.0&lt;/vm:hasAltitude&gt;&#xd;
+      &lt;/vm:Location&gt;&#xd;
+    &lt;/vm:hasLocation&gt;&#xd;
+    &lt;vm:hasType rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&#xd;
+    &gt;http://www.surrey.ac.uk/ccsr/ontologies/LocationModel.owl#Room&lt;/vm:hasType&gt;&#xd;
+    &lt;vm:hasName rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&#xd;
+    &gt;BA 01 02&lt;/vm:hasName&gt;&#xd;
+    &lt;vm:isMobile rdf:datatype=&quot;http://www.w3.org/2001/XMLSchema#boolean&quot;&#xd;
+    &gt;false&lt;/vm:isMobile&gt;&#xd;
+  &lt;/vm:VirtualEntity&gt;&#xd;
+&lt;/rdf:RDF&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/s2w/repository/register/iot-a/resource/Room_01BA02</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Retrieve Associated Services" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/s2w/repository/lookup/iot-a/entity/Room_01BA02</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>false</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}iot_discovery-${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
+            <success>true</success>
+            <label>false</label>
+            <code>false</code>
+            <message>false</message>
+            <threadName>false</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <Summariser guiclass="SummariserGui" testclass="Summariser" testname="Result" enabled="true"/>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
