@@ -39,7 +39,7 @@ Open the **/etc/hosts** file by using this command:
 
 add Iot Dsicovery IP of previous VM with **iotdiscovery** alias according to your instance:
 
-> `192.168.111.28 iotdiscovery`
+> `192.168.111.169 iotdiscovery`
 
 
 Copy in the **/tmp/** folder the **IoTDiscovery-5.jmx** file.
@@ -58,10 +58,10 @@ Copy in the **/tmp/** folder the **IoTDiscovery-5.jmx** file.
 
 **Run the test** with the follow command: 
 
-`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cepheus-1.0.0.jmx`
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/IoTDiscovery-5.jmx`
 
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
-`iotdiscovey-5_yyyy-MM-dd HHmmss.csv`
+`iot_discovey-5_yyyy-MM-dd HHmmss.csv`
 
 [Top](#iot-discovery-ge)
