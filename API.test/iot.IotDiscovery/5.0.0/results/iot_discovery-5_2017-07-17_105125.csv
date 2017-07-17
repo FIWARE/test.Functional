@@ -1,0 +1,22 @@
+label,responseCode,responseMessage,success,failureMessage
+Context Registration Resource,200,OK,false,Test failed: code expected to match /201/
+Discover Context availability operation,200,OK,true,
+Subscribe to Context availability operation,200,OK,false,Test failed: code expected to match /201/
+Update Subscription to Context availability operation,500,Internal Server Error,false,Test failed: code expected to match /201/
+Unsubscribe to Context availability operation,200,OK,false,Test failed: code expected to match /201/
+Context Registration Resource,200,OK,false,Test failed: code expected to match /201/
+Discover Context availability operation,200,OK,true,
+Attribute of Individual Context Entity,200,OK,true,
+Context Entity Type,200,OK,false,Test failed: variable(ERROR_CODE) expected to match /201/
+Attribute of Context Entity Type,200,OK,true,
+Create a new availability subscription,200,OK,true,
+Update subscription,500,Internal Server Error,false,Test failed: code expected to match /201/
+Cancel subscription,200,OK,false,Test failed: code expected to match /201/
+getVersion,200,OK,true,
+Register a Semantic Description,200,OK,true,
+Lookup a Semantic Description,200,OK,true,
+Register and Fold-in Semantic Description,200,OK,true,
+Probabilistic Discovery of Semantic Descriptions,500,Internal Server Error,false,
+Query Semantic Description using SPARQL,200,OK,true,
+Register a Semantic Description,200,OK,true,
+Retrieve Associated Services,200,OK,true,
