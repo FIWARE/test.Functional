@@ -18,7 +18,7 @@ The testing environment can be easily set up through a FIWARE Lab, which is base
 In order to test this GE, two Virtual Machines you needed, which are: 
 
 1. **Identity Management - KeyRock GE** - follow the instruction to [deploy a dedicated KeyRock instance](https://catalogue.fiware.org/enablers/identity-management-keyrock/creating-instances). 
-2. **PEP Proxy - Wilma** - download PEP Proxy source code via github at this [link](https://github.com/ging/fiware-pep-proxy.git) and run it (follow the next preliminary steps section).
+2. **PEP Proxy - Wilma** - follow the instruction to [deploy a dedicated PEP Proxy instance](https://catalogue.fiware.org/enablers/pep-proxy-wilma/creating-instances).
 3. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 [Top](#pep-proxy---wilma)
@@ -59,6 +59,7 @@ Then, you have to configure the config.js file of Wilma GE with KeyRock:
 > `....`
 
 > `config.username = 'pep_proxy_26c243bbc0364151a0d5fd19201d7763';`
+
 > `config.password = '271a3721dae346d4bb5f444677f3f392';`
 
 2. start the server
