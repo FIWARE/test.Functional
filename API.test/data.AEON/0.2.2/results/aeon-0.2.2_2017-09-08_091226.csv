@@ -1,6 +1,6 @@
 label,responseCode,responseMessage,success,failureMessage
 checkVersion,200,OK,true,
-createUser,200,OK,true,
+createUser,500,Internal Server Error,false,Test failed: code expected to contain /200/
 loginUser,200,OK,true,
 userInfo,200,OK,true,
 getUser ,200,OK,true,
