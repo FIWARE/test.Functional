@@ -17,7 +17,7 @@ Cloud Messaging - AEON is the FIWARE GE by Orange available at its [GitHub repos
 The testing environment can be easily set up through a FIWARE Lab, which is based on the cloud operating system OpenStack. 
 In order to test this GE, two Virtual Machines you needed, which are: 
 
-1. **Cloud Messaging - Aeon GE** - follow the instruction to [deploy a dedicated GE using image] (http://aeon-platform.readthedocs.io/en/latest/FIWARE-Cloud-Messaging---Installation-and-Administration-Guide/#deploy-cloud-messaging-ge-using-image ). 
+1. **Cloud Messaging - Aeon GE** - follow the instruction to [deploy a dedicated GE using image](http://aeon-platform.readthedocs.io/en/latest/FIWARE-Cloud-Messaging---Installation-and-Administration-Guide/#deploy-cloud-messaging-ge-using-image ). 
 2. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 [Top](#cloud-messaging---aeon)
