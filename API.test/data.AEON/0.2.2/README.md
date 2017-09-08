@@ -28,7 +28,17 @@ Once the HW necessary for the test described previously at **Testing Environment
 
 ### 1. Cloud Messaging - Aeon ###
 
-> No actions
+Please follow the instruction to [Deploy Cloud Messaging GE using Image](http://aeon-platform.readthedocs.io/en/latest/FIWARE-Cloud-Messaging---Installation-and-Administration-Guide/#deploy-cloud-messaging-ge-using-image). At the end of this section, please set **hostname** and **hosts** to send email
+
+> `$ sudo nano /etc/hostname`
+
+and type **aeon.ddns.info**. After run this command 
+
+> `$ sudo hostname -F /etc/hostname`
+
+> `$ sudo nano /etc/hosts`
+
+and type **127.0.0.1 localhost aeon**
 
 
 ### 2. JMeter ###
