@@ -1,0 +1,92 @@
+label,responseCode,responseMessage,success,failureMessage
+getVersion,200,OK,true,
+getStat,200,OK,true,
+resetStat,200,OK,true,
+insertEntity,204,No Content,true,
+addGroupingRules,200,OK,true,
+getGroupingRules,200,OK,true,
+updateGroupingRules,200,OK,true,
+deleteGroupingRules,200,OK,true,
+getTokenFiwareLab,200,OK,true,
+createSubscriptionsV1,400,Bad Request,false,"Test failed: code expected to equal /
+
+****** received  : [[[4]]]00
+
+****** comparison: [[[2]]]00
+
+/"
+createSubscriptionsV2,400,Bad Request,false,"Test failed: code expected to equal /
+
+****** received  : [[[4]]]00
+
+****** comparison: [[[2]]]00
+
+/"
+getAllSubscriptionsV1,400,Bad Request,false,"Test failed: code expected to equal /
+
+****** received  : [[[4]]]00
+
+****** comparison: [[[2]]]00
+
+/"
+getAllSubscriptionsV2,400,Bad Request,false,"Test failed: code expected to equal /
+
+****** received  : [[[4]]]00
+
+****** comparison: [[[2]]]00
+
+/"
+getSubscriptionV1,400,Bad Request,false,"Test failed: code expected to equal /
+
+****** received  : [[[4]]]00
+
+****** comparison: [[[2]]]00
+
+/"
+getSubscriptionV2,400,Bad Request,false,"Test failed: code expected to equal /
+
+****** received  : [[[4]]]00
+
+****** comparison: [[[2]]]00
+
+/"
+deleteSubscriptionsV1,500,Internal Server Error,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/"
+deleteSubscriptionsV2,500,Internal Server Error,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/"
+addAppenders,200,OK,true,
+getAppender,200,OK,true,
+setAppender,200,OK,true,
+getAllAppenders,200,OK,true,
+deleteAppender,200,OK,true,
+deleteAppenders,200,OK,true,
+addLoggers,200,OK,true,
+getLogger,200,OK,true,
+setLogger,200,OK,true,
+getAllLoggers,200,OK,true,
+deleteLogger,200,OK,true,
+deleteLoggers,200,OK,true,
+getMetrics,200,OK,true,
+deleteMetrics,200,OK,true,
+getLogging,200,OK,true,
+updateLogging,200,OK,true,
+getAllParamsFromAgent,200,OK,true,
+addParamInTheAgent,200,OK,true,
+getParamFromAgent,200,OK,true,
+updateParamInTheAgent,200,OK,true,
+deleteParamInTheAgent,200,OK,true,
+getAllParamsFromInstance,200,OK,true,
+addParamInTheInstance,200,OK,true,
+getParamFromInstance,200,OK,true,
+updateParamInTheAgent,200,OK,true,
+deleteParamInTheAgent,200,OK,true,
