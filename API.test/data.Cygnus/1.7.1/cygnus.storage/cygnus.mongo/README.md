@@ -8,7 +8,8 @@
 
 ## Introduction ##
 
-In this section, it's presented the Cygnus configuration with **Mongo DB** in order to test the storage functionalities.  
+In this section, it's presented the Cygnus configuration with **Mongo DB** in order to test the storage functionalities. 
+Within this script there are some Orion's features like subscription, add entity and delete of both subscription and entity, but the goal of the script is to check if your data (context) is really stored in the Mongo database.  
 
 [Top](#cygnus-and-mongo)
 
@@ -127,7 +128,6 @@ Restart mongo daemon (mongod)
 
 `$ sudo service mongod restart`
 
-
 ### 2. JMeter ###
 
 Open the **/etc/hosts** file by using this command:
@@ -159,4 +159,27 @@ Copy in the **/tmp/** folder the **Cygnus-1.7.1_API.jmx** file.
 
 `cygnus-1.7.1_mongo_yyyy-MM-dd HHmmss.csv`
 
-[Top](#cygnus-and-mongo)
+
+**`NOTE`**
+
+It's also possible to check directly the data stored in Mongo DB using these commands:
+
+```text
+$ mongo
+MongoDB shell version: 3.2.6
+connecting to: test
+...
+> show databases
+local           0.000GB
+orion           0.000GB
+orion-vehicles  0.000GB
+sth_vehicles    0.000GB
+
+> use sth_vehicles
+switched to db sth_vehicles
+
+> show collections
+sth_/4wheels_Car1_Car
+
+> db['sth_/4wheels_Car1_Car'].find()
+```
