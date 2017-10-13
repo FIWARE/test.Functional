@@ -4,7 +4,7 @@
 * [Testing environment](#testing-environment)
 * [Overall preliminary setup](#overall-preliminary-setup)
 * [Testing step by step](#testing-step-by-step)
-
+* [Testing with Storages](#testing-with-storages)
 
 ## Introduction ##
 
@@ -155,5 +155,12 @@ Edit the file.properties file with your FIWARE LAB credentials (**email** and **
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
 `cygnus-1.7.1_api_yyyy-MM-dd HHmmss.csv`
+
+[Top](#cygnus)
+
+
+## Testing with Storages ##
+
+You can also **run the test** to check how Cygnus stores the context information by using the follow [documentation](./cygnus.storage).
 
 [Top](#cygnus)
