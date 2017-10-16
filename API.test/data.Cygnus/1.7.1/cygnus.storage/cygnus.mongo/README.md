@@ -29,7 +29,7 @@ Once the HW necessary for the test described previously at **Testing Environment
 
 ### 1. Orion Context Broker ###
 
-In order to check the Cygnus's APIs you can start from Orion Context Broker instance. For this test we are using an **orion-psb-image-R5.4** VM with flavor **m1.small**. Connect on VM (via SSH) and update the Orion to last version (1.7.0) using these commands:
+In order to check the Cygnus and Mongo DB you can start from Orion Context Broker instance. For this test we are using an **orion-psb-image-R5.4** VM with flavor **m1.small**. Connect on VM (via SSH) and update the Orion to last version (1.7.0) using these commands:
 
 `$ sudo yum install contextBroker`
 
@@ -91,7 +91,7 @@ Edit **agent_ngsi_mongo.conf** and **cygnus_instance_mongo.conf** files as follo
 Here the sections to change:
 1.	*General configuration template* - use only the sink and channel that you are using and in this case only mongo-sink and mongo-channel
 2.	*Source configuration* - in the channels properties choose only one (mongo-channel)
-3.	*OrionMongoSink configuration* - uncomment all properties and choose for mongo db configurations: hosts = localhost:27107 with username and password empty
+3.	*NGSIMongoSink configuration* - uncomment all properties and choose for mongo db configurations: hosts = localhost:27107 with username and password empty
 
 **`cygnus_instance_mongo.conf`**
 
@@ -138,7 +138,7 @@ and add Cygnus IP of previous VM as **orion** alias according to your instance (
 
 > `192.168.111.169 orion`
 
-Copy in the **/tmp/** folder the **Cygnus-1.7.1_API.jmx** file.
+Copy in the **/tmp/** folder the **Cygnus-1.7.1_mongo.jmx** file.
 
 #### Install JMeter 3 (on Ubuntu 14.04) ####
 
@@ -183,3 +183,5 @@ sth_/4wheels_Car1_Car
 
 > db['sth_/4wheels_Car1_Car'].find()
 ```
+
+[Top](#cygnus-and-mongo)

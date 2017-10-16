@@ -93,7 +93,7 @@ Edit **agent_ngsi_api.conf** and **cygnus_instance_api.conf** files as follow:
 Here the sections to change (we are using mongodb configuration as default):
 1.	*General configuration template* - use only the sink and channel that you are using and in this case only mongo-sink and mongo-channel
 2.	*Source configuration* - in the channels properties choose only one (mongo-channel)
-3.	*OrionMongoSink configuration* - uncomment all properties and choose for mongo db configurations: hosts: localhost:27107 with username and password empty
+3.	*NGSIMongoSink configuration* - uncomment all properties and choose for mongo db configurations: hosts: localhost:27107 with username and password empty
 
 **`cygnus_instance_api.conf`**
 
