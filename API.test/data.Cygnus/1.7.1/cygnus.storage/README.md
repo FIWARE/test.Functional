@@ -11,4 +11,6 @@ In the this section it's presented a list of functional test for different stora
 
 2. [Mysql database](cygnus.mysql)
 
+4. [CKAN](cygnus.ckan)
+
 [Top](#cygnus-and-storages)
