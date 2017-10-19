@@ -33,13 +33,14 @@ Once the HW necessary for the test described previously at **Testing Environment
 After deployed the CKAN instance in FIWARE LAB, you need to create an account in to CKAN server using the *Register* link (CKAN is listening on 80 port). 
 To configure *Cygnus* with CKAN you also need to retrieve your *API KEY* associated your account; in your profile you can see:
 
-```API Key Private:
+```
+API Key Private:
 53da9bed-0fca-475c-a837-bebe8339d55d
 ```
 
 ### 2. Orion Context Broker ###
 
-In order to check the  Cygnus and MySQL database you can start from Orion Context Broker instance. For this test we are using an **orion-psb-image-R5.4** VM with flavor **m1.small**. Connect on VM (via SSH) and update the Orion to last version (1.7.0) using these commands:
+In order to check the  Cygnus and CKAN you can start from Orion Context Broker instance. For this test we are using an **orion-psb-image-R5.4** VM with flavor **m1.small**. Connect on VM (via SSH) and update the Orion to last version (1.7.0) using these commands:
 
 `$ sudo yum install contextBroker`
 
@@ -100,7 +101,7 @@ Edit **agent_ngsi_ckan.conf** and **cygnus_instance_ckan.conf** files as follow:
 Here the sections to change:
 1.	*General configuration template* - use only the sink and channel that you are using and in this case only ckan-sink and ckan-channel
 2.	*Source configuration* - in the channels properties choose only one (ckan-channel)
-3.	*NGSIMySQLSink configuration* - uncomment all properties and choose for ckan configurations: hosts: ckan, with api_key your API_KEY = 53da9bed-0fca-475c-a837-bebe8339d55d
+3.	*NGSICKANSink configuration* - uncomment all properties and choose for ckan configurations: hosts: ckan, with api_key your API_KEY = 53da9bed-0fca-475c-a837-bebe8339d55d
 
 **`cygnus_instance_ckan.conf`**
 
