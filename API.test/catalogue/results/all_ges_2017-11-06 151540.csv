@@ -1,0 +1,53 @@
+Chapter, Title, Rank, Version
+Advanced Web-based User Interface, 2D-UI, Deprecated GEis, 
+Advanced Web-based User Interface, 2D/3D Capture, Deprecated GEis, 3.2.3
+Advanced Web-based User Interface, 3D-UI-XML3D, FIWARE GEris, 5.1.1
+Advanced Web-based User Interface, 3DUI - WebTundra, FIWARE GEis, 5.4.3
+Advanced Web-based User Interface, Augmented Reality, Incubated GEs/GEris, 
+Advanced Web-based User Interface, Cloud Rendering, FIWARE GEris, 3.3.3
+Advanced Web-based User Interface, GIS Data Provider - Geoserver/3D, FIWARE GEris, 1.0
+Advanced Web-based User Interface, Interface Designer, FIWARE GEris, 5.4.3
+Advanced Web-based User Interface, POI Data Provider, FIWARE GEris, 5.4
+Advanced Web-based User Interface, Real Virtual Interaction, Deprecated GEis, 
+Advanced Web-based User Interface, Synchronization, FIWARE GEris, 5.4.3
+Advanced Web-based User Interface, Synchronization - FiVES, FIWARE GEis, FIWARE - 5.4.3
+Advanced Web-based User Interface, Virtual Characters, FIWARE GEris, 3.3
+Advanced middleware and interfaces to Network and Devices, Fast RTPS, Incubated GEs/GEris, 1.3.0
+Advanced middleware and interfaces to Network and Devices, Kiara Advanced Middleware, FIWARE GEris, 0.4.0
+Advanced middleware and interfaces to Network and Devices, Network Information and Control - OFNIC, FIWARE GEris, v2.1
+Applications/Services and Data Delivery, Application Mashup - Wirecloud, FIWARE GEris, 6.4.2
+Applications/Services and Data Delivery, Business API Ecosystem - Biz Ecosystem RI, FIWARE GEris, 5.4.1
+Applications/Services and Data Delivery, Data Visualization - Knowage, FIWARE GEris, 6.1.0
+Applications/Services and Data Delivery, Data Visualization - SpagoBI, FIWARE GEis, 5.2.1
+Applications/Services and Data Delivery, Marketplace - WMarket, Deprecated GEis, 4.4.5
+Applications/Services and Data Delivery, Repository - Repository RI, Deprecated GEis, 4.4.3
+Applications/Services and Data Delivery, Revenue Settlement and Sharing System - RSS RI, Deprecated GEis, 4.4.3
+Applications/Services and Data Delivery, Store - WStore, Deprecated GEis, 4.4.3
+Cloud Hosting, Application Management - Murano, FIWARE GEris, 5.4.3
+Cloud Hosting, Docker, FIWARE GEris, 1.19
+Cloud Hosting, IaaS GE - FIWARE Reference Implementation, FIWARE GEris, Kilo
+Cloud Hosting, Monitoring GE - Sextant, Deprecated GEis, 4.1.1
+Cloud Hosting, Object Storage GE - FIWARE Implementation, FIWARE GEris, 
+Cloud Hosting, PaaS Manager - Pegasus, FIWARE GEris, 4.2.1
+Cloud Hosting, Policy Manager - Bosun, FIWARE GEris, 5.4.3
+Cloud Hosting, Self Service Interfaces - Cloud Portal, FIWARE GEris, 5.3
+Cloud Hosting, Software Deployment & Configuration - Sagitta, FIWARE GEris, 4.2.1
+Data/Context Management, BigData Analysis - Cosmos, FIWARE GEris, fiware-cosmos 1.0.0 fiware-cygnus 1.3.0 fiware-sth-comet 1.1.1 fiware-sinfonier 1.0.0
+Data/Context Management, CKAN, FIWARE GEris, 2.5
+Data/Context Management, Cloud Messaging - AEON, Incubated GEs/GEris, 0.2.2 (Bolt)
+Data/Context Management, Complex Event Processing (CEP) - Proactive Technology Online, FIWARE GEris, Version 5
+Data/Context Management, Electronic Data Exchange - Domibus, Incubated GEs/GEris, 3.2
+Data/Context Management, Publish/Subscribe Context Broker - Orion Context Broker, FIWARE GEris, Latest
+Data/Context Management, Stream-oriented - Kurento, FIWARE GEris, 6.6.0
+Internet of Things Services Enablement, Backend Device Management - IDAS , FIWARE GEris, 
+Internet of Things Services Enablement, IoT Broker, FIWARE GEris, 6.4
+Internet of Things Services Enablement, IoT Data Edge Consolidation GE - Cepheus, FIWARE GEris, 1.0.0
+Internet of Things Services Enablement, IoT Discovery, FIWARE GEris, Release 5
+Internet of Things Services Enablement, Protocol Adapter - MR CoAP , Deprecated GEis, 
+Security,  Trustworthy Factory, Deprecated GEis, 1.0.0.201504231411
+Security, Authorization PDP - AuthZForce, FIWARE GEris, 5.4.1
+Security, Cyber Security GE - CyberCAPTOR, Deprecated GEis, R4
+Security, Identity Management - KeyRock, FIWARE GEris, 5.4.0
+Security, PEP Proxy - Wilma, FIWARE GEris, 6.2
+Security, Privacy, Incubated GEs/GEris, 4.4.3
+Security, Security Monitoring, Deprecated GEis, 
