@@ -1,0 +1,21 @@
+label,responseCode,responseMessage,success,failureMessage
+getTokenFiwareLab,200,OK,true,
+getFastEngine,200,OK,true,
+getInfo,200,OK,true,
+updateWindowSize ,200,OK,true,
+getTenantInfo,200,OK,true,
+createRule,200,OK,true,
+getRules,200,OK,true,
+updateRule,200,OK,true,
+getRule,200,OK,true,
+deleteRule,200,OK,true,
+createFactToServer,200,OK,true,
+getServersRule,200,OK,true,
+getServerRule,200,OK,true,
+createServerRule,200,OK,true,
+updateServerRule,200,OK,true,
+getServerRule,200,OK,true,
+createSubscription,500,Internal Server Error,false,Test failed: code expected to match /200/
+getSubscription,401,Unauthorized,false,Test failed: code expected to match /200/
+deleteSubscription,401,Unauthorized,false,Test failed: code expected to match /200/
+deleteServerRule,200,OK,true,
