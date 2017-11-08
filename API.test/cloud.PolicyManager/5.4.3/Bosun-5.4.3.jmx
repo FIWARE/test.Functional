@@ -13,8 +13,8 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="HOST_" elementType="Argument">
-            <stringProp name="Argument.name">HOST_</stringProp>
+          <elementProp name="HOST" elementType="Argument">
+            <stringProp name="Argument.name">HOST</stringProp>
             <stringProp name="Argument.value">policymanager.lab.fiware.org</stringProp>
             <stringProp name="Argument.desc">IP of Bosun, name set in the hosts file</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
@@ -35,11 +35,6 @@
             <stringProp name="Argument.name">ABSOLUTE_PATH</stringProp>
             <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}</stringProp>
             <stringProp name="Argument.desc">Path for jmx and csv files</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="HOST" elementType="Argument">
-            <stringProp name="Argument.name">HOST</stringProp>
-            <stringProp name="Argument.value">217.172.12.148</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="RULE_NAME" elementType="Argument">
@@ -70,10 +65,6 @@
         </elementProp>
         <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
         <stringProp name="HTTPSampler.port">${PORT}</stringProp>
-        <stringProp name="HTTPSampler.proxyHost">proxy.eng.it</stringProp>
-        <stringProp name="HTTPSampler.proxyPort">3128</stringProp>
-        <stringProp name="HTTPSampler.proxyUser">pvitale</stringProp>
-        <stringProp name="HTTPSampler.proxyPass">pasquy_73</stringProp>
         <stringProp name="HTTPSampler.connect_timeout"></stringProp>
         <stringProp name="HTTPSampler.response_timeout"></stringProp>
         <stringProp name="HTTPSampler.protocol"></stringProp>
@@ -167,7 +158,7 @@ try {
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">${__P(protocol)}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/keystone/v2.0/tokens</stringProp>
+          <stringProp name="HTTPSampler.path">/v2.0/tokens</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -820,7 +811,7 @@ ${__setProperty(tenantId,${tenantId})}</stringProp>
           <stringProp name="TestPlan.comments">Create new facts associated to a server </stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
             </collectionProp>
@@ -830,7 +821,7 @@ ${__setProperty(tenantId,${tenantId})}</stringProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
           </ResponseAssertion>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="false">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">id</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.id</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
@@ -1159,7 +1150,7 @@ ${__setProperty(tenantId,${tenantId})}</stringProp>
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getSubscription" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getSubscription" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1198,7 +1189,7 @@ ${__setProperty(tenantId,${tenantId})}</stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="deleteSubscription" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="deleteSubscription" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
