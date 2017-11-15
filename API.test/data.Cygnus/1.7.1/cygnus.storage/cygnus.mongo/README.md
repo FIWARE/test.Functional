@@ -186,6 +186,7 @@ sth_/4wheels_Car1_Car
 > db['sth_/4wheels_Car1_Car'].find()
 
 { "_id" : ObjectId("59e46d0b2177d1078ba29825"), "recvTime" : ISODate("2017-10-16T08:25:32.552Z"), "attrName" : "speed", "attrType" : "Integer", "attrValue" : "82" }
+```
 
 ### 2. Second test (with persistence = column) ###
 
@@ -194,7 +195,6 @@ Before to start the test with persistence = column, you need to set in the **age
 `attr_persistence = column`
 
 and restart Cygnus. 
-```
 
 Please note that it's not necessary to provide (perfect structure) data in Mongo DB as should be done in the other storage systems.
 
