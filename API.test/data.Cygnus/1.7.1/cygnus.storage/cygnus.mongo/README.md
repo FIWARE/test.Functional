@@ -151,6 +151,8 @@ Copy in the **/tmp/** folder the **Cygnus-1.7.1_mongo.jmx** file.
 
 ## Testing step by step ##
 
+### 1. First test (with persistence = row) ### 
+
 **Run the test** with the follow command: 
 
 `./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cygnus-1.7.1_mongo.jmx`
@@ -182,6 +184,57 @@ switched to db sth_vehicles
 sth_/4wheels_Car1_Car
 
 > db['sth_/4wheels_Car1_Car'].find()
+
+{ "_id" : ObjectId("59e46d0b2177d1078ba29825"), "recvTime" : ISODate("2017-10-16T08:25:32.552Z"), "attrName" : "speed", "attrType" : "Integer", "attrValue" : "82" }
+
+### 2. Second test (with persistence = column) ###
+
+Before to start the test with persistence = column, you need to set in the **agent_ngsi_mongo.conf** the **column** attribute for **attr_persistence** instead of (default or previous) **row**:
+
+`attr_persistence = column`
+
+and restart Cygnus. 
+```
+
+Please note that it's not necessary to provide (perfect structure) data in Mongo DB as should be done in the other storage systems.
+
+Now you are ready to run the test.  
+ 
+**Run the test** with the follow command: 
+
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cygnus-1.7.1_mongo_column.jmx`
+
+**Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
+
+`cygnus-1.7.1_mongo_column_yyyy-MM-dd HHmmss.csv`
+
+
+**`NOTE`**
+
+It's also possible to check directly the data stored in Mongo DB using these commands:
+
+```text
+$ mongo
+MongoDB shell version: 3.2.6
+connecting to: test
+...
+> show databases
+local           0.000GB
+orion           0.000GB
+orion-vehicles  0.000GB
+sth_vehicles    0.000GB
+
+> use sth_vehicles
+switched to db sth_vehicles
+
+> show collections
+sth_/4wheels_Car1_Car
+
+> db['sth_/4wheels_Car1_Car'].find()
+
+{ "_id" : ObjectId("5a0c1ee464f96806cc1a0085"), "recvTime" : ISODate("2017-11-15T11:02:52.328Z"), "speed" : "4" }
+
+
 ```
 
 [Top](#cygnus-and-mongo)
