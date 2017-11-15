@@ -224,16 +224,14 @@ First of all you need to set in the **agent_ngsi_mysql.conf** the **column** att
 `attr_persistence = column`
 
 and restart Cygnus. 
-Since you are going to store data in columns (attr_persistence), you have to create tables and columns in MySQL database; so in order to do this you must connect in your MySQL database and type these commands:
+Since you are going to store data in columns (attr_persistence), you must to create tables and columns in MySQL database; so in order to do this you must connect in your MySQL database and type these commands:
 
-```text
 $ mysql -u root -p
 root
 
 mysql> create database vehicles;
 mysql> use vehicles;
 mysql> create table 4wheels_Car1_Car (recvTime DATETIME, fiwareServicePath varchar(255), entityId varchar(255), entityType varchar(255), speed int, speed_md varchar(255));
-```
 
 Now you are ready to run the test.  
  
