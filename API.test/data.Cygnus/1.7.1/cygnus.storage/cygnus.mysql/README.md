@@ -183,6 +183,8 @@ Copy in the **/tmp/** folder the **Cygnus-1.7.1_mysql.jmx** file and add mysql d
 
 ## Testing step by step ##
 
+### 1. First test (with persistence = row) ### 
+
 **Run the test** with the follow command: 
 
 `./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cygnus-1.7.1_mysql.jmx`
@@ -211,6 +213,57 @@ mysql> select * from 4wheels_Car1_Car;
 +---------------+-------------------------+-------------------+----------+------------+----------+----------+-----------+--------+
 | 1508149679854 | 2017-10-16T10:27:59.854 | /4wheels          | Car1     | Car        | speed    | Integer  | 32        | []     |
 +---------------+-------------------------+-------------------+----------+------------+----------+----------+-----------+--------+
+```
+
+### 2. Second test (with persistence = column) ###
+
+Before to start the test with persistence = column, you need to follow the instructions below to provide the right structure of data (in the database).
+
+First of all you need to set in the **agent_ngsi_mysql.conf** the **column** attribute for **attr_persistence** instead of (default or previous) **row**:
+
+`attr_persistence = column`
+
+and restart Cygnus. 
+Since you are going to store data in columns (attr_persistence), you must to create tables and columns in MySQL database; so in order to do this you must connect in your MySQL database and type these commands:
+
+$ mysql -u root -p
+root
+
+mysql> create database vehicles;
+mysql> use vehicles;
+mysql> create table 4wheels_Car1_Car (recvTime DATETIME, fiwareServicePath varchar(255), entityId varchar(255), entityType varchar(255), speed int, speed_md varchar(255));
+
+Now you are ready to run the test.  
+ 
+**Run the test** with the follow command: 
+
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cygnus-1.7.1_mysql_column.jmx`
+
+**Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
+
+`cygnus-1.7.1_mysql_column_yyyy-MM-dd HHmmss.csv`
+
+
+**`NOTE`**
+
+It's also possible to check directly the data stored in MySQL database using these commands:
+
+```text
+$ mysql -u root -p
+root
+
+mysql> use vehicles;
+...
+Database changed
+mysql> show tables;
+mysql> select * from 4wheels_Car1_Car;
+ 
++---------------------+-------------------+----------+------------+-------+----------+
+| recvTime            | fiwareServicePath | entityId | entityType | speed | speed_md |
++---------------------+-------------------+----------+------------+-------+----------+
+| 2017-11-14 14:14:16 | /4wheels          | Car1     | Car        |    47 | []       |
++---------------------+-------------------+----------+------------+-------+----------+
+
 ```
 
 [Top](#cygnus-and-mysql)
