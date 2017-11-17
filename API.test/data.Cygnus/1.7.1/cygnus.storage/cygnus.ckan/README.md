@@ -190,7 +190,7 @@ Since you are going to store data in columns (attr_persistence), you have to cre
 
 `Authorization : 53da9bed-0fca-475c-a837-bebe8339d55d`
 
-###Create organization###
+**Create organization**
 
 ```text
 POST - http://ckan/api/action/organization_create
@@ -198,7 +198,7 @@ POST - http://ckan/api/action/organization_create
 	"name": "vehicles"
 }
 ```
-###Create package/dataset###
+**Create package/dataset**
 
 ```text
 POST - http://ckan/api/action/package_create
@@ -208,7 +208,7 @@ POST - http://ckan/api/action/package_create
 }
 ```
 
-###Create resource###
+**Create resource**
 
 ```text
 POST - http://ckan/api/action/resource_create
@@ -219,14 +219,14 @@ POST - http://ckan/api/action/resource_create
 }
 ```
 
-###Get resource_id### 
+**Get resource_id**
 You can also retrieve the resourse id from previous call, otherwise you can try as follow:
 ```text
 GET - http://ckan/api/action/package_show?id=vehicles_4wheels
 ```
 where the resource_id is located in result.resources.id.
 
-###Create datastore###
+**Create datastore**
 Let suppose that the the resource_is is: `dd4312d4-41bc-4f17-ae1e-3162a873bdad` then the REST call to create the datastore must be: 
 
 ```text
@@ -278,8 +278,7 @@ to get the resource_id (in the resources) - i.e. 5b5d8466-d59f-4a10-90a7-cd00b52
 `curl http://ckan/api/action/datastore_search?resource_id=5b5d8466-d59f-4a10-90a7-cd00b5208b38`
 
 ```text
-{"help": "http://default.ckanhosted.dev/api/3/action/help_show?name=datastore_search", "success": true, "result": {"resource_id": "5b5d8466-d59f-4a10-90a7-cd00b5208b38", "fields": [{"type": "int4", "id": "_id"}, {"type": "int4", "id": "recvTimeTs"}, {"type": "timestamp", "id": "recvTime"}, {"type": "text", "id": "fiwareServicePath"}, {"type": "text", "id": "entityId"}, {"type": "text", "id": "entityType"}, {"type": "text", "id": "attrName"}, {"type": "text", "id": "attrType"}, {"type": "json", "id": "attrValue"}, {"type": "json", "id": "attrMd"}], "records": [{"attrType": "Integer", "recvTime": "2017-10-19T09:51:00.442000", "recvTimeTs": 1508406660, "attrMd": null, "attrValue": "92", "entityType": "Car", "attrName": "speed", "fiwareServicePath": "/4wheels", "entityId": "Car1", "_id": 1}], "_links": {"start": "/api/action/datastore_search?resource_id=5b5d8466-d59f-4a10-90a7-cd00b5208b38", "next": "/api/action/datastore_search?offset=100&resource_id=5b5d8466-d59f-4a10-90a7-cd00b5208b38"}, "total": 1}}
+{"help": "http://default.ckanhosted.dev/api/3/action/help_show?name=datastore_search", "success": true, "result": {"resource_id": "68acc680-3aef-4e1e-8052-77de58ac5485", "fields": [{"type": "int4", "id": "_id"}, {"type": "timestamp", "id": "recvTime"}, {"type": "text", "id": "fiwareServicePath"}, {"type": "text", "id": "entityId"}, {"type": "text", "id": "entityType"}, {"type": "json", "id": "speed"}, {"type": "json", "id": "speed_md"}], "records": [{"recvTime": "2017-11-17T11:36:06.566000", "entityType": "Car", "fiwareServicePath": "/4wheels", "entityId": "Car1", "_id": 1, "speed": "59", "speed_md": null}, {"recvTime": "2017-11-17T11:54:50.590000", "entityType": "Car", "fiwareServicePath": "/4wheels", "entityId": "Car1", "_id": 2, "speed": "99", "speed_md": null}], "_links": {"start": "/api/action/datastore_search?resource_id=68acc680-3aef-4e1e-8052-77de58ac5485", "next": "/api/action/datastore_search?offset=100&resource_id=68acc680-3aef-4e1e-8052-77de58ac5485"}, "total": 2}}
 ```
-
 
 [Top](#cygnus-and-ckan)
