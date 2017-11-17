@@ -186,7 +186,7 @@ First of all you need to set in the **agent_ngsi_ckan.conf** the **column** attr
 `attr_persistence = column`
 
 and restart Cygnus. 
-Since you are going to store data in columns (attr_persistence), you have to create the dataset and the resource in CKAN server; so in order to do this you must connect in your CKAN to get your *API KEY* and use it in next (REST) calls in the header as authorization:
+Since you are going to store data in columns (attr_persistence), you have to create the dataset and the resource in CKAN server; so in order to do this you must connect in your CKAN to get your *API KEY* and use it in next 5 (REST) calls in the header as authorization:
 
 `Authorization : 53da9bed-0fca-475c-a837-bebe8339d55d`
 
@@ -220,6 +220,7 @@ POST - http://ckan/api/action/resource_create
 ```
 
 **Get resource_id**
+
 You can also retrieve the resourse id from previous call, otherwise you can try as follow:
 ```text
 GET - http://ckan/api/action/package_show?id=vehicles_4wheels
@@ -227,6 +228,7 @@ GET - http://ckan/api/action/package_show?id=vehicles_4wheels
 where the resource_id is located in result.resources.id.
 
 **Create datastore**
+
 Let suppose that the the resource_is is: `dd4312d4-41bc-4f17-ae1e-3162a873bdad` then the REST call to create the datastore must be: 
 
 ```text
