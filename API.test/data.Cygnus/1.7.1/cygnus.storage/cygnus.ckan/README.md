@@ -152,6 +152,8 @@ Copy in the **/tmp/** folder the **Cygnus-1.7.1_ckan.jmx** file.
 
 ## Testing step by step ##
 
+### 1. First test (with persistence = row) ### 
+
 **Run the test** with the follow command: 
 
 `./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cygnus-1.7.1_ckan.jmx`
@@ -174,5 +176,110 @@ to get the resource_id (in the resources) - i.e. 5b5d8466-d59f-4a10-90a7-cd00b52
 ```text
 {"help": "http://default.ckanhosted.dev/api/3/action/help_show?name=datastore_search", "success": true, "result": {"resource_id": "5b5d8466-d59f-4a10-90a7-cd00b5208b38", "fields": [{"type": "int4", "id": "_id"}, {"type": "int4", "id": "recvTimeTs"}, {"type": "timestamp", "id": "recvTime"}, {"type": "text", "id": "fiwareServicePath"}, {"type": "text", "id": "entityId"}, {"type": "text", "id": "entityType"}, {"type": "text", "id": "attrName"}, {"type": "text", "id": "attrType"}, {"type": "json", "id": "attrValue"}, {"type": "json", "id": "attrMd"}], "records": [{"attrType": "Integer", "recvTime": "2017-10-19T09:51:00.442000", "recvTimeTs": 1508406660, "attrMd": null, "attrValue": "92", "entityType": "Car", "attrName": "speed", "fiwareServicePath": "/4wheels", "entityId": "Car1", "_id": 1}], "_links": {"start": "/api/action/datastore_search?resource_id=5b5d8466-d59f-4a10-90a7-cd00b5208b38", "next": "/api/action/datastore_search?offset=100&resource_id=5b5d8466-d59f-4a10-90a7-cd00b5208b38"}, "total": 1}}
 ```
+
+### 2. Second test (with persistence = column) ###
+
+Before to start the test with persistence = column, you need to follow the instructions below to provide the right structure of dataset in CKAN.
+
+First of all you need to set in the **agent_ngsi_ckan.conf** the **column** attribute for **attr_persistence** instead of (default or previous) **row**:
+
+`attr_persistence = column`
+
+and restart Cygnus. 
+Since you are going to store data in columns (attr_persistence), you have to create the dataset and the resource in CKAN server; so in order to do this you must connect in your CKAN to get your *API KEY* and use it in next (REST) calls in the header as authorization:
+
+`Authorization : 53da9bed-0fca-475c-a837-bebe8339d55d`
+
+###Create organization###
+
+```text
+POST - http://ckan/api/action/organization_create
+{
+	"name": "vehicles"
+}
+```
+###Create package/dataset###
+
+```text
+POST - http://ckan/api/action/package_create
+{
+	"name": "vehicles_4wheels",
+	"owner_org": "vehicles"
+}
+```
+
+###Create resource###
+
+```text
+POST - http://ckan/api/action/resource_create
+{
+	"package_id": "vehicles_4wheels",
+	"url": "localhost",
+	"name": "car1_car"
+}
+```
+
+###Get resource_id### 
+You can also retrieve the resourse id from previous call, otherwise you can try as follow:
+```text
+GET - http://ckan/api/action/package_show?id=vehicles_4wheels
+```
+where the resource_id is located in result.resources.id.
+
+###Create datastore###
+Let suppose that the the resource_is is: `dd4312d4-41bc-4f17-ae1e-3162a873bdad` then the REST call to create the datastore must be: 
+
+```text
+POST - http://ckan/api/action/datastore_create
+{
+	"resource_id": "dd4312d4-41bc-4f17-ae1e-3162a873bdad",
+	"force": "True",
+	"fields": [{
+		"type": "timestamp",
+		"id": "recvTime"
+	}, {
+		"type": "text",
+		"id": "fiwareServicePath"
+	}, {
+		"type": "text",
+		"id": "entityId"
+	}, {
+		"type": "text",
+		"id": "entityType"
+	}, {
+		"type": "json",
+		"id": "speed"
+	}, {
+		"type": "json",
+		"id": "speed_md"
+	}]
+}
+```
+
+Now you are ready to run the test. 
+
+**Run the test** with the follow command: 
+
+`./apache-jmeter-3.1/bin/jmeter -n -t /tmp/Cygnus-1.7.1_ckan_column.jmx`
+
+**Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
+
+`cygnus-1.7.1_ckan_column_yyyy-MM-dd HHmmss.csv`
+
+
+**`NOTE`**
+
+It's also possible to check directly the data stored in CKAN database or checking directly in the web interface of CKAN or using these commands:
+
+`curl http://ckan/api/rest/dataset/vehicles_4wheels`
+
+to get the resource_id (in the resources) - i.e. 5b5d8466-d59f-4a10-90a7-cd00b5208b38 
+
+`curl http://ckan/api/action/datastore_search?resource_id=5b5d8466-d59f-4a10-90a7-cd00b5208b38`
+
+```text
+{"help": "http://default.ckanhosted.dev/api/3/action/help_show?name=datastore_search", "success": true, "result": {"resource_id": "5b5d8466-d59f-4a10-90a7-cd00b5208b38", "fields": [{"type": "int4", "id": "_id"}, {"type": "int4", "id": "recvTimeTs"}, {"type": "timestamp", "id": "recvTime"}, {"type": "text", "id": "fiwareServicePath"}, {"type": "text", "id": "entityId"}, {"type": "text", "id": "entityType"}, {"type": "text", "id": "attrName"}, {"type": "text", "id": "attrType"}, {"type": "json", "id": "attrValue"}, {"type": "json", "id": "attrMd"}], "records": [{"attrType": "Integer", "recvTime": "2017-10-19T09:51:00.442000", "recvTimeTs": 1508406660, "attrMd": null, "attrValue": "92", "entityType": "Car", "attrName": "speed", "fiwareServicePath": "/4wheels", "entityId": "Car1", "_id": 1}], "_links": {"start": "/api/action/datastore_search?resource_id=5b5d8466-d59f-4a10-90a7-cd00b5208b38", "next": "/api/action/datastore_search?offset=100&resource_id=5b5d8466-d59f-4a10-90a7-cd00b5208b38"}, "total": 1}}
+```
+
 
 [Top](#cygnus-and-ckan)
