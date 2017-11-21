@@ -162,7 +162,7 @@ Copy in the **/tmp/** folder the **Cygnus-1.7.1_cosmos.jmx** and **file.properti
 
 ## Testing step by step ##
 
-### 1. First test (with persistence = row) ### 
+### 1. First test (with file_format = json-row) ### 
 
 **Run the test** with the follow command: 
 
