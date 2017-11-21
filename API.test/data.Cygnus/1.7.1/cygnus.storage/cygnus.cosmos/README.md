@@ -44,7 +44,7 @@ where the token is `Mljhz02XmzmxYsctPnIaeRHlCIa3m4`.
 
 To check your file status (and of course if it's possible to connect to Cosmos instance), use this command: 
 
-`$ curl -X GET "http://cosmos.lab.fiware.org:14000/webhdfs/v1/user/<username>?op=liststatus&user.name=<username>" -H "X-Auth-Token: Mljhz02XmzmxYsctPnIaeRHlCIa3m4"`
+`$ curl -X GET "http://cosmos.lab.fiware.org:14000/webhdfs/v1/user/<username>?op=LISTSTATUS&user.name=<username>" -H "X-Auth-Token: Mljhz02XmzmxYsctPnIaeRHlCIa3m4"`
 
 and the response is empty (at the first time):
 
@@ -180,7 +180,7 @@ It's also possible to check directly the data stored in Cosmos BigData using the
 ```text
 $ curl -X GET "http://cosmos.lab.fiware.org:14000/webhdfs/v1/user/<username>?op=LISTSTATUS&user.name=<username>" -H "X-Auth-Token: Mljhz02XmzmxYsctPnIaeRHlCIa3m4"
 ```
-where <username> is your account in Cosmos. The response is:
+where `<username>` is your account in Cosmos. The response is:
 
 ```text
 {"FileStatuses":{"FileStatus":[{"pathSuffix":"vehicles","type":"DIRECTORY","length":0,"owner":"<username>","group":"<username>","permission":"755","accessTime":0,"modificationTime":1510933006058,"blockSize":0,"replication":0}]}}
@@ -238,14 +238,10 @@ curl -X GET "http://cosmos.lab.fiware.org:14000/webhdfs/v1/user/<username>/vehic
 and the response is:
 
 ```text
-
 {"recvTime":"2017-11-21T10:40:49.90Z","fiwareServicePath":"/4wheels","entityId":"Car1","entityType":"Car", "speed":"15", "speed_md":[]}
 {"recvTime":"2017-11-21T10:43:29.652Z","fiwareServicePath":"/4wheels","entityId":"Car1","entityType":"Car", "speed":"118", "speed_md":[]}
 {"recvTime":"2017-11-21T10:44:29.166Z","fiwareServicePath":"/4wheels","entityId":"Car1","entityType":"Car", "speed":"136", "speed_md":[]}
 {"recvTime":"2017-11-21T10:47:18.859Z","fiwareServicePath":"/4wheels","entityId":"Car1","entityType":"Car", "speed":"125", "speed_md":[]}
-
-
-
 ```
 
 [Top](#cygnus-and-cosmos)
