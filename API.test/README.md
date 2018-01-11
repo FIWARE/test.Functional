@@ -10,9 +10,9 @@ For each GE version are provided in the related GitHub sub-folder:
 
 * The **README.md** file that contains the specific instructions related on how to install the testing environment (GE and JMeter tool), how to setup all components and how to execute the test.
 
-* The JMeter script file with the name convention <GE name>-<version>.jmx. It is the input file for the JMeter tool and it contains all APIs call using data provided principally by official  GE API documentation.
+* The JMeter script file with the name convention **&#60;GE name&#62;-&#60;version&#62;.jmx**. It is the input file for the JMeter tool and it contains all APIs call using data provided principally by official  GE API documentation.
 
-* The “results” subfolder with the JMeter output files in CSV format. The file name convention is <GE name>-<GE version>_<date and time of the test execution>.csv. The result of the test is a table where, for each tested API, there is the information about the success of the test or the error message in case of failure. 
+* The “results” subfolder with the JMeter output files in CSV format. The file name convention is **&#60;GE name&#62;-&#60;GE version&#62;_&#60;date and time of the test execution&#62;.csv**. The result of the test is a table where, for each tested API, there is the information about the success of the test or the error message in case of failure. 
 
 * Any additional file for dedicated configuration that is necessary to execute the test, such as, possibly, JMeter plugins, properties files for specific GE or test environment, etc. Anyway, in the given GE README.md file there are the instructions that explain how to manage those files.     
 
