@@ -1734,7 +1734,7 @@ vars.put(&quot;base64HeaderValue&quot;,new String(encodedUsernamePassword));</st
             <assertionsResultsToSave>0</assertionsResultsToSave>
           </value>
         </objProp>
-        <stringProp name="filename">${ABSOLUTE_PATH}Knowage-${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}knowage-${VERSION}_${__time(yyyy-MM-dd_HHmmss)}.csv</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">

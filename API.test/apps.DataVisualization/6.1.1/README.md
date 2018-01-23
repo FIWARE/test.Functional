@@ -33,7 +33,7 @@ Once the HW necessary for the test described previously at **Testing Environment
 
 Open the **/etc/hosts** file and add the IP of Knowage instance with **knowage** alias according to your instance: 
 
-> `192.168.111.71 knowage`
+> `192.168.111.122 knowage`
 
 Copy in the **/tmp/** folder the **Knowage-6.1.1.jmx** file JMeter script and **prova.xml** file.
 
