@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">568</property>
+            <expression name="value" type="javascript">params["connectionName"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">568</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">568</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">568</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">568</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">568</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">568</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">568</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">568</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[var myquery;
+var STATO="";
+
+//FILTRO Stato
+if(params["par_storetype"].value!= null &amp;&amp; params["par_storetype"].value!="" &amp;&amp; params["par_storetype"].value!="''" &amp;&amp; params["par_storetype"].value!='%'){
+ var par_stato=params["par_storetype"].value;
+ // par_stato=par_stato.replace(/'/g, '');
+  //par_stato=par_stato.replace(/,/g, "','");
+   STATO =  " and st.store_type = '" +par_stato +"'";
+  } 
+  
+if(params["STATE_ABBR"].value!= null &amp;&amp; params["STATE_ABBR"].value!="" &amp;&amp; params["STATE_ABBR"].value!="''" &amp;&amp; params["STATE_ABBR"].value!='%'){
+	
+	par_stato_abbr=params["STATE_ABBR"].value	
+	par_stato_abbr=par_stato_abbr.replace(/'/g, '');
+	par_stato_abbr=par_stato_abbr.replace(/"/g, '');
+	par_stato_abbr=par_stato_abbr.replace(/,/g, "','");
+	
+	STATO = STATO +  " and (st.store_state in ('CA','" +par_stato_abbr+"') )";
+}
+  
+  
+  
+]]></method>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="par_storetype" id="336">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="connectionName" id="7">
+            <text-property name="promptText">driver</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">default</value>
+            </simple-property-list>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="STATE_ABBR" id="6346">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="FoodmartKA" id="568">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://172.27.1.83/foodmart</property>
+            <property name="odaUser">foodmart</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">Zm9vZG1hcnQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set_2" id="249">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints"/>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">product_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">product_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">store_sales</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">unit_sales</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">unit_store_sales</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[ this.queryText = this.queryText.replace("__STORE__",STATO);
+ //this.queryText = this.queryText.replace("__QUARTER__",TRIMESTRI);
+  
+ myquery = this.queryText;]]></method>
+            <property name="dataSource">FoodmartKA</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">product_id</property>
+                    <property name="nativeName">product_id</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">product_name</property>
+                    <property name="nativeName">product_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">store_sales</property>
+                    <property name="nativeName">store_sales</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">unit_sales</property>
+                    <property name="nativeName">unit_sales</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">unit_store_sales</property>
+                    <property name="nativeName">unit_store_sales</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT p.product_id, p.product_name , 
+sum(store_sales) as store_sales , 
+sum(unit_sales) as unit_sales ,
+sum(store_sales)/sum(unit_sales) as unit_store_sales 
+FROM sales_fact_1998 s 
+join product p on p.product_id=s.product_id 
+join store st on s.store_id=st.store_id 
+join time_by_day t on t.time_id = s.time_id 
+WHERE 1=1 
+__STORE__ 
+
+GROUP BY p.product_id, p.product_name 
+ORDER BY store_sales desc LIMIT 3]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="Parametri" id="330">
+            <property name="fontWeight">bold</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">1100px</property>
+            <property name="width">1100px</property>
+            <property name="headerHeight">0.5pt</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="250">
+            <column id="251"/>
+            <row id="254">
+                <cell id="255">
+                    <property name="borderBottomColor">#FFFFFF</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">medium</property>
+                    <property name="paddingTop">10pt</property>
+                    <property name="textAlign">center</property>
+                    <table id="290">
+                        <property name="width">90%</property>
+                        <property name="dataSet">Data Set_2</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">product_id</property>
+                                <text-property name="displayName">product_id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["product_id"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">product_name</property>
+                                <text-property name="displayName">product_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["product_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">unit_sales</property>
+                                <text-property name="displayName">unit_sales</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["unit_sales"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">store_sales</property>
+                                <text-property name="displayName">store_sales</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["store_sales"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                        </list-property>
+                        <structure name="toc"/>
+                        <column id="303"/>
+                        <column id="304"/>
+                        <column id="305"/>
+                        <header>
+                            <row id="6317">
+                                <property name="backgroundColor">white</property>
+                                <property name="fontSize">12pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="color">white</property>
+                                <property name="verticalAlign">middle</property>
+                                <property name="height">22pt</property>
+                                <cell id="6318">
+                                    <property name="colSpan">3</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="backgroundColor">white</property>
+                                    <property name="borderBottomColor">#FFFFFF</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <property name="paddingTop">10pt</property>
+                                    <property name="paddingBottom">5pt</property>
+                                    <label id="6321">
+                                        <property name="fontSize">14pt</property>
+                                        <property name="color">#151E0D</property>
+                                        <property name="display">inline</property>
+                                        <text-property name="text">Top 3 Products by Store Sales</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                            <row id="6324">
+                                <property name="backgroundColor">white</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="color">white</property>
+                                <property name="verticalAlign">middle</property>
+                                <property name="height">22pt</property>
+                                <cell id="6325">
+                                    <property name="colSpan">3</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="backgroundColor">white</property>
+                                    <property name="color">#333333</property>
+                                    <property name="borderBottomColor">#FFFFFF</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                    <label id="6339">
+                                        <property name="color">#333333</property>
+                                        <property name="display">inline</property>
+                                        <text-property name="text">State:</text-property>
+                                    </label>
+                                    <text-data id="6342">
+                                        <property name="color">#333333</property>
+                                        <property name="display">inline</property>
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">if(params["STATE_ABBR"].value!=null &amp;&amp; params["STATE_ABBR"].value!='null' &amp;&amp; params["STATE_ABBR"].value!='' &amp;&amp; params["STATE_ABBR"].value!=""&#13;
+&amp;&amp; params["STATE_ABBR"].value!="%")&#13;
+{false}&#13;
+else{true}</expression>
+                                            </structure>
+                                        </list-property>
+                                        <expression name="valueExpr">var state_abbr=params["STATE_ABBR"].value;&#13;
+&#13;
+state_abbr=state_abbr.replace(/'/g,"");&#13;
+&#13;
+state_abbr</expression>
+                                        <property name="contentType">html</property>
+                                    </text-data>
+                                    <label id="6340">
+                                        <property name="color">#333333</property>
+                                        <property name="display">inline</property>
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">if(params["STATE_ABBR"].value!=null &amp;&amp; params["STATE_ABBR"].value!='null' &amp;&amp; params["STATE_ABBR"].value!='' &amp;&amp; params["STATE_ABBR"].value!=""&#13;
+&amp;&amp; params["STATE_ABBR"].value!="%")&#13;
+{true}&#13;
+else{false}</expression>
+                                            </structure>
+                                        </list-property>
+                                        <text-property name="text">All State</text-property>
+                                    </label>
+                                    <label id="6347">
+                                        <property name="color">#333333</property>
+                                        <property name="display">inline</property>
+                                        <text-property name="text">,    </text-property>
+                                    </label>
+                                    <label id="6343">
+                                        <property name="color">#333333</property>
+                                        <property name="display">inline</property>
+                                        <text-property name="text">Store type:</text-property>
+                                    </label>
+                                    <label id="6344">
+                                        <property name="color">#333333</property>
+                                        <property name="display">inline</property>
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">if(params["par_storetype"].value!=null &amp;&amp; params["par_storetype"].value!='null' &amp;&amp; params["par_storetype"].value!='' &amp;&amp; params["par_storetype"].value!=""&#13;
+&amp;&amp; params["par_storetype"].value!="%")&#13;
+{true}&#13;
+else{false}</expression>
+                                            </structure>
+                                        </list-property>
+                                        <text-property name="text">All Store Types</text-property>
+                                    </label>
+                                    <text-data id="6345">
+                                        <property name="color">#333333</property>
+                                        <property name="display">inline</property>
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">if(params["par_storetype"].value!=null &amp;&amp; params["par_storetype"].value!='null' &amp;&amp; params["par_storetype"].value!='' &amp;&amp; params["par_storetype"].value!=""&#13;
+&amp;&amp; params["par_storetype"].value!="%")&#13;
+{false}&#13;
+else{true}</expression>
+                                            </structure>
+                                        </list-property>
+                                        <expression name="valueExpr">var state=params["par_storetype"].value;&#13;
+&#13;
+state=state.replace(/'/g,"");&#13;
+&#13;
+state</expression>
+                                        <property name="contentType">html</property>
+                                    </text-data>
+                                </cell>
+                            </row>
+                            <row id="6328">
+                                <property name="backgroundColor">green</property>
+                                <property name="fontSize">12pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="color">white</property>
+                                <property name="verticalAlign">middle</property>
+                                <cell id="6329">
+                                    <property name="backgroundColor">white</property>
+                                    <property name="borderBottomColor">#FFFFFF</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                </cell>
+                                <cell id="6330">
+                                    <property name="backgroundColor">white</property>
+                                    <property name="borderBottomColor">#FFFFFF</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                </cell>
+                                <cell id="6331">
+                                    <property name="backgroundColor">white</property>
+                                    <property name="borderBottomColor">#FFFFFF</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">medium</property>
+                                </cell>
+                            </row>
+                            <row id="291">
+                                <property name="backgroundColor">#2B908F</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="color">white</property>
+                                <property name="verticalAlign">middle</property>
+                                <property name="height">18pt</property>
+                                <cell id="292">
+                                    <label id="309">
+                                        <text-property name="text">Product Name</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="293">
+                                    <label id="310">
+                                        <text-property name="text">Unit Sales</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="294">
+                                    <label id="311">
+                                        <text-property name="text">Store Sales</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="295">
+                                <property name="height">20pt</property>
+                                <cell id="296">
+                                    <property name="borderBottomColor">#C0C0C0</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="paddingTop">5pt</property>
+                                    <property name="paddingBottom">5pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="312">
+                                        <property name="textAlign">left</property>
+                                        <property name="resultSetColumn">product_name</property>
+                                        <list-property name="action">
+                                            <structure>
+                                                <property name="linkType">none</property>
+                                            </structure>
+                                        </list-property>
+                                    </data>
+                                </cell>
+                                <cell id="297">
+                                    <property name="borderBottomColor">#C0C0C0</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="paddingTop">5pt</property>
+                                    <property name="paddingBottom">5pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="313">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0 â?¬{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">center</property>
+                                        <property name="resultSetColumn">unit_sales</property>
+                                    </data>
+                                </cell>
+                                <cell id="298">
+                                    <property name="borderBottomColor">#C0C0C0</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="paddingTop">5pt</property>
+                                    <property name="paddingBottom">5pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="314">
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Unformatted</property>
+                                        </structure>
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00 â?¬{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">center</property>
+                                        <property name="resultSetColumn">store_sales</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="299">
+                                <list-property name="visibility">
+                                    <structure>
+                                        <property name="format">all</property>
+                                        <expression name="valueExpr" type="javascript">row.__rownum >1</expression>
+                                    </structure>
+                                </list-property>
+                                <cell id="300">
+                                    <property name="colSpan">3</property>
+                                    <property name="rowSpan">1</property>
+                                    <label id="6323">
+                                        <property name="fontSize">12pt</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="borderBottomColor">#FF4F68</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">medium</property>
+                                        <property name="borderLeftColor">#FF4F68</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">medium</property>
+                                        <property name="borderRightColor">#FF4F68</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">medium</property>
+                                        <property name="borderTopColor">#FF4F68</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">medium</property>
+                                        <text-property name="text">NO DATA TO DISPLAY FOR SELECTED STATES!</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+        <text id="621">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<script type="text/javascript">
+
+	var d = document.getElementsByTagName('table');
+	d[0].style.width = "98%";
+	d[0].style.marginLeft = "auto";
+	d[0].style.marginRight = "auto";
+	
+</script>]]></text-property>
+        </text>
+        <text id="6316">
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">all</property>
+                    <expression name="valueExpr" type="javascript">true</expression>
+                </structure>
+            </list-property>
+            <method name="onRender"><![CDATA[this.text = myquery;]]></method>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA['text']]></text-property>
+        </text>
+    </body>
+</report>
