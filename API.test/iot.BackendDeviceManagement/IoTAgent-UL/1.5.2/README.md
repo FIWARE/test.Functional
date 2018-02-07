@@ -118,7 +118,7 @@ Open the **/etc/hosts** file by using this command:
 
 > `sudo nano /etc/hosts` 
 
-and add IDAS IP with **idas** alias according to your instance: 
+and add IDAS IP with **idas** and **orion** aliased according to your instances: 
 
 > `192.168.111.243 idas`
 
