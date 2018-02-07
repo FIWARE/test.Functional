@@ -18,7 +18,7 @@ In order to test this GE, three Virtual Machines you needed, which are:
 
 1. **IoT Agent UltraLight GE** - select a "base_ubuntu_16.04" image in the FIWARE Cloud Portal to get IoT Agents script from github.
 2. **Orion Context Broker GE** - follow the instruction to [deploy a dedicated Orion instance](https://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker/creating-instances).
-3. **JMeter** - select "base_ubuntu_14.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
+3. **JMeter** - select "base_ubuntu_16.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 [Top](#iot-agent-ultralight)
 
@@ -54,7 +54,7 @@ and add Orion IP with **orion** alias according to your instance (because we are
 
 > `192.168.111.244 orion`
 
-5. Get IoT Agent from the repository at this link https://github.com/Fiware/iot.IoTagent-UL.git in the **/home/ubuntu** folder:
+5. Get the IoT Agent from the repository at this [link](https://github.com/Fiware/iot.IoTagent-UL.git) and download it (in the **/home/ubuntu** folder):
 
 > `git clone https://github.com/Fiware/iot.IoTagent-UL.git`
 
@@ -62,7 +62,8 @@ and add Orion IP with **orion** alias according to your instance (because we are
 
 > `sudo npm install`
 
-6. Install **MongoDB** in order to use this database as the '*Device Registry*'. If you don't want to use the *MongoDB database* please change the 'type' attribute of *deviceRegistry* as **memory** instead of **mongodb** in the *config-ul.json* file. Here the steps to install MongoDB:
+6. Install **MongoDB** in order to use this database as the '*Device Registry*'. Please note that if you don't want to use the *MongoDB database* please change the '*type*' attribute of *deviceRegistry* in **memory** instead of **mongodb** in the *config-ul.json* file and JMeter script is configured with Mongo DB.
+Here the steps to install MongoDB:
 
 Importing the Public Key
 > `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927`
@@ -75,7 +76,6 @@ Update the repository
 
 Install MongoDB
 > `sudo apt-get install -y mongodb-org`
-
 
 Start mongodb and add it as service to be started at boot time:
 
@@ -151,7 +151,9 @@ Copy in the **/tmp/** folder the **IoTAgent-UL-1.5.2.jmx** file.
 
 `iotagent-ul-1.5.2_yyyy-MM-dd HHmmss.csv`
 
-After JMeter execution you can check the data in Orion using this curl command:
+#### Check the data in Orion  ####
+
+After JMeter execution, you can check the data in Orion using this curl command:
 
 `curl -v http://orion:1026/v2/entities -s -S --header "fiware-service: howtoService" --header "fiware-servicepath: /howto"`
 
@@ -159,7 +161,7 @@ Here an example of Orion's response:
 
 	[{"id":"TheDevice1","type":"DeviceType","TimeInstant":{"type":"ISO8601","value":" ","metadata":{}},"humidity":{"type":"float","value":" ","metadata":{}},"pressure":{"type":"float","value":" ","metadata":{}},"serialID":{"type":"02598347","value":null,"metadata":{}},"temperature":{"type":"float","value":" ","metadata":{}},"turn_info":{"type":"commandResult","value":" ","metadata":{}},"turn_status":{"type":"commandStatus","value":"UNKNOWN","metadata":{}}},{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-06T16:57:18.300Z","metadata":{}},"a":{"type":"celsius","value":"59","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-06T16:57:18.300Z"}}},"b":{"type":"degrees","value":"65","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-06T16:57:18.300Z"}}}}]
 
-while an example of execution of client (`sudo nodejs bin/client_ul.js`):
+while an example of execution of (IoT Agent) client (`sudo nodejs bin/client_ul.js`):
 
 	Connecting to MQTT Broker...
 	Send to orion singleMeasure: a=43
@@ -175,6 +177,5 @@ while an example of execution of client (`sudo nodejs bin/client_ul.js`):
 	
 	Exiting client
 	--------------------------------
-
 
 [Top](#iot-agent-ultralight)
