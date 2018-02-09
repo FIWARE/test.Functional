@@ -179,7 +179,7 @@ Copy in the **/tmp/** folder the **IoTAgent-UL-1.5.2.jmx** file.
 
 Please note that in order to test the clients, the JMeter script provides device/service for testing and the second execution gives 2 errors. You can try again after to clean device/service using `IoTAgent-UL-1.5.2.clean.jmx` script.   
 
-####Run the clients####
+### Run the clients ###
 
 **HTTP client**
 
@@ -234,7 +234,7 @@ Run the MQTT client (`sudo nodejs bin/client_mqtt_ul.js`) and an example of exec
     --------------------------------
 
 
-#### Check the data in Orion  ####
+#### Check data in Orion  ####
 
 Finally after JMeter and client execution, you can check the data in Orion using this curl command:
 
