@@ -52,7 +52,7 @@ Check the versions for both using these commands `nodejs -v` (v4.2.6) and `npm -
 
 and add Orion IP with **orion** alias according to your instance (because we are going to the use Orion Context Broker to store attributes provided by IoT Agent): 
 
-> `192.168.111.244 orion`
+> `192.168.111.83 orion`
 
 5. Get the IoT Agent from the repository at this [link](https://github.com/Fiware/iot.IoTagent-UL.git) and download it (in the **/home/ubuntu** folder):
 
@@ -92,24 +92,50 @@ and check the version (`3.2.19`) using these two commands:
 > `mongo`
 
 > `db.version()`
+
+> `exit`
  
 
-#### Run the IoT Agent ####
+### Run the IoT Agent ###
 
-Here the steps on how to configure IoT Agent UltraLight, basically how to start the IoT Agent UltraLight and to run the client to read the context information in Orion.
+Here the steps on how to configure IoT Agent UltraLight GE; basically how to start the IoT Agent UltraLight server (via `config-ul.js`) and how to run two clients, both HTTP (via `client_http_ul.js`) and MQTT (via `client_mqtt_ul.js`) protocol to send data to IoT Agent server and read the context information in Orion.
 
-1. config-ul.js
+**IoT Agent UltraLight server**
 
-copy the `config-ul.js` file provided in the root folder. Basically the *config-ul.js* is a copy of *config.js* file located in the iot.IoTagent-UL folder; you can copy it (`cp config.js config-ul.js`) and set the Orion IP as *'orion'* instead of *'localhost'*.
+Copy the `config-ul.js` file provided in the root folder. Basically the *config-ul.js* is a copy of *config.js* file located in the iot.IoTagent-UL folder downloaded from git; you can copy it (`cp config.js config-ul.js`) and set the Orion IP as *'orion'* instead of *'localhost'* because we are using different VMs for them.
 To start the IoT Agent server please use:
 
 > `sudo nodejs bin/iotagent-ul config-ul.js`
 
-2. client_ul.js
+**HTTP and MQTT clients**
 
-copy the `client_ul.js` file provided in the root folder into `iot.IoTagent-UL/bin` folder of github project downloaded and **run it only after that JMeter script is done**. It's a client to send data in Orion and check them, so you need before to run the IoT Agent server and provide device/service via JMeter script: 
+Copy the `client_http_ul.js` and `client_mqtt_ul.js` files (provided in the root folder) into `iot.IoTagent-UL/bin` folder of github project downloaded from git.
 
-> `sudo nodejs bin/client_ul.js`
+Please note that to use the MQTT client you need to start a MQTT Broker server. In order to do this, copy the `mqtt_broker.js` file in the `iot.IoTagent-UL` folder too. The MQTT Broker uses the *Mongo DB* database, so it's necessary that a mongo instance is up and running. 
+Install [Mosca](https://github.com/mcollina/mosca) (which is a node.js MQTT broker) with this command:
+
+> `sudo npm install mosca`
+
+and start the MQTT Broker server:
+
+> `sudo nodejs mqtt_broker.js`
+
+You can check the connection to database:
+ 
+> `mongo`
+
+> `use mqtt`
+
+> `show collections`
+
+and you find a `topics` collection.
+
+Please note that **you can run the clients only after that JMeter script is done**. 
+These clients send data to IoT Agent server (and IoT Agent server sends them in Orion) and check data in Orion, so you need before to run the IoT Agent server and provide device/service via JMeter script. Here the two commands: 
+
+> `sudo nodejs bin/client_http_ul.js`
+
+> `sudo nodejs bin/client_mqtt_ul.js`
 
 
 ### 3. JMeter ###
@@ -120,9 +146,9 @@ Open the **/etc/hosts** file by using this command:
 
 and add IDAS IP with **idas** and **orion** aliases according to your instances: 
 
-> `192.168.111.243 idas`
+> `192.168.111.80 idas`
 
-> `192.168.111.244 orion`
+> `192.168.111.83 orion`
 
 Copy in the **/tmp/** folder the **IoTAgent-UL-1.5.2.jmx** file.
 
@@ -143,7 +169,7 @@ Copy in the **/tmp/** folder the **IoTAgent-UL-1.5.2.jmx** file.
 
 ## Testing step by step ##
 
-**Run the test** with the follow command: 
+**Run the test** with the follow command (after the IoT Agent server is up and running): 
 
 `./apache-jmeter-3.3/bin/jmeter -n -t /tmp/IoTAgent-UL-1.5.2.jmx`
 
@@ -151,31 +177,72 @@ Copy in the **/tmp/** folder the **IoTAgent-UL-1.5.2.jmx** file.
 
 `iotagent-ul-1.5.2_yyyy-MM-dd HHmmss.csv`
 
+Please note that in order to test the clients, the JMeter script provides device/service for testing and the second execution gives 2 errors. You can try again after to clean device/service using `IoTAgent-UL-1.5.2.clean.jmx` script.   
+
+####Run the clients####
+
+**HTTP client**
+
+Run the HTTP client (`sudo nodejs bin/client_http_ul.js`) and an example of execution is:
+
+	 Current configuration:
+	 {
+		"binding": "HTTP",
+    	"host": "localhost",
+    	"port": 1883,
+    	"httpPort": 7896,
+    	"apikey": "1234",
+    	"deviceId": "myDeviceId",
+    	"httpPath": "/iot/d"
+    }
+    
+    Send to orion singleMeasure: a=55
+    HTTP measure accepted
+    Send to orion multipleMeasure: a=6, b=94
+    HTTP measure accepted
+    
+    Read newer data from orion
+    --------------------------------
+    {"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:00:13.631Z","metadata":{}},"a":{"type":"celsius","value":"6","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:00:13.631Z"}}},"b":{"type":"degrees","value":"94","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:00:13.631Z"}}}}
+    Exiting client
+    --------------------------------
+
+**MQTT client**
+
+Run the MQTT client (`sudo nodejs bin/client_mqtt_ul.js`) and an example of execution is (don't forget to start the MQTT Broker `sudo nodejs mqtt_broker.js`):
+
+	 Current configuration:
+	 {
+		"binding": "MQTT",
+    	"host": "localhost",
+    	"port": 1883,
+    	"httpPort": 7896,
+    	"apikey": "1234",
+    	"deviceId": "myDeviceId",
+    	"httpPath": "/iot/d"
+    }
+
+    Send to orion singleMeasure: a=62
+    Message successfully published
+    Send to orion multipleMeasure: a=30, b=87
+    Message successfully published
+    
+    Read newer data from orion
+    --------------------------------
+    {"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z","metadata":{}},"a":{"type":"celsius","value":"30","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}},"b":{"type":"degrees","value":"87","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}}}
+    Exiting client
+    --------------------------------
+
+
 #### Check the data in Orion  ####
 
-After JMeter execution, you can check the data in Orion using this curl command:
+Finally after JMeter and client execution, you can check the data in Orion using this curl command:
 
 `curl -v http://orion:1026/v2/entities -s -S --header "fiware-service: howtoService" --header "fiware-servicepath: /howto"`
 
-Here an example of Orion's response:
+Here an example of Orion's response (the last data in Orion):
 
-	[{"id":"TheDevice1","type":"DeviceType","TimeInstant":{"type":"ISO8601","value":" ","metadata":{}},"humidity":{"type":"float","value":" ","metadata":{}},"pressure":{"type":"float","value":" ","metadata":{}},"serialID":{"type":"02598347","value":null,"metadata":{}},"temperature":{"type":"float","value":" ","metadata":{}},"turn_info":{"type":"commandResult","value":" ","metadata":{}},"turn_status":{"type":"commandStatus","value":"UNKNOWN","metadata":{}}},{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-06T16:57:18.300Z","metadata":{}},"a":{"type":"celsius","value":"59","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-06T16:57:18.300Z"}}},"b":{"type":"degrees","value":"65","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-06T16:57:18.300Z"}}}}]
+	[{"id":"TheDevice1","type":"DeviceType","TimeInstant":{"type":"ISO8601","value":" ","metadata":{}},"humidity":{"type":"float","value":" ","metadata":{}},"pressure":{"type":"float","value":" ","metadata":{}},"serialID":{"type":"02598347","value":null,"metadata":{}},"temperature":{"type":"float","value":" ","metadata":{}},"turn_info":{"type":"commandResult","value":" ","metadata":{}},"turn_status":{"type":"commandStatus","value":"UNKNOWN","metadata":{}}},{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z","metadata":{}},"a":{"type":"celsius","value":"30","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}},"b":{"type":"degrees","value":"87","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}}}]
 
-while an example of execution of (IoT Agent) client (`sudo nodejs bin/client_ul.js`):
-
-	Connecting to MQTT Broker...
-	Send to orion singleMeasure: a=43
-	HTTP measure accepted
-	Send to orion multipleMeasure: a=59, b=65
-	HTTP measure accepted
-	
-	Read newer data from orion
-	--------------------------------
-	
-	{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-06T16:57:18.300Z","metadata":{}},"a":{"type":"celsius","value":"59","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-06T16:57:18.300Z"}}},"b":{"type":"degrees","value":"65","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-06T16:57:18.300Z"}}}}
-	Close client
-	
-	Exiting client
-	--------------------------------
 
 [Top](#iot-agent-ultralight)

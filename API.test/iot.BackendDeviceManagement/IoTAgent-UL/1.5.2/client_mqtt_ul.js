@@ -1,50 +1,13 @@
- /*
- * Copyright 2016 Telefonica InvestigaciÃƒÂ³n y Desarrollo, S.A.U
- *
- * This file is part of iotagent-ul
- *
- * iotagent-ul is free software: you can redistribute it and/or
- * modify it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the License,
- * or (at your option) any later version.
- *
- * iotagent-ul is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public
- * License along with iotagent-ul.
- * If not, seehttp://www.gnu.org/licenses/.
- *
- * For those usages not covered by the GNU Affero General Public License
- * please contact with::[iot_support@tid.es]
- */
 
 'use strict';
 
 var fs = require('fs'),
     defaultConfig = require('../client-config.js'),
-    //commandLine = require('iotagent-node-lib').commandLine,
-    //clUtils = commandLine.clUtils,
     mqtt = require('mqtt'),
     request = require('request'),
     async = require('async'),
     _ = require('underscore'),
-    mqttClient,/*
-    configCb = {
-        host: 'localhost',
-        port: 1026,
-        service: 'tester',
-        subservice: '/test'
-    },
-    configIot = {
-        host: 'localhost',
-        port: 4041,
-        name: 'default',
-        service: 'tester',
-        subservice: '/test'
-    },*/
+    mqttClient,
     config = {
         binding: defaultConfig.defaultBinding,
         host: defaultConfig.mqtt.host,
@@ -57,29 +20,34 @@ var fs = require('fs'),
     separator = '\n\n\t',
     token;
 
-    
 /*
- * Step 1 - showConfig
+ * Step 1 - selectProtocol - MQTT
  */
-var command = [];
- getConfig(command);  
-
+var protocol = ['MQTT'];
+ selectProtocol(protocol);      
+       
 /*
- * Step 2 - connect 
+ * Step 2 - connect to MQTT Broker
  */ 
+var command = [];  
 connect(command);
     
 /*
- * Step 3 - singleMeasure  -  /1234/myDeviceId/attrs a|33
+ * Step 3 - showConfig
  */
-var value = Math.floor((Math.random() * 100));
-var param = 'a|' + value; 
-console.log('Send to orion singleMeasure: a=' + value);    
-command = ['/1234/myDeviceId/attrs', param];    
+command = [];
+ getConfig(command);  
+    
+/*
+ * Step 4 - singleMeasure  -  [a, 33]
+ */
+var a = Math.floor((Math.random() * 100)); 
+command = ['a', a.toString()]; 
+console.log('Send to orion singleMeasure: a=' + a);       
 singleMeasure(command); 
 
 /*
- * Step 4 - multipleMeasure  -  a=33;b=22
+ * Step 5 - multipleMeasure  -  [a=33;b=22]
  */
 setTimeout(function() { 
    var a = Math.floor((Math.random() * 100)); 
@@ -90,21 +58,23 @@ setTimeout(function() {
 }, 1500);	
 
 
-
-function exit(){
-   console.log('Close client');
-   console.log('\nExiting client\n--------------------------------\n');
-   process.exit();
-}
-
-var waitTime = 5; //wait time X secs after the connection
+/*
+ * Step 6 - checkDataContextBroker & exit
+ */
+var waitTime = 10; //wait time X secs after the connection
 setTimeout(function() {
       checkDataContextBroker();
 	 //close console	   
          setTimeout(function() {	
             exit();
          }, waitTime * 100);
-}, waitTime * 1000);	    
+}, waitTime * 1000);	  
+
+
+function exit(){
+   console.log('\nExiting client\n--------------------------------\n');
+   process.exit();
+}
 
 function checkDataContextBroker(){
    var http = require("http");
@@ -149,7 +119,6 @@ function getConfig(commands) {
     console.log('\nCurrent configuration:\n\n');
     console.log(JSON.stringify(config, null, 4));
     console.log('\n');
-    //clUtils.prompt();
 }
 
 function mqttPublishHandler(error) {
@@ -158,8 +127,6 @@ function mqttPublishHandler(error) {
     } else {
         console.log('Message successfully published');
     }
-
-    //clUtils.prompt();
 }
 
 function httpPublishHandler(error, response, body) {
@@ -170,8 +137,6 @@ function httpPublishHandler(error, response, body) {
     } else {
         console.log('HTTP measure accepted');
     }
-
-    //clUtils.prompt();
 }
 
 function checkConnection(fn) {
@@ -199,7 +164,7 @@ function singleMeasure(commands) {
                 d: commands[0] + '|' + commands[1]
             }
         };
-	
+
         request(httpRequest, httpPublishHandler);
     }
 }
@@ -258,10 +223,7 @@ function multipleMeasure(commands) {
 
 function connect(commands) {
     console.log('\nConnecting to MQTT Broker...');
-
     mqttClient = mqtt.connect('mqtt://' + config.host, defaultConfig.mqtt.options);
-
-   // clUtils.prompt();
 }
 
 function selectProtocol(commands) {
@@ -316,10 +278,4 @@ var commands = {
         handler: selectProtocol
     }
 };
-
-//commands = _.extend(commandLine.commands, commands);
-//commandLine.init(configCb, configIot);
-
-//clUtils.initialize(commands, 'Ultralight 2.0 IoTA tester> ');
-
 
