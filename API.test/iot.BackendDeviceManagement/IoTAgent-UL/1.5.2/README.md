@@ -120,7 +120,7 @@ and start the MQTT Broker server:
 
 > `sudo nodejs mqtt_broker.js`
 
-You can check the connection to database:
+You can check the connection to Mongo DB database with these commands:
  
 > `mongo`
 
