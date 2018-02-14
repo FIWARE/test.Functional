@@ -185,6 +185,8 @@ Please note that in order to test the clients, the JMeter script provides device
 
 Run the HTTP client (`sudo nodejs bin/client_http_ul.js`) and an example of execution is:
 
+	 Connecting to MQTT Broker...
+	 
 	 Current configuration:
 	 {
 		"binding": "HTTP",
@@ -204,6 +206,7 @@ Run the HTTP client (`sudo nodejs bin/client_http_ul.js`) and an example of exec
     Read newer data from orion
     --------------------------------
     {"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:00:13.631Z","metadata":{}},"a":{"type":"celsius","value":"6","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:00:13.631Z"}}},"b":{"type":"degrees","value":"94","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:00:13.631Z"}}}}
+    
     Exiting client
     --------------------------------
 
@@ -230,6 +233,7 @@ Run the MQTT client (`sudo nodejs bin/client_mqtt_ul.js`) and an example of exec
     Read newer data from orion
     --------------------------------
     {"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z","metadata":{}},"a":{"type":"celsius","value":"30","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}},"b":{"type":"degrees","value":"87","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}}}
+    
     Exiting client
     --------------------------------
 
@@ -238,11 +242,11 @@ Run the MQTT client (`sudo nodejs bin/client_mqtt_ul.js`) and an example of exec
 
 Finally after JMeter and client execution, you can check the data in Orion using this curl command:
 
-`curl -v http://orion:1026/v2/entities -s -S --header "fiware-service: howtoService" --header "fiware-servicepath: /howto"`
+`curl -v http://orion:1026/v2/entities/MQTT_Device -s -S --header "fiware-service: howtoService" --header "fiware-servicepath: /howto"`
 
 Here an example of Orion's response (the last data in Orion):
 
-	[{"id":"TheDevice1","type":"DeviceType","TimeInstant":{"type":"ISO8601","value":" ","metadata":{}},"humidity":{"type":"float","value":" ","metadata":{}},"pressure":{"type":"float","value":" ","metadata":{}},"serialID":{"type":"02598347","value":null,"metadata":{}},"temperature":{"type":"float","value":" ","metadata":{}},"turn_info":{"type":"commandResult","value":" ","metadata":{}},"turn_status":{"type":"commandStatus","value":"UNKNOWN","metadata":{}}},{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z","metadata":{}},"a":{"type":"celsius","value":"30","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}},"b":{"type":"degrees","value":"87","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}}}]
+	{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z","metadata":{}},"a":{"type":"celsius","value":"30","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}},"b":{"type":"degrees","value":"87","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-02-09T16:06:22.612Z"}}}}
 
 
 [Top](#iot-agent-ultralight)
