@@ -185,8 +185,6 @@ Please note that in order to test the clients, the JMeter script provides device
 
 Run the HTTP client (`sudo nodejs bin/client_http_ul.js`) and an example of execution is:
 
-	 Connecting to MQTT Broker...
-	 
 	 Current configuration:
 	 {
 		"binding": "HTTP",
@@ -214,6 +212,8 @@ Run the HTTP client (`sudo nodejs bin/client_http_ul.js`) and an example of exec
 
 Run the MQTT client (`sudo nodejs bin/client_mqtt_ul.js`) and an example of execution is (don't forget to start the MQTT Broker `sudo nodejs mqtt_broker.js`):
 
+	 Connecting to MQTT Broker...
+	 
 	 Current configuration:
 	 {
 		"binding": "MQTT",
