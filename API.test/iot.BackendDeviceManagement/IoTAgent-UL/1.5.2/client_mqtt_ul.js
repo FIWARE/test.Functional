@@ -24,7 +24,7 @@ var fs = require('fs'),
  * Step 1 - selectProtocol - MQTT
  */
 var protocol = ['MQTT'];
- selectProtocol(protocol);      
+selectProtocol(protocol);      
        
 /*
  * Step 2 - connect to MQTT Broker
@@ -36,7 +36,7 @@ connect(command);
  * Step 3 - showConfig
  */
 command = [];
- getConfig(command);  
+getConfig(command);  
     
 /*
  * Step 4 - singleMeasure  -  [a, 33]
@@ -57,17 +57,27 @@ setTimeout(function() {
    multipleMeasure(command);
 }, 1500);	
 
-
 /*
- * Step 6 - checkDataContextBroker & exit
+ * Step 6 - mqttCommand  -  [ping, 1]
+ */
+var waitTime = 5; //wait time X secs after the connection
+setTimeout(function() {
+   var value = Math.floor((Math.random() * 100)); 
+   command = ['ping', value.toString()];  
+   console.log('Send to orion mqttCommand: ping=' + value);  
+   sendCommandResult(command); 
+}, waitTime * 1000);	
+   
+/*
+ * Step 7 - checkDataContextBroker & exit
  */
 var waitTime = 10; //wait time X secs after the connection
 setTimeout(function() {
-      checkDataContextBroker();
-	 //close console	   
-         setTimeout(function() {	
-            exit();
-         }, waitTime * 100);
+   checkDataContextBroker();
+   //close console	   
+   setTimeout(function() {	
+      exit();
+   }, waitTime * 100);
 }, waitTime * 1000);	  
 
 
@@ -104,8 +114,7 @@ function checkDataContextBroker(){
 
    http.request(options, callback).end();
 }
- 
-    
+     
 function setConfig(commands) {
     config.host = commands[0];
     config.port = commands[1];

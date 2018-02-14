@@ -727,6 +727,12 @@
                &quot;name&quot;:&quot;b&quot;,&#xd;
                &quot;type&quot;:&quot;degrees&quot;&#xd;
             }&#xd;
+         ],&#xd;
+         &quot;commands&quot;: [&#xd;
+            {&#xd;
+               &quot;name&quot;: &quot;ping&quot;,&#xd;
+               &quot;type&quot;: &quot;command&quot;&#xd;
+            }&#xd;
          ]&#xd;
       }&#xd;
    ]&#xd;

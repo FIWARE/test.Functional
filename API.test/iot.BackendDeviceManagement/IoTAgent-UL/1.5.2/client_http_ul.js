@@ -24,13 +24,13 @@ var fs = require('fs'),
  * Step 1 - selectProtocol - HTTP
  */
 var protocol = ['HTTP'];
- selectProtocol(protocol);      
+selectProtocol(protocol);      
        
 /*
  * Step 2 - showConfig
  */
 var command = [];
- getConfig(command);  
+getConfig(command);  
     
 /*
  * Step 3 - singleMeasure  -  [/1234/myDeviceId/attrs, a|33]
@@ -51,7 +51,6 @@ setTimeout(function() {
    console.log('Send to orion multipleMeasure: a=' + a + ', b=' +b);   
    multipleMeasure(command);
 }, 1500);	
-
 
 /*
  * Step 5 - checkDataContextBroker & exit
@@ -99,8 +98,7 @@ function checkDataContextBroker(){
 
    http.request(options, callback).end();
 }
- 
-    
+   
 function setConfig(commands) {
     config.host = commands[0];
     config.port = commands[1];
