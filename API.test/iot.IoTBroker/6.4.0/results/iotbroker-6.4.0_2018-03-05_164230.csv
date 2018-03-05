@@ -1,0 +1,29 @@
+label,responseCode,responseMessage,success,failureMessage
+ngsi9.registerContext(JSON),200,OK,true,
+ngsi9.registerContext(XML),200,OK,true,
+ngsi9.registerContext,200,OK,true,
+checkVersion,200,OK,true,
+standard.queryContext(JSON),200,OK,true,
+standard.queryContext(XML),200,OK,true,
+standard.subscribeContext,200,OK,true,
+standard.updateContextSubscription,200,OK,true,
+standard.unsubscribeContext,200,OK,true,
+standard.notifyContext,200,OK,true,
+standard.updateContext,200,OK,true,
+convenience.updateContextElement,200,OK,true,
+convenience.appendContextElement,200,OK,true,
+convenience.appendContextAttribute,200,OK,true,
+convenience.retrieveEntityInfo,200,OK,true,
+convenience.updateContextAttribute,200,OK,true,
+convenience.retrieveEntityAttributeValues,200,OK,false,error: line=1 col=94 cvc-complex-type.2.4.a: Invalid content was found starting with element 'statusCode'. One of '{contextAttributeList}' is expected.
+convenience.retrieveEntityAttributeValueAndMetadata,200,OK,false,error: line=1 col=94 cvc-complex-type.2.4.a: Invalid content was found starting with element 'statusCode'. One of '{contextAttributeList}' is expected.
+convenience.subscribeContext,200,OK,true,
+convenience.retrieveEntityAttributeDomainInfo,200,OK,false,error: line=1 col=94 cvc-complex-type.2.4.a: Invalid content was found starting with element 'statusCode'. One of '{contextAttributeList}' is expected.
+convenience.retrieveContextEntityTypeInfo,200,OK,true,
+convenience.retrieveContextEntityAttributeValues,404,Not Found,false,No Nodes Matched /queryContextResponse/contextResponseList/contextElementResponse/statusCode/code=200
+convenience.retrieveContextEntityAttributeDomainValues,200,OK,false,No Nodes Matched /queryContextResponse/contextResponseList/contextElementResponse/statusCode/code=200
+convenience.updateContextSubscription,200,OK,true,
+convenience.cancelSubscription,200,OK,true,
+convenience.deleteContextAttributeValues,200,OK,true,
+convenience.deleteEntityAttributeValues,200,OK,true,
+convenience.deleteAllEntityInfo,200,OK,true,
