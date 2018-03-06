@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="IoT Broker" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -129,7 +129,7 @@
       </ConfigTestElement>
       <hashTree/>
       <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
-        <stringProp name="cacheKey">5bd16fdd-7259-4e6c-8e4d-4e7e459c685d</stringProp>
+        <stringProp name="cacheKey">true</stringProp>
         <stringProp name="filename"></stringProp>
         <stringProp name="parameters"></stringProp>
         <stringProp name="script">import org.apache.jmeter.services.FileServer;
@@ -242,6 +242,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
@@ -251,6 +252,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -337,6 +339,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -427,6 +430,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -485,6 +489,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
@@ -553,6 +558,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200|404</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
@@ -563,6 +569,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -621,6 +628,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200|404</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -698,6 +706,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200|500</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -793,6 +802,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200|404</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -859,6 +869,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200|404</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -953,6 +964,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -1031,6 +1043,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -1122,6 +1135,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200|404</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -1201,6 +1215,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200|404</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -1275,6 +1290,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -1332,6 +1348,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -1440,6 +1457,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -2100,6 +2118,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">1</intProp>
             <stringProp name="TestPlan.comments">Response Assertion: 200|404</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
           <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
@@ -2225,9 +2244,5 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
       </DebugPostProcessor>
       <hashTree/>
     </hashTree>
-    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
-      <boolProp name="WorkBench.save">true</boolProp>
-    </WorkBench>
-    <hashTree/>
   </hashTree>
 </jmeterTestPlan>
