@@ -84,7 +84,7 @@
           </elementProp>
           <elementProp name="S2_ENTITY_ID" elementType="Argument">
             <stringProp name="Argument.name">S2_ENTITY_ID</stringProp>
-            <stringProp name="Argument.value">ConferenceRoom_S2</stringProp>
+            <stringProp name="Argument.value">ConferenceRoom_S1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="NGSI9_SPECS_REL_PATH" elementType="Argument">
@@ -353,42 +353,27 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
-&lt;registerContextRequest&gt;&#xd;
-   &lt;contextRegistrationList&gt;&#xd;
-      &lt;contextRegistration&gt;&#xd;
-         &lt;entityIdList&gt;&#xd;
-            &lt;entityId type=&quot;Room&quot; isPattern=&quot;false&quot;&gt;&#xd;
-               &lt;id&gt;${C_ENTITY_ID}&lt;/id&gt;&#xd;
-            &lt;/entityId&gt;&#xd;
-         &lt;/entityIdList&gt;&#xd;
-         &lt;contextRegistrationAttributeList&gt;&#xd;
-            &lt;contextRegistrationAttribute&gt;&#xd;
-               &lt;name&gt;temperature&lt;/name&gt;&#xd;
-               &lt;type&gt;degree&lt;/type&gt;&#xd;
-               &lt;isDomain&gt;true&lt;/isDomain&gt;&#xd;
-               &lt;metadata&gt;&#xd;
-                  &lt;contextMetadata&gt;&#xd;
-                     &lt;name&gt;unit&lt;/name&gt;&#xd;
-                     &lt;type&gt;string&lt;/type&gt;&#xd;
-                     &lt;value&gt;celsius&lt;/value&gt;&#xd;
-                  &lt;/contextMetadata&gt;&#xd;
-               &lt;/metadata&gt;&#xd;
-            &lt;/contextRegistrationAttribute&gt;&#xd;
-         &lt;/contextRegistrationAttributeList&gt;&#xd;
-         &lt;registrationMetaData&gt;&#xd;
-            &lt;contextMetadata&gt;&#xd;
-               &lt;name /&gt;&#xd;
-               &lt;type /&gt;&#xd;
-               &lt;value /&gt;&#xd;
-            &lt;/contextMetadata&gt;&#xd;
-         &lt;/registrationMetaData&gt;&#xd;
-         &lt;providingApplication&gt;${AGENT_URL}&lt;/providingApplication&gt;&#xd;
-      &lt;/contextRegistration&gt;&#xd;
-   &lt;/contextRegistrationList&gt;&#xd;
-   &lt;duration&gt;PT1M&lt;/duration&gt;&#xd;
-   &lt;registrationId /&gt;&#xd;
-&lt;/registerContextRequest&gt;</stringProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;contextRegistrations&quot;: [&#xd;
+        {&#xd;
+            &quot;entities&quot;: [&#xd;
+                {&#xd;
+                    &quot;type&quot;: &quot;Room&quot;,&#xd;
+                    &quot;isPattern&quot;: &quot;false&quot;,&#xd;
+                    &quot;id&quot;: &quot;${C_ENTITY_ID}&quot;&#xd;
+                }&#xd;
+            ],&#xd;
+            &quot;attributes&quot;: [&#xd;
+                {&#xd;
+                    &quot;name&quot;: &quot;dummyName&quot;,&#xd;
+                    &quot;type&quot;: &quot;dummyType&quot;,&#xd;
+                    &quot;isDomain&quot;: &quot;false&quot;&#xd;
+                }&#xd;
+                                ],&#xd;
+            &quot;providingApplication&quot;: &quot;${AGENT_URL}&quot;&#xd;
+        }&#xd;
+    ]&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -413,11 +398,11 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/xml, application/json</stringProp>
+                <stringProp name="Header.value">application/json, application/xml</stringProp>
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -433,9 +418,15 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
             <stringProp name="Assertion.custom_message"></stringProp>
           </ResponseAssertion>
           <hashTree/>
-          <XMLSchemaAssertion guiclass="XMLSchemaAssertionGUI" testclass="XMLSchemaAssertion" testname="XML Schema Assertion" enabled="true">
-            <stringProp name="xmlschema_assertion_filename">${NGSI9_SPECS_PATH}</stringProp>
-          </XMLSchemaAssertion>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-567498828">registrationId</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
       </hashTree>
@@ -1383,7 +1374,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/temperature/id1</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/dummyName/id1</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1437,7 +1428,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/temperature</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/dummyName</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1489,7 +1480,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/temperature/id1</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributes/dummyName/id1</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1641,7 +1632,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributeDomains/temperature</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntities/${C_ENTITY_ID}/attributeDomains/dummyName</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1749,7 +1740,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntityTypes/Room/attributes/temperature</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntityTypes/Room/attributes/dummyName</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1803,7 +1794,7 @@ if (ngsiSetting==null || ngsiSetting.length()==0) {
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/ngsi10/contextEntityTypes/Room/attributeDomains/temperature</stringProp>
+          <stringProp name="HTTPSampler.path">/ngsi10/contextEntityTypes/Room/attributeDomains/dummyName</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
