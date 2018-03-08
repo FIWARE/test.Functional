@@ -147,6 +147,4 @@ Copy in the **/tmp/** folder the **IoTBroker-6.4.0.jmx** file and the overall **
 
 `iotbroker-6.4.0_yyyy-MM-dd HHmmss.csv`
 
-**Please note** that if this script fails probably the tokens are expired.
-
 [Top](#aeron-iot-broker)
