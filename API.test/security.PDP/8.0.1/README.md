@@ -29,16 +29,16 @@ Once the HW necessary for the test described previously at **Testing Environment
 
 ### 1. Authorization PDP - AuthZForce ###
 
-If you have the right instance in the FIWARE Lab then you can jump to step 6, otherwise just follow all steps to install
-the AuthZForce 8.0.1 on `Ubuntu 16.04` (flavor medium) following these steps:
+If you have the right instance in the FIWARE Lab then you can jump to step 1.6, otherwise just follow all steps to install
+the AuthZForce 8.0.1 on `Ubuntu 16.04` following these steps:
 
-**1. Deploy Ubuntu 16.04**
+**1.1 Deploy Ubuntu 16.04**
 
 Deploy an Ubuntu 16.04 VM in the FIWARE Lab (in this test it was used a flavor medium) and update the packages.
 
 > `sudo apt-get update`
 
-**2. Install JDK 8** 
+**1.2 Install JDK 8** 
 
 > `sudo apt-get install openjdk-8-jre`
 
@@ -46,11 +46,11 @@ Deploy an Ubuntu 16.04 VM in the FIWARE Lab (in this test it was used a flavor m
 
 for example, in this test results `openjdk version "1.8.0_151"`.
 
-**3. Install Tomcat 8**
+**1.3 Install Tomcat 8**
 
 > `sudo apt-get install tomcat8`
 
-**4. Download the right version from repository**. At this [link](http://repo1.maven.org/maven2/org/ow2/authzforce/authzforce-ce-server-dist/) you can find your right distribution. In general the naming is MAJOR.MINOR.PATH (Semantic Versioning) = M.m.P: `http://repo1.maven.org/maven2/org/ow2/authzforce/authzforce-ce-server-dist/M.m.P/authzforce-ce-server-dist-M.m.P.deb`
+**1.4 Download the right version from repository**. At this [link](http://repo1.maven.org/maven2/org/ow2/authzforce/authzforce-ce-server-dist/) you can find your right distribution. In general the naming is MAJOR.MINOR.PATH (Semantic Versioning) = M.m.P: `http://repo1.maven.org/maven2/org/ow2/authzforce/authzforce-ce-server-dist/M.m.P/authzforce-ce-server-dist-M.m.P.deb`
 
 and in this case, download it (in `/home/ubuntu` folder) using `wget` command:
 
@@ -58,7 +58,7 @@ and in this case, download it (in `/home/ubuntu` folder) using `wget` command:
 
 If you cannot download it, you can find the `authzforce-ce-server-dist-8.0.1.deb` distribution in this folder.
 
-**5. Install AuthZForce server**
+**1.5 Install AuthZForce server**
 
 > `sudo apt-get install gdebi curl`
 
@@ -72,10 +72,11 @@ Note that Tomcat default configuration may specify a very low value for the Java
 
 > `sudo service tomcat8 restart`
 
-**6. Attribute Provider configuration**
-Note that in order to run successful the JMeter script, you have to add the `attribute provider` just follow how 'Integrating an Attribute Provider into AuthzForce' at this [link](https://github.com/authzforce/core/wiki/Attribute-Providers#integrating-an-attribute-provider-into-authzforce). All Files are also available in this folder.
+**1.6 Attribute Provider configuration**
+*Note* that in order to run successful the JMeter script, you have to add the `attribute provider` just follow how *'Integrating an Attribute Provider into AuthzForce'* at this [link](https://github.com/authzforce/core/wiki/Attribute-Providers#integrating-an-attribute-provider-into-authzforce). All Files are also available in this folder.
 
 * add the `authzforce-ce-core-pdp-testutils-10.3.0.jar` library in to `/opt/authzforce-ce-server/webapp/WEB-INF/lib`
+
 * edit `/opt/authzforce-ce-server/conf/authzforce-ext.xsd` schema file simply adding this line:
 	
 > `<xs:import namespace="http://authzforce.github.io/core/xmlns/test/3" />`
