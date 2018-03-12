@@ -1,0 +1,1531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="AuthZForce-8.0.1" enabled="true">
+      <stringProp name="TestPlan.comments">Test for AuthZForce GE</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Global Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="HOST" elementType="Argument">
+            <stringProp name="Argument.name">HOST</stringProp>
+            <stringProp name="Argument.value">authzforce</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">IP of AuthZForce, name set in the hosts file</stringProp>
+          </elementProp>
+          <elementProp name="PORT" elementType="Argument">
+            <stringProp name="Argument.name">PORT</stringProp>
+            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Default port of AuthZForce</stringProp>
+          </elementProp>
+          <elementProp name="VERSION" elementType="Argument">
+            <stringProp name="Argument.name">VERSION</stringProp>
+            <stringProp name="Argument.value">8.0.1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Current version of AuthZForce</stringProp>
+          </elementProp>
+          <elementProp name="ABSOLUTE_PATH" elementType="Argument">
+            <stringProp name="Argument.name">ABSOLUTE_PATH</stringProp>
+            <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}${__BeanShell(File.separator,)}</stringProp>
+            <stringProp name="Argument.desc">Path for jmx and csv files</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TIME" elementType="Argument">
+            <stringProp name="Argument.name">TIME</stringProp>
+            <stringProp name="Argument.value">${__time(yyyy-MM-dd_HHmmss)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="GE_NAME" elementType="Argument">
+            <stringProp name="Argument.name">GE_NAME</stringProp>
+            <stringProp name="Argument.value">authzforce</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="EXTERNAL_ID" elementType="Argument">
+            <stringProp name="Argument.name">EXTERNAL_ID</stringProp>
+            <stringProp name="Argument.value">my-domain-123</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+        <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/xml</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Product info" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getProductInformation" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/version</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get product information</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">//productMetadata/@version=&apos;${VERSION}&apos;</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+            <stringProp name="Scope.variable"></stringProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Domain Management" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1489052294000</longProp>
+        <longProp name="ThreadGroup.end_time">1489052294000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="addDomain" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xd;
+&lt;domainProperties xmlns=&quot;http://authzforce.github.io/rest-api-model/xmlns/authz/5&quot; externalId=&quot;external2&quot;&gt;&#xd;
+&lt;description&gt;This is my domain&lt;/description&gt;&#xd;
+&lt;/domainProperties&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Add domain</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">domainId</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">/link/@href</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+            <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+          </XPathExtractor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getListOfPolicyAdminDomains" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get the list of policy administration domains</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getDomain" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get domain’s resource</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200|404 " enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1447182354">200|404</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200|404 </stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getDomainProperties" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/properties</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get the current domain properties</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updateDomainProperties" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xd;
+&lt;domainProperties xmlns=&quot;http://authzforce.github.io/rest-api-model/xmlns/authz/5&quot; externalId=&quot;${EXTERNAL_ID}&quot;&gt;&#xd;
+&lt;description&gt;This is my &apos;${EXTERNAL_ID}&apos; domain&lt;/description&gt;&#xd;
+&lt;/domainProperties&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/properties</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Update domain properties</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getResource" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains?externalId=${EXTERNAL_ID}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get resource by externalId</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="addPolicy" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xd;
+&lt;PolicySet xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; PolicySetId=&quot;P1&quot; Version=&quot;1.0&quot; PolicyCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+    &lt;Description&gt;Sample PolicySet&lt;/Description&gt;&#xd;
+    &lt;Target /&gt;&#xd;
+    &lt;Policy PolicyId=&quot;MissionManagementApp&quot; Version=&quot;1.0&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+        &lt;Description&gt;Policy for MissionManagementApp&lt;/Description&gt;&#xd;
+        &lt;Target&gt;&#xd;
+            &lt;AnyOf&gt;&#xd;
+                &lt;AllOf&gt;&#xd;
+                    &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                        &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;MissionManagementApp&lt;/AttributeValue&gt;&#xd;
+                        &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                    &lt;/Match&gt;&#xd;
+                &lt;/AllOf&gt;&#xd;
+            &lt;/AnyOf&gt;&#xd;
+        &lt;/Target&gt;&#xd;
+        &lt;Rule RuleId=&quot;MissionManager_role_can_manage_team&quot; Effect=&quot;Permit&quot;&gt;&#xd;
+            &lt;Description&gt;Only MissionManager role authorized to manage the mission team&lt;/Description&gt;&#xd;
+            &lt;Target&gt;&#xd;
+                &lt;AnyOf&gt;&#xd;
+                    &lt;AllOf&gt;&#xd;
+                        &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                            &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Team&lt;/AttributeValue&gt;&#xd;
+                            &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; AttributeId=&quot;urn:thales:xacml:2.0:resource:sub-resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                        &lt;/Match&gt;&#xd;
+                    &lt;/AllOf&gt;&#xd;
+                &lt;/AnyOf&gt;&#xd;
+                &lt;AnyOf&gt;&#xd;
+                    &lt;AllOf&gt;&#xd;
+                        &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                            &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;manage&lt;/AttributeValue&gt;&#xd;
+                            &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                        &lt;/Match&gt;&#xd;
+                    &lt;/AllOf&gt;&#xd;
+                &lt;/AnyOf&gt;&#xd;
+            &lt;/Target&gt;&#xd;
+            &lt;Condition&gt;&#xd;
+                &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:3.0:function:any-of&quot;&gt;&#xd;
+                    &lt;Function FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot; /&gt;&#xd;
+                    &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;MissionManager&lt;/AttributeValue&gt;&#xd;
+                    &lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:2.0:subject:role&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; /&gt;&#xd;
+                &lt;/Apply&gt;&#xd;
+            &lt;/Condition&gt;&#xd;
+        &lt;/Rule&gt;&#xd;
+    &lt;/Policy&gt;&#xd;
+&lt;/PolicySet&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments"> Add Policy to a specific domain</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">version</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">substring-after(/link/@href, &quot;/&quot;) </stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+            <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+          </XPathExtractor>
+          <hashTree/>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">policyId</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">substring-before(/link/@href, &quot;/&quot;) </stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+            <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+          </XPathExtractor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updatePolicy" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xd;
+&lt;PolicySet xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; PolicySetId=&quot;P1&quot; Version=&quot;1.1&quot; PolicyCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+    &lt;Description&gt;Sample PolicySet - UPDATE&lt;/Description&gt;&#xd;
+    &lt;Target /&gt;&#xd;
+    &lt;Policy PolicyId=&quot;MissionManagementApp&quot; Version=&quot;1.0&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+        &lt;Description&gt;Policy for MissionManagementApp&lt;/Description&gt;&#xd;
+        &lt;Target&gt;&#xd;
+            &lt;AnyOf&gt;&#xd;
+                &lt;AllOf&gt;&#xd;
+                    &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                        &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;MissionManagementApp&lt;/AttributeValue&gt;&#xd;
+                        &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                    &lt;/Match&gt;&#xd;
+                &lt;/AllOf&gt;&#xd;
+            &lt;/AnyOf&gt;&#xd;
+        &lt;/Target&gt;&#xd;
+        &lt;Rule RuleId=&quot;MissionManager_role_can_manage_team&quot; Effect=&quot;Permit&quot;&gt;&#xd;
+            &lt;Description&gt;Only MissionManager role authorized to manage the mission team&lt;/Description&gt;&#xd;
+            &lt;Target&gt;&#xd;
+                &lt;AnyOf&gt;&#xd;
+                    &lt;AllOf&gt;&#xd;
+                        &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                            &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Team&lt;/AttributeValue&gt;&#xd;
+                            &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; AttributeId=&quot;urn:thales:xacml:2.0:resource:sub-resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                        &lt;/Match&gt;&#xd;
+                    &lt;/AllOf&gt;&#xd;
+                &lt;/AnyOf&gt;&#xd;
+                &lt;AnyOf&gt;&#xd;
+                    &lt;AllOf&gt;&#xd;
+                        &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                            &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;manage&lt;/AttributeValue&gt;&#xd;
+                            &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                        &lt;/Match&gt;&#xd;
+                    &lt;/AllOf&gt;&#xd;
+                &lt;/AnyOf&gt;&#xd;
+            &lt;/Target&gt;&#xd;
+            &lt;Condition&gt;&#xd;
+                &lt;Apply FunctionId=&quot;urn:oasis:names:tc:xacml:3.0:function:any-of&quot;&gt;&#xd;
+                    &lt;Function FunctionId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot; /&gt;&#xd;
+                    &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;MissionManager&lt;/AttributeValue&gt;&#xd;
+                    &lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:2.0:subject:role&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; /&gt;&#xd;
+                &lt;/Apply&gt;&#xd;
+            &lt;/Condition&gt;&#xd;
+        &lt;/Rule&gt;&#xd;
+    &lt;/Policy&gt;&#xd;
+&lt;/PolicySet&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments"> Update Policy to a specific domain</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getPolicies" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get all policies in the domain</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getPolicy" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies/${policyId}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get Policy</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getPolicyVersions" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies/${policyId}/${version}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get Policy Versions</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getPolicyLastVersion" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies/${policyId}/latest</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get the latest version of a given policy</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reusablePolicy" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;PolicySet xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; PolicySetId=&quot;PPS:Employee&quot; Version=&quot;1.0&quot; PolicyCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+   &lt;Description&gt;Permissions specific to the Employee role&lt;/Description&gt;&#xd;
+   &lt;Target /&gt;&#xd;
+   &lt;Policy PolicyId=&quot;PP:Employee&quot; Version=&quot;1.0&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+      &lt;Target /&gt;&#xd;
+      &lt;Rule RuleId=&quot;Permission_to_create_issue_ticket&quot; Effect=&quot;Permit&quot;&gt;&#xd;
+         &lt;Target&gt;&#xd;
+            &lt;AnyOf&gt;&#xd;
+               &lt;AllOf&gt;&#xd;
+                  &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                     &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;https://acme.com/tickets&lt;/AttributeValue&gt;&#xd;
+                     &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                  &lt;/Match&gt;&#xd;
+               &lt;/AllOf&gt;&#xd;
+            &lt;/AnyOf&gt;&#xd;
+            &lt;AnyOf&gt;&#xd;
+               &lt;AllOf&gt;&#xd;
+                  &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                     &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
+                     &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                  &lt;/Match&gt;&#xd;
+               &lt;/AllOf&gt;&#xd;
+            &lt;/AnyOf&gt;&#xd;
+         &lt;/Target&gt;&#xd;
+      &lt;/Rule&gt;&#xd;
+   &lt;/Policy&gt;&#xd;
+&lt;/PolicySet&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Re-usable Policy</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="addRoleBasedHierarchical" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;PolicySet xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; PolicySetId=&quot;rbac:policyset&quot; Version=&quot;1.0&quot; PolicyCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+   &lt;Description&gt;Root PolicySet&lt;/Description&gt;&#xd;
+   &lt;Target /&gt;&#xd;
+   &lt;PolicySet PolicySetId=&quot;RPS:Employee&quot; Version=&quot;1.0&quot; PolicyCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+      &lt;Description&gt;Employee Role PolicySet&lt;/Description&gt;&#xd;
+      &lt;Target&gt;&#xd;
+         &lt;AnyOf&gt;&#xd;
+            &lt;AllOf&gt;&#xd;
+               &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                  &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Employee&lt;/AttributeValue&gt;&#xd;
+                  &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:2.0:subject:role&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+               &lt;/Match&gt;&#xd;
+            &lt;/AllOf&gt;&#xd;
+         &lt;/AnyOf&gt;&#xd;
+      &lt;/Target&gt;&#xd;
+      &lt;PolicySetIdReference&gt;PPS:Employee&lt;/PolicySetIdReference&gt;&#xd;
+   &lt;/PolicySet&gt;&#xd;
+   &lt;PolicySet PolicySetId=&quot;RPS:Manager&quot; Version=&quot;1.0&quot; PolicyCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+      &lt;Description&gt;Manager Role PolicySet&lt;/Description&gt;&#xd;
+      &lt;Target&gt;&#xd;
+         &lt;AnyOf&gt;&#xd;
+            &lt;AllOf&gt;&#xd;
+               &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                  &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Manager&lt;/AttributeValue&gt;&#xd;
+                  &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:2.0:subject:role&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+               &lt;/Match&gt;&#xd;
+            &lt;/AllOf&gt;&#xd;
+         &lt;/AnyOf&gt;&#xd;
+      &lt;/Target&gt;&#xd;
+      &lt;Policy PolicyId=&quot;PP1:Manager&quot; Version=&quot;1.0&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit&quot;&gt;&#xd;
+         &lt;Description&gt;Permissions specific to Manager Role&lt;/Description&gt;&#xd;
+         &lt;Target /&gt;&#xd;
+         &lt;Rule RuleId=&quot;Permission_to_create_new_project&quot; Effect=&quot;Permit&quot;&gt;&#xd;
+            &lt;Target&gt;&#xd;
+               &lt;AnyOf&gt;&#xd;
+                  &lt;AllOf&gt;&#xd;
+                     &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                        &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;https://acme.com/projects&lt;/AttributeValue&gt;&#xd;
+                        &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                     &lt;/Match&gt;&#xd;
+                  &lt;/AllOf&gt;&#xd;
+               &lt;/AnyOf&gt;&#xd;
+               &lt;AnyOf&gt;&#xd;
+                  &lt;AllOf&gt;&#xd;
+                     &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;&#xd;
+                        &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;POST&lt;/AttributeValue&gt;&#xd;
+                        &lt;AttributeDesignator Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot; /&gt;&#xd;
+                     &lt;/Match&gt;&#xd;
+                  &lt;/AllOf&gt;&#xd;
+               &lt;/AnyOf&gt;&#xd;
+            &lt;/Target&gt;&#xd;
+         &lt;/Rule&gt;&#xd;
+      &lt;/Policy&gt;&#xd;
+      &lt;!-- This role is senior to the Employee role, therefore includes the Employee role Permission PolicySet --&gt;&#xd;
+      &lt;PolicySetIdReference&gt;PPS:Employee&lt;/PolicySetIdReference&gt;&#xd;
+   &lt;/PolicySet&gt;&#xd;
+&lt;/PolicySet&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Add the role-based hierarchical policy</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="addRBACPolicy" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;pdpPropertiesUpdate xmlns=&quot;http://authzforce.github.io/rest-api-model/xmlns/authz/5&quot;&gt;&#xd;
+   &lt;rootPolicyRefExpression&gt;rbac:policyset&lt;/rootPolicyRefExpression&gt;&#xd;
+&lt;/pdpPropertiesUpdate&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/pdp.properties</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Add RBAC policy</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getPolicyRepositoryProperties" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/prp.properties</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get Policy Repository (PRP) Properties</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updatePolicyRepositoryProperties" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xd;
+&lt;prpProperties xmlns=&quot;http://authzforce.github.io/rest-api-model/xmlns/authz/5&quot;&gt;&#xd;
+   &lt;maxPolicyCount&gt;4&lt;/maxPolicyCount&gt;&#xd;
+   &lt;maxVersionCountPerPolicy&gt;2&lt;/maxVersionCountPerPolicy&gt;&#xd;
+   &lt;versionRollingEnabled&gt;true&lt;/versionRollingEnabled&gt;&#xd;
+&lt;/prpProperties&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/prp.properties</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Update Policy Repository (PRP) Properties</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getPolicyDecisionProperties" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/pdp.properties</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get Policy Decision (PDP) Properties</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updatePolicyDecisionProperties" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;pdpPropertiesUpdate xmlns=&quot;http://authzforce.github.io/rest-api-model/xmlns/authz/5&quot;&gt;&#xd;
+   &lt;feature type=&quot;urn:ow2:authzforce:feature-type:pdp:request-preproc&quot; enabled=&quot;true&quot;&gt;urn:ow2:authzforce:feature:pdp:request-preproc:xacml-xml:multiple:repeated-attribute-categories-lax&lt;/feature&gt;&#xd;
+   &lt;rootPolicyRefExpression&gt;root&lt;/rootPolicyRefExpression&gt;&#xd;
+&lt;/pdpPropertiesUpdate&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/pdp.properties</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Update Policy Decision (PDP) Properties</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getAttributeProviders" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/attribute.providers</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Get the current attribute providers</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updateAttributeProviders" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;attributeProviders xmlns=&quot;http://authzforce.github.io/rest-api-model/xmlns/authz/5&quot; xmlns:xacml=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot;&gt;&#xd;
+   &lt;attributeProvider xmlns:test=&quot;http://authzforce.github.io/core/xmlns/test/3&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:type=&quot;test:TestAttributeProvider&quot; id=&quot;test&quot;&gt;&#xd;
+      &lt;xacml:Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;&#xd;
+         &lt;xacml:Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:example:attribute:role&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+            &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Physician&lt;/xacml:AttributeValue&gt;&#xd;
+         &lt;/xacml:Attribute&gt;&#xd;
+      &lt;/xacml:Attributes&gt;&#xd;
+   &lt;/attributeProvider&gt;&#xd;
+&lt;/attributeProviders&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/attribute.providers</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Update the current attribute providers</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="updateAttributeProvidersEmpty" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xd;
+&lt;attributeProviders xmlns=&quot;http://authzforce.github.io/rest-api-model/xmlns/authz/5&quot; /&gt;&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/attribute.providers</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Update the current attribute providers - empty element</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="addPolicyDecision" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;Request xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; CombinedDecision=&quot;false&quot; ReturnPolicyIdList=&quot;false&quot;&gt;&#xd;
+   &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;&#xd;
+      &lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+         &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;joe&lt;/AttributeValue&gt;&#xd;
+      &lt;/Attribute&gt;&#xd;
+      &lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:2.0:subject:role&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+         &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Manager&lt;/AttributeValue&gt;&#xd;
+      &lt;/Attribute&gt;&#xd;
+   &lt;/Attributes&gt;&#xd;
+   &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot;&gt;&#xd;
+      &lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+         &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;MissionManagementApp&lt;/AttributeValue&gt;&#xd;
+      &lt;/Attribute&gt;&#xd;
+      &lt;Attribute AttributeId=&quot;urn:thales:xacml:2.0:resource:sub-resource-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+         &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Team&lt;/AttributeValue&gt;&#xd;
+      &lt;/Attribute&gt;&#xd;
+   &lt;/Attributes&gt;&#xd;
+   &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt;&#xd;
+      &lt;Attribute AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; IncludeInResult=&quot;false&quot;&gt;&#xd;
+         &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;manage&lt;/AttributeValue&gt;&#xd;
+      &lt;/Attribute&gt;&#xd;
+   &lt;/Attributes&gt;&#xd;
+   &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; /&gt;&#xd;
+&lt;/Request&gt;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pdp</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Add Policy Decision</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="removePolicyVersion" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies/${policyId}/${version}</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Remove a policy version</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="removePolicy" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}/pap/policies/${policyId}</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Remove a policy document (XACML PolicySet)</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="removeDomain" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/authzforce-ce/domains/${domainId}</stringProp>
+          <stringProp name="HTTPSampler.method">DELETE</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">Remove domain</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="TestPlan.comments">Response Assertion: 200</stringProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>false</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename">${ABSOLUTE_PATH}${GE_NAME}-${VERSION}_${TIME}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
+            <success>true</success>
+            <label>false</label>
+            <code>false</code>
+            <message>false</message>
+            <threadName>false</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <Summariser guiclass="SummariserGui" testclass="Summariser" testname="Result" enabled="true"/>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
