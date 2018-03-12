@@ -45,7 +45,7 @@ for example `openjdk version "1.8.0_151"`.
 
 > `sudo apt-get install tomcat8`
 
-3 Download the right version from repository http://repo1.maven.org/maven2/org/ow2/authzforce/authzforce-ce-server-dist/.
+3. Download the right version from repository http://repo1.maven.org/maven2/org/ow2/authzforce/authzforce-ce-server-dist/.
 
 Use MAJOR.MINOR.PATH (Semantic Versioning) = M.m.P in wget command: `http://repo1.maven.org/maven2/org/ow2/authzforce/authzforce-ce-server-dist/M.m.P/authzforce-ce-server-dist-M.m.P.deb`
 
@@ -67,17 +67,16 @@ Note that Tomcat default configuration may specify a very low value for the Java
 
 > `sudo service tomcat8 restart`
 
-5. Note that in order to run successful the JMeter script, you have to add the `attribute provider` just follow the 4 steps at this [link](http://authzforce-ce-fiware.readthedocs.io/en/latest/UserAndProgrammersGuide.html#integrating-an-attribute-provider-into-authzforce-server). All Files are also available in this folder.
+5. Note that in order to run successful the JMeter script, you have to add the `attribute provider` just follow how 'Integrating an Attribute Provider into AuthzForce' at this [link](https://github.com/authzforce/core/wiki/Attribute-Providers#integrating-an-attribute-provider-into-authzforce). All Files are also available in this folder.
 
-* add the `authzforce-ce-core-5.0.2-tests.jar` library in to `/opt/authzforce-ce-server/webapp/WEB-INF/lib`
+* add the `authzforce-ce-core-pdp-testutils-10.3.0.jar` library in to `/opt/authzforce-ce-server/webapp/WEB-INF/lib`
 * edit `/opt/authzforce-ce-server/conf/authzforce-ext.xsd` schema file simply adding this line:
 	
-`<xs:import namespace="http://authzforce.github.io/core/xmlns/test/3" />`
+> `<xs:import namespace="http://authzforce.github.io/core/xmlns/test/3" />`
 
 * edit `/opt/authzforce-ce-server/conf/catalog.xml` file simply adding this line:
 
-`<uri
- name="http://authzforce.github.io/core/xmlns/test/3" uri="classpath:org.ow2.authzforce.core.test.xsd"/>`
+> `<uri name="http://authzforce.github.io/core/xmlns/test/3" uri="classpath:org.ow2.authzforce.core.pdp.testutil.ext.xsd" />`
  
  * restart the server `sudo service tomcat8 restart`
 
