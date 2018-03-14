@@ -32,7 +32,7 @@ Deploy the dedicated Orion Context Broker in FIWARE Lab. Follow these instructio
 
 1) deploy an Centos 7 VM and connect on it in SSH: 
 
-2) copy the `contextBroker-1.8.0-dev.x86_64.rpm` file in the `/home/centos` folder or use `wget` command:
+2) copy the `contextBroker-1.12.0-1.x86_64.rpm` file in the `/home/centos` folder or use `wget` command:
 
 > `wget https://nexus.lab.fiware.org/repository/el/7/x86_64/release/contextBroker-1.12.0-1.x86_64.rpm` 
 
@@ -63,7 +63,7 @@ and add these lines:
    
 5) install and start orion:
    
-> `sudo rpm -i contextBroker-1.8.0-dev.x86_64.rpm`
+> `sudo rpm -i contextBroker-1.12.0-1.x86_64.rpm`
 
 > `sudo service contextBroker start`
 
