@@ -75,7 +75,7 @@ Note that Tomcat default configuration may specify a very low value for the Java
 **1.6 - Attribute Provider configuration**
 *Note* that in order to run successful the JMeter script, you have to add the `attribute provider` just follow how *'Integrating an Attribute Provider into AuthzForce'* at this [link](https://github.com/authzforce/core/wiki/Attribute-Providers#integrating-an-attribute-provider-into-authzforce). All Files are also available in this folder.
 
-* add the `authzforce-ce-core-pdp-testutils-10.3.0.jar` library in to `/opt/authzforce-ce-server/webapp/WEB-INF/lib`
+* add the `authzforce-ce-core-pdp-testutils-10.1.0.jar` library in to `/opt/authzforce-ce-server/webapp/WEB-INF/lib` folder
 
 * edit `/opt/authzforce-ce-server/conf/authzforce-ext.xsd` schema file simply adding this line:
 	
