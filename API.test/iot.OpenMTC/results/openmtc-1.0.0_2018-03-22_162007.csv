@@ -1,0 +1,10 @@
+label,responseCode,responseMessage,success,failureMessage
+createAppRes,201,CREATED,true,
+retrieveInformation,200,OK,true,
+createContainer,201,CREATED,true,
+retrieveInformationContainer,200,OK,true,
+createPlainTextContent,201,CREATED,true,
+createBase64Content,201,CREATED,true,
+retrieveLatestContent,200,OK,true,
+deleteContainer,200,OK,true,
+deleteAppRes,200,OK,true,
