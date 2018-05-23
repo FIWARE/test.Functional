@@ -1,0 +1,19 @@
+Chapter, Title, Rank, Version
+Advanced middleware and interfaces to Network and Devices, Fast RTPS, Incubated GEs/GEris, 1.5.0
+Applications/Services and Data Delivery, Application Mashup - Wirecloud, FIWARE GEris, 6.4.2
+Applications/Services and Data Delivery, Business API Ecosystem - Biz Ecosystem RI, FIWARE GEris, 6.4.0
+Applications/Services and Data Delivery, Data Visualization - Knowage, FIWARE GEris, 6.1.1
+Data/Context Management, BigData Analysis - Cosmos, FIWARE GEris, fiware-cosmos 1.0.0 fiware-cygnus 1.3.0 fiware-sth-comet 1.1.1 fiware-sinfonier 1.0.0
+Data/Context Management, Cloud Messaging - AEON, Incubated GEs/GEris, 0.3.0 (Carl)
+Data/Context Management, Cygnus, FIWARE GEis, R6
+Data/Context Management, Electronic Data Exchange - Domibus, Incubated GEs/GEris, 3.2
+Data/Context Management, FIWARE CKAN Extensions, FIWARE GEris, 6.4.0
+Data/Context Management, FogFlow, Incubated GEs/GEris, v1.0
+Data/Context Management, Publish/Subscribe Context Broker - Orion Context Broker, FIWARE GEris, Latest
+Data/Context Management, STH-Comet, FIWARE GEis, R6
+Data/Context Management, Stream-oriented - Kurento, FIWARE GEris, 6.6.0
+Internet of Things Services Enablement, Backend Device Management - IDAS , FIWARE GEris, 7.1.3
+Internet of Things Services Enablement, OpenMTC, Incubated GEs/GEris, 1.0.0
+Security, Authorization PDP - AuthZForce, FIWARE GEris, GEi (Authzforce CE Server): 8.0.1 GE (Authorization PDP) API: 5.2
+Security, Identity Management - KeyRock, FIWARE GEris, 7.0
+Security, PEP Proxy - Wilma, FIWARE GEris, 6.2
