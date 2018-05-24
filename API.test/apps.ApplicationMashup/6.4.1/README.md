@@ -41,7 +41,7 @@ If there isn't available a dedicate instance, please follow these instructions t
 
 **1) deploy an Ubuntu 16.04 VM (tested with medium flavor) and connect on it in SSH**
 
-**2) install pip (with Python 2.7.12) in `/home/ubuntu` folder (see the doc at this [link](https://wirecloud.readthedocs.io/en/stable/installation_guide/#debianubuntu) )**
+**2) install pip (with Python 2.7.12) in `/home/ubuntu` folder** (see the doc at this [link](https://wirecloud.readthedocs.io/en/stable/installation_guide/#debianubuntu))
 
 > `wget https://bootstrap.pypa.io/get-pip.py`
 
@@ -51,7 +51,7 @@ If there isn't available a dedicate instance, please follow these instructions t
 
 pip 10.0.1 from /usr/local/lib/python2.7/dist-packages/pip (python 2.7)
 
-2) update packages
+**3) update packages**
 
 > `sudo apt-get update`
 
@@ -61,7 +61,7 @@ pip 10.0.1 from /usr/local/lib/python2.7/dist-packages/pip (python 2.7)
 
 > `sudo apt-get update`
 
-3) install dependecies
+**4) install dependecies**
 
 > `sudo pip install "setuptools>18.5"`
 
@@ -71,7 +71,7 @@ pip 10.0.1 from /usr/local/lib/python2.7/dist-packages/pip (python 2.7)
 
 > `sudo pip install wirecloud`
 
-test version:
+and to test version, type:
 
 > `wirecloud-admin --version`
 
@@ -83,13 +83,13 @@ test version:
 
 > `sudo wirecloud-admin startproject wirecloud_instance`
 
-3) install postgres
+**5) install postgres**
 
 > `sudo apt-get install postgresql`
 
 > `sudo su postgres`
 
-and create user wc_user (with password: wc_user) and database wirecloud`
+create **wc_user** user (with password: **wc_user**) and **wirecloud** as database name 
 
 > `createuser wc_user -P`
 
@@ -97,16 +97,18 @@ and create user wc_user (with password: wc_user) and database wirecloud`
 
 > `exit`
 
-edit file /etc/postgresql/X.X/main/pg_hba.conf
+please edit file `/etc/postgresql/X.X/main/pg_hba.conf` as follow:
 
 > `sudo nano /etc/postgresql/9.5/main/pg_hba.conf`
 
-and set trust method instead of peer for all users
+set *trust* method instead of *peer* for all users 
 
-`# TYPE  DATABASE        USER            ADDRESS                 METHOD`
-`# "local" is for Unix domain socket connections only`
-`local   all             all                                     trust`
+	[mongodb-org-3.4]
+	# TYPE  DATABASE        USER            ADDRESS                 METHOD`
+	# "local" is for Unix domain socket connections only`
+	local   all             all                                     trust`
 
+and restart postgres
 
 > `sudo service postgresql restart`
 
