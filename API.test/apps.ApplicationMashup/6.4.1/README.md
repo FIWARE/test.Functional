@@ -75,7 +75,7 @@ and to test version, type:
 
 > `wirecloud-admin --version`
 
-`1.1.1`
+and in this test it's `1.1.1`
 
 > `sudo adduser --system --group --shell /bin/bash wirecloud`
    
@@ -103,7 +103,6 @@ please edit file `/etc/postgresql/X.X/main/pg_hba.conf` as follow:
 
 set *trust* method instead of *peer* for all users 
 
-	[mongodb-org-3.4]
 	# TYPE  DATABASE        USER            ADDRESS                 METHOD`
 	# "local" is for Unix domain socket connections only`
 	local   all             all                                     trust`
@@ -112,15 +111,14 @@ and restart postgres
 
 > `sudo service postgresql restart`
 
-> `cd /opt/wirecloud_instance/`
 
-4) edit file setting.py with postgres database and credentials
+**6) edit file setting.py in the `/opt/wirecloud_instance/` with postgres database and credentials**
 
 > `sudo nano wirecloud_instance/settings.py`
 
 and use this configuration (for postgres):
 
-`DATABASES = {
+	DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',       # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'wirecloud',           # Or path to database file if using sqlite3.
@@ -129,7 +127,7 @@ and use this configuration (for postgres):
         'PASSWORD': 'wc_user',
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
-    }`   
+    }
    
 install psycopg2
 
@@ -137,21 +135,21 @@ install psycopg2
 
 > `sudo pip install psycopg2-binary`
 
-5) populate the database
+**7) populate the database**
 
 > `sudo python manage.py migrate`
 
 > `sudo python manage.py createsuperuser`
 
-`Username (leave blank to use 'root'): admin
-Email address: admin@email.com
-Password: ***** (admin)
-Password (again): ***** (admin)
-Superuser created successfully.`
+	Username (leave blank to use 'root'): admin
+	Email address: admin@email.com
+	Password: ***** (admin)
+	Password (again): ***** (admin)
+	Superuser created successfully.
 
 > `sudo python manage.py populate`
 
-6) Integration with Identity Manager
+**8) Integration with Identity Manager**
 
 Before to start the WireCloud it's necessary to configure it with the Identity Manager of FIWARE Lab in order to get the token. 
 The instruction are available at this [link](https://wirecloud.readthedocs.io/en/stable/installation_guide/#integration-with-the-idm-ge)
@@ -164,21 +162,21 @@ edit the **settings.py** and **urls.py** files (these files are provided in this
    
 > `sudo nano wirecloud_instance/settings.py`
    
-6.1 - remove wirecloud.oauth2provider and add social_django in INSTALLED_APPS
+*8.1 - remove wirecloud.oauth2provider and add social_django in INSTALLED_APPS*
 
-INSTALLED_APPS += (
+	INSTALLED_APPS += (
     # 'django.contrib.sites',
     #'wirecloud.oauth2provider',
     'social_django',
     'wirecloud.fiware',
-)
+    )
 
-6.2 - add AUTHENTICATION_BACKENDS in the 'Login/logout URLs' section
- 
-AUTHENTICATION_BACKENDS = (
+*8.2 - add AUTHENTICATION_BACKENDS in the 'Login/logout URLs' section*
+
+	AUTHENTICATION_BACKENDS = (
     'wirecloud.fiware.social_auth_backend.FIWAREOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-)
+    )
 
 6.3 - add IdM address with Client Id and Client Secret info at the end of settings.py file
 
