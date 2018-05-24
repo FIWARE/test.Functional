@@ -212,8 +212,11 @@ and start **WireCloud** at **8000** port in this way
 
 > `sudo python manage.py runserver 0.0.0.0:8000 --insecure`
 
+**9) Authorize WireCloud with IdM**
 
-At this point you have to authorize the access in WireCloud with FIWARE credentials. In order to do this use the browser to connect at this link (http://wirecloud:8000) and make the login with FIWARE credentials to authorize wirecloud application.
+At this point you have to **authorize** the access in WireCloud with FIWARE credentials. 
+
+In order to do this use the browser to connect at this link (http://wirecloud:8000) and make the login with FIWARE credentials to authorize wirecloud application.
 
 ### 2. JMeter ###
 
