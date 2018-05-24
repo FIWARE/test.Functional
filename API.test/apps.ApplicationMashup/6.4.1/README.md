@@ -1,4 +1,4 @@
-# Application Mashup - WireCloud #
+# Application Mashup WireCloud #
 
 * [Introduction](#introduction)
 * [Testing environment](#testing-environment)
@@ -219,7 +219,7 @@ Please copy the auth-token.sh file (provided in this folder) in /home/ubuntu/ fo
 
 > `sudo chmod +x auth-token.sh`
 
-> `./auth-token.sh pasquale.vitale@eng.it pasquy73`
+> `./auth-token.sh your_email your_password`
 
 the script provides the token which you have to set in the file.properties file:
 
