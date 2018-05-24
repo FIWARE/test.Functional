@@ -178,42 +178,42 @@ edit the **settings.py** and **urls.py** files (these files are provided in this
     'django.contrib.auth.backends.ModelBackend',
     )
 
-6.3 - add IdM address with Client Id and Client Secret info at the end of settings.py file
+*8.3 - add IdM address with Client ID and Client Secret info at the end of settings.py file*
 
-FIWARE_IDM_SERVER = "https://account.lab.fiware.org"
-SOCIAL_AUTH_FIWARE_KEY = "14f4a2b23d2c4d87b808cadd3210ccd3"
-SOCIAL_AUTH_FIWARE_SECRET = "0d4edcb7757b4339a7bc67b470400790"
+	FIWARE_IDM_SERVER = "https://account.lab.fiware.org"
+	SOCIAL_AUTH_FIWARE_KEY = "14f4a2b23d2c4d87b808cadd3210ccd3"
+	SOCIAL_AUTH_FIWARE_SECRET = "0d4edcb7757b4339a7bc67b470400790"
 
 *urls.py*
 
 > `sudo nano wirecloud_instance/urls.py`
 
-6.4 - add the following import line at the beginning of the file: 
+*8.4 - add the following import line at the beginning of the file* 
 
 > `from wirecloud.fiware import views as wc_fiware`
 
 
-6.5 remove url django_auth.login with wc_fiware.login :
+*8.5 remove url django_auth.login with wc_fiware.login*
 
     # url(r'^login/?$', django_auth.login, name="login"),
     url(r'^login/?$', wc_fiware.login, name="login"),
 
-6.6 Add social-auth-app-django url endpoints at the end of the pattern list: 
+*8.6 Add social-auth-app-django url endpoints at the end of the pattern list* 
 
 	url('', include('social_django.urls', namespace='social')),
 
 
-run again to take the changes
+rerun again to take the changes
 
 > `sudo python manage.py migrate; sudo python manage.py collectstatic --noinput`
 
 
-and start WireCloud at 8000 port
+and start **WireCloud** at **8000** port in this way
 
 > `sudo python manage.py runserver 0.0.0.0:8000 --insecure`
 
 
-Via browser go in the http://wirecloud:8000 and login with FIWARE credentials to authorize wirecloud application
+At this point you have to authorize the access in WireCloud with FIWARE credentials. In order to do this use the browser to connect at this link (http://wirecloud:8000) and make the login with FIWARE credentials to authorize wirecloud application.
 
 ### 2. JMeter ###
 
@@ -221,14 +221,14 @@ Open the **/etc/hosts** file by using this command:
 
 > `sudo nano /etc/hosts` 
 
-and add KeyRock IP of previous VM with **wirecloud** alias according to your instance: 
+and add WireCloud IP of previous VM with **wirecloud** alias according to your instance: 
 
 > `192.168.111.38 wirecloud`
 
 
 Copy in the **/tmp/** folder the **WireCloud-6.4.1.jmx** file.
 
-Please copy also the auth-token.sh file (provided in this folder) in /home/ubuntu/ folder and edit it using the Client Id and Client Secret values above.
+Please copy also the `auth-token.sh` file (provided in this folder) in `/home/ubuntu` folder and edit it using the Client ID and Client Secret values above.
 
 
 > `cd /home/ubuntu/`
@@ -237,7 +237,7 @@ Please copy also the auth-token.sh file (provided in this folder) in /home/ubunt
 
 > `./auth-token.sh your_email your_password`
 
-the script provides the token which you have to set in the file.properties file:
+the script provides the **token** which you have to set in the `file.properties` file:
 
 > `token = Bearer <TOKEN_FROM_SCRIPT>`
 
