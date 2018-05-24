@@ -30,18 +30,18 @@ Once the HW necessary for the test described previously at **Testing Environment
 
 Before to deploy or install WireCloud you need to create an application in your Identity Manager because WireCloud uses an *OAuth2 authentication*; in this test we are using the Identity Manager of FIWARE Lab (https://account.lab.fiware.org).
 
-So please login and create an application from web interface of FIWARE Lab and use `http(s)://${wirecloud_server}/complete/fiware/` in the callback as figure showed.
+So please login and create an application from web interface of FIWARE Lab and use `http(s)://${wirecloud_server}/complete/fiware/` in the **Callback URL** as figure showed.
 
 ![wirecloud](wirecloud.png?raw=true "Creating of the application")
 
-Please let take notes of Client Id and Client Secret values; you need them in the next steps.
+Please let take notes of **Client ID** and **Client Secret** values; you need them in the next steps.
 
 
 If there isn't available a dedicate instance, please follow these instructions to install KeyRock manually following these instructions (tested on Ubuntu 16.04): 
 
-1) deploy an Ubuntu 16.04 VM (tested with medium flavor) and connect on it in SSH
+**1) deploy an Ubuntu 16.04 VM (tested with medium flavor) and connect on it in SSH**
 
-2) install pip (with Python 2.7.12) in `/home/ubuntu` folder (see the doc at this [link](https://wirecloud.readthedocs.io/en/stable/installation_guide/#debianubuntu) )
+**2) install pip (with Python 2.7.12) in `/home/ubuntu` folder (see the doc at this [link](https://wirecloud.readthedocs.io/en/stable/installation_guide/#debianubuntu) )**
 
 > `wget https://bootstrap.pypa.io/get-pip.py`
 
