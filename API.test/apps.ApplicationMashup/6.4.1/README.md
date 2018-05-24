@@ -28,8 +28,9 @@ Once the HW necessary for the test described previously at **Testing Environment
 
 ### 1. Application Mashup - WireCloud ###
 
-Before to deploy or install WireCloud you need to create an application in your Identity Manager because WireCloud use an OAuth2 authentication; in this test we are using the Identity Manager of FIWARE Lab (https://account.lab.fiware.org).
-So please login and create an application from web interface of FIWARE Lab and use http(s)://${wirecloud_server}/complete/fiware/ in the callback as figure showed.
+Before to deploy or install WireCloud you need to create an application in your Identity Manager because WireCloud uses an *OAuth2 authentication*; in this test we are using the Identity Manager of FIWARE Lab (https://account.lab.fiware.org).
+
+So please login and create an application from web interface of FIWARE Lab and use `http(s)://${wirecloud_server}/complete/fiware/` in the callback as figure showed.
 
 ![wirecloud](wirecloud.png?raw=true "Creating of the application")
 
@@ -212,20 +213,7 @@ and start WireCloud at 8000 port
 > `sudo python manage.py runserver 0.0.0.0:8000 --insecure`
 
 
-Please copy the auth-token.sh file (provided in this folder) in /home/ubuntu/ folder and edit it using the Client Id and Client Secret values above.
-
-
-> `cd /home/ubuntu/`
-
-> `sudo chmod +x auth-token.sh`
-
-> `./auth-token.sh your_email your_password`
-
-the script provides the token which you have to set in the file.properties file:
-
-
-> `token = Bearer <TOKEN_FROM_SCRIPT>`
-
+Via browser go in the http://wirecloud:8000 and login with FIWARE credentials to authorize wirecloud application
 
 ### 2. JMeter ###
 
@@ -239,6 +227,19 @@ and add KeyRock IP of previous VM with **wirecloud** alias according to your ins
 
 
 Copy in the **/tmp/** folder the **WireCloud-6.4.1.jmx** file.
+
+Please copy also the auth-token.sh file (provided in this folder) in /home/ubuntu/ folder and edit it using the Client Id and Client Secret values above.
+
+
+> `cd /home/ubuntu/`
+
+> `sudo chmod +x auth-token.sh`
+
+> `./auth-token.sh your_email your_password`
+
+the script provides the token which you have to set in the file.properties file:
+
+> `token = Bearer <TOKEN_FROM_SCRIPT>`
 
 
 #### Install JMeter 4.0 on Ubuntu 16.04 ####
