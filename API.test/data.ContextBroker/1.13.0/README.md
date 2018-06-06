@@ -31,22 +31,11 @@ Once the HW necessary for the test described previously at **Testing Environment
 
 ### 1. Orion Context Broker ###
 
-Deploy the dedicated Orion Context Broker in FIWARE Lab.
-
-Please open the **/etc/hosts** file by using this command:
-
-> `sudo vi /etc/hosts` 
-
-and add Orion IP of the second Orion VM with **provider** alias (the second instance of Orion must be used as *context provider* for testing of this Orion): 
-
-> `192.168.111.170 provider`
-
-
-Follow these instructions, if it's not available the right version of Orion Context Broker GE in the FIWARE Lab: 
+Deploy the dedicated Orion Context Broker in FIWARE Lab. Follow these instructions, if it's not available the right version of Orion Context Broker GE in the FIWARE Lab: 
 
 1) deploy an Centos 7 VM and connect on it in SSH: 
 
-2) copy the `contextBroker-1.12.0-1.x86_64.rpm` file in the `/home/centos` folder or use `wget` command:
+2) copy the `contextBroker-1.13.0-1.x86_64.rpm` file in the `/home/centos` folder or use `wget` command:
 
 > `wget -O contextBroker-1.13.0-1.x86_64.rpm https://nexus.lab.fiware.org/repository/el/7/x86_64/release/contextBroker-1.13.0-1.x86_64.rpm` 
 
@@ -77,13 +66,25 @@ and add these lines:
    
 5) install and start orion:
    
-> `sudo rpm -i contextBroker-1.12.0-1.x86_64.rpm`
+> `sudo rpm -i contextBroker-1.13.0-1.x86_64.rpm`
 
 > `sudo service contextBroker start`
 
+and check the 1.13.0 version of Orion
+
+> `curl http://localhost:1026/version`
+
+Please open the **/etc/hosts** file by using this command:
+
+> `sudo vi /etc/hosts` 
+
+and add Orion IP of the second Orion VM with **provider** alias (the second instance of Orion must be used as *context provider* for testing of this Orion): 
+
+> `192.168.111.248 provider`
+
 and check the version
 
-> `sudo curl http://localhost:1026/version`
+> `curl http://provider:1026/version`
 
 ### 2. Orion Context Broker ###
 
@@ -99,9 +100,9 @@ Open the **/etc/hosts** file by using this command:
 
 and add Orions IP of previous VM with **orion** and **provider** aliases according to your instance: 
 
-> `192.168.111.169 orion`
+> `192.168.111.244 orion`
 
-> `192.168.111.170 provider`
+> `192.168.111.248 provider`
 
 
 Copy in the **/tmp/** folder the **OrionContextBroker-1.13.0.jmx** file.
