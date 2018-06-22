@@ -9,4 +9,6 @@ In the this section it's presented a list of functional test for different stora
 
 1. [Mongo DB](cygnus.mongo)
 
+2. [Mysql database](cygnus.mysql)
+
 [Top](#cygnus-and-storages)

@@ -1,0 +1,7 @@
+label,responseCode,responseMessage,success,failureMessage
+addSubscription,201,Created,true,
+insertEntity,204,No Content,true,
+MySQL check attribute,200,OK,true,
+deleteEntity,204,No Content,true,
+getSubscriptions,200,OK,true,
+deleteSubscription,204,No Content,true,
