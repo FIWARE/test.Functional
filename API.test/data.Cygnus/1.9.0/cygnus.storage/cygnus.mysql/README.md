@@ -174,7 +174,7 @@ Finally, run the server with this command:
 > `./start.sh`
 
 
-### 2. JMeter ###
+### 3. JMeter ###
 
 Open the **/etc/hosts** file by using this command:
 
