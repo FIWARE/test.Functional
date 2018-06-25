@@ -9,6 +9,8 @@ In the this section it's presented a list of functional test for different stora
 
 1. [Mongo DB](cygnus.mongo)
 
-2. [Mysql database](cygnus.mysql)
+2. [MySQL database](cygnus.mysql)
+
+3. [CKAN](cygnus.ckan)
 
 [Top](#cygnus-and-storages)
