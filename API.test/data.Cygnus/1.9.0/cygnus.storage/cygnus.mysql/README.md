@@ -145,7 +145,7 @@ At the end of execution, the script copies for you, two default files (*agent_ng
 Here the sections to change:
 1.	*General configuration template* - use only the sink and channel that you are using and in this case only mysql-sink and mysql-channel
 2.	*Source configuration* - in the channels properties choose only one (mysql-channel)
-3.	*NGSIMongoSink configuration* - uncomment all properties and choose for mysql db configurations: mysql_host = mysql, port = 3306 with username/password root/root as follow: 
+3.	*NGSIMySQLSink configuration* - uncomment all properties and choose for mysql db configurations: mysql_host = mysql, port = 3306 with username/password root/root as follow: 
 
 ```text
 cygnus-ngsi.sinks.mysql-sink.mysql_host = mysql 
