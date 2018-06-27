@@ -125,7 +125,7 @@ Here the sections to change:
 3.	*NGSIMongoSink configuration* - uncomment all properties and choose for mongo db configurations: mongo_hosts with username and password empty as follow: 
 
 ```text
-cygnus-ngsi.sinks.mongo-sink.mongo_hosts = localhost:27107 
+cygnus-ngsi.sinks.mongo-sink.mongo_hosts = localhost:27017 
 cygnus-ngsi.sinks.mongo-sink.mongo_username =
 cygnus-ngsi.sinks.mongo-sink.mongo_password =
 ```
