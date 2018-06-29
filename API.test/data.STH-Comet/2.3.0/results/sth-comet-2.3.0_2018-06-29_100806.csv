@@ -1,18 +1,18 @@
-label,responseCode,responseMessage,success,failureMessage
-getVersion,200,OK,true,
-setLogLevel,200,OK,true,
-getLog,200,OK,true,
-sendData,200,OK,true,
-checkRawData,200,OK,true,
-sendData,200,OK,true,
-getHistoricalRaw,200,OK,true,
-getHistoricalAggregate,200,OK,true,
-getHistoricalAggrOccur,200,OK,true,
-removeDataByAttribute,204,No Content,true,
-checkRemoveAttribute,200,OK,true,
-sendData,200,OK,true,
-removeDataByEntity,204,No Content,true,
-checkRemoveEntity,200,OK,true,
-sendData,200,OK,true,
-removeDataByService,204,No Content,true,
-checkRemoveService,200,OK,true,
+label,responseCode,responseMessage,success,failureMessage;;;;
+getVersion,200,OK,true,;;;;
+setLogLevel,200,OK,true,;;;;
+getLog,200,OK,true,;;;;
+sendData,200,OK,true,;;;;
+checkRawData,200,OK,true,;;;;
+sendData,200,OK,true,;;;;
+getHistoricalRaw,200,OK,true,;;;;
+getHistoricalAggregate,200,OK,true,;;;;
+getHistoricalAggrOccur,200,OK,true,;;;;
+removeDataByAttribute,204,No Content,true,;;;;
+checkRemoveAttribute,200,OK,true,;;;;
+sendData,200,OK,true,;;;;
+removeDataByEntity,204,No Content,true,;;;;
+checkRemoveEntity,200,OK,true,;;;;
+sendData,200,OK,true,;;;;
+removeDataByService,204,No Content,true,;;;;
+checkRemoveService,200,OK,true,;;;; 

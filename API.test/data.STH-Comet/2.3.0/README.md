@@ -93,9 +93,7 @@ and add STH Comet IP of previous VM with **sth** alias according to your instanc
 
 > `192.168.111.72 sth`
 
-
 Copy in the **/tmp/** folder the **STH-Comet-2.3.0.jmx** file.
-
 
 #### Install JMeter 4.0 on Ubuntu 16.04 ####
 
