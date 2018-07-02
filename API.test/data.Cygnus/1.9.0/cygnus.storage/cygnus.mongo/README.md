@@ -115,7 +115,7 @@ Run the installation:
 
 > `./install.sh`
 
-At the end of execution, the script copies for you, two default files (*agent_ngsi_mongo.conf* and *cygnus_instance_mongo.conf*) in the `/user/cygnus/conf` folder. You have to edit these files in order to complete the test with Mongo as follow: 
+At the end of execution, the script copies for you, two default files (*agent_ngsi_mongo.conf* and *cygnus_instance_mongo.conf*) in the `/usr/cygnus/conf` folder. You have to edit these files in order to complete the test with Mongo as follow: 
 
 **`agent_ngsi_mongo.conf`** 
 
