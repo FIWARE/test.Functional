@@ -106,7 +106,7 @@ Run the installation:
 
 > `./install.sh`
 
-At the end of execution, the script copies for you, two default files (*agent_ngsi_ckan.conf* and *cygnus_instance_ckan.conf*) in the `/user/cygnus/conf` folder. You have to edit these files in order to complete the test with CKAN as follow: 
+At the end of execution, the script copies for you, two default files (*agent_ngsi_ckan.conf* and *cygnus_instance_ckan.conf*) in the `/usr/cygnus/conf` folder. You have to edit these files in order to complete the test with CKAN as follow: 
 
 **`agent_ngsi_ckan.conf`** 
 
