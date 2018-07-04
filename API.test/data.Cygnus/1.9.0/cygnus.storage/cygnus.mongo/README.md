@@ -150,7 +150,7 @@ Open the **/etc/hosts** file by using this command:
 
 > `sudo nano /etc/hosts` 
 
-and add Cygnus IP of previous VM as **orion** alias according to your instance (Cygnus is installed in to Orion VM): 
+and add Cygnus IP of previous VM as **cygnus** alias according to your instance (Cygnus is installed in to Orion VM): 
 
 > `192.168.111.87 cygnus`
 
