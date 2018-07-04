@@ -170,7 +170,6 @@ Copy in the **/tmp/** folder the **Cygnus-1.9.0_sth-comet.jmx** file.
 
 ## Testing step by step ##
 
-### 1. First test (with persistence = row) ### 
 
 **Run the test** with the follow command: 
 
@@ -179,54 +178,6 @@ Copy in the **/tmp/** folder the **Cygnus-1.9.0_sth-comet.jmx** file.
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
 `cygnus-1.9.0_sth-comet_yyyy-MM-dd HHmmss.csv`
-
-
-**`NOTE`**
-
-It's also possible to check directly the data stored in Mongo DB using these commands:
-
-```text
-$ mongo
-MongoDB shell version v3.4.15
-...
-> show databases
-admin           0.000GB
-local           0.000GB
-orion           0.000GB
-orion-vehicles  0.000GB
-sth_vehicles    0.000GB
-
-> use sth_vehicles
-switched to db sth_vehicles
-
-> show collections
-sth_/4wheels_Car1_Car
-
-> db['sth_/4wheels_Car1_Car'].find()
-
-{ "_id" : ObjectId("5b2cb72a6dc8e308503f1a02"), "recvTime" : ISODate("2018-06-22T08:45:19.089Z"), "attrName" : "speed", "attrType" : "Integer", "attrValue" : "120" }
-{ "_id" : ObjectId("5b2cb7a46dc8e308503f1a03"), "recvTime" : ISODate("2018-06-22T08:47:24.760Z"), "attrName" : "speed", "attrType" : "Integer", "attrValue" : "38" }
-```
-
-### 2. Second test (with persistence = column) ###
-
-Before to start the test with persistence = column, you need to set in the **agent_ngsi_mongo.conf** the **column** attribute for **attr_persistence** instead of (default or previous) **row**:
-
-`attr_persistence = column`
-
-and restart Cygnus (via start.sh script). 
-
-Please note that it's not necessary to provide (perfect structure) data in Mongo DB as should be done in the other storage systems.
-
-Now you are ready to run the test.  
- 
-**Run the test** with the follow command: 
-
-`./apache-jmeter-4.0/bin/jmeter -n -t /tmp/Cygnus-1.9.0_mongo_column.jmx`
-
-**Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
-
-`cygnus-1.9.0_mongo_column_yyyy-MM-dd HHmmss.csv`
 
 
 **`NOTE`**
