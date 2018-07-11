@@ -14,7 +14,7 @@ This IoT Agent JSON (HTTP/MQTT transport) is part of [IDAS component](https://ca
 
 ## Testing environment ##
 The testing environment can be easily set up through a FIWARE Lab, which is based on the cloud operating system OpenStack.
-In order to test this GE, three Virtual Machines you needed, which are: 
+In order to test this GE, please deploy three Virtual Machines, which are: 
 
 1. **Orion Context Broker GE** - follow the instruction to [deploy a dedicated Orion instance](https://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker/creating-instances).
 2. **IoT Agent JSON GE** - select a "base_ubuntu_16.04" image in the FIWARE Cloud Portal to get IoT Agents script from github.
