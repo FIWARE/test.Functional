@@ -8,7 +8,7 @@
 
 ## Introduction ##
 IoT Agent UltraLight is designed to be a bridge between an UltraLight2.0 protocol and the FIWARE NGSI standard used in FIWARE, like the Orion Context Broker. 
-This IoT Agent UltraLight (HTTP/MQTT transport) is part of [IDAS component](https://catalogue.fiware.org/enablers/backend-device-management-idas/downloads) which is the FIWARE GE reference implementation of the Backend Device Management GE provided by ATOS available at its [GitHub repository](https://github.com/Fiware/iot.IoTagent-UL/releases/tag/1.5.2).
+This IoT Agent UltraLight (HTTP/MQTT transport) is part of [IDAS component](https://catalogue.fiware.org/enablers/backend-device-management-idas/downloads) which is the FIWARE GE reference implementation of the Backend Device Management GE provided by ATOS available at its [GitHub repository](https://github.com/Fiware/iot.IoTagent-UL/releases/tag/1.6.0).
 
 [Top](#iot-agent-ultralight)
 
