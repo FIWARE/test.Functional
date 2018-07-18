@@ -17,7 +17,7 @@ The testing environment can be easily set up through a FIWARE Lab, which is base
 In order to test this GE, please deploy three Virtual Machines, which are: 
 
 1. **Orion Context Broker GE** - follow the instruction to [deploy a dedicated Orion instance](https://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker/creating-instances).
-2. **IoT Agent JSON GE** - select a "base_ubuntu_16.04" image in the FIWARE Cloud Portal to get IoT Agents script from github.
+2. **IoT Agent LoRaWAN GE** - select a "base_ubuntu_16.04" image in the FIWARE Cloud Portal to get IoT Agents script from github.
 3. **JMeter** - select "base_ubuntu_16.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 [Top](#iot-agent-lorawan)
@@ -32,7 +32,7 @@ Once the HW necessary for the test described previously at **Testing Environment
 Deploy an Orion VM in FIWARE Lab.
 
 
-### 2. IoT Agent JSON GE ###
+### 2. IoT Agent LoRaWAN GE ###
 
 Before to run the IoT Agent you need to install NodeJS and GitHub softwares in the Ubuntu VM. Before to install these softwares, an update of the packages is required using the `apt-get` command, so run in the shell the `sudo apt-get update` command. Here the steps to prepare the softwares to test the IoT Agent:
 
@@ -106,9 +106,9 @@ and check the version (`3.2.20`) using these two commands:
 
 Here the steps on how to configure IoT Agent LoRa GE; basically how to start the IoT Agent LoRa server (via `config-lora.js`) and how to run the MQTT client to send data to IoT Agent server and read the context information in Orion.
 
-**IoT Agent JSON server**
+**IoT Agent LoRa server**
 
-Copy the `config-lora.js` file provided in the root folder. Basically the *config-lora.js* is a copy of *config.js* file located in the iot.IoTagent-JSON folder downloaded from git; you can copy it (`cp config.js config-lora.js`) and set the Orion IP as *'orion'* instead of *'localhost'* because we are using different VMs for them.
+Copy the `config-lora.js` file provided in the root folder. Basically the *config-lora.js* is a copy of *config.js* file located in the iot.IoTagent-LoraWAN folder downloaded from git; you can copy it (`cp config.js config-lora.js`) and set the Orion IP as *'orion'* instead of *'localhost'* because we are using different VMs for them.
 To start the IoT Agent server please use:
 
 > `sudo nodejs bin/iotagent-lora config-lora.js`
