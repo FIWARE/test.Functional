@@ -48,7 +48,7 @@ Before to run the IoT Agent you need to install NodeJS and GitHub softwares in t
 
 Check the versions for both using these commands `nodejs -v` (v4.2.6) and `npm -v` (3.5.2). 
 
-3. Get the IoT Agent from the repository at this [link](https://github.com/Fiware/iot.IoTagent-JSON.git) and download it (in the **/home/ubuntu** folder):
+3. Get the IoT Agent from the repository at this [link](https://github.com/Fiware/iot.IoTagent-LoraWAN.git) and download it (in the **/home/ubuntu** folder):
 
 > `git clone https://github.com/Fiware/iot.IoTagent-LoraWAN`
 
@@ -68,7 +68,7 @@ you can try using this command:
 
 > `curl http://orion:1026/version`
 
-5. Install **MongoDB** in order to use this database as the '*Device Registry*'. Please note that if you don't want to use the *MongoDB database* please change the '*type*' attribute of *deviceRegistry* in **memory** instead of **mongodb** in the *config-json.json* file and JMeter script is configured with Mongo DB.
+5. Install **MongoDB** in order to use this database as the '*Device Registry*'. Please note that if you don't want to use the *MongoDB database* please change the '*type*' attribute of *deviceRegistry* in **memory** instead of **mongodb** in the *config-lora.json* file and JMeter script is configured with Mongo DB.
 Here the steps to install MongoDB:
 
 Importing the Public Key
@@ -108,7 +108,7 @@ Here the steps on how to configure IoT Agent LoRa GE; basically how to start the
 
 **IoT Agent JSON server**
 
-Copy the `config-lora.js` file provided in the root folder. Basically the *config-json.js* is a copy of *config.js* file located in the iot.IoTagent-JSON folder downloaded from git; you can copy it (`cp config.js config-lora.js`) and set the Orion IP as *'orion'* instead of *'localhost'* because we are using different VMs for them.
+Copy the `config-lora.js` file provided in the root folder. Basically the *config-lora.js* is a copy of *config.js* file located in the iot.IoTagent-JSON folder downloaded from git; you can copy it (`cp config.js config-lora.js`) and set the Orion IP as *'orion'* instead of *'localhost'* because we are using different VMs for them.
 To start the IoT Agent server please use:
 
 > `sudo nodejs bin/iotagent-lora config-lora.js`
