@@ -1,0 +1,11 @@
+label,responseCode,responseMessage,success,failureMessage
+getInfo,200,OK,true,
+createService,500,Internal Server Error,false,Test failed: code expected to match /201/
+updateService,500,Internal Server Error,false,Test failed: code expected to match /204/
+getService,200,OK,true,
+removeService,204,No Content,true,
+createDevice,201,Created,true,
+updateDevice,204,No Content,true,
+getDevices,200,OK,true,
+getDevice,200,OK,true,
+removeDevice,204,No Content,true,

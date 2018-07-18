@@ -269,7 +269,10 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;entity_type&quot;: &quot;LORA-N-005&quot;&#xd;
+  &quot;entity_type&quot;: &quot;LORA-N-005&quot;,&#xd;
+  &quot;internal_attributes&quot;:{&#xd;
+  	&quot;data_model&quot;:&quot;cayennelpp&quot;&#xd;
+  }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
