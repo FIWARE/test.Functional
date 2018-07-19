@@ -54,7 +54,7 @@ Check the versions for both using these commands `nodejs -v` (v4.2.6) and `npm -
 
 > `cd iot.IoTagent-UL`
 
-> `git checkout release/1.5.0`
+> `git checkout tags/1.5.0`
 
 > `sudo npm install`
 
@@ -160,7 +160,7 @@ and add IDAS IP with **idas** and **orion** aliases according to your instances:
 
 > `192.168.111.228 orion`
 
-Copy in the **/tmp/** folder the **IoTAgent-UL-1.6.0.jmx** file.
+Copy in the **/tmp/** folder the **IoTAgent-UL-1.5.0.jmx** file.
 
 
 #### Install JMeter 4.0 on Ubuntu 16.04 ####
@@ -196,7 +196,7 @@ Please note that in order to test the clients, the JMeter script provides device
 Run the HTTP client (`sudo nodejs bin/client_http_ul.js`) and an example of execution is:
 
 	Current configuration:
-		
+
 	{
 	    "binding": "HTTP",
 	    "host": "localhost",
@@ -208,29 +208,27 @@ Run the HTTP client (`sudo nodejs bin/client_http_ul.js`) and an example of exec
 	}
 	
 	
-	Send to orion singleMeasure: a=3
+	Send to orion singleMeasure: a=41
 	HTTP measure accepted
-	Send to orion multipleMeasure: a=61, b=30
+	Send to orion multipleMeasure: a=20, b=52
 	HTTP measure accepted
 	
 	Read newer data from orion
 	--------------------------------
 	
-	{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:49:51.510Z","metadata":{}},"a":{"type":"celsius","value":"61","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:49:51.510Z"}}},"b":{"type":"degrees","value":"30","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:49:51.510Z"}}},"ping_info":{"type":"commandResult","value":" ","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:46:06.165Z"}}},"ping_status":{"type":"commandStatus","value":"UNKNOWN","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:46:06.165Z"}}}}
+	{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:49:13.090Z","metadata":{}},"a":{"type":"celsius","value":"20","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:49:13.090Z"}}},"b":{"type":"degrees","value":"52","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:49:13.090Z"}}},"ping_info":{"type":"commandResult","value":" ","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:21.753Z"}}},"ping_status":{"type":"commandStatus","value":"UNKNOWN","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:21.753Z"}}}}
 	
 	Exiting client
 	--------------------------------
-
-
 
 **MQTT client**
 
 Run the MQTT client (`sudo nodejs bin/client_mqtt_ul.js`) and an example of execution is (don't forget to start the MQTT Broker `sudo nodejs mqtt_broker.js`):
 
 	Connecting to MQTT Broker...
-
+	
 	Current configuration:
-		
+	
 	{
 	    "binding": "MQTT",
 	    "host": "localhost",
@@ -240,24 +238,23 @@ Run the MQTT client (`sudo nodejs bin/client_mqtt_ul.js`) and an example of exec
 	    "deviceId": "myDeviceId",
 	    "httpPath": "/iot/d"
 	}
-		
-	Send to orion singleMeasure: a=26
+	
+	
+	Send to orion singleMeasure: a=25
 	Message successfully published
-	Send to orion multipleMeasure: a=17, b=74
+	Send to orion multipleMeasure: a=78, b=21
 	Message successfully published
-	Send to orion mqttCommand: ping=38
+	Send to orion mqttCommand: ping=45
 	Message successfully published
 	
 	Read newer data from orion
 	--------------------------------
 	
-	{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:21.753Z","metadata":{}},"a":{"type":"celsius","value":"17","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:18.228Z"}}},"b":{"type":"degrees","value":"74","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:18.228Z"}}},"ping_info":{"type":"commandResult","value":"38","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:21.753Z"}}},"ping_status":{"type":"commandStatus","value":"OK","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:21.753Z"}}}}
+	{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:59.771Z","metadata":{}},"a":{"type":"celsius","value":"78","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:56.269Z"}}},"b":{"type":"degrees","value":"21","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:56.269Z"}}},"ping_info":{"type":"commandResult","value":"45","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:59.771Z"}}},"ping_status":{"type":"commandStatus","value":"OK","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:59.771Z"}}}}
 	
 	Exiting client
 	--------------------------------
-
-	     
-
+    
 #### Check data in Orion  ####
 
 Finally after JMeter and client execution, you can check the data in Orion using this curl command:
@@ -266,7 +263,6 @@ Finally after JMeter and client execution, you can check the data in Orion using
 
 Here an example of Orion's response (the last data in Orion):
 	
-	{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:21.753Z","metadata":{}},"a":{"type":"celsius","value":"17","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:18.228Z"}}},"b":{"type":"degrees","value":"74","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:18.228Z"}}},"ping_info":{"type":"commandResult","value":"38","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:21.753Z"}}},"ping_status":{"type":"commandStatus","value":"OK","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-18T15:51:21.753Z"}}}}
-
+	{"id":"MQTT_Device","type":"AnMQTTDevice","TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:59.771Z","metadata":{}},"a":{"type":"celsius","value":"78","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:56.269Z"}}},"b":{"type":"degrees","value":"21","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:56.269Z"}}},"ping_info":{"type":"commandResult","value":"45","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:59.771Z"}}},"ping_status":{"type":"commandStatus","value":"OK","metadata":{"TimeInstant":{"type":"ISO8601","value":"2018-07-19T07:50:59.771Z"}}}}
 
 [Top](#iot-agent-ultralight)
