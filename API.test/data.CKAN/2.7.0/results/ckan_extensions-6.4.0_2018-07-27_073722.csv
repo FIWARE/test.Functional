@@ -1,0 +1,23 @@
+label,responseCode,responseMessage,success,failureMessage
+acquisitionsList,200,OK,true,
+grantAccess,200,OK,true,
+revokeAccess,200,OK,true,
+createDataRequest,200,OK,true,
+showDataRequest,200,OK,true,
+updateDataRequest,200,OK,true,
+commentDataRequest,200,OK,true,
+showDataRequestComment,200,OK,true,
+listDataRequest,200,OK,true,
+listDataRequestComments,200,OK,true,
+updateDataRequestComment,409,Conflict,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[200]]]
+
+/"
+deleteDataRequestComment,200,OK,true,
+followDataRequest,200,OK,true,
+unfollowDataRequest,200,OK,true,
+cloneDataRequest,200,OK,true,
+deleteDataRequest,200,OK,true,
