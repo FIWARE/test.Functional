@@ -95,3 +95,10 @@ Edit the **file.properties** file with your FIWARE LAB credentials (in particula
 `cygnus-1.8.0_api_yyyy-MM-dd HHmmss.csv`
 
 [Top](#cygnus)
+
+
+## Testing with Mongo DB ##
+
+You can also **run the test** to check how Cygnus stores the context information by using the follow [documentation](./cygnus.mongo).
+
+[Top](#cygnus)
