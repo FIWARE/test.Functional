@@ -97,8 +97,8 @@ Edit the **file.properties** file with your FIWARE LAB credentials (in particula
 [Top](#cygnus)
 
 
-## Testing with Mongo DB ##
+## Testing with Storages ##
 
-You can also **run the test** to check how Cygnus stores the context information by using the follow [documentation](./cygnus.mongo).
+You can also **run the test** to check how Cygnus stores the context information by using the follow [documentation](./cygnus.storage).
 
 [Top](#cygnus)
