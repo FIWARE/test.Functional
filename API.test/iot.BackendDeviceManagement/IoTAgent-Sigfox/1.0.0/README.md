@@ -33,7 +33,7 @@ Once the HW necessary for the test described previously at **Testing Environment
 Deploy an Orion VM in FIWARE Lab.
 
 
-### 2. IoT Agent UltraLight GE ###
+### 2. IoT Agent Sigfox GE ###
 
 Before to run the IoT Agent you need to install NodeJS in the Ubuntu VM. Here the steps to prepare the environment to test the IoT Agent:
 
