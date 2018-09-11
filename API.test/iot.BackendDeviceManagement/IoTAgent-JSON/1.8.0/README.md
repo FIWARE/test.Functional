@@ -152,9 +152,9 @@ Open the **/etc/hosts** file by using this command:
 
 and add IDAS IP with **idas** and **orion** aliases according to your instances: 
 
-> `192.168.111.232 idas`
+> `192.168.111.117 idas`
 
-> `192.168.111.228 orion`
+> `192.168.111.9 orion`
 
 Copy in the **/tmp/** folder the **IoTAgent-JSON-1.8.0.jmx** file.
 
