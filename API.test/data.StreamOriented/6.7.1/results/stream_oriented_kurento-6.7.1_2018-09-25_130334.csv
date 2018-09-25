@@ -1,0 +1,24 @@
+label,responseCode,responseMessage,success,failureMessage
+Open Connection,101,Switching Protocols,true,
+Ping - Pong,200,OK,true,
+Create MediaPipeline,200,OK,true,
+Invoke ,200,OK,true,
+Create PlayerEndpoint ,200,OK,true,
+Create GStreamerFilter,200,OK,true,
+Invoke ,200,OK,true,
+Create WebRtcEndpoint,200,OK,true,
+Subscribe,200,OK,true,
+Invoke,200,OK,true,
+Read OnEvent,Websocket I/O error,WebSocket I/O error: Read timed out,false,"Test failed: code expected to equal /
+
+****** received  : [[[Websocket I/O error]]]
+
+****** comparison: [[[200                ]]]
+
+/"
+Unsubscribe,200,OK,true,
+Release MediaPipeline,200,OK,true,
+Release PlayerEndpoint,200,OK,true,
+Release GStreamerFilter,200,OK,true,
+Release WebRtcEndpoint,200,OK,true,
+Close Connection,1000,Connection closed; close reason: 'sampler requested close'.,true,
