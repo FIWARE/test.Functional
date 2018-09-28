@@ -163,7 +163,7 @@ versions installed: node = v6.14.4 and npnm = 6.4.1
 
 Then, you have to configure the config.js file of Wilma GE with KeyRock:
 
-1. edit the config.js file (in `/home/ubuntu/fiware-pep-proxy` folder); just to change the alias for IP address of KeyRock and the credentials of PEP Proxy:
+1. edit the config.js file (in `/home/ubuntu/fiware-pep-proxy` folder); just to change the alias for IP address of KeyRock and the credentials of PEP Proxy (an example of config.js file of PEP Proxy is provided in this folder):
 
 	config.idm = {
 		host: 'keyrock',

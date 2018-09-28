@@ -12,13 +12,13 @@ config.https = {
 };
 
 config.idm = {
-	host: 'account.lab.fiware.org',
-	port: 443,
-	ssl: true
+	host: 'keyrock',
+	port: 3000,
+	ssl: false
 }
 
 config.app = {
-	host: 'www.google.es',
+	host: 'www.google.it',
 	port: '80',
 	ssl: false // Use true if the app server listens in https
 }
@@ -26,9 +26,9 @@ config.app = {
 
 // Credentials obtained when registering PEP Proxy in app_id in Account Portal
 config.pep = {
-	app_id: '',
-	username: '',
-	password: '',
+	app_id: '6309bdc4-37c3-4d52-9891-b8c805804588',
+	username: 'pep_proxy_fd9043e1-ca69-4007-bc6f-ea8eeeb69ffa',
+	password: 'pep_proxy_e7fb4051-5c4b-41c9-870c-b19b4bce29c1',
 	trusted_apps : []
 }
 
