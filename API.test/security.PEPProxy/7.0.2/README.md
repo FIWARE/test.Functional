@@ -225,7 +225,7 @@ and copy the token and put it in the `file.properties` file:
 
 update the file:
 
-> `token = jU56BZQjz6xmTSmLwxN4ifYuAaviPL`
+> `token = 9e9a539208c25958b95d5891356107cbb434a225`
  
 
 #### Install JMeter 4 on Ubuntu 16.04 ####
