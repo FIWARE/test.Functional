@@ -39,7 +39,7 @@
           </elementProp>
           <elementProp name="VIDEO" elementType="Argument">
             <stringProp name="Argument.name">VIDEO</stringProp>
-            <stringProp name="Argument.value">http://files.kurento.org/video/format/small.webm</stringProp>
+            <stringProp name="Argument.value">http://files.openvidu.io/video/format/small.webm</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -614,10 +614,10 @@
           <stringProp name="path"></stringProp>
           <boolProp name="binaryPayload">false</boolProp>
           <boolProp name="createNewConnection">false</boolProp>
-          <stringProp name="readTimeout">5000</stringProp>
+          <stringProp name="readTimeout">7000</stringProp>
           <boolProp name="TLS">false</boolProp>
-          <boolProp name="optional">false</boolProp>
           <stringProp name="connectTimeout">20000</stringProp>
+          <boolProp name="optional">false</boolProp>
         </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
