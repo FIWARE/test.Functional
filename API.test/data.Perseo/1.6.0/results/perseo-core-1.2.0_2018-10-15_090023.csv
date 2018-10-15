@@ -1,0 +1,10 @@
+label,responseCode,responseMessage,success,failureMessage
+getVersion,200,,true,
+insertRule,200,,true,
+getRule,200,,true,
+retrieveAllRules,200,,true,
+updateRule,200,,true,
+deleteRule,200,,true,
+processEvent,200,,true,
+changeLogLevel,200,,true,
+retrieveLogLevel,200,,true,
