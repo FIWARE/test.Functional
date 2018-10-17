@@ -66,7 +66,7 @@ and add these lines:
    
 5) install and start orion:
 
-> `sudo rpm -i contextBroker-1.14.0-1.x86_64.rpm`
+> `sudo rpm -i contextBroker-2.0.0-1.x86_64.rpm`
 
 > `sudo service contextBroker start`
 
