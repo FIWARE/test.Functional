@@ -1,0 +1,12 @@
+label,responseCode,responseMessage,success,failureMessage
+getVersion,200,OK,true,
+checkData,200,OK,true,
+changeLogLevel,200,OK,true,
+getLogLevel,200,OK,true,
+getMetrics,200,OK,true,
+resetMetrics,200,OK,true,
+getResetMetrics,200,OK,true,
+addRule,200,OK,true,
+getAllRules,200,OK,true,
+getRule,200,OK,true,
+deleteRule,200,OK,true,
