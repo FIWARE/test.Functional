@@ -210,6 +210,6 @@ sth_/4wheels
 
 ## Testing with Storages ##
 
-You can also **run other tests** to check how Cygnus stores the context information by using the follow [documentation](cygnus-and-storages).
+You can also **run other tests** to check how Cygnus stores the context information by using the follow [documentation](../cygnus-and-storages).
 
 [Top](#cygnus-and-mongo)
