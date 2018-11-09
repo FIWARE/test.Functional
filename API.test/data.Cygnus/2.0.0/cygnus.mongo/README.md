@@ -18,7 +18,7 @@ The testing environment can be easily set up through a FIWARE Lab, which is base
 In order to test this adapter, two Virtual Machines you needed, which are: 
 
 1. **Cygnus** - follow the instruction in the next step to install Cygnus from package. 
-2. **Orion Context Broker GE** - follow the instruction to [deploy a dedicated Orion instance].
+2. **Orion Context Broker GE** - follow the instruction to [deploy a dedicated Orion instance](https://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker/creating-instances).
 3. **JMeter** - select "base_ubuntu_16.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
 
 [Top](#cygnus-and-mongo)
