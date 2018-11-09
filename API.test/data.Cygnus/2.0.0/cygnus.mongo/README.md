@@ -8,7 +8,7 @@
 
 ## Introduction ##
 
-Cygnus is a is an easy to use, powerful, and reliable system to process and distribute data. Internally, Cygnus is based on (Apache NiFi)[https://nifi.apache.org/docs.html], NiFi is a dataflow system based on the concepts of flow-based programming. 
+Cygnus is a is an easy to use, powerful, and reliable system to process and distribute data. Internally, Cygnus is based on [Apache NiFi](https://nifi.apache.org/docs.html), NiFi is a dataflow system based on the concepts of flow-based programming. 
 
 [Top](#cygnus-and-mongo)
 
@@ -42,7 +42,6 @@ Connect on VM via SSH and install it.
 	sudo apt-get install -y mongodb-org
 	sudo systemctl start mongod
 
-   	
 **Open MongoDB access up to all IPs**
 
 It's necessary to open the access of mongo to other IPs in the net for testing. So edit your MongoDB config file in the Orion VM as follow:
@@ -116,7 +115,7 @@ The server is listening on `http://localhost:8080/nifi`.
 
 3) Use the **Orion-To-Mongo** template to build the connection with mongo.
 
-Please access in the web interface at this link `http://public_ip:8080/nifi`. Use this (link)[https://fiware-cygnus-ld.readthedocs.io/en/latest/installation_and_administration_guide/cygnus_gui/index.html#cygnus-user-interface] to configure mongo. 
+Please access in the web interface at this link `http://public_ip:8080/nifi`. Use this [link](https://fiware-cygnus-ld.readthedocs.io/en/latest/installation_and_administration_guide/cygnus_gui/index.html#cygnus-user-interface) to configure mongo. 
 You need to do configure some  Here the steps:
 
 3.1) Drag the `Orion-To-Mongo` template. 
@@ -125,7 +124,7 @@ You need to do configure some  Here the steps:
 
 3.3) Configure `NGSIToMongo` block using the right URL for **Mongo URI** property in the `PROPERTIES` tab (in this case it's `localhost:27017`). Please set also **Enable Encoding** property to **false** in the same tab to disable the encoding.
 
-3.4) Start them.
+3.4) Start all blocks.
 
 
 ### 2. Orion ###
@@ -202,6 +201,7 @@ sth_/4wheels
 
 	{ "_id" : ObjectId("5be563f9d105a34a4276606b"), "recvTime" : ISODate("2018-11-09T10:39:52.151Z"), "entityId" : "Car1", "entityType" : "Car", "attrName" : "speed", "attrType" : "Integer", "attrValue" : "16", "attrMetadata" : [ ] }
 	{ "_id" : ObjectId("5be565c7d105a34a4276606c"), "recvTime" : ISODate("2018-11-09T10:47:35.524Z"), "entityId" : "Car1", "entityType" : "Car", "attrName" : "speed", "attrType" : "Integer", "attrValue" : "11", "attrMetadata" : [ ] }
+	
 
 [Top](#cygnus-and-mongo)
 
