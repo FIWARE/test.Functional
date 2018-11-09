@@ -35,12 +35,14 @@ In this test we are going to install mongo database on Cygnus VM.
 Connect on VM via SSH and install it.
 
 1) Install mongo on the same VM
-  
+
+```text  
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 	echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 	sudo apt-get update
 	sudo apt-get install -y mongodb-org
 	sudo systemctl start mongod
+```
 
 **Open MongoDB access up to all IPs**
 
@@ -200,7 +202,8 @@ sth_/4wheels
 > db['sth_/4wheels'].find()
 	{ "_id" : ObjectId("5be563f9d105a34a4276606b"), "recvTime" : ISODate("2018-11-09T10:39:52.151Z"), "entityId" : "Car1", "entityType" : "Car", "attrName" : "speed", "attrType" : "Integer", "attrValue" : "16", "attrMetadata" : [ ] }
 	{ "_id" : ObjectId("5be565c7d105a34a4276606c"), "recvTime" : ISODate("2018-11-09T10:47:35.524Z"), "entityId" : "Car1", "entityType" : "Car", "attrName" : "speed", "attrType" : "Integer", "attrValue" : "11", "attrMetadata" : [ ] }
-	
+
+```
 
 [Top](#cygnus-and-mongo)
 
