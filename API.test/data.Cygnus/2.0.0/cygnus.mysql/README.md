@@ -192,7 +192,7 @@ Finally add mysql driver in the **lib** folder of JMeter (`/home/ubuntu/apache-j
 
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
-`cygnus-2.0.0_api_yyyy-MM-dd HHmmss.csv`
+`cygnus-2.0.0_mysql_yyyy-MM-dd HHmmss.csv`
 
 **`NOTE`**
 
