@@ -153,7 +153,7 @@ and add Cygnus and Orion IPs as **cygnus** and **orion** aliases according to yo
 > `192.168.111.200 orion`
 
 
-Copy in the **/tmp/** folder the **Cygnus-2.0.0_API.jmx** file.
+Copy in the **/tmp/** folder the **Cygnus-2.0.0_mongo.jmx** file.
 
 
 #### Install JMeter 4.0 on Ubuntu 16.04 ####
@@ -174,7 +174,7 @@ Copy in the **/tmp/** folder the **Cygnus-2.0.0_API.jmx** file.
 
 **Run the test** with the follow command: 
 
-`./apache-jmeter-4.0/bin/jmeter -n -t /tmp/Cygnus-2.0.0_API.jmx`
+`./apache-jmeter-4.0/bin/jmeter -n -t /tmp/Cygnus-2.0.0_mongo.jmx`
 
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
