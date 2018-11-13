@@ -35,8 +35,9 @@ In this test we are going to install Postgres database on Cygnus VM.
 Connect on VM via SSH and install it.
 
 1) Install Postgres on the same VM
-
+   	
 	sudo apt-get update
+	
 	sudo apt-get install postgresql postgresql-contrib -y
    
 and to get the version use:
@@ -64,7 +65,7 @@ listen_addresses = '*'
 Edit also sudo nano /etc/postgresql/9.5/main/pg_hba.conf file using:
 
 ```text
- # "local" is for Unix domain socket connections only
+# "local" is for Unix domain socket connections only
 local   all             all                                     peer
 # IPv4 local connections:
 host    all             all             0.0.0.0/0               md5
