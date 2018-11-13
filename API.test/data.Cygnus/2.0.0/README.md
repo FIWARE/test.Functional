@@ -14,5 +14,7 @@ After, the script checks if the attribute is really stored in the storage.
 
 2. [MySQL database](cygnus.mysql)
 
+3. [PostgreSQL database](cygnus.postgres)
+
 
 [Top](#cygnus-and-storages)
