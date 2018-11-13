@@ -44,7 +44,7 @@ and to get the version use:
    	
 	psql -V
 
-test on mysql version:
+test of postgres version:
 
 	psql (PostgreSQL) 9.5.14
    
@@ -185,7 +185,7 @@ Copy in the **/tmp/** folder the **Cygnus-2.0.0_postgres.jmx** file.
 
 5. `sudo tar -xf apache-jmeter-4.0.tgz` - unpack JMeter
 
-Finally add mysql driver in the **lib** folder of JMeter (`/home/ubuntu/apache-jmeter-4.0/lib`) the **postgresql-42.2.4.jar** JAR provided in this folder.
+Finally add postgres driver in the **lib** folder of JMeter (`/home/ubuntu/apache-jmeter-4.0/lib`) the **postgresql-42.2.4.jar** JAR provided in this folder.
 
 [Top](#cygnus-and-postgres)
 
