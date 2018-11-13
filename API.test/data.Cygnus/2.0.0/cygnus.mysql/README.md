@@ -36,6 +36,7 @@ Connect on VM via SSH and install it.
 
 1) Install MySQL on the same VM
 
+
 	sudo apt-get install mysql-server -y 
    
 and type the password for user root (i.e root)
@@ -164,7 +165,7 @@ and add Cygnus and Orion IPs as **cygnus** and **orion** aliases according to yo
 > `192.168.111.200 orion`
 
 
-Copy in the **/tmp/** folder the **Cygnus-2.0.0_API.jmx** file.
+Copy in the **/tmp/** folder the **Cygnus-2.0.0_mysql.jmx** file.
 
 
 #### Install JMeter 4.0 on Ubuntu 16.04 ####
@@ -187,7 +188,7 @@ Finally add mysql driver in the **lib** folder of JMeter (`/home/ubuntu/apache-j
 
 **Run the test** with the follow command: 
 
-`./apache-jmeter-4.0/bin/jmeter -n -t /tmp/Cygnus-2.0.0_API.jmx`
+`./apache-jmeter-4.0/bin/jmeter -n -t /tmp/Cygnus-2.0.0_mysql.jmx`
 
 **Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
 
