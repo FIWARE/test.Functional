@@ -4,7 +4,7 @@
 
 ## Introduction ##
 
-Cygnus is an easy to use, powerful, and reliable system to process and distribute data. Internally, Cygnus is based on (Apache NiFi)[https://nifi.apache.org/docs.html], NiFi is a dataflow system based on the concepts of flow-based programming.
+Cygnus is an easy to use, powerful, and reliable system to process and distribute data. Internally, Cygnus is based on [Apache NiFi](https://nifi.apache.org/docs.html), NiFi is a dataflow system based on the concepts of flow-based programming.
   
 In the this section it's presented a list of functional test for different storage systems.
 For any test, the script sends data to Orion, and Orion sends data (attribute), via subscription, in the storage. 
