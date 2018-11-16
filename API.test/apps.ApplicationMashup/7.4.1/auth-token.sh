@@ -21,8 +21,8 @@ function get_token () {
 
     # Retrieve Client ID and client Secret Automatically
 
-    CLIENT_ID="eff24b72e46e4fd890eae586f141a18f"
-    CLIENT_SECRET="4bf9c70224784898a2ae0f3f91dbe9a3"
+    CLIENT_ID="14f4a2b23d2c4d87b808cadd3210ccd3"
+    CLIENT_SECRET="0d4edcb7757b4339a7bc67b470400790"
 
     # Generate the Authentication Header for the request
 
@@ -39,7 +39,7 @@ function get_token () {
 
     # Create the request
 
-    REQUEST="curl -s --insecure -i --header ${AUTH_BASIC} --header ${CONTENT_TYPE} -X POST http://217.172.12.159:8000/oauth2/token -d ${DATA}"
+    REQUEST="curl -s --insecure -i --header ${AUTH_BASIC} --header ${CONTENT_TYPE} -X POST https://account.lab.fiware.org/oauth2/token -d ${DATA}"
 
     XAUTH_TOKEN="$(eval ${REQUEST} | grep -Po '(?<="access_token": ")[^"]*')"
 
