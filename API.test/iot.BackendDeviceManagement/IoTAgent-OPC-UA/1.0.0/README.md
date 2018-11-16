@@ -165,13 +165,13 @@ Here the steps on how to configure IoT Agent OPC UA GE; first of all you need to
 
 the server is listening on 4334 port.
 
-Before to start the server you have to install the certificate in the `opc-ua-car-server/node_modules/node-opcua` folder. To create the certificate use these commands:
+Before to start the server you have to install the certificate in the `iotagent-opcua/node_modules/node-opcua` folder. To create the certificate use these commands:
 
-> `cd /home/ubuntu/opc-ua-car-server/node_modules/node-opcua`
+> `cd /home/ubuntu/iotagent-opcua/node_modules/node-opcua`
 
 > `sudo node bin/crypto_create_CA.js demo`
 
-return in the `/home/ubuntu/opc-ua-car-server` to start the server:
+return in the `/home/ubuntu/iotagent-opcua` to start the server:
 
 > `node index.js config.json`
 
