@@ -1,0 +1,5 @@
+struct MyType
+{
+	long value;
+	string message;
+};
