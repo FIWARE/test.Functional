@@ -10,6 +10,8 @@
 
 [eprosima Fast RTPS](https://github.com/eProsima/Fast-RTPS) is a C++ implementation of the RTPS (Real Time Publish Subscribe) protocol, which provides publisher-subscriber communications over unreliable transports such as UDP, as defined and maintained by the Object Management Group (OMG) consortium.
 
+**Please note** that this test doesn't provide a CSV result because there aren't REST APIs to check and so no JMeter script is included. The test here is intended to provide a manual configuration to test the real functionality (both publisher and subscriber) of the GE. 
+
 
 [Top](#fast-rtps)
 
