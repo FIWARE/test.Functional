@@ -10,6 +10,8 @@
 
 [eprosima Fast RTPS](https://github.com/eProsima/Fast-RTPS) is a C++ implementation of the RTPS (Real Time Publish Subscribe) protocol, which provides publisher-subscriber communications over unreliable transports such as UDP, as defined and maintained by the Object Management Group (OMG) consortium.
 
+**Please note** that this test doesn't provide a CSV result because there aren't REST APIs to check and so no JMeter script is included. The test here is intended to provide a manual configuration to test the real functionality (both publisher and subscriber) of the GE. 
+
 
 [Top](#fast-rtps)
 
@@ -55,6 +57,8 @@ and it's `java version "1.8.0_191"`
 
 5. copy and untar the `eProsima_FastRTPS-1.5.0-Linux.tar.gz` file provide in this folder
 
+> `wget https://github.com/Fiware/test.Functional/blob/master/API.test/i2nd.FastRTPS/1.5.0/eProsima_FastRTPS-1.5.0-Linux.tar.gz?raw=true -O eProsima_FastRTPS-1.5.0-Linux.tar.gz`
+
 > `tar -xvzf eProsima_FastRTPS-1.5.0-Linux.tar.gz`
 
 6. **eProsima Fast RTPS** requires the installation of `eProsima FastCDR` library
@@ -71,9 +75,7 @@ and it's `java version "1.8.0_191"`
 
 > `sudo make install`
    
-7. install the eProsima Fast RTPS software
-
-> `cd ..`
+7. install the eProsima Fast RTPS software, go in the `eProsima_FastRTPS-1.5.0-Linux/` folder with 2 times `cd ..`
 
 > `cd eProsima_FastRTPS-1.5.0-Linux/`
 
