@@ -10,7 +10,7 @@
 
 APInf Fiware is an ES2015 Meteor OAuth handler package for FIWARE IdM available at its [GitHub repository](https://github.com/apinf/apinf-fiware). 
 
-**Please note** that this test doesn't provide a CSV result, but the test is intended to provide a manual authentication through FIWARE IdM using OAuth to test the real functionality of the GE. This test needs a Keyrock 7.0.0 version or greater.
+**Please note** that this test doesn't provide a CSV result because there aren't REST APIs to check and so no JMeter script is included. The test here is intended to provide a manual authentication through FIWARE IdM using OAuth to test the real functionality of the GE. This test needs a Keyrock 7.0.0 version or greater.
 
 [Top](#apinf-fiware)
 
