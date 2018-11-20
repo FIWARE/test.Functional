@@ -55,9 +55,9 @@ Follow the steps to install Fast RTPS on an Ubuntu 16.04 VM (tested with medium 
 
 and it's `java version "1.8.0_191"`
 
-5. copy and untar the `eProsima_FastRTPS-1.5.0-Linux.tar.gz` file provide in this folder
+5. copy and untar the `eProsima_FastRTPS-1.3.0-Linux.tar.gz` file provide in this folder
 
-> `wget https://github.com/Fiware/test.Functional/blob/master/API.test/i2nd.FastRTPS/1.5.0/eProsima_FastRTPS-1.3.0-Linux.tar.gz?raw=true -O eProsima_FastRTPS-1.3.0-Linux.tar.gz`
+> `wget https://github.com/Fiware/test.Functional/blob/master/API.test/i2nd.FastRTPS/1.3.0/eProsima_FastRTPS-1.3.0-Linux.tar.gz?raw=true -O eProsima_FastRTPS-1.3.0-Linux.tar.gz`
 
 > `tar -xvzf eProsima_FastRTPS-1.3.0-Linux.tar.gz`
 
