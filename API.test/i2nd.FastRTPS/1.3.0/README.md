@@ -128,9 +128,7 @@ This is the view in the subscriber shell:
 	Sample received, count=2
 	Sample received, count=3
 	Sample received, count=4
-	Sample received, count=5
-	Sample received, count=6
-	Subscriber unmatched
+
 
 and this is the view in the publisher shell:
 
@@ -141,11 +139,8 @@ and this is the view in the publisher shell:
 	Sending sample, count=1, send another sample?(y-yes,n-stop): y
 	Sending sample, count=2, send another sample?(y-yes,n-stop): y
 	Sending sample, count=3, send another sample?(y-yes,n-stop): y
-	Sending sample, count=4, send another sample?(y-yes,n-stop): y
-	Sending sample, count=5, send another sample?(y-yes,n-stop): y
-	Sending sample, count=6, send another sample?(y-yes,n-stop): n
-	Stopping execution
-	ubuntu@fastrtps:~/test/bin/x64Linux2.6gcc$
+	Sending sample, count=4, send another sample?(y-yes,n-stop):
+
 
 ![Example Pub/Sub](pubsub.png?raw=true "Example Pub/Sub")	
 
