@@ -1,0 +1,102 @@
+# Identity Management KeyRock #
+
+* [Introduction](#introduction)
+* [Testing environment](#testing-environment)
+* [Overall preliminary setup](#overall-preliminary-setup)
+* [Testing step by step](#testing-step-by-step)
+
+
+## Introduction ##
+
+Keyrock is an implementation of the FIWARE Identity Management Generic Enabler by UPM available at its [GitHub repository](https://github.com/ging/fiware-idm). 
+
+[Top](#identity-management-keyrock)
+
+## Testing environment ##
+
+The testing environment can be easily set up through a FIWARE Lab, which is based on the cloud operating system OpenStack. 
+In order to test this GE, two Virtual Machines you needed, which are: 
+
+1. **Identity Management - KeyRock GE** - follow the instruction to [deploy a dedicated KeyRock instance](https://catalogue.fiware.org/enablers/identity-management-keyrock/creating-instances).
+2. **JMeter** - select "base_ubuntu_16.04" image in the FIWARE Cloud Portal to install JMeter on Ubuntu Virtual Machine.
+
+[Top](#identity-management-keyrock)
+
+## Overall preliminary setup ##
+
+Once the HW necessary for the test described previously at **Testing Environment** chapter has been setup, the following preliminary steps need to be accomplished before to start the test process:
+
+### 1. Identity Management KeyRock ###
+
+If there isn't available a dedicate instance, please install KeyRock via docker compose. Follow the instructions: 
+
+1) deploy an Ubuntu 16.04 VM (tested with medium flavor) and connect on it in SSH
+
+2) install docker and docker-compose
+
+> `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+
+> `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+
+> `sudo apt-get update`
+
+> `sudo apt-get install -y docker-ce`
+
+> `sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
+
+> `sudo chmod +x /usr/local/bin/docker-compose`
+
+3) download `docker-compose.yml` file of KeyRock from github repository
+
+> `git clone https://github.com/ging/fiware-idm.git`
+
+> `cd fiware-idm/extras/docker/`
+
+> `sudo docker-compose up`
+
+After installation, you can try it if it's up and running:
+
+1. web browser at link `http://KEYROCK_IP:3000` using `admin@test.com/1234` credentials, 
+
+2. curl call `http://KEYROCK_IP:3000/version`.
+
+
+### 2. JMeter ###
+
+Open the **/etc/hosts** file by using this command:
+
+> `sudo nano /etc/hosts` 
+
+and add KeyRock IP of previous VM with **keyrock** alias according to your instance: 
+
+> `192.168.111.211 keyrock`
+
+
+Copy in the **/tmp/** folder the **KeyRock-7.4.0.jmx** file.
+
+
+#### Install JMeter 4.0 on Ubuntu 16.04 ####
+
+1. `sudo add-apt-repository ppa:webupd8team/java` - add Java in the repository
+
+2. `sudo apt-get update` - to refresh packages metadata
+
+3. `sudo apt-get install oracle-java8-installer` - Java 8 is pre-requisite for JMeter 4.0
+
+4. `sudo wget -c http://ftp.ps.pl/pub/apache/jmeter/binaries/apache-jmeter-4.0.tgz` - download JMeter 4.0
+
+5. `sudo tar -xf apache-jmeter-4.0.tgz` - unpack JMeter
+
+[Top](#identity-management-keyrock)
+
+## Testing step by step ##
+
+**Run the test** with the follow command: 
+
+`./apache-jmeter-4.0/bin/jmeter -n -t /tmp/KeyRock-7.4.0.jmx`
+
+**Retrieve the results** of JMeter session test once it has ended. They are collected in a **csv file** which is placed in the same folder where you are using the jmx file and named as following: 
+
+`keyrock-7.4.0_yyyy-MM-dd HHmmss.csv`
+
+[Top](#identity-management-keyrock)
